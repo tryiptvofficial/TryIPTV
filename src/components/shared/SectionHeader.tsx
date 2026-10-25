@@ -3,7 +3,8 @@ import type React from 'react';
 
 interface SectionHeaderProps {
   title: string;
-  subtitle?: string;
+  /** Text, or nodes when part of it needs markup (e.g. an email kept out of Cloudflare obfuscation). */
+  subtitle?: React.ReactNode;
   className?: string;
   eyebrow?: string;
   align?: 'left' | 'center';

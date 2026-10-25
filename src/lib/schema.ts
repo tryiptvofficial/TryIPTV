@@ -93,6 +93,7 @@ export function organizationFacts() {
                 name: m.name,
                 jobTitle: m.role,
                 ...(profile ? { '@id': personId(siteConfig.url, profile.slug), url: `${siteConfig.url}/authors/${profile.slug}` } : {}),
+                worksFor: { '@id': organizationId },
               };
             }),
         }

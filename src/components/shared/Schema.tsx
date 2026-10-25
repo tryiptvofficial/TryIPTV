@@ -111,7 +111,7 @@ export function PageSchema({ path, name, description, type = 'WebPage', nodes, k
     ...(main && !existingPage?.mainEntity && !['AboutPage', 'ContactPage', 'ProfilePage'].includes(existingPage ? typeOf(existingPage) : type)
       ? { mainEntity: { '@id': main['@id'] } }
       : {}),
-    ...(primaryImage ? { primaryImageOfPage: { '@type': 'ImageObject', url: primaryImage.url, contentUrl: primaryImage.url, width: primaryImage.width, height: primaryImage.height } } : {}),
+    ...(primaryImage ? { primaryImageOfPage: { '@type': 'ImageObject', '@id': `${url}#primaryimage`, url: primaryImage.url, contentUrl: primaryImage.url, width: primaryImage.width, height: primaryImage.height } } : {}),
     ...((article?.dateModified ?? dateModified) ? { dateModified: article?.dateModified ?? dateModified } : {}),
     ...(reviewedBy ? { reviewedBy } : {}),
   };

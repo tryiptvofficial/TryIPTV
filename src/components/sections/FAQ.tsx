@@ -59,7 +59,7 @@ const homepageFaqs: FaqItem[] = [
   {
     question: "What is TryIPTV?",
     answer:
-      `${(COMPANY.summary ?? "TryIPTV is an IPTV subscription service.").replace(/^TryIPTV is /, "TryIPTV (also written Try IPTV, at TryIPTV.com) is ")} TryIPTV is not a player app itself. New to IPTV? <a href="/guides/what-is-iptv" class="text-primary hover:underline">Read what IPTV is</a>, or read <a href="/about" class="text-primary hover:underline">more about TryIPTV</a>, including how ordering, the free trial and refunds work.`,
+      `${(COMPANY.summary ?? "TryIPTV is an IPTV subscription service.").replace(/^TryIPTV is /, "TryIPTV (also written Try IPTV, at TryIPTV.com) is ")} TryIPTV is not a player app itself. <a href="/about" class="text-primary hover:underline">Read more about TryIPTV</a>.`,
   },
   {
     question: "What is IPTV?",
@@ -79,7 +79,7 @@ const homepageFaqs: FaqItem[] = [
   {
     question: "Which devices can I use?",
     answer:
-      'TryIPTV works on most popular devices through a compatible IPTV player app. TVs and streaming boxes: <a href="/devices/firestick-iptv" class="text-primary hover:underline">Fire TV Stick</a>, <a href="/devices/android-tv-iptv" class="text-primary hover:underline">Android TV</a>, <a href="/devices/samsung-tv-iptv" class="text-primary hover:underline">Samsung</a> and <a href="/devices/lg-tv-iptv" class="text-primary hover:underline">LG</a> smart TVs, <a href="/devices/apple-tv-iptv" class="text-primary hover:underline">Apple TV</a>, <a href="/devices/chromecast-iptv" class="text-primary hover:underline">Chromecast with Google TV</a> and <a href="/devices/mag-box-iptv" class="text-primary hover:underline">MAG boxes</a>. Computers and phones: <a href="/devices/windows-iptv" class="text-primary hover:underline">Windows</a>, <a href="/devices/mac-iptv" class="text-primary hover:underline">Mac</a>, and <a href="/devices/iphone-iptv" class="text-primary hover:underline">iPhone and iPad</a>. <a href="/devices/roku-iptv" class="text-primary hover:underline">Roku</a> works through AirPlay or screen mirroring. Each link opens a setup guide, or <a href="/devices" class="text-primary hover:underline">browse all device guides</a>.',
+      'TryIPTV works on <a href="/devices/firestick-iptv" class="text-primary hover:underline">Fire TV Stick</a>, <a href="/devices/android-tv-iptv" class="text-primary hover:underline">Android TV</a>, <a href="/devices/samsung-tv-iptv" class="text-primary hover:underline">Samsung</a> and <a href="/devices/lg-tv-iptv" class="text-primary hover:underline">LG</a> smart TVs, <a href="/devices/apple-tv-iptv" class="text-primary hover:underline">Apple TV</a>, <a href="/devices/chromecast-iptv" class="text-primary hover:underline">Chromecast with Google TV</a> and <a href="/devices/mag-box-iptv" class="text-primary hover:underline">MAG boxes</a>, through a compatible IPTV player app. It also works on <a href="/devices/windows-iptv" class="text-primary hover:underline">Windows</a>, <a href="/devices/mac-iptv" class="text-primary hover:underline">Mac</a>, and <a href="/devices/iphone-iptv" class="text-primary hover:underline">iPhone and iPad</a>. <a href="/devices/roku-iptv" class="text-primary hover:underline">Roku</a> works through AirPlay or screen mirroring. Each link opens a setup guide, or <a href="/devices" class="text-primary hover:underline">browse all device guides</a>.',
   },
   {
     question: "How do I set up TryIPTV?",
@@ -107,9 +107,7 @@ const homepageFaqs: FaqItem[] = [
   },
   {
     question: "Is TryIPTV legit and safe to pay?",
-    answer: `TryIPTV is an IPTV subscription service operated by ${COMPANY.legalName ?? "its operating company"}${COMPANY.location ? `, based in ${COMPANY.location}` : ""}${COMPANY.foundingYear ? `, since ${COMPANY.foundingYear}` : ""}.${
-      COMPANY.paymentMethods ? ` Each plan is a one-time payment by ${COMPANY.paymentMethods}, with no automatic renewal.` : " Each plan is a one-time payment with no automatic renewal."
-    } If TryIPTV cannot provide a working subscription, the <a href="/refund-policy" class="text-primary hover:underline">refund policy</a> applies. <a href="/about" class="text-primary hover:underline">Read more about TryIPTV</a>.`,
+    answer: `TryIPTV is an IPTV subscription service operated by ${COMPANY.legalName ?? "its operating company"}${COMPANY.location ? `, based in ${COMPANY.location}` : ""}${COMPANY.foundingYear ? `, since ${COMPANY.foundingYear}` : ""}. If TryIPTV cannot provide a working subscription, the <a href="/refund-policy" class="text-primary hover:underline">refund policy</a> applies. <a href="/about" class="text-primary hover:underline">Read more about TryIPTV</a>.`,
   },
   {
     question: "How do I pay?",
@@ -126,6 +124,11 @@ const homepageFaqs: FaqItem[] = [
   {
     question: "Which plan should I choose?",
     answer: `Choose ${PRODUCT_TRUTHS.plans[3].duration} ($${PRODUCT_TRUTHS.plans[3].price.toFixed(2)}, about $${PRODUCT_TRUTHS.plans[3].monthlyEquivalent.toFixed(2)} a month) for the lowest monthly cost, or ${PRODUCT_TRUTHS.plans[0].duration} ($${PRODUCT_TRUTHS.plans[0].price.toFixed(2)}) for short-term use. ${PRODUCT_TRUTHS.plans[1].duration} ($${PRODUCT_TRUTHS.plans[1].price.toFixed(2)}) and ${PRODUCT_TRUTHS.plans[2].duration} ($${PRODUCT_TRUTHS.plans[2].price.toFixed(2)}) sit in between. Not sure yet? Start with the free 24-hour trial. Every plan is a one-time payment with ${PRODUCT_TRUTHS.connections} connections. <a href="/pricing" class="text-primary hover:underline">Compare all plans</a>.`,
+  },
+  {
+    question: "Can I watch live sports and PPV events?",
+    answer:
+      '<strong class="font-semibold text-foreground">Yes.</strong> Every TryIPTV plan includes live sports channels and Pay-Per-View (PPV) events. Event availability can change, so check the channels you care about before a big match. <a href="/pricing" class="text-primary hover:underline">See what every plan includes</a>.',
   },
   {
     question: "Is IPTV cheaper than cable?",
@@ -232,8 +235,11 @@ export function FAQ() {
                 <ul className="divide-y divide-white/[0.06]">
                   {CONTACTS.map(({ icon: Icon, label, detail, href, isExternal }) => {
                     const Component = isExternal ? "a" : Link;
+                    const isEmail = href.startsWith("mailto:");
                     return (
                       <li key={label}>
+                        {/* email_off around the mailto card stops Cloudflare rewriting it into a /cdn-cgi link. */}
+                        {isEmail && <span hidden dangerouslySetInnerHTML={{ __html: "<!--email_off-->" }} />}
                         <Component
                           href={href}
                           className="group/contact flex items-center gap-3.5 rounded-xl p-3.5 sm:p-4 outline-hidden transition-colors hover:bg-white/[0.04] focus-visible:ring-2 focus-visible:ring-primary/50"
@@ -254,6 +260,7 @@ export function FAQ() {
                             className="size-3.5 shrink-0 text-muted-foreground transition-transform group-hover/contact:-translate-y-0.5 group-hover/contact:translate-x-0.5 group-hover/contact:text-primary motion-reduce:transition-none"
                           />
                         </Component>
+                        {isEmail && <span hidden dangerouslySetInnerHTML={{ __html: "<!--/email_off-->" }} />}
                       </li>
                     );
                   })}

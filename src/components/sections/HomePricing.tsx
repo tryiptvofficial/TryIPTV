@@ -7,7 +7,7 @@ import { Container } from "../shared/Container";
 import { Section } from "../shared/Section";
 import { SectionHeader } from "../shared/SectionHeader";
 import { cn } from "@/lib/utils";
-import { FACT_TEXT, PRODUCT_TRUTHS } from "@/lib/site-config";
+import { PRODUCT_TRUTHS } from "@/lib/site-config";
 
 const PLANS = [
   {
@@ -78,6 +78,10 @@ const INCLUDED_FEATURES = [
   "Multi-Device Compatibility",
 ] as const;
 
+// Short lead for voice and snippets: the cheapest entry and the best monthly rate first, the middle plans after.
+const [p1, p3, p6, p12] = PRODUCT_TRUTHS.plans;
+const priceLead = `A TryIPTV subscription costs $${p1.price.toFixed(2)} for 1 month or $${p12.price.toFixed(2)} for 12 months (about $${p12.monthlyEquivalent.toFixed(2)} a month), paid once in USD with no automatic renewal. The 3-month plan is $${p3.price.toFixed(2)} and the 6-month plan is $${p6.price.toFixed(2)}.`;
+
 // Price table rows come from the facts source; savings compare each plan's monthly cost with the 1-month price.
 const firstMonthly = PRODUCT_TRUTHS.plans[0].monthlyEquivalent;
 const PRICE_ROWS = PRODUCT_TRUTHS.plans.map((plan, i) => ({
@@ -94,7 +98,7 @@ export function HomePricing() {
         <SectionHeader
           eyebrow="IPTV Pricing"
           title="How Much Does a TryIPTV Subscription Cost?"
-          subtitle={`A TryIPTV subscription costs ${FACT_TEXT.priceList}, each a one-time payment in USD with no automatic renewal. Every plan includes ${PRODUCT_TRUTHS.channels} live channels, HD and 4K streams where available, ${PRODUCT_TRUTHS.connections} simultaneous connections, and login details usually within ${PRODUCT_TRUTHS.activationTime}.`}
+          subtitle={`${priceLead} Every plan includes ${PRODUCT_TRUTHS.channels} live channels, HD and 4K streams where available, ${PRODUCT_TRUTHS.connections} simultaneous connections, and login details usually within ${PRODUCT_TRUTHS.activationTime}.`}
         />
 
         {/* The price table comes first so the answer to "how much" sits right under the heading. */}
