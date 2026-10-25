@@ -47,7 +47,8 @@ export function supportContactPoint() {
   return {
     '@type': 'ContactPoint' as const,
     contactType: 'customer support',
-    name: 'WhatsApp and email support',
+    // The hours (with ET) go in the name: OpeningHoursSpecification has no time-zone property.
+    name: COMPANY.support.hours ? `WhatsApp and email support (${COMPANY.support.hours})` : 'WhatsApp and email support',
     email: COMPANY.support.email,
     url: COMPANY.support.whatsappUrl,
     ...(COMPANY.support.languages ? { availableLanguage: COMPANY.support.languages } : {}),
@@ -127,6 +128,12 @@ export function generateOrganizationSchema(): WithContext<Organization> {
     'sameAs': [...publicBrandSocialLinks],
     'email': COMPANY.support.email,
     'contactPoint': [supportContactPoint(), ...pressContactPoint()],
+    // Only the regions the site names ("USA, UK and more"); "and more" has no machine-readable form, so no other countries are listed.
+    'areaServed': [
+      { '@type': 'Country', 'name': 'United States' },
+      { '@type': 'Country', 'name': 'United Kingdom' },
+    ],
+    'knowsAbout': ['IPTV subscriptions', 'IPTV player setup', 'M3U playlists', 'Xtream Codes', 'Electronic program guides (EPG)'],
     ...organizationFacts(),
   } as WithContext<Organization>;
 }

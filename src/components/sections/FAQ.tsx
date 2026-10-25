@@ -88,7 +88,7 @@ const homepageFaqs: FaqItem[] = [
   },  {
     question: "Is IPTV legal?",
     answer:
-      'IPTV as a technology is legal. Whether a particular service is legal depends on whether it has the rights to what it streams and on the law where you live. This is general information, not legal advice. <a href="/disclaimer" class="text-primary hover:underline">Read the disclaimer</a>.',
+      'IPTV as a technology is legal. Whether a particular service is legal depends on whether it has the rights to what it streams and on the law where you live. Eurojust, the EU agency for criminal justice cooperation, puts it the same way: IPTV services are not illegal in themselves as long as the provider holds the correct licences for the content (<a href="https://www.eurojust.europa.eu/sites/default/files/assets/eurojust-iptv-flyer.pdf" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Eurojust IPTV factsheet</a>). This is general information, not legal advice. <a href="/disclaimer" class="text-primary hover:underline">Read the disclaimer</a>.',
   },
   {
     question: "Can I get a refund?",
@@ -118,7 +118,12 @@ const homepageFaqs: FaqItem[] = [
   },
   {
     question: "What internet speed do I need for IPTV?",
-    answer: 'Around 25 Mbps of stable internet is comfortable for one HD stream, and about 50 Mbps for 4K. If two devices stream at the same time, you need more. A wired Ethernet connection is steadier than Wi-Fi, especially at busy peak times. <a href="/guides/iptv-internet-speed" class="text-primary hover:underline">See the IPTV internet speed guide</a> for every quality level.',
+    // 25/50 Mbps are TryIPTV's headroom recommendations; the Netflix minimums (3 and 15 Mbps) are the cited outside reference.
+    answer: 'Around 25 Mbps of stable internet is comfortable for one HD stream, and about 50 Mbps for 4K. These are our recommendations, with headroom for live TV and other devices on your network; for comparison, Netflix lists 3 Mbps or higher for HD (720p) and 15 Mbps or higher for 4K (<a href="https://help.netflix.com/en/node/306" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Netflix speed recommendations</a>). If two devices stream at the same time, you need more. A wired Ethernet connection is steadier than Wi-Fi, especially at busy peak times. <a href="/guides/iptv-internet-speed" class="text-primary hover:underline">See the IPTV internet speed guide</a> for every quality level.',
+  },
+  {
+    question: "Why does IPTV buffer, and how do I fix it?",
+    answer: 'IPTV usually buffers when video data does not reach your player fast or steadily enough: weak Wi-Fi, a busy home network, a slow device, or a problem with one channel\'s feed. Switch to Ethernet or 5 GHz Wi-Fi, restart the player app and router, and try a different channel. If only one channel buffers while others play normally, message support with the channel name. <a href="/help/iptv-buffering" class="text-primary hover:underline">Follow the IPTV buffering fix guide</a>.',
   },
   {
     question: "Do I need a VPN for IPTV?",

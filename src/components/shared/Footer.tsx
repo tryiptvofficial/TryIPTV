@@ -140,6 +140,23 @@ export function Footer() {
                 </li>
               ))}
             </ul>
+
+            {/* Learn: shares the Explore column so the 12-column grid stays intact. */}
+            <p className="mt-6 mb-2.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-foreground/80">
+              Learn
+            </p>
+            <ul className="space-y-0.5">
+              {footerLinks.learnLinks.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="inline-flex min-h-11 min-w-11 items-center text-[13.5px] text-muted-foreground transition-colors duration-150 hover:text-foreground pointer-fine:min-h-0 pointer-fine:min-w-0 pointer-fine:py-1"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Device Guides */}

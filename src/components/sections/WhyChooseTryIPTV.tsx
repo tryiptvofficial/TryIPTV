@@ -29,7 +29,7 @@ export function WhyChooseTryIPTV() {
           align="left"
           eyebrow="Stream More. Pay Less"
           title="What Makes Our IPTV Subscription Stand Out"
-          subtitle="Comparing IPTV with cable? TryIPTV works on the devices you already use: you get an Xtream Codes login or an M3U link for a compatible IPTV player."
+          subtitle="Comparing IPTV with cable? TryIPTV works on the devices you already use. After you order, you get your login in one of two formats: an Xtream Codes login (a server address, username and password) or an M3U link (a playlist address). You enter it in a compatible IPTV player app."
         />
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-5">

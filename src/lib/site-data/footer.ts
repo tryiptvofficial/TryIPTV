@@ -23,6 +23,11 @@ export const footerLinks = {
         { name: "Windows", href: "/devices/windows-iptv" },
         { name: "macOS", href: "/devices/mac-iptv" },
     ],
+    learnLinks: [
+        { name: "IPTV Guides", href: "/guides" },
+        { name: "Troubleshooting", href: "/help" },
+        { name: "IPTV Players", href: "/players" },
+    ],
     legalLinks: [
         { name: "Privacy Policy", href: "/privacy-policy" },
         { name: "Terms & Conditions", href: "/terms-conditions" },
