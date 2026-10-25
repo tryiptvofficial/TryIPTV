@@ -49,8 +49,11 @@ export function WhyChooseTryIPTV() {
             You watch on devices you already own, with {PRODUCT_TRUTHS.connections} simultaneous connections on every plan.
           </p>
           <p>
-            After you order, you get your login in one of two formats: an Xtream Codes login (a server address, username and
-            password) or an M3U link (a playlist address). You enter it in a compatible IPTV player app.
+            After you order, you get your login in one of two formats: an{" "}
+            <Link href="/guides/what-are-xtream-codes" className="font-medium text-foreground underline underline-offset-4 hover:text-primary">
+              Xtream Codes login
+            </Link>{" "}
+            (a server address, username and password) or an M3U link (a playlist address). You enter it in a compatible IPTV player app.
           </p>
         </div>
 

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { EmailOff } from "@/components/shared/EmailOff";
 import Image from "next/image";
 import { blurProps } from "@/lib/image-blur";
 import Link from "next/link";
@@ -73,6 +74,7 @@ export default function PressPage() {
   return (
     <>
       <PageSchema path="/press" name={title} description={description} nodes={[breadcrumbSchema]} />
+      <EmailOff>
       <Section className="relative overflow-hidden border-b border-white/[0.07] pt-12 pb-14 sm:pt-16 sm:pb-20">
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:linear-gradient(to_bottom,black,transparent_90%)]" />
         <Container className="relative text-center">
@@ -160,7 +162,7 @@ export default function PressPage() {
                 For press and media enquiries, contact{" "}
                 <span
                   dangerouslySetInnerHTML={{
-                    __html: `<!--email_off--><a href="mailto:${mediaEmail}" class="${link}">${mediaEmail}</a><!--/email_off-->`,
+                    __html: `<a href="mailto:${mediaEmail}" class="${link}">${mediaEmail}</a>`,
                   }}
                 />
                 .
@@ -190,6 +192,7 @@ export default function PressPage() {
           </div>
         </Container>
       </Section>
+      </EmailOff>
     </>
   );
 }

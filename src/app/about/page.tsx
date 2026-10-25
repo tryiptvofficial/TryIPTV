@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { EmailOff } from "@/components/shared/EmailOff";
 import Link from "next/link";
 import type React from "react";
 import { Container } from "@/components/shared/Container";
@@ -123,6 +124,7 @@ export default function AboutPage() {
   return (
     <>
       <PageSchema path="/about" nodes={[schema]} keep={["FAQPage"]} />
+      <EmailOff>
 
       <Section className="relative overflow-hidden border-b border-white/[0.07] pt-12 pb-14 sm:pt-16 sm:pb-20">
         <Container className="relative text-center">
@@ -330,6 +332,7 @@ export default function AboutPage() {
           </div>
         </Container>
       </Section>
+      </EmailOff>
     </>
   );
 }
