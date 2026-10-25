@@ -9,6 +9,7 @@ import { CustomerFeedback } from "@/components/sections/CustomerFeedback";
 import { CTA } from "@/components/sections/CTA";
 
 const FAQ = dynamic(() => import("@/components/sections/FAQ").then((mod) => mod.FAQ));
+import { MobileBuyBar } from "@/components/shared/MobileBuyBar";
 import { PageSchema } from "@/components/shared/Schema";
 import { generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { getLastModified } from "@/lib/site-routes";
@@ -73,6 +74,7 @@ export default function Home() {
       {/* Follows a section on the same background, so skip the duplicated top padding. */}
       <CTA className="pt-0 sm:pt-0 md:pt-0 lg:pt-0" />
       <FAQ />
+      <MobileBuyBar />
     </>
   );
 }

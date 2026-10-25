@@ -78,53 +78,15 @@ const INCLUDED_FEATURES = [
   "Multi-Device Compatibility",
 ] as const;
 
-// Short lead for voice and snippets: the cheapest entry and the best monthly rate first, the middle plans after.
-const [p1, p3, p6, p12] = PRODUCT_TRUTHS.plans;
-const priceLead = `A TryIPTV subscription costs $${p1.price.toFixed(2)} for 1 month or $${p12.price.toFixed(2)} for 12 months (about $${p12.monthlyEquivalent.toFixed(2)} a month), paid once in USD with no automatic renewal. The 3-month plan is $${p3.price.toFixed(2)} and the 6-month plan is $${p6.price.toFixed(2)}.`;
-
-// Price table rows come from the facts source; savings compare each plan's monthly cost with the 1-month price.
-const firstMonthly = PRODUCT_TRUTHS.plans[0].monthlyEquivalent;
-const PRICE_ROWS = PRODUCT_TRUTHS.plans.map((plan, i) => ({
-  plan: plan.duration,
-  price: `$${plan.price.toFixed(2)}`,
-  perMonth: `$${plan.monthlyEquivalent.toFixed(2)}`,
-  savings: i === 0 ? "—" : `${Math.round((1 - plan.monthlyEquivalent / firstMonthly) * 100)}%`,
-}));
-
 export function HomePricing() {
   return (
     <Section id="pricing">
       <Container>
         <SectionHeader
           eyebrow="IPTV Pricing"
-          title="How Much Does a TryIPTV Subscription Cost?"
-          subtitle={`${priceLead} Every plan includes ${PRODUCT_TRUTHS.channels} live channels, HD and 4K streams where available, ${PRODUCT_TRUTHS.connections} simultaneous connections, and login details usually within ${PRODUCT_TRUTHS.activationTime}.`}
+          title="IPTV Subscription Plans"
+          subtitle={`Choose your ideal IPTV plan with ${PRODUCT_TRUTHS.channels} live channels, HD and 4K streaming where available, and fast activation. All plans include ${PRODUCT_TRUTHS.connections} simultaneous connections, support on WhatsApp and email, no automatic renewal, and prices in USD.`}
         />
-
-        {/* The price table comes first so the answer to "how much" sits right under the heading. */}
-        <div className="mx-auto mb-8 max-w-3xl overflow-x-auto rounded-2xl border border-white/[0.07] bg-card">
-          <table className="w-full text-left text-sm">
-            <caption className="sr-only">TryIPTV plan prices in USD, monthly cost and savings compared with the 1-month plan</caption>
-            <thead className="border-b border-white/[0.07] text-xs uppercase tracking-wide text-muted-foreground">
-              <tr>
-                <th scope="col" className="px-5 py-3 font-semibold">Plan</th>
-                <th scope="col" className="px-5 py-3 font-semibold">Price</th>
-                <th scope="col" className="px-5 py-3 font-semibold">Per month</th>
-                <th scope="col" className="px-5 py-3 font-semibold">Savings</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-white/[0.06] text-muted-foreground">
-              {PRICE_ROWS.map((row) => (
-                <tr key={row.plan}>
-                  <th scope="row" className="whitespace-nowrap px-5 py-3 font-semibold text-foreground">{row.plan}</th>
-                  <td className="whitespace-nowrap px-5 py-3 font-medium text-foreground">{row.price}</td>
-                  <td className="whitespace-nowrap px-5 py-3">{row.perMonth}</td>
-                  <td className="whitespace-nowrap px-5 py-3 font-medium text-primary">{row.savings}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
 
         <div className="mx-auto grid max-w-md grid-cols-1 gap-4 sm:max-w-none sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
           {PLANS.map((plan) => (
@@ -149,7 +111,7 @@ export function HomePricing() {
               )}
 
               <h3 className="mt-3 font-headline text-xl font-bold tracking-tight text-foreground">
-                {plan.name.replace(/^(\d+) Months?$/, "$1-Month IPTV Plan")}
+                {plan.name}
               </h3>
 
               <div className="mt-4 flex items-baseline gap-1.5">

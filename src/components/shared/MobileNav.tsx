@@ -35,7 +35,7 @@ export function MobileNav() {
             </Link>))}
         </nav>
         <Button asChild className="mt-auto">
-          <Link href="/iptv-free-trial" onClick={() => setIsOpen(false)}>Start free trial</Link>
+          <Link href="/pricing" onClick={() => setIsOpen(false)}>View Plans</Link>
         </Button>
       </SheetContent>
     </Sheet>
