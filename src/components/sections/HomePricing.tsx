@@ -149,7 +149,7 @@ export function HomePricing() {
               )}
 
               <h3 className="mt-3 font-headline text-xl font-bold tracking-tight text-foreground">
-                {plan.name}
+                {plan.name.replace(/^(\d+) Months?$/, "$1-Month IPTV Plan")}
               </h3>
 
               <div className="mt-4 flex items-baseline gap-1.5">

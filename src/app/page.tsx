@@ -18,8 +18,7 @@ const description =
   "Stream 25,000+ live channels and 120,000+ movies & TV shows on 2 connections. IPTV plans have no auto-renewal. Start with a 24-hour free trial.";
 const ogDescription =
   "Stream 25,000+ live channels and 120,000+ movies & TV shows with TryIPTV. Get 2 connections, no auto-renewal, and a 24-hour free trial.";
-const twitterDescription =
-  "25,000+ live channels, 120,000+ movies & TV shows, 2 connections, no auto-renewal, and a 24-hour free trial.";
+const twitterDescription = ogDescription;
 
 export function generateMetadata(): Metadata {
   const baseMetadata = generatePageMetadata({

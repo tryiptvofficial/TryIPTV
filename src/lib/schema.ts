@@ -121,6 +121,7 @@ export function generateOrganizationSchema(): WithContext<Organization> {
     'slogan': BRAND.tagline,
     'logo': {
       '@type': 'ImageObject',
+      '@id': `${siteConfig.url}/#logo`,
       'url': `${siteConfig.url}${BRAND.logos.primary}`,
       'contentUrl': `${siteConfig.url}${BRAND.logos.primary}`,
       'width': 1024 as any,

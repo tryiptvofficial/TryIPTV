@@ -494,7 +494,9 @@ export default async function IPTVSubscription() {
               </table>
             </div>
             <p className="border-t border-white/[0.07] px-5 py-4 text-base sm:text-xs leading-5 text-muted-foreground sm:px-6">
-              <strong className="text-foreground">What does 2 connections mean?</strong> Up to two devices can stream at the same time in your household. You can configure your credentials on multiple devices, but playback is limited to two simultaneous streams.
+              <strong className="text-foreground">What does 2 connections mean?</strong> Up to two devices can stream at the same time in your household. You can configure your credentials on multiple devices, but playback is limited to two simultaneous streams. New to IPTV? Read <Link href="/guides/what-is-iptv" className={link}>what IPTV is</Link> and{" "}
+              <Link href="/guides/how-does-iptv-work" className={link}>how IPTV delivery works</Link>, or{" "}
+              <Link href="/help/iptv-buffering" className={link}>how to fix IPTV buffering</Link>.
             </p>
           </div>
         </Container>

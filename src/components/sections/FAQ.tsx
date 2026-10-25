@@ -59,17 +59,17 @@ const homepageFaqs: FaqItem[] = [
   {
     question: "What is TryIPTV?",
     answer:
-      `${(COMPANY.summary ?? "TryIPTV is an IPTV subscription service.").replace(/^TryIPTV is /, "TryIPTV (also written Try IPTV, at TryIPTV.com) is ")} TryIPTV is not a player app itself. <a href="/about" class="text-primary hover:underline">About TryIPTV and its operator</a>.`,
+      `${(COMPANY.summary ?? "TryIPTV is an IPTV subscription service.").replace(/^TryIPTV is /, "TryIPTV (also written Try IPTV, at TryIPTV.com) is ")} TryIPTV is not a player app itself. Read more <a href="/about" class="text-primary hover:underline">about TryIPTV and its operator</a>.`,
   },
   {
     question: "What is IPTV?",
     answer:
-      'IPTV (Internet Protocol Television) delivers live TV channels and on-demand video over your internet connection instead of a cable or satellite signal. A provider sends you a login, you enter it in a compatible IPTV player app on a device you already own, and the app loads the channel list and streams it. <a href="/guides/how-does-iptv-work" class="text-primary hover:underline">See how IPTV works step by step</a> or <a href="/guides/what-is-iptv" class="text-primary hover:underline">read the full IPTV guide</a>.',
+      'IPTV (Internet Protocol Television) delivers live TV channels and on-demand video over your internet connection instead of a cable or satellite signal. You enter a provider\'s login in an IPTV player app on a device you own, and the app streams the channels. <a href="/guides/how-does-iptv-work" class="text-primary hover:underline">See how IPTV works step by step</a>, or <a href="/guides/what-is-iptv" class="text-primary hover:underline">read the full IPTV guide</a>.',
   },
   {
     question: "What do I need to watch IPTV?",
     answer:
-      'You need three things: a compatible device such as a Fire TV Stick or smart TV, a stable internet connection (about 25 Mbps for HD), and an IPTV player app such as TiviMate or IPTV Smarters. TryIPTV is not a player app itself; support sends your login after you order. <a href="/guides/how-does-iptv-work" class="text-primary hover:underline">See how IPTV works step by step</a>.',
+      'You need three things. First, a compatible device such as a Fire TV Stick or smart TV. Second, a stable internet connection of about 25 Mbps (megabits per second) for HD. Third, an IPTV player app such as TiviMate or IPTV Smarters. TryIPTV is not a player app itself; support sends your login after you order. <a href="/guides/how-does-iptv-work" class="text-primary hover:underline">See how IPTV works step by step</a>.',
   },
   {
     question: "Does TryIPTV offer a free trial?",
@@ -84,7 +84,11 @@ const homepageFaqs: FaqItem[] = [
   {
     question: "How do I set up TryIPTV?",
     answer:
-      'Setup takes three steps:<ol class="my-2 list-decimal space-y-1 pl-5"><li>Install a compatible IPTV player such as <a href="/players/tivimate" class="text-primary hover:underline">TiviMate</a> or <a href="/players/iptv-smarters" class="text-primary hover:underline">IPTV Smarters</a>.</li><li>Enter the Xtream Codes login or M3U playlist URL that support sends after confirmation.</li><li>Wait for the channel list to load.</li></ol><a href="/setup" class="text-primary hover:underline">View the setup guide</a>, or see the <a href="/help/iptv-login-not-working" class="text-primary hover:underline">IPTV login not working fix</a> if the player rejects your details.',
+      'Setup takes three steps:<ol class="my-2 list-decimal space-y-1 pl-5"><li>Install a compatible IPTV player such as <a href="/players/tivimate" class="text-primary hover:underline">TiviMate</a> or <a href="/players/iptv-smarters" class="text-primary hover:underline">IPTV Smarters</a>.</li><li>Enter the <a href="/guides/m3u-vs-xtream-codes" class="text-primary hover:underline">Xtream Codes login or M3U playlist URL</a> that support sends after confirmation.</li><li>Wait for the channel list to load.</li></ol><a href="/setup" class="text-primary hover:underline">View the setup guide</a>, or see the <a href="/help/iptv-login-not-working" class="text-primary hover:underline">IPTV login not working fix</a> if the player rejects your details.',
+  },
+  {
+    question: "Is TryIPTV easy for beginners?",
+    answer: `<strong class="font-semibold text-foreground">Yes.</strong> Setup takes three steps: install a compatible IPTV player app, enter the login support sends you, and wait for the channel list to load. If you get stuck, support helps on WhatsApp or by email${COMPANY.support.hours ? `, ${COMPANY.support.hours}` : ""}. Read the <a href="/setup" class="text-primary hover:underline">universal IPTV setup guide</a>.`,
   },
   {
     question: "How many simultaneous connections are included?",
@@ -94,7 +98,7 @@ const homepageFaqs: FaqItem[] = [
   {
     question: "Do TryIPTV subscriptions renew automatically?",
     answer:
-      '<strong class="font-semibold text-foreground">No.</strong> Plans are paid once for the selected duration (1, 3, 6 or 12 months) and do not automatically renew. Nothing is charged again unless you buy another plan. <a href="/pricing" class="text-primary hover:underline">Compare plans</a>.',
+      '<strong class="font-semibold text-foreground">No, there is nothing to cancel.</strong> Plans are paid once for the selected duration (1, 3, 6 or 12 months) and do not automatically renew. Nothing is charged again unless you buy another plan. <a href="/pricing" class="text-primary hover:underline">Compare plans</a> on the pricing page.',
   },  {
     question: "Is IPTV legal?",
     answer:
@@ -103,11 +107,11 @@ const homepageFaqs: FaqItem[] = [
   {
     question: "Can I get a refund?",
     answer:
-      '<strong class="font-semibold text-foreground">Yes, but only if</strong> TryIPTV cannot provide a working subscription. Once your account is activated and the details are delivered, sales are final. <a href="/refund-policy" class="text-primary hover:underline">Read the refund policy</a>.',
+      '<strong class="font-semibold text-foreground">Yes, but only if</strong> TryIPTV cannot provide a working subscription. Once your account is activated and the login details are delivered, the sale is final. <a href="/refund-policy" class="text-primary hover:underline">Read the refund policy</a>.',
   },
   {
     question: "Is TryIPTV legit?",
-    answer: `TryIPTV is run by ${COMPANY.legalName ?? "its operating company"}${COMPANY.location ? `, a company based in ${COMPANY.location}` : ""}${COMPANY.foundingYear ? `, operating since ${COMPANY.foundingYear}` : ""}. If TryIPTV cannot provide a working subscription, the <a href="/refund-policy" class="text-primary hover:underline">refund policy</a> applies. <a href="/about" class="text-primary hover:underline">Company details and contact</a>.`,
+    answer: `TryIPTV is run by ${COMPANY.legalName ?? "its operating company"}${COMPANY.location ? `, a company based in ${COMPANY.location}` : ""}${COMPANY.foundingYear ? `, operating since ${COMPANY.foundingYear}` : ""}. If TryIPTV cannot provide a working subscription, the <a href="/refund-policy" class="text-primary hover:underline">refund policy</a> applies. See the <a href="/about" class="text-primary hover:underline">company details and contact</a>.`,
   },
   {
     question: "How do I pay?",
@@ -119,7 +123,7 @@ const homepageFaqs: FaqItem[] = [
   },
   {
     question: "How quickly do I get my login?",
-    answer: `Login details are usually provided within ${PRODUCT_TRUTHS.activationTime} after confirmation, ${PRODUCT_TRUTHS.activationHours.replace(";", ".").replace(" requests", " Requests")}. <a href="/setup" class="text-primary hover:underline">Universal IPTV setup guide</a>, or the <a href="/help/epg-not-working" class="text-primary hover:underline">EPG not working fix</a> if the TV guide stays empty.`,
+    answer: `Login details are usually provided within ${PRODUCT_TRUTHS.activationTime} after confirmation, ${PRODUCT_TRUTHS.activationHours.replace(";", ".").replace(" requests", " Requests")}. Read the <a href="/setup" class="text-primary hover:underline">universal IPTV setup guide</a>, or use the <a href="/help/epg-not-working" class="text-primary hover:underline">EPG not working fix</a> if the TV guide stays empty.`,
   },
   {
     question: "Which plan should I choose?",
@@ -219,8 +223,7 @@ export function FAQ() {
                 className="mb-4 sm:mb-4 lg:mb-4"
               />
               <p className="mb-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:mb-8 sm:text-[16.5px]">
-                TryIPTV plans are one-time payments in USD with no automatic renewal, and support sends your Xtream Codes or M3U login on
-                WhatsApp or by email. This FAQ covers legality, refunds, payment, delivery, devices and setup. See{" "}
+                This FAQ covers legality, refunds, payment, delivery, devices and setup. See{" "}
                 <Link href="/faq" className="font-semibold text-primary hover:underline">all IPTV FAQs</Link>{" "}
                 or{" "}
                 <Link href="/help" className="font-semibold text-primary hover:underline">troubleshooting guides</Link>{" "}
