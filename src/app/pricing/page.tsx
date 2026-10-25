@@ -228,21 +228,23 @@ export default async function IPTVSubscription() {
       />
 
       {/* Hero + plans */}
-      <Section className="relative overflow-hidden border-b border-white/[0.07] pt-8 pb-10 sm:pt-12 sm:pb-14">
+      <Section className="relative overflow-hidden border-b border-white/[0.07] pt-6 pb-6 sm:pt-12 sm:pb-14">
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:linear-gradient(to_bottom,black,transparent_90%)]" />
         <Container className="relative">
           <Breadcrumb items={[{ label: "Pricing" }]} align="center" />
           <SectionHeader
             as="h1"
+            className="max-sm:mb-0"
             eyebrow="Most Popular IPTV Subscription Plans"
             title={`Choose Your IPTV Plan, From ${FACT_TEXT.fromPrice}/Month`}
             subtitle={`IPTV subscription pricing at a glance: plans for 1, 3, 6 or 12 months, with ${T.connections} simultaneous connections and no automatic renewal.`}
           />
           <div className="mt-5 flex flex-wrap justify-center gap-2 text-xs font-semibold sm:mt-6 sm:text-sm">
-            {quickFacts.map((fact) => (
+            {/* Phones show the first 3 facts so the plan cards start near the top of the screen. */}
+            {quickFacts.map((fact, i) => (
               <div
                 key={fact}
-                className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.09] bg-card px-3 py-1 text-muted-foreground"
+                className={`inline-flex items-center gap-1.5 rounded-full border border-white/[0.09] bg-card px-3 py-1 text-muted-foreground ${i >= 3 ? "max-sm:hidden" : ""}`}
               >
                 <Check className="h-3.5 w-3.5 text-primary" /> {fact}
               </div>
@@ -251,10 +253,11 @@ export default async function IPTVSubscription() {
         </Container>
       </Section>
 
-      <Section id="pricing-plans" className="scroll-mt-2 bg-[#050706] py-10 sm:py-14">
-        <Container>
-          {/* Answer-first block for "how much does an IPTV subscription cost" queries; keep it 40-60 words. */}
-          <div className="mx-auto mb-8 max-w-3xl text-center">
+      <Section id="pricing-plans" className="scroll-mt-2 bg-[#050706] pt-6 pb-10 sm:py-14">
+        <Container className="flex flex-col">
+          {/* Answer-first block for "how much does an IPTV subscription cost" queries; keep it 40-60 words.
+              On phones it follows the cards so the plans come first; it stays in the HTML in both cases. */}
+          <div className="mx-auto mb-8 max-w-3xl text-center max-sm:order-2 max-sm:mt-8 max-sm:mb-0">
             <h2 className="font-headline text-xl font-bold text-foreground sm:text-2xl">How much does an IPTV subscription cost?</h2>
             <p className="mt-2 text-base leading-7 text-muted-foreground">
               TryIPTV plans cost {FACT_TEXT.priceList}, which is{" "}
@@ -263,7 +266,7 @@ export default async function IPTVSubscription() {
               automatic renewal.
             </p>
           </div>
-          <div className="grid grid-cols-1 items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+          <div className="grid grid-cols-1 items-stretch gap-5 max-sm:order-1 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
             {plans.map((plan, index) => {
               const savingsText = planSavingsExact[plan.id];
               const isLowestMonthly = plan.id === "12-months";
@@ -273,15 +276,15 @@ export default async function IPTVSubscription() {
                   key={plan.id}
                   className={`relative flex h-full flex-col overflow-hidden rounded-[18px] border bg-[#07080a] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] sm:p-7 ${
                     isLowestMonthly
-                      ? "border-primary/40 bg-[linear-gradient(180deg,rgba(0,240,120,0.05),rgba(7,8,10,0)_42%),#07080a]"
+                      ? "order-first border-primary/40 bg-[linear-gradient(180deg,rgba(0,240,120,0.05),rgba(7,8,10,0)_42%),#07080a] sm:order-none"
                       : "border-white/[0.08]"
                   }`}
                 >
                   <div className="flex-1">
                     {/* The badge takes the plan-number slot so it can't overlap it or push the heading down. */}
                     {isLowestMonthly ? (
-                      <p className="w-fit whitespace-nowrap rounded-md border border-primary/25 bg-primary/[0.08] px-2 text-[10px] font-mono font-bold uppercase leading-[14.5px] tracking-wider text-primary">
-                        Lowest Monthly Equivalent
+                      <p className="w-fit whitespace-nowrap rounded-md border border-primary/30 bg-primary/10 px-2 font-mono text-[11px] font-bold uppercase leading-[18px] tracking-wider text-primary">
+                        Best Value
                       </p>
                     ) : (
                       <p className="text-[11px] font-mono font-semibold uppercase tracking-[0.08em] text-muted-foreground/80">
@@ -341,7 +344,7 @@ export default async function IPTVSubscription() {
             })}
           </div>
 
-          <p className="mx-auto mt-6 max-w-3xl text-center text-base sm:text-sm leading-6 text-muted-foreground">
+          <p className="mx-auto mt-6 max-w-3xl text-center text-base sm:text-sm leading-6 text-muted-foreground max-sm:order-1">
             Choosing a plan opens WhatsApp, where support sends payment instructions. Credentials typically arrive within <span className="whitespace-nowrap">{T.activationTime}</span> {T.activationHours.split(";")[0]}, after payment confirmation.
             {COMPANY.support.hours ? ` Support answers ${COMPANY.support.hours}.` : ""}
             {COMPANY.support.outOfHours ? ` ${COMPANY.support.outOfHours}` : ""} No WhatsApp? Email{" "}
@@ -352,11 +355,11 @@ export default async function IPTVSubscription() {
             />{" "}
             with the plan you want and support replies with payment instructions.
           </p>
-          <p className="mx-auto mt-2 max-w-3xl text-center text-base sm:text-sm leading-6 text-muted-foreground">
+          <p className="mx-auto mt-2 max-w-3xl text-center text-base sm:text-sm leading-6 text-muted-foreground max-sm:order-1">
             Catalog counts are approximate and can change as content availability changes. You can check the available selection during the{" "}
             <Link href="/iptv-free-trial" className={link}>free trial</Link>.
           </p>
-          <p className="mx-auto mt-2 max-w-3xl text-center text-base sm:text-sm leading-6 text-muted-foreground">
+          <p className="mx-auto mt-2 max-w-3xl text-center text-base sm:text-sm leading-6 text-muted-foreground max-sm:order-1">
             TryIPTV is run by {COMPANY.legalName} ({COMPANY.location}, operating since {COMPANY.foundingYear}). TryIPTV sells its own
             subscriptions and issues the logins itself. <Link href="/about" className={link}>About TryIPTV</Link>.
           </p>

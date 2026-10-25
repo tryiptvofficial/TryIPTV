@@ -26,7 +26,8 @@ export function Hero() {
       <Container className="relative">
         <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-8">
           {/* Left Column: Copy & Actions */}
-          <div className="lg:col-span-7">
+          {/* On phones and short landscape screens the buttons move above the paragraph so they stay on the first screen. */}
+          <div className="flex flex-col lg:col-span-7">
             <p className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/[0.06] px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-primary">
               <span aria-hidden className="size-1.5 rounded-full bg-primary" />
               Best IPTV Service
@@ -36,13 +37,13 @@ export function Hero() {
               TryIPTV — <span className="text-primary">Best IPTV Service</span> for the USA, UK &amp; More
             </h1>
 
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-[17px]">
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground max-sm:order-3 sm:text-[17px] [@media(max-height:500px)]:order-3">
               TryIPTV is an IPTV service and provider for viewers in the USA, UK, and supported regions. It provides live TV, sports, movies, and TV shows through compatible devices and IPTV player apps—not a player app itself. Choose an IPTV plan, or start with the{" "}
               <Link href="/iptv-free-trial" className="font-semibold text-primary hover:underline">TryIPTV 24-hour IPTV free trial</Link>{" "}
               ($0, no credit card) to see whether the service fits your setup.
             </p>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <div className="mt-8 flex flex-col gap-3 max-sm:order-1 max-sm:mt-6 sm:flex-row sm:items-center [@media(max-height:500px)]:order-1 [@media(max-height:500px)]:mt-5">
               <Button asChild>
                 <Link href="/iptv-free-trial">
                   <CirclePlay aria-hidden /> Start Free Trial
@@ -55,7 +56,7 @@ export function Hero() {
               </Button>
             </div>
 
-            <p className="mt-4 text-[12.5px] font-medium text-muted-foreground">
+            <p className="mt-4 text-[12.5px] font-medium text-muted-foreground max-sm:order-2 [@media(max-height:500px)]:order-2">
               Plans from $15.82 • 24-hour free trial • No auto-renewal
             </p>
           </div>

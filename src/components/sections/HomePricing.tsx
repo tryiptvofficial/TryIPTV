@@ -94,8 +94,9 @@ export function HomePricing() {
               key={plan.name}
               className={cn(
                 "flex flex-col rounded-2xl border bg-card p-6 transition-colors duration-200",
+                // The Best Value plan comes first in the phone stack; the grid keeps 1→12 order from sm up.
                 plan.featured
-                  ? "border-primary/40 hover:border-primary/60"
+                  ? "order-first border-primary/40 hover:border-primary/60 sm:order-none"
                   : "border-white/[0.07] hover:border-white/[0.14]"
               )}
             >
