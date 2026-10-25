@@ -45,6 +45,10 @@ interface PageSchemaProps {
   /** The page's own schema objects (Article, BreadcrumbList, Product, FAQPage, Service, ItemList...). */
   nodes: any[];
   keep?: string[];
+  /** WebPage dateModified for pages without an Article (YYYY-MM-DD from site-routes.ts). */
+  dateModified?: string;
+  /** WebPage primaryImageOfPage URL (e.g. the page's share image). */
+  primaryImage?: string;
 }
 
 const typeOf = (node: any): string => (Array.isArray(node?.['@type']) ? node['@type'][0] : node?.['@type']) ?? '';
@@ -55,7 +59,7 @@ const typeOf = (node: any): string => (Array.isArray(node?.['@type']) ? node['@t
  * The Organization and WebSite nodes come from the root layout and are referenced here by @id.
  * Types in DROPPED_BY_DEFAULT are removed first (unless kept), so no reference points at a missing node.
  */
-export function PageSchema({ path, name, description, type = 'WebPage', nodes, keep = [] }: PageSchemaProps) {
+export function PageSchema({ path, name, description, type = 'WebPage', nodes, keep = [], dateModified, primaryImage }: PageSchemaProps) {
   const dropped = (t: string) => DROPPED_BY_DEFAULT.includes(t) && !keep.includes(t);
   const flat = nodes
     .filter(Boolean)
@@ -106,7 +110,8 @@ export function PageSchema({ path, name, description, type = 'WebPage', nodes, k
     ...(main && !existingPage?.mainEntity && !['AboutPage', 'ContactPage', 'ProfilePage'].includes(existingPage ? typeOf(existingPage) : type)
       ? { mainEntity: { '@id': main['@id'] } }
       : {}),
-    ...(article?.dateModified ? { dateModified: article.dateModified } : {}),
+    ...(primaryImage ? { primaryImageOfPage: { '@type': 'ImageObject', url: primaryImage } } : {}),
+    ...((article?.dateModified ?? dateModified) ? { dateModified: article?.dateModified ?? dateModified } : {}),
     ...(reviewedBy ? { reviewedBy } : {}),
   };
   // The Article's mainEntityOfPage must name the page node actually emitted.

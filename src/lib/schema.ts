@@ -114,6 +114,8 @@ export function generateOrganizationSchema(): WithContext<Organization> {
     'alternateName': [...BRAND.alternateNames],
     'url': `${siteConfig.url}/`,
     'description': BRAND.description,
+    // Separates this TryIPTV (tryiptv.com, Simo Alaoui LLC) from similarly named sites and from player apps.
+    'disambiguatingDescription': `IPTV service at tryiptv.com, operated by ${COMPANY.legalName} (New York). Not an IPTV player app.`,
     'slogan': BRAND.tagline,
     'logo': {
       '@type': 'ImageObject',

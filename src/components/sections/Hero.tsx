@@ -37,7 +37,9 @@ export function Hero() {
             </h1>
 
             <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-[17px]">
-              TryIPTV is an IPTV service and provider for viewers in the USA, UK, and supported regions. It provides live TV, sports, movies, and TV shows through compatible devices and IPTV player apps—not a player app itself. Choose an IPTV plan or use the free trial to see whether the service fits your setup.
+              TryIPTV is an IPTV service and provider for viewers in the USA, UK, and supported regions. It provides live TV, sports, movies, and TV shows through compatible devices and IPTV player apps—not a player app itself. Choose an IPTV plan, or start with the{" "}
+              <Link href="/iptv-free-trial" className="font-semibold text-primary hover:underline">TryIPTV 24-hour IPTV free trial</Link>{" "}
+              ($0, no credit card) to see whether the service fits your setup.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">

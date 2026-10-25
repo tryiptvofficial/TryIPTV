@@ -148,10 +148,11 @@ export default function AboutPage() {
                 <p>{COMPANY.story}</p>
               </Confirm>
               <p>
-                TryIPTV is an IPTV subscription service operated by {COMPANY.legalName ?? "TryIPTV"}
+                TryIPTV (TryIPTV.com) is an IPTV subscription service operated by {COMPANY.legalName ?? "TryIPTV"}
                 {COMPANY.location ? `, based in ${COMPANY.location}` : ""}. You watch on your own devices through a compatible
                 IPTV player app. Plans run for 1, 3, 6 or 12 months, with {PRODUCT_TRUTHS.connections} simultaneous
-                connections and no automatic renewal, and you can test the service first with a free 24-hour trial.
+                connections and no automatic renewal, and you can test the service first with the{" "}
+                <Link href="/iptv-free-trial" className={link}>TryIPTV 24-hour IPTV free trial</Link>.
                 {SUPPORT_HOURS ? ` Support is available on WhatsApp and email, ${SUPPORT_HOURS}.` : ""}
               </p>
               <p>TryIPTV is not a player app. We don&apos;t make or sell the software you watch with. You bring a device and a player; we provide the subscription and the login details that player needs.</p>

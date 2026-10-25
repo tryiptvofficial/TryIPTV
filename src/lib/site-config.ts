@@ -123,6 +123,8 @@ export function generateMetadata({
     },
     twitter: {
       card: 'summary_large_image',
+      // The owner-confirmed X account (site-data/socials.ts).
+      site: '@tryiptv',
       title,
       description,
       images: [ogImageUrl],

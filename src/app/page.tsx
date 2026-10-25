@@ -11,6 +11,7 @@ import { CTA } from "@/components/sections/CTA";
 const FAQ = dynamic(() => import("@/components/sections/FAQ").then((mod) => mod.FAQ));
 import { PageSchema } from "@/components/shared/Schema";
 import { generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { getLastModified } from "@/lib/site-routes";
 
 const title = "Best IPTV Service 2026 | 24-Hour Free Trial | TryIPTV";
 const description =
@@ -56,7 +57,14 @@ export function generateMetadata(): Metadata {
 export default function Home() {
   return (
     <>
-      <PageSchema path="/" name={title} description={description} nodes={[]} />
+      <PageSchema
+        path="/"
+        name={title}
+        description={description}
+        nodes={[]}
+        dateModified={getLastModified("/")}
+        primaryImage="https://www.tryiptv.com/images/best-iptv-service-og.jpg"
+      />
       <Hero />
       <HomePricing />
       <WhyChooseTryIPTV />

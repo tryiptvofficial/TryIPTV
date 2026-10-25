@@ -73,9 +73,8 @@ export const getIptvFreeTrialPageData = cache(
     const serviceSchema: Service = generateServiceSchema({
       serviceType: "Free IPTV Trial",
       providerName: "TryIPTV",
-      name: "24-Hour IPTV Free Trial",
-      description:
-        "24-hour free trial of TryIPTV to evaluate available live TV and on-demand viewing on a compatible device. No credit card required.",
+      name: `TryIPTV ${FACT_TEXT.trialHours}-Hour IPTV Free Trial`,
+      description: `TryIPTV offers a ${FACT_TEXT.trialHours}-hour IPTV free trial for $0, with no credit card and no auto-renewal. Login details for a compatible IPTV player usually arrive on WhatsApp within ${PRODUCT_TRUTHS.activationTime} during support hours.`,
       image: `${baseUrl}/images/free-trial/iptv-free-trial-24-hours-no-credit-card.jpg`,
       url: `${baseUrl}/iptv-free-trial`,
       offers: {
@@ -94,7 +93,7 @@ export const getIptvFreeTrialPageData = cache(
     };
   },
   // Bump the version when the static data above changes: the data cache outlives rebuilds.
-  ['iptv-free-trial-page-data-v8'],
+  ['iptv-free-trial-page-data-v9'],
   {
     revalidate: 3600,
     tags: ['pages', 'iptv-free-trial-page'],
