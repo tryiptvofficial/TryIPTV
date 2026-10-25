@@ -7,7 +7,7 @@ const columns = ["Traditional Cable", "TryIPTV", "Other IPTV Providers"] as cons
 
 const rows = [
   ["Limited portability", "Works across supported devices", "Device support varies"],
-  ["Fixed channel packages", "Prepaid plans from 1 to 12 months", "Package structures vary"],
+  ["Fixed channel packages", "Plans from 1 to 12 months, paid once", "Package structures vary"],
   ["Often higher monthly costs", "Plans start at $15.82", "Pricing varies by provider"],
   ["Household-focused setup", "2 simultaneous connections included", "Connection limits vary"],
   ["May require provider hardware", "M3U + Xtream Codes available", "Setup methods vary"],

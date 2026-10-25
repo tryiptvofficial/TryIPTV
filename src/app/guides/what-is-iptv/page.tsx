@@ -366,7 +366,7 @@ export default function WhatIsIptvPage() {
                 and programme guide data. The exact library depends on the service, plan, region,
                 device, and player support. TryIPTV&apos;s current product configuration lists{" "}
                 {PRODUCT_TRUTHS.channels} live channels and {PRODUCT_TRUTHS.vod} movies and series,
-                with {PRODUCT_TRUTHS.connections} simultaneous connections on prepaid plans.
+                with {PRODUCT_TRUTHS.connections} simultaneous connections on every plan.
               </p>
 
               <h2>Internet speed and buffering basics</h2>

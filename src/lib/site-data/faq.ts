@@ -35,7 +35,7 @@ export const faqTopics: FaqTopic[] = [
       },
       {
         question: "How do I get IPTV?",
-        answer: `You need three things: a compatible device, an IPTV player app, and a subscription. With TryIPTV you can start with a ${a("/iptv-free-trial", "24-hour free trial")} on WhatsApp, then choose a ${a("/pricing", "prepaid plan")} if you want to keep it.`,
+        answer: `You need three things: a compatible device, an IPTV player app, and a subscription. With TryIPTV you can start with a ${a("/iptv-free-trial", "24-hour free trial")} on WhatsApp, then choose a ${a("/pricing", "IPTV plan")} if you want to keep it.`,
       },
       {
         question: "Does IPTV work anywhere?",
@@ -93,7 +93,7 @@ export const faqTopics: FaqTopic[] = [
       },
       {
         question: "Is there a contract or cancellation fee with TryIPTV?",
-        answer: "No. Plans are prepaid for 1, 3, 6 or 12 months, with no contract and no cancellation fee. When your plan ends, access simply stops unless you buy another one.",
+        answer: "No. Plans run for 1, 3, 6 or 12 months, paid once, with no contract and no cancellation fee. When your plan ends, access simply stops unless you buy another one.",
       },
       {
         question: "Which payment methods does TryIPTV accept?",
@@ -128,7 +128,7 @@ export const faqTopics: FaqTopic[] = [
       },
       {
         question: "What happens when my IPTV subscription expires?",
-        answer: "Streaming stops at the end of your prepaid term. You are not billed again. To keep watching, buy a new prepaid plan at any time.",
+        answer: "Streaming stops at the end of your term. You are not billed again. To keep watching, buy a new plan at any time.",
       },
       {
         question: "I lost my IPTV login details. What do I do?",
@@ -136,7 +136,7 @@ export const faqTopics: FaqTopic[] = [
       },
       {
         question: "How do I cancel my IPTV subscription, and is there a refund?",
-        answer: `There is nothing to cancel: plans are prepaid and stop on their own at the end of the term. Refunds are limited: ${T.refund.summary.charAt(0).toLowerCase() + T.refund.summary.slice(1)} ${a("/refund-policy", "Read the refund policy")}.`,
+        answer: `There is nothing to cancel: plans are paid once and stop on their own at the end of the term. Refunds are limited: ${T.refund.summary.charAt(0).toLowerCase() + T.refund.summary.slice(1)} ${a("/refund-policy", "Read the refund policy")}.`,
       },
     ],
   },

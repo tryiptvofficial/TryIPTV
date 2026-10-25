@@ -26,7 +26,7 @@ const LANGUAGES = COMPANY.support.languages;
 
 const title = "About Us: Best IPTV Service, Trial & Support | TryIPTV";
 const description =
-  "Learn who runs TryIPTV, how the prepaid IPTV service works, what plans and the 24-hour free trial include, and how to reach support or request a refund.";
+  "Learn who runs TryIPTV, how the IPTV service works, what plans and the 24-hour free trial include, and how to reach support or request a refund.";
 const canonical = "/about";
 const whatsappUrl = COMPANY.support.whatsappUrl;
 
@@ -68,13 +68,13 @@ const faqs: { question: string; answer: React.ReactNode; text: string }[] = [
     : []),
   {
     question: "How do I pay?",
-    answer: <>Choose a plan and you&apos;ll be taken to WhatsApp, where support sends payment instructions.{PAYMENT_METHODS ? ` Accepted payment methods: ${PAYMENT_METHODS}.` : ""} All plans are one-time prepaid payments.</>,
-    text: `Choose a plan and you'll be taken to WhatsApp, where support sends payment instructions.${PAYMENT_METHODS ? ` Accepted payment methods: ${PAYMENT_METHODS}.` : ""} All plans are one-time prepaid payments.`,
+    answer: <>Choose a plan and you&apos;ll be taken to WhatsApp, where support sends payment instructions.{PAYMENT_METHODS ? ` Accepted payment methods: ${PAYMENT_METHODS}.` : ""} All plans are one-time payments.</>,
+    text: `Choose a plan and you'll be taken to WhatsApp, where support sends payment instructions.${PAYMENT_METHODS ? ` Accepted payment methods: ${PAYMENT_METHODS}.` : ""} All plans are one-time payments.`,
   },
   {
     question: "Do plans renew automatically?",
-    answer: "No. Every plan is prepaid for a fixed term and does not renew automatically. When it ends, access stops unless you buy another term.",
-    text: "No. Every plan is prepaid for a fixed term and does not renew automatically. When it ends, access stops unless you buy another term.",
+    answer: "No. Every plan is paid once for a fixed term and does not renew automatically. When it ends, access stops unless you buy another term.",
+    text: "No. Every plan is paid once for a fixed term and does not renew automatically. When it ends, access stops unless you buy another term.",
   },
   {
     question: "Can I get a refund?",
@@ -150,7 +150,7 @@ export default function AboutPage() {
               <p>
                 TryIPTV is an IPTV subscription service operated by {COMPANY.legalName ?? "TryIPTV"}
                 {COMPANY.location ? `, based in ${COMPANY.location}` : ""}. You watch on your own devices through a compatible
-                IPTV player app. Plans are prepaid for 1, 3, 6 or 12 months, with {PRODUCT_TRUTHS.connections} simultaneous
+                IPTV player app. Plans run for 1, 3, 6 or 12 months, with {PRODUCT_TRUTHS.connections} simultaneous
                 connections and no automatic renewal, and you can test the service first with a free 24-hour trial.
                 {SUPPORT_HOURS ? ` Support is available on WhatsApp and email, ${SUPPORT_HOURS}.` : ""}
               </p>
@@ -228,7 +228,7 @@ export default function AboutPage() {
             <section className="space-y-3">
               <h2 className={h2}>How it works</h2>
               <ol className="list-decimal space-y-2 pl-6">
-                <li><strong className="text-foreground">Choose a plan or start the free trial.</strong> Pick a prepaid plan on our <Link href="/pricing" className={link}>pricing page</Link> or request the <Link href="/iptv-free-trial" className={link}>24-hour free trial</Link>.</li>
+                <li><strong className="text-foreground">Choose a plan or start the free trial.</strong> Pick an IPTV plan on our <Link href="/pricing" className={link}>pricing page</Link> or request the <Link href="/iptv-free-trial" className={link}>24-hour free trial</Link>.</li>
                 <li><strong className="text-foreground">Receive your credentials.</strong> For paid plans, login details usually arrive about 5–15 minutes after payment is confirmed.</li>
                 <li><strong className="text-foreground">Install a compatible player.</strong> Add an IPTV player app to your device and enter your Xtream Codes or M3U details. Our <Link href="/setup" className={link}>IPTV setup guide</Link> walks you through it.</li>
                 <li><strong className="text-foreground">Start watching.</strong> Your channels, on-demand library and TV guide load in the player.</li>
@@ -237,10 +237,10 @@ export default function AboutPage() {
 
             <section className="space-y-3">
               <h2 className={h2}>Plans, pricing and payment</h2>
-              <p>All plans are prepaid and do not renew automatically:</p>
+              <p>All plans are paid once and do not renew automatically:</p>
               <div className="overflow-hidden rounded-xl border border-white/[0.07] bg-card">
                 <table className="w-full text-left text-sm">
-                  <caption className="sr-only">TryIPTV prepaid plans and prices</caption>
+                  <caption className="sr-only">TryIPTV plans and prices</caption>
                   <thead className="border-b border-white/[0.07] text-xs uppercase tracking-wide">
                     <tr><th className="px-5 py-3 font-semibold">Plan</th><th className="px-5 py-3 font-semibold">Price</th></tr>
                   </thead>

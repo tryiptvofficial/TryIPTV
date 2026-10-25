@@ -20,7 +20,7 @@ export const PRODUCT_TRUTHS = {
   activationTime: "5–15 minutes",
   /** Owner-confirmed 2026-10-21: support runs 9:00 AM–10:00 PM ET daily; requests outside those hours are queued until support reopens. */
   activationHours: "during support hours (9:00 AM–10:00 PM ET); requests sent outside those hours are answered when support reopens",
-  billing: "Prepaid plans, no automatic renewal",
+  billing: "Fixed-term plans, no automatic renewal",
   /**
    * Owner-confirmed 2026-10-24: PPV events, catch-up TV and the USA/UK market are true claims.
    * Shown on the homepage hero and the plan cards (HomePricing.tsx, pricing/page.tsx); do not flag or remove them.
@@ -71,7 +71,7 @@ export const siteConfig = {
   url: SITE_URL,
   ogImage: "/api/og",
   // Canonical two-sentence brand description (reused by BRAND in site-data/brand.ts, schema, manifest, llms.txt).
-  description: `TryIPTV is a prepaid IPTV service with ${PRODUCT_TRUTHS.channels} live channels and ${PRODUCT_TRUTHS.vod} movies and TV shows, watched on your own devices through compatible IPTV player apps. Plans start at ${FACT_TEXT.fromPrice} with ${PRODUCT_TRUTHS.connections} connections, no automatic renewal and a 24-hour free trial.`,
+  description: `TryIPTV is an IPTV service with ${PRODUCT_TRUTHS.channels} live channels and ${PRODUCT_TRUTHS.vod} movies and TV shows, watched on your own devices through compatible IPTV player apps. Plans start at ${FACT_TEXT.fromPrice} with ${PRODUCT_TRUTHS.connections} connections, no automatic renewal and a 24-hour free trial.`,
   links: {
     email: "support@tryiptv.com",
     whatsapp: "+212694833293",

@@ -2,7 +2,7 @@
 
 ## About TryIPTV
 
-TryIPTV is a prepaid IPTV subscription service at https://www.tryiptv.com/. Brand name: TryIPTV (logo wordmark: "Try IPTV"). Tagline: "Prepaid IPTV with a 24-hour free trial". TryIPTV sells its own subscriptions and issues the login details itself. Viewers use those details in compatible third-party IPTV player applications. TryIPTV does not develop or own the player apps described on its website.
+TryIPTV is an IPTV subscription service at https://www.tryiptv.com/. Brand name: TryIPTV (logo wordmark: "Try IPTV"). Tagline: "IPTV service with a 24-hour free trial". TryIPTV sells its own subscriptions and issues the login details itself. Viewers use those details in compatible third-party IPTV player applications. TryIPTV does not develop or own the player apps described on its website.
 
 The website separates five intents: commercial pages describe the service and terms; device pages explain platform setup; player pages explain specific apps; guides explain IPTV concepts; help pages diagnose symptoms. Each question is answered most fully on the most specific page.
 
@@ -17,7 +17,7 @@ The website separates five intents: commercial pages describe the service and te
 
 ## Service facts
 
-- Service model: fixed-term prepaid plans with no automatic renewal.
+- Service model: fixed-term plans with no automatic renewal.
 - Access methods: M3U playlist URLs and Xtream Codes-style credentials.
 - Simultaneous connections: two active streams under a standard plan.
 - Typical credential delivery and activation: 5–15 minutes after confirmation; this is not an instant guarantee.
@@ -27,7 +27,7 @@ The [FAQ](https://www.tryiptv.com/faq) answers common service questions. The [ho
 
 ## Plans and pricing
 
-The website currently lists these prepaid plans:
+The website currently lists these plans:
 
 | Duration | Price |
 | --- | ---: |

@@ -32,16 +32,16 @@ export const trialFaqs = [
   {
     question: "What happens when the 24 hours end?",
     answer:
-      "Your trial login expires and streaming stops. The trial does not renew or turn into a paid subscription, and you do not need to cancel anything. If you want to keep watching, you choose a prepaid plan; if not, you owe nothing.",
+      "Your trial login expires and streaming stops. The trial does not renew or turn into a paid subscription, and you do not need to cancel anything. If you want to keep watching, you choose an IPTV plan; if not, you owe nothing.",
   },
   {
     question: "How much does IPTV cost after the trial?",
-    answer: `TryIPTV plans are prepaid: ${FACT_TEXT.priceList}. Every plan includes ${T.connections} simultaneous connections and none of them renews automatically.`,
+    answer: `TryIPTV plans cost ${FACT_TEXT.priceList}. Every plan includes ${T.connections} simultaneous connections and none of them renews automatically.`,
   },
   {
     question: "Can I get another free trial?",
     answer:
-      "No. The free trial is limited to one per household or user, as set out in the Terms & Conditions. After your trial, you can continue with a prepaid plan, starting with 1 month if you want a short commitment.",
+      "No. The free trial is limited to one per household or user, as set out in the Terms & Conditions. After your trial, you can continue with an IPTV plan, starting with 1 month if you want a short commitment.",
   },
   {
     question: "Can I use TiviMate?",

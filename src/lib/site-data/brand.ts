@@ -16,9 +16,9 @@ export const BRAND = {
   /** WebSite/Organization alternateName list, most important first (Google site-names doc). */
   alternateNames: ["Try IPTV", "TryIPTV.com"],
   /** 6 words, factual (no "best", "#1" or "premium"). */
-  tagline: "Prepaid IPTV with a 24-hour free trial",
+  tagline: "IPTV service with a 24-hour free trial",
   /** One sentence for bios with tight limits (≤160 chars): X, Instagram, directories. */
-  shortDescription: "Prepaid IPTV service: live TV and on-demand video on your own devices and player apps. No auto-renewal, 24-hour free trial.",
+  shortDescription: "IPTV service: live TV and on-demand video on your own devices and player apps. No auto-renewal, 24-hour free trial.",
   /** Two sentences for About sections, schema, manifest and llms.txt. */
   description: siteConfig.description,
   url: "https://www.tryiptv.com",

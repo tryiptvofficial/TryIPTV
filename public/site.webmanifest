@@ -1,7 +1,7 @@
 {
   "name": "TryIPTV",
   "short_name": "TryIPTV",
-  "description": "Prepaid IPTV service: live TV and on-demand video on your own devices and player apps. No auto-renewal, 24-hour free trial.",
+  "description": "IPTV service: live TV and on-demand video on your own devices and player apps. No auto-renewal, 24-hour free trial.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

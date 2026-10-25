@@ -84,7 +84,7 @@ const homepageFaqs: FaqItem[] = [
   {
     question: "Do TryIPTV subscriptions renew automatically?",
     answer:
-      'No. Plans are prepaid for the selected duration and do not automatically renew. <a href="/pricing" class="text-primary hover:underline">Compare plans</a>.',
+      'No. Plans are paid once for the selected duration and do not automatically renew. <a href="/pricing" class="text-primary hover:underline">Compare plans</a>.',
   },  {
     question: "Is IPTV legal?",
     answer:
@@ -109,7 +109,7 @@ const homepageFaqs: FaqItem[] = [
   },
   {
     question: "Which plan should I choose?",
-    answer: `Start with the free 24-hour trial, then choose by how long you plan to watch. ${PRODUCT_TRUTHS.plans[0].duration} costs $${PRODUCT_TRUTHS.plans[0].price.toFixed(2)} for short-term use, ${PRODUCT_TRUTHS.plans[1].duration} ($${PRODUCT_TRUTHS.plans[1].price.toFixed(2)}) and ${PRODUCT_TRUTHS.plans[2].duration} ($${PRODUCT_TRUTHS.plans[2].price.toFixed(2)}) lower the monthly cost, and ${PRODUCT_TRUTHS.plans[3].duration} ($${PRODUCT_TRUTHS.plans[3].price.toFixed(2)}, about $${PRODUCT_TRUTHS.plans[3].monthlyEquivalent.toFixed(2)} a month) is the cheapest per month. Every plan is prepaid with ${PRODUCT_TRUTHS.connections} connections. <a href="/pricing" class="text-primary hover:underline">Compare all plans</a>.`,
+    answer: `Start with the free 24-hour trial, then choose by how long you plan to watch. ${PRODUCT_TRUTHS.plans[0].duration} costs $${PRODUCT_TRUTHS.plans[0].price.toFixed(2)} for short-term use, ${PRODUCT_TRUTHS.plans[1].duration} ($${PRODUCT_TRUTHS.plans[1].price.toFixed(2)}) and ${PRODUCT_TRUTHS.plans[2].duration} ($${PRODUCT_TRUTHS.plans[2].price.toFixed(2)}) lower the monthly cost, and ${PRODUCT_TRUTHS.plans[3].duration} ($${PRODUCT_TRUTHS.plans[3].price.toFixed(2)}, about $${PRODUCT_TRUTHS.plans[3].monthlyEquivalent.toFixed(2)} a month) is the cheapest per month. Every plan is a one-time payment with ${PRODUCT_TRUTHS.connections} connections. <a href="/pricing" class="text-primary hover:underline">Compare all plans</a>.`,
   },
   {
     question: "Is IPTV cheaper than cable?",

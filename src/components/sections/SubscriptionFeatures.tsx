@@ -28,7 +28,7 @@ const features = [
     { 
         icon: Shield, 
         title: "Transparent Pricing",
-        description: "Flat prepaid pricing with no hidden charges, unexpected contracts, or recurring automatic renewals."
+        description: "Flat one-time pricing with no hidden charges, unexpected contracts, or recurring automatic renewals."
     },
     { 
         icon: MessageCircle, 

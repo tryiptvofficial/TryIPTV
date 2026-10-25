@@ -16,7 +16,7 @@ export function generateMetadata(): Metadata {
   return {
     ...generatePageMetadata({
       title: "Terms & Conditions: Subscriptions, Payments & Use",
-      description: "Read the TryIPTV terms on subscriptions, device connections, prepaid payments, and acceptable use. Review them before you start a trial or place an order.",
+      description: "Read the TryIPTV terms on subscriptions, device connections, one-time payments, and acceptable use. Review them before you start a trial or place an order.",
       canonical: "/terms-conditions",
     }),
   };
@@ -148,7 +148,7 @@ export default function TermsPage() {
             <section className="space-y-3">
               <h2 className={h2}>6. Subscription Payments &amp; Refund Policy</h2>
               <p>
-                All subscriptions are one-time prepaid purchases. Please review your subscription details before confirming payment. Refunds and
+                All subscriptions are one-time purchases. Please review your subscription details before confirming payment. Refunds and
                 cancellations are only issued as set out in our <Link href="/refund-policy" className={link}>Refund Policy</Link> or where
                 required by law. {PRODUCT_TRUTHS.refund.summary}
               </p>
@@ -240,7 +240,7 @@ export default function TermsPage() {
               <h2 className={h2}>16. Plans, Free Trial &amp; Activation</h2>
               <Bullets
                 items={[
-                  `Plans: ${FACT_TEXT.priceList}. All plans are prepaid, with no recurring charges or automatic renewals.`,
+                  `Plans: ${FACT_TEXT.priceList}. All plans are paid once, with no recurring charges or automatic renewals.`,
                   ...(COMPANY.paymentMethods ? [`Payment methods: ${COMPANY.paymentMethods}. For cryptocurrency payments, you are responsible for submitting the correct network and wallet details.`] : []),
                   `Activation: login details are typically delivered within ${PRODUCT_TRUTHS.activationTime} after payment is confirmed, ${PRODUCT_TRUTHS.activationHours}.`,
                   `Free trial: ${FACT_TEXT.trialHours} hours, $0, no credit card required; one trial per household or user.`,

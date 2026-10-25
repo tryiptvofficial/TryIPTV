@@ -44,7 +44,7 @@ export const COMPANY = {
   /** 2–4 sentence company story in the owner's words. */
   /** Owner-approved 2026-10-21. */
   story:
-    "TryIPTV started with a simple goal: make IPTV easier to set up and easier to understand, for people tired of confusing instructions and service they couldn't rely on. We built it around simple prepaid plans, wide device compatibility, step-by-step setup guides and support you can actually reach. We keep refining the experience, so that getting started, and managing a subscription afterwards, takes as little effort as possible." as string | null,
+    "TryIPTV started with a simple goal: make IPTV easier to set up and easier to understand, for people tired of confusing instructions and service they couldn't rely on. We built it around simple fixed-term plans, wide device compatibility, step-by-step setup guides and support you can actually reach. We keep refining the experience, so that getting started, and managing a subscription afterwards, takes as little effort as possible." as string | null,
   /** Owner-approved short "About TryIPTV" (homepage FAQ, footer). Keep in sync with PRODUCT_TRUTHS. */
   summary:
     "TryIPTV is an IPTV subscription service operated by Simo Alaoui LLC, based in New York, United States. You watch on your own devices through a compatible IPTV player app." as string | null,

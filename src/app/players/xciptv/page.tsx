@@ -144,7 +144,7 @@ export default function XciptvPage() {
             <section>
               <h2 className={headingClass}>How to Set Up XCIPTV with Xtream Codes</h2>
               <p className={textClass}>
-                To set up XCIPTV with Xtream Codes, enter the server or portal address, username, and password supplied by your IPTV provider. OTTRUN&apos;s documentation confirms these login fields for compatible server connections. A profile label may appear in some versions, but it is only a name for the entry. XCIPTV does not issue the IPTV credentials or control the provider account. XCIPTV works with any Xtream Codes login, including our <Link href="/pricing" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">prepaid IPTV plans from $15.82</Link> a month.
+                To set up XCIPTV with Xtream Codes, enter the server or portal address, username, and password supplied by your IPTV provider. OTTRUN&apos;s documentation confirms these login fields for compatible server connections. A profile label may appear in some versions, but it is only a name for the entry. XCIPTV does not issue the IPTV credentials or control the provider account. XCIPTV works with any Xtream Codes login, including our <Link href="/pricing" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">IPTV plans from $15.82</Link> a month.
               </p>
               <ol className={listClass}>
                 <li>Choose the Xtream Codes or compatible API login in your XCIPTV version.</li>

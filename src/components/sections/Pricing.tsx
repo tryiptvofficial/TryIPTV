@@ -23,8 +23,8 @@ interface PricingProps {
 export function Pricing({
   showHeader = true,
   title = "Compare IPTV Plans & Select Your Duration",
-  subtitle = "All plans are one-time prepaid subscriptions with no hidden fees and no automatic renewals. Every package includes access to the available live TV channels, VOD, and 2 simultaneous connections.",
-  eyebrow = "Prepaid IPTV Plans",
+  subtitle = "All plans are one-time subscriptions with no hidden fees and no automatic renewals. Every package includes access to the available live TV channels, VOD, and 2 simultaneous connections.",
+  eyebrow = "IPTV Plans",
   className,
 }: PricingProps = {}) {
   return (
@@ -63,7 +63,7 @@ export function Pricing({
                     <span className="font-headline text-[40px] sm:text-[44px] font-bold tracking-tight text-foreground leading-none">
                       ${plan.price.toFixed(2)}
                     </span>
-                    <span className="text-xs font-medium text-muted-foreground">prepaid</span>
+                    <span className="text-xs font-medium text-muted-foreground">one-time</span>
                   </div>
                   <p className="mt-1.5 text-xs text-muted-foreground">
                     <span className="text-foreground/90 font-medium">
@@ -90,7 +90,7 @@ export function Pricing({
           ))}
         </div>
         <div className="mt-6 rounded-xl border border-white/[0.07] bg-white/[0.02] p-4 text-center text-xs text-muted-foreground sm:text-sm">
-          Every plan includes the same core service features: access to 25,000+ live channels worldwide, 120,000+ movies and TV shows, Smart EPG, and 2 simultaneous device connections. Only duration and prepaid savings differ.
+          Every plan includes the same core service features: access to 25,000+ live channels worldwide, 120,000+ movies and TV shows, Smart EPG, and 2 simultaneous device connections. Only duration and savings differ.
         </div>
       </Container>
     </Section>

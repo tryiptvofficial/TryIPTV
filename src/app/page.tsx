@@ -16,9 +16,9 @@ const title = "Best IPTV Service 2026 | 24-Hour Free Trial | TryIPTV";
 const description =
   "TryIPTV offers 25,000+ live channels and 120,000+ movies & TV shows, 2 connections, IPTV plans with no auto-renewal, and a 24-hour free trial.";
 const ogDescription =
-  "Stream 25,000+ live channels and 120,000+ movies & TV shows with TryIPTV. Get 2 connections, prepaid plans, and a 24-hour free trial.";
+  "Stream 25,000+ live channels and 120,000+ movies & TV shows with TryIPTV. Get 2 connections, no auto-renewal, and a 24-hour free trial.";
 const twitterDescription =
-  "25,000+ live channels, 120,000+ movies & TV shows, 2 connections, prepaid plans, and a 24-hour free trial.";
+  "25,000+ live channels, 120,000+ movies & TV shows, 2 connections, no auto-renewal, and a 24-hour free trial.";
 
 export function generateMetadata(): Metadata {
   const baseMetadata = generatePageMetadata({

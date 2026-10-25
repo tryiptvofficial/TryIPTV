@@ -460,7 +460,7 @@ export default function IptvInternetSpeedPage() {
               </h2>
               <p className="mt-2 text-base sm:text-sm leading-relaxed text-muted-foreground">
                 Verify real-world stream stability on your device with our full-access 24-hour evaluation trial ($0, no credit card required).
-                Every TryIPTV plan includes {PRODUCT_TRUTHS.connections} simultaneous connections across flat prepaid terms with no recurring contracts.
+                Every TryIPTV plan includes {PRODUCT_TRUTHS.connections} simultaneous connections across fixed terms with no recurring contracts.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
                 {/* Below 360px the label is wider than the card; let it wrap instead of overflowing. */}
@@ -470,7 +470,7 @@ export default function IptvInternetSpeedPage() {
                   </Link>
                 </Button>
                 <Button asChild variant="outline">
-                  <Link href="/pricing">View Prepaid Plans</Link>
+                  <Link href="/pricing">View IPTV Plans</Link>
                 </Button>
                 <Button asChild variant="outline">
                   <Link href="/setup">Universal Setup Guide</Link>

@@ -107,9 +107,9 @@ const comparisonRows: ComparisonRow[] = [
   },
   {
     feature: "Billing & Contracts",
-    iptv: "Billing models vary across providers (prepaid terms, monthly subscriptions, or credits). TryIPTV specifically uses prepaid terms with no automatic renewal.",
+    iptv: "Billing models vary across providers (fixed terms, monthly subscriptions, or credits). TryIPTV specifically uses fixed terms with no automatic renewal.",
     cable: "Contracts, promotional periods, recurring billing, and cancellation terms vary by operator and market.",
-    impact: "Commitment terms depend entirely on the specific service; prepaid IPTV avoids contracts, while cable often features term agreements or promotional rates.",
+    impact: "Commitment terms depend entirely on the specific service; fixed-term IPTV avoids contracts, while cable often features term agreements or promotional rates.",
   },
   {
     feature: "Fee Structure",
@@ -396,11 +396,11 @@ export default function IptvVsCablePage() {
                 </li>
                 <li>
                   <strong className="text-foreground font-semibold">IPTV Cost Factors:</strong> In the broader IPTV market, billing models vary by provider
-                  (monthly recurring plans, multi-month packages, or credit-based systems). TryIPTV specifically operates on flat prepaid terms with no
-                  automatic renewal, no equipment rental fees, and no cancellation penalties, starting at $15.82 for 1 month and $88.23 prepaid for 12 months
+                  (monthly recurring plans, multi-month packages, or credit-based systems). TryIPTV specifically operates on fixed terms with no
+                  automatic renewal, no equipment rental fees, and no cancellation penalties, starting at $15.82 for 1 month and $88.23 for 12 months
                   (equivalent to $7.35/month). See details on our{" "}
                   <Link href="/pricing" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
-                    prepaid plans page
+                    plans page
                   </Link>
                   .
                 </li>
@@ -458,7 +458,7 @@ export default function IptvVsCablePage() {
                 <li>Maintain a reliable broadband internet connection with sufficient speed (such as 25+ Mbps for Full HD and 50+ Mbps for 4K).</li>
                 <li>Prefer watching on existing consumer hardware (Firestick, Apple TV, Smart TVs, tablets, or laptops) without dedicated box rentals.</li>
                 <li>Value portability across devices and locations, subject to provider terms and network access.</li>
-                <li>Prefer prepaid, non-recurring subscription models (such as TryIPTV) over long-term contracts.</li>
+                <li>Prefer one-time, non-recurring subscription models (such as TryIPTV) over long-term contracts.</li>
                 <li>Are comfortable installing apps and navigating streaming player settings.</li>
               </ul>
 
@@ -493,7 +493,7 @@ export default function IptvVsCablePage() {
                 </div>
                 <div className="rounded-lg border border-white/[0.08] bg-[#070908] p-4 text-base sm:text-sm">
                   <div className="font-bold text-foreground mb-1">4. Contract &amp; Billing Preference</div>
-                  <p className="text-muted-foreground">If you prefer prepaid terms without auto-renewal, certain IPTV services fit that model. If you prefer consolidated billing from a local telecom, cable fits that model.</p>
+                  <p className="text-muted-foreground">If you prefer fixed terms without auto-renewal, certain IPTV services fit that model. If you prefer consolidated billing from a local telecom, cable fits that model.</p>
                 </div>
                 <div className="rounded-lg border border-white/[0.08] bg-[#070908] p-4 text-base sm:text-sm">
                   <div className="font-bold text-foreground mb-1">5. Setup Comfort Level</div>
@@ -528,7 +528,7 @@ export default function IptvVsCablePage() {
               </h2>
               <p className="mt-2 text-base sm:text-sm leading-relaxed text-muted-foreground">
                 Evaluate stream performance and device compatibility directly with our full-access 24-hour trial ($0, no credit card required).
-                Every TryIPTV plan includes {PRODUCT_TRUTHS.connections} simultaneous connections across flat prepaid terms with no recurring contracts.
+                Every TryIPTV plan includes {PRODUCT_TRUTHS.connections} simultaneous connections across fixed terms with no recurring contracts.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
                 {/* Below 360px the label is wider than the card; let it wrap instead of overflowing. */}
@@ -538,7 +538,7 @@ export default function IptvVsCablePage() {
                   </Link>
                 </Button>
                 <Button asChild variant="outline">
-                  <Link href="/pricing">View Prepaid Plans</Link>
+                  <Link href="/pricing">View IPTV Plans</Link>
                 </Button>
                 <Button asChild variant="outline">
                   <Link href="/setup">Universal Setup Guide</Link>

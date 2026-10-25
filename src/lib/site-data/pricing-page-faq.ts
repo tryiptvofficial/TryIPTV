@@ -7,12 +7,12 @@ const T = PRODUCT_TRUTHS;
 export const pricingPageFaqs: { question: string; answer: string; link?: { href: string; label: string } }[] = [
   {
     question: "How much does an IPTV subscription cost?",
-    answer: `TryIPTV prepaid plans cost ${FACT_TEXT.priceList}. The longer the term, the lower the monthly equivalent: from ${FACT_TEXT.fromPrice} a month on the 1-month plan down to ${FACT_TEXT.lowestMonthly} a month on the 12-month plan.`,
+    answer: `TryIPTV plans cost ${FACT_TEXT.priceList}. The longer the term, the lower the monthly equivalent: from ${FACT_TEXT.fromPrice} a month on the 1-month plan down to ${FACT_TEXT.lowestMonthly} a month on the 12-month plan.`,
   },
   {
     question: "Does the price go up when my plan renews?",
     answer:
-      "Plans do not renew automatically, so you are never charged again without asking. When your term ends, access stops; if you want to continue, you buy a new prepaid term at the price shown on this page at that time.",
+      "Plans do not renew automatically, so you are never charged again without asking. When your term ends, access stops; if you want to continue, you buy a new term at the price shown on this page at that time.",
   },
   {
     question: "How many devices does each plan cover?",
@@ -41,8 +41,8 @@ export const pricingPageFaqs: { question: string; answer: string; link?: { href:
   {
     question: "What payment methods are available?",
     answer: COMPANY.paymentMethods
-      ? `You can pay by ${COMPANY.paymentMethods}. Support sends the payment instructions on WhatsApp when you order. Every order is a one-time prepaid purchase with no automatic renewal.`
-      : "Current payment instructions are provided when ordering. All orders are one-time prepaid purchases with no automatic renewals or recurring charges.",
+      ? `You can pay by ${COMPANY.paymentMethods}. Support sends the payment instructions on WhatsApp when you order. Every order is a one-time purchase with no automatic renewal.`
+      : "Current payment instructions are provided when ordering. All orders are one-time purchases with no automatic renewals or recurring charges.",
   },
   {
     question: "Which plan has the lowest monthly equivalent?",

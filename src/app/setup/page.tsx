@@ -870,14 +870,14 @@ export default function SetupPage() {
               Experience High-Definition IPTV Streaming
             </h2>
             <p className="mx-auto mt-3 max-w-xl text-base sm:text-sm leading-relaxed text-muted-foreground">
-              Test stream reliability, channel availability, and player compatibility with our 24-hour free trial (no credit card required), or explore transparent prepaid plans with 2 simultaneous connections.
+              Test stream reliability, channel availability, and player compatibility with our 24-hour free trial (no credit card required), or explore transparent IPTV plans with 2 simultaneous connections.
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-3">
               <Button asChild size="lg">
                 <Link href="/iptv-free-trial">Start 24-Hour Free Trial</Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href="/pricing">View Prepaid Plans (${PRODUCT_TRUTHS.plans[0].price.toFixed(2)}/mo)</Link>
+                <Link href="/pricing">View IPTV Plans (${PRODUCT_TRUTHS.plans[0].price.toFixed(2)}/mo)</Link>
               </Button>
             </div>
           </div>

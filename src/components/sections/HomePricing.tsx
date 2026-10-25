@@ -14,8 +14,8 @@ const PLANS = [
     index: "01 / Plan",
     name: "1 Month",
     price: 15.82,
-    suffix: "prepaid",
-    description: "Standard 1-month prepaid access",
+    suffix: "one-time",
+    description: "Standard 1-month access",
     monthlyEquivalent: null,
     savings: null,
     cta: "Choose 1 Month",
@@ -28,7 +28,7 @@ const PLANS = [
     index: "02 / Plan",
     name: "3 Months",
     price: 38.30,
-    suffix: "prepaid",
+    suffix: "one-time",
     description: null,
     monthlyEquivalent: "$12.77/mo",
     savings: "Save 19%",
@@ -42,7 +42,7 @@ const PLANS = [
     index: "03 / Plan",
     name: "6 Months",
     price: 59.15,
-    suffix: "prepaid",
+    suffix: "one-time",
     description: null,
     monthlyEquivalent: "$9.86/mo",
     savings: "Save 38%",
@@ -56,7 +56,7 @@ const PLANS = [
     index: "04 / Plan",
     name: "12 Months",
     price: 88.23,
-    suffix: "prepaid",
+    suffix: "one-time",
     description: null,
     monthlyEquivalent: "$7.35/mo",
     savings: "Save 54%",
@@ -94,7 +94,7 @@ export function HomePricing() {
         <SectionHeader
           eyebrow="IPTV Pricing"
           title="How Much Does a TryIPTV Subscription Cost?"
-          subtitle={`Choose your IPTV plan with ${PRODUCT_TRUTHS.channels} live channels, HD and 4K streams where available, and login details usually within ${PRODUCT_TRUTHS.activationTime}. Every plan is prepaid in USD with no automatic renewal, and includes ${PRODUCT_TRUTHS.connections} simultaneous connections.`}
+          subtitle={`Choose your IPTV plan with ${PRODUCT_TRUTHS.channels} live channels, HD and 4K streams where available, and login details usually within ${PRODUCT_TRUTHS.activationTime}. Every plan is a one-time payment in USD with no automatic renewal, and includes ${PRODUCT_TRUTHS.connections} simultaneous connections.`}
         />
 
         <div className="mx-auto grid max-w-md grid-cols-1 gap-4 sm:max-w-none sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">

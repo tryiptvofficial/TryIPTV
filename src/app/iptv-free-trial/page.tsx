@@ -179,12 +179,12 @@ const testingChecklist = [
 
 const planComparisonRows = [
   ["Cost", "$0", `From ${FACT_TEXT.fromPrice} (1 Month) to $88.23 (12 Months)`],
-  ["Duration", "24 consecutive hours", "1, 3, 6, or 12 months prepaid"],
-  ["Payment", "None", COMPANY.paymentMethods ? `Prepaid by ${COMPANY.paymentMethods}` : "Prepaid; payment instructions provided when ordering"],
+  ["Duration", "24 consecutive hours", "1, 3, 6, or 12 months, paid once"],
+  ["Payment", "None", COMPANY.paymentMethods ? `Paid once by ${COMPANY.paymentMethods}` : "One-time payment; instructions provided when ordering"],
   ["Simultaneous connections", `${T.connections}, the same as paid plans`, `${T.connections} simultaneous connections included on all plans`],
-  ["Automatic renewal", "No", "No (prepaid plans do not auto-renew)"],
+  ["Automatic renewal", "No", "No (plans do not auto-renew)"],
   ["Access format", "Xtream Codes / M3U", "Xtream Codes / M3U"],
-  ["When access ends", "Service stops automatically", "Access expires at the end of the prepaid period"],
+  ["When access ends", "Service stops automatically", "Access expires at the end of the paid period"],
 ] as const;
 
 const trustStats = [
@@ -503,7 +503,7 @@ export default async function IptvFreeTrialPage() {
             <SectionHeader
               eyebrow="After The Trial"
               title="What Do IPTV Plans Cost After Your Free Trial?"
-              subtitle={`If the trial convinces you, TryIPTV plans are prepaid: ${FACT_TEXT.priceList}. Every plan includes ${T.connections} simultaneous connections, there is no contract, and nothing renews automatically.`}
+              subtitle={`If the trial convinces you, TryIPTV plans cost ${FACT_TEXT.priceList}. Every plan includes ${T.connections} simultaneous connections, there is no contract, and nothing renews automatically.`}
             />
 
             <ul className="grid grid-cols-2 gap-3 lg:grid-cols-4">
@@ -522,7 +522,7 @@ export default async function IptvFreeTrialPage() {
                     <p className="text-sm font-semibold text-muted-foreground">{p.duration}</p>
                     <p className="mt-1 font-headline text-3xl font-extrabold text-foreground">{usd(p.price)}</p>
                     <p className="mt-1 text-base sm:text-sm text-muted-foreground">
-                      {p.monthlyEquivalent === p.price ? "Prepaid, no contract" : `About ${usd(p.monthlyEquivalent)} per month`}
+                      {p.monthlyEquivalent === p.price ? "One-time payment, no contract" : `About ${usd(p.monthlyEquivalent)} per month`}
                     </p>
                   </li>
                 );

@@ -525,7 +525,7 @@ export default function HowDoesIptvWorkPage() {
               </h2>
               <p className="mt-2 text-base sm:text-sm leading-relaxed text-muted-foreground">
                 Now that you understand the underlying streaming pipeline, follow our universal setup guide to activate your
-                device. TryIPTV includes {PRODUCT_TRUTHS.connections} simultaneous connections across prepaid plans with no recurring
+                device. TryIPTV includes {PRODUCT_TRUTHS.connections} simultaneous connections across plans with no recurring
                 contracts, and offers a {PRODUCT_TRUTHS.trialDuration.toLowerCase()} free evaluation trial ($0, no credit card required).
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
@@ -539,7 +539,7 @@ export default function HowDoesIptvWorkPage() {
                   <Link href="/iptv-free-trial">Start 24-Hour Free Trial</Link>
                 </Button>
                 <Button asChild variant="outline">
-                  <Link href="/pricing">View Prepaid Plans</Link>
+                  <Link href="/pricing">View IPTV Plans</Link>
                 </Button>
               </div>
             </div>

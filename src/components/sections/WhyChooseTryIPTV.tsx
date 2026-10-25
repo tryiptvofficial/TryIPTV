@@ -18,7 +18,7 @@ const tryIptvIncluded = [
   "HD and 4K streams where available",
   `${PRODUCT_TRUTHS.connections} simultaneous connections on every plan`,
   "Works on Fire TV, Android TV, Apple TV and more, through a compatible IPTV player",
-  "Prepaid, with no automatic renewal",
+  "One-time payment, with no automatic renewal",
 ];
 
 export function WhyChooseTryIPTV() {

@@ -29,7 +29,7 @@ export const pageData = {
         {
             name: "Sarah M.",
             title: "Verified Customer",
-            quote: "Best decision! The 12-month prepaid plan saved me so much money and the streaming is incredible."
+            quote: "Best decision! The 12-month plan saved me so much money and the streaming is incredible."
         },
         {
             name: "James T.",
@@ -49,7 +49,7 @@ export const pageData = {
         },
         {
             question: "Is this subscription recurring?",
-            answer: "No. All TryIPTV subscriptions are prepaid one-time payments via Cryptocurrency, PayPal, and Stripe. There are no automatic renewals or recurring charges."
+            answer: "No. All TryIPTV subscriptions are one-time payments via Cryptocurrency, PayPal, and Stripe. There are no automatic renewals or recurring charges."
         },
         {
             question: "What devices are compatible?",

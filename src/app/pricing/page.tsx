@@ -20,7 +20,7 @@ const T = PRODUCT_TRUTHS;
 export function generateMetadata(): Metadata {
   const title = "IPTV Subscription Plans & Pricing 2026 | TryIPTV";
   const description =
-    "IPTV subscription pricing: TryIPTV prepaid plans are $15.82 for 1 month, $38.30 for 3, $59.15 for 6 or $88.23 for 12. 2 connections, no auto-renewal.";
+    "IPTV subscription pricing: TryIPTV plans are $15.82 for 1 month, $38.30 for 3, $59.15 for 6 or $88.23 for 12. 2 connections, no auto-renewal.";
 
   return {
     ...generatePageMetadata({ title, description, canonical: "/pricing" }),
@@ -32,7 +32,7 @@ const quickFacts = [
   "Plans from $15.82",
   "1 / 3 / 6 / 12 Months",
   "2 Simultaneous Connections",
-  "Prepaid Billing",
+  "One-Time Payment",
   "No Automatic Renewal",
   "24-Hour Free Trial Available",
 ] as const;
@@ -40,7 +40,7 @@ const quickFacts = [
 const planDescriptions: Record<string, string> = {
   "1-month": "Lowest commitment for short-term testing or flexible viewing.",
   "3-months": "Short-term savings without committing to a six- or twelve-month term.",
-  "6-months": "Balanced prepaid term between upfront cost and duration.",
+  "6-months": "Balanced fixed term between upfront cost and duration.",
   "12-months": "Lowest effective monthly cost for ongoing viewing.",
 };
 
@@ -57,7 +57,7 @@ const formatUsd = (amount: number) => `$${amount % 1 === 0 ? amount.toFixed(0) :
 const planBestFor: Record<string, string> = {
   "1-month": "Lowest commitment",
   "3-months": "Short-term savings",
-  "6-months": "Balanced prepaid term",
+  "6-months": "Balanced fixed term",
   "12-months": "Lowest monthly equivalent",
 };
 
@@ -93,10 +93,10 @@ const orderSteps = [
 ] as const;
 
 const highlights = [
-  COMPANY.paymentMethods ? `${COMPANY.paymentMethods.replace(/^c/, "C")} accepted` : "Prepaid, one-time payment",
+  COMPANY.paymentMethods ? `${COMPANY.paymentMethods.replace(/^c/, "C")} accepted` : "One-time payment",
   "Quick activation after payment is confirmed",
   "Support on WhatsApp and email",
-  "Transparent, flat prepaid pricing",
+  "Transparent, flat one-time pricing",
 ];
 
 const whatYouGet: React.ReactNode[] = [
@@ -138,7 +138,7 @@ const streamFeatures = [
   {
     icon: Receipt,
     title: "Transparent pricing",
-    desc: `One flat prepaid price per plan, ${FACT_TEXT.fromPrice} to $88.23, shown here before you order.`,
+    desc: `One flat price per plan, ${FACT_TEXT.fromPrice} to $88.23, shown here before you order.`,
   },
   {
     icon: HeadphonesIcon,
@@ -188,7 +188,7 @@ const planFits = [
     body: "The 3-month plan covers a full sports season, a college semester, a work contract, or a summer abroad. You cut the monthly cost to $12.77 and keep the exit close: $9.16 cheaper than three monthly purchases.",
   },
   {
-    title: "6 Months - $59.15: nightly viewers who dislike annual prepay",
+    title: "6 Months - $59.15: nightly viewers who dislike paying a year upfront",
     body: "This is the plan for a household that watches most evenings. It gets the $9.86/month rate without locking a whole year of cash into something it just discovered. $59.15 is the point where the savings get real ($35.77 against monthly) while the risk stays small.",
   },
   {
@@ -209,7 +209,7 @@ const lifetimePoints = [
   { lead: "$0.24 a day.", rest: "A 12-month plan already reaches the per-day floor where lifetime pricing pretends to live." },
   { lead: "You re-decide once a year, not never.", rest: "If the service degrades, you stop paying. A lifetime buyer has no such lever." },
   { lead: "No auto-renewal on either side.", rest: "Nothing renews, nothing is charged, nothing needs cancelling." },
-  { lead: "The honest test:", rest: "divide a lifetime price by our 12-month rate. If it equals two or three years of prepaid terms, you're prepaying for years you probably won't use." },
+  { lead: "The honest test:", rest: "divide a lifetime price by our 12-month rate. If it equals two or three years of fixed terms, you're paying in advance for years you probably won't use." },
 ] as const;
 
 const prose = "text-base sm:text-[15px] leading-7 text-muted-foreground";
@@ -236,7 +236,7 @@ export default async function IPTVSubscription() {
             as="h1"
             eyebrow="Most Popular IPTV Subscription Plans"
             title={`Choose Your IPTV Plan, From ${FACT_TEXT.fromPrice}/Month`}
-            subtitle={`IPTV subscription pricing at a glance: prepaid plans for 1, 3, 6 or 12 months, with ${T.connections} simultaneous connections and no automatic renewal.`}
+            subtitle={`IPTV subscription pricing at a glance: plans for 1, 3, 6 or 12 months, with ${T.connections} simultaneous connections and no automatic renewal.`}
           />
           <div className="mt-5 flex flex-wrap justify-center gap-2 text-xs font-semibold sm:mt-6 sm:text-sm">
             {quickFacts.map((fact) => (
@@ -257,7 +257,7 @@ export default async function IPTVSubscription() {
           <div className="mx-auto mb-8 max-w-3xl text-center">
             <h2 className="font-headline text-xl font-bold text-foreground sm:text-2xl">How much does an IPTV subscription cost?</h2>
             <p className="mt-2 text-base leading-7 text-muted-foreground">
-              TryIPTV prepaid IPTV plans cost {FACT_TEXT.priceList}, which is{" "}
+              TryIPTV plans cost {FACT_TEXT.priceList}, which is{" "}
               {T.plans.map((p) => formatUsd(p.monthlyEquivalent)).join(", ").replace(/, ([^,]*)$/, " and $1")} a month. Every plan
               includes {T.channels} live channels, {T.vod} movies and shows and {T.connections} simultaneous connections, with no
               automatic renewal.
@@ -297,7 +297,7 @@ export default async function IPTVSubscription() {
                         <span className="font-headline text-[40px] font-bold leading-none tracking-tight text-foreground sm:text-[44px]">
                           {formatUsd(plan.price)}
                         </span>
-                        <span className="text-xs font-medium text-muted-foreground">prepaid</span>
+                        <span className="text-xs font-medium text-muted-foreground">one-time</span>
                       </div>
                       <p className="mt-2 text-xs text-muted-foreground">
                         <span className="font-medium text-foreground/90">
@@ -455,12 +455,12 @@ export default async function IPTVSubscription() {
             <div className="border-b border-white/[0.07] px-5 py-4 sm:px-6">
               <h3 className="font-headline text-lg font-extrabold text-foreground">Plan Duration &amp; Price Breakdown</h3>
               <p className="mt-1 text-base sm:text-sm leading-6 text-muted-foreground">
-                Every plan includes the same 2 simultaneous connections and features. Only the prepaid term, upfront total, and monthly equivalent change.
+                Every plan includes the same 2 simultaneous connections and features. Only the term, upfront total, and monthly equivalent change.
               </p>
             </div>
             <div tabIndex={0} role="region" aria-label="Plan prices table" className="overflow-x-auto">
               <table className="w-full min-w-[640px] text-left text-sm">
-                <caption className="sr-only">TryIPTV prepaid plan prices, durations, and best use cases</caption>
+                <caption className="sr-only">TryIPTV plan prices, durations, and best use cases</caption>
                 <thead className="border-b border-white/[0.07] text-xs uppercase tracking-wide text-muted-foreground">
                   <tr>
                     <th className="px-5 py-3 font-semibold sm:px-6">Plan</th>
@@ -653,7 +653,7 @@ export default async function IPTVSubscription() {
               usually in that order. Ignore the ads and look at where the market actually sits.
             </p>
             <p className={prose} data-facts-ignore="">
-              Broadly, in the US in 2026: monthly terms run roughly $10–$25, annual prepay lands around $60–$120, and anything far outside
+              Broadly, in the US in 2026: monthly terms run roughly $10–$25, annual plans land around $60–$120, and anything far outside
               those bands is telling you something. A $2.50 monthly plan either sells one connection, resells a trial, or won&apos;t
               answer in month two. A $45 monthly plan is mostly paying for a marketing budget.
             </p>
@@ -706,7 +706,7 @@ export default async function IPTVSubscription() {
               ))}
             </ul>
             <p className={`pt-2 ${prose}`}>
-              If your real question is can I stop thinking about this for a while, the 12-month term is the answer. It&apos;s prepaid, it
+              If your real question is can I stop thinking about this for a while, the 12-month term is the answer. It&apos;s paid once, it
               expires, and it costs $88.23.
             </p>
           </div>
@@ -774,7 +774,7 @@ export default async function IPTVSubscription() {
           <SectionHeader
             eyebrow="Why TryIPTV"
             title="Everything You Need to Stream"
-            subtitle="Built for everyday viewing: simple setup on the devices you already own, clear picture where your connection allows it, and a flat prepaid price."
+            subtitle="Built for everyday viewing: simple setup on the devices you already own, clear picture where your connection allows it, and a flat one-time price."
           />
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
