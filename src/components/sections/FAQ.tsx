@@ -62,6 +62,11 @@ const homepageFaqs: FaqItem[] = [
       `${(COMPANY.summary ?? "TryIPTV is an IPTV subscription service.").replace(/^TryIPTV is /, "TryIPTV (also written Try IPTV, at TryIPTV.com) is ")} TryIPTV is not a player app itself. New to IPTV? <a href="/guides/what-is-iptv" class="text-primary hover:underline">Read what IPTV is</a>, or read <a href="/about" class="text-primary hover:underline">more about TryIPTV</a>, including how ordering, the free trial and refunds work.`,
   },
   {
+    question: "What is IPTV?",
+    answer:
+      'IPTV (Internet Protocol Television) delivers live TV channels and on-demand video over your internet connection instead of a cable or satellite signal. You watch it through a compatible IPTV player app on your own device. <a href="/guides/what-is-iptv" class="text-primary hover:underline">Read the full IPTV guide</a>.',
+  },
+  {
     question: "Does TryIPTV offer a free trial?",
     answer:
       'Yes. TryIPTV offers a 24-hour free trial at $0. <a href="/iptv-free-trial" class="text-primary hover:underline">Request trial access</a>.',
@@ -69,12 +74,12 @@ const homepageFaqs: FaqItem[] = [
   {
     question: "Which devices can I use?",
     answer:
-      'TryIPTV works with a compatible IPTV player on <a href="/devices/firestick-iptv" class="text-primary hover:underline">Fire TV Stick</a>, <a href="/devices/android-tv-iptv" class="text-primary hover:underline">Android TV</a>, <a href="/devices/samsung-tv-iptv" class="text-primary hover:underline">Samsung</a> and <a href="/devices/lg-tv-iptv" class="text-primary hover:underline">LG</a> smart TVs, <a href="/devices/apple-tv-iptv" class="text-primary hover:underline">Apple TV</a>, <a href="/devices/chromecast-iptv" class="text-primary hover:underline">Chromecast with Google TV</a>, <a href="/devices/mag-box-iptv" class="text-primary hover:underline">MAG boxes</a>, <a href="/devices/roku-iptv" class="text-primary hover:underline">Roku</a> (through AirPlay or screen mirroring), <a href="/devices/windows-iptv" class="text-primary hover:underline">Windows</a> and <a href="/devices/mac-iptv" class="text-primary hover:underline">Mac</a> computers, and <a href="/devices/iphone-iptv" class="text-primary hover:underline">iPhone and iPad</a>. Each link opens a step-by-step setup guide, or <a href="/devices" class="text-primary hover:underline">browse all device guides</a>.',
+      'TryIPTV works on most popular devices through a compatible IPTV player: <a href="/devices/firestick-iptv" class="text-primary hover:underline">Fire TV Stick</a>, <a href="/devices/android-tv-iptv" class="text-primary hover:underline">Android TV</a>, <a href="/devices/samsung-tv-iptv" class="text-primary hover:underline">Samsung</a> and <a href="/devices/lg-tv-iptv" class="text-primary hover:underline">LG</a> smart TVs, <a href="/devices/apple-tv-iptv" class="text-primary hover:underline">Apple TV</a>, <a href="/devices/chromecast-iptv" class="text-primary hover:underline">Chromecast with Google TV</a>, <a href="/devices/mag-box-iptv" class="text-primary hover:underline">MAG boxes</a>, <a href="/devices/windows-iptv" class="text-primary hover:underline">Windows</a> and <a href="/devices/mac-iptv" class="text-primary hover:underline">Mac</a> computers, and <a href="/devices/iphone-iptv" class="text-primary hover:underline">iPhone and iPad</a>. <a href="/devices/roku-iptv" class="text-primary hover:underline">Roku</a> works through AirPlay or screen mirroring. Each link opens a step-by-step setup guide, or <a href="/devices" class="text-primary hover:underline">browse all device guides</a>.',
   },
   {
     question: "How do I set up TryIPTV?",
     answer:
-      'Install a compatible player, then enter the account details or M3U playlist URL provided after confirmation. <a href="/setup" class="text-primary hover:underline">View the setup guide</a>.',
+      'Setup takes three steps: install a compatible IPTV player such as TiviMate or IPTV Smarters, enter the Xtream Codes login or M3U playlist URL that support sends after confirmation, then wait for the channel list to load. <a href="/setup" class="text-primary hover:underline">View the setup guide</a>.',
   },
   {
     question: "How many simultaneous connections are included?",
@@ -93,7 +98,7 @@ const homepageFaqs: FaqItem[] = [
   {
     question: "Can I get a refund?",
     answer:
-      'Only if TryIPTV cannot provide a working subscription. Once your account is activated and the details are delivered, sales are final. <a href="/refund-policy" class="text-primary hover:underline">Read the refund policy</a>.',
+      'Yes, but only if TryIPTV cannot provide a working subscription. Once your account is activated and the details are delivered, sales are final. <a href="/refund-policy" class="text-primary hover:underline">Read the refund policy</a>.',
   },
   {
     question: "How do I pay?",
@@ -109,7 +114,7 @@ const homepageFaqs: FaqItem[] = [
   },
   {
     question: "Which plan should I choose?",
-    answer: `Start with the free 24-hour trial, then choose by how long you plan to watch. ${PRODUCT_TRUTHS.plans[0].duration} costs $${PRODUCT_TRUTHS.plans[0].price.toFixed(2)} for short-term use, ${PRODUCT_TRUTHS.plans[1].duration} ($${PRODUCT_TRUTHS.plans[1].price.toFixed(2)}) and ${PRODUCT_TRUTHS.plans[2].duration} ($${PRODUCT_TRUTHS.plans[2].price.toFixed(2)}) lower the monthly cost, and ${PRODUCT_TRUTHS.plans[3].duration} ($${PRODUCT_TRUTHS.plans[3].price.toFixed(2)}, about $${PRODUCT_TRUTHS.plans[3].monthlyEquivalent.toFixed(2)} a month) is the cheapest per month. Every plan is a one-time payment with ${PRODUCT_TRUTHS.connections} connections. <a href="/pricing" class="text-primary hover:underline">Compare all plans</a>.`,
+    answer: `Start with the free 24-hour trial, then choose by how long you plan to watch. ${PRODUCT_TRUTHS.plans[0].duration} costs $${PRODUCT_TRUTHS.plans[0].price.toFixed(2)} and suits short-term use. ${PRODUCT_TRUTHS.plans[1].duration} ($${PRODUCT_TRUTHS.plans[1].price.toFixed(2)}) and ${PRODUCT_TRUTHS.plans[2].duration} ($${PRODUCT_TRUTHS.plans[2].price.toFixed(2)}) lower the monthly cost. ${PRODUCT_TRUTHS.plans[3].duration} ($${PRODUCT_TRUTHS.plans[3].price.toFixed(2)}, about $${PRODUCT_TRUTHS.plans[3].monthlyEquivalent.toFixed(2)} a month) is the cheapest per month. Every plan is a one-time payment with ${PRODUCT_TRUTHS.connections} connections. <a href="/pricing" class="text-primary hover:underline">Compare all plans</a>.`,
   },
   {
     question: "Is IPTV cheaper than cable?",
@@ -119,11 +124,19 @@ const homepageFaqs: FaqItem[] = [
   {
     question: "What internet speed do I need for IPTV?",
     // 25/50 Mbps are TryIPTV's headroom recommendations; the Netflix minimums (3 and 15 Mbps) are the cited outside reference.
-    answer: 'Around 25 Mbps of stable internet is comfortable for one HD stream, and about 50 Mbps for 4K. These are our recommendations, with headroom for live TV and other devices on your network; for comparison, Netflix lists 3 Mbps or higher for HD (720p) and 15 Mbps or higher for 4K (<a href="https://help.netflix.com/en/node/306" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Netflix speed recommendations</a>). If two devices stream at the same time, you need more. A wired Ethernet connection is steadier than Wi-Fi, especially at busy peak times. <a href="/guides/iptv-internet-speed" class="text-primary hover:underline">See the IPTV internet speed guide</a> for every quality level.',
+    answer: 'Around 25 Mbps of stable internet is comfortable for one HD stream, and about 50 Mbps for 4K. These are our own recommendations, which leave room for live TV and other devices on your network. For comparison, Netflix lists 3 Mbps or higher for HD (720p) and 15 Mbps or higher for 4K (<a href="https://help.netflix.com/en/node/306" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Netflix speed recommendations</a>). If two devices stream at the same time, you need more. A wired Ethernet connection is steadier than Wi-Fi, especially at busy peak times. <a href="/guides/iptv-internet-speed" class="text-primary hover:underline">See the IPTV internet speed guide</a> for every quality level.',
   },
   {
     question: "Why does IPTV buffer, and how do I fix it?",
-    answer: 'IPTV usually buffers when video data does not reach your player fast or steadily enough: weak Wi-Fi, a busy home network, a slow device, or a problem with one channel\'s feed. Switch to Ethernet or 5 GHz Wi-Fi, restart the player app and router, and try a different channel. If only one channel buffers while others play normally, message support with the channel name. <a href="/help/iptv-buffering" class="text-primary hover:underline">Follow the IPTV buffering fix guide</a>.',
+    answer: 'To fix IPTV buffering, switch to Ethernet or 5 GHz Wi-Fi, restart the player app and router, and try a different channel. Buffering usually means video data is not reaching your player fast or steadily enough: weak Wi-Fi, a busy home network, a slow device, or a problem with one channel\'s feed. If only one channel buffers while others play normally, message support with the channel name. <a href="/help/iptv-buffering" class="text-primary hover:underline">Follow the IPTV buffering fix guide</a>.',
+  },
+  {
+    question: "What if a channel stops working?",
+    answer: `Message support on WhatsApp or at support@tryiptv.com with the channel name and the device you use.${
+      COMPANY.support.responseTime
+        ? ` Support replies ${COMPANY.support.responseTime.replace(/^Typically/, "typically")}${COMPANY.support.hours ? ` (${COMPANY.support.hours})` : ""}.`
+        : ""
+    } If TryIPTV cannot provide a working subscription, the <a href="/refund-policy" class="text-primary hover:underline">refund policy</a> applies. <a href="/help/iptv-not-working" class="text-primary hover:underline">See the IPTV not working guide</a>.`,
   },
   {
     question: "Do I need a VPN for IPTV?",

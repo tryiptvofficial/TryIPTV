@@ -13,6 +13,11 @@ const cableDrawbacks = [
   "Usually more expensive once fees are added",
 ];
 
+const firstPlan = PRODUCT_TRUTHS.plans[0];
+const lastPlan = PRODUCT_TRUTHS.plans[PRODUCT_TRUTHS.plans.length - 1];
+// One string so the prices render as plain text ("$15.82"), not split by React text markers.
+const priceAnswer = `TryIPTV costs $${firstPlan.price.toFixed(2)} for one month, or about $${lastPlan.monthlyEquivalent.toFixed(2)} a month on the ${parseInt(lastPlan.duration, 10)}-month plan, with no set-top box to rent and no automatic renewal.`;
+
 const tryIptvIncluded = [
   `Support on WhatsApp and email${COMPANY.support.hours ? `, ${COMPANY.support.hours}` : ""}`,
   "HD and 4K streams where available",
@@ -28,9 +33,21 @@ export function WhyChooseTryIPTV() {
         <SectionHeader
           align="left"
           eyebrow="Stream More. Pay Less"
-          title="What Makes Our IPTV Subscription Stand Out"
-          subtitle="Comparing IPTV with cable? TryIPTV works on the devices you already use. After you order, you get your login in one of two formats: an Xtream Codes login (a server address, username and password) or an M3U link (a playlist address). You enter it in a compatible IPTV player app."
+          title="How Is TryIPTV Different From Cable TV?"
+          className="mb-4 sm:mb-4 lg:mb-4"
         />
+        {/* Answer first; the cable figure is the same labelled estimate as on /pricing, so check:facts skips it. */}
+        <div className="mb-10 max-w-2xl space-y-3 text-base leading-relaxed text-muted-foreground sm:mb-12 sm:text-[16.5px] lg:mb-14">
+          <p>
+            {priceAnswer}{" "}
+            <span data-facts-ignore>Our estimate for a typical US cable bill is $130–$170 a month once fees are added.</span>{" "}
+            You watch on devices you already own, with {PRODUCT_TRUTHS.connections} simultaneous connections on every plan.
+          </p>
+          <p>
+            After you order, you get your login in one of two formats: an Xtream Codes login (a server address, username and
+            password) or an M3U link (a playlist address). You enter it in a compatible IPTV player app.
+          </p>
+        </div>
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-5">
           <div className="rounded-2xl border border-white/[0.07] bg-card p-6">

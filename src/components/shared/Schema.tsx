@@ -47,8 +47,8 @@ interface PageSchemaProps {
   keep?: string[];
   /** WebPage dateModified for pages without an Article (YYYY-MM-DD from site-routes.ts). */
   dateModified?: string;
-  /** WebPage primaryImageOfPage URL (e.g. the page's share image). */
-  primaryImage?: string;
+  /** WebPage primaryImageOfPage (e.g. the page's share image), with its real pixel size. */
+  primaryImage?: { url: string; width: number; height: number };
 }
 
 const typeOf = (node: any): string => (Array.isArray(node?.['@type']) ? node['@type'][0] : node?.['@type']) ?? '';
@@ -101,6 +101,7 @@ export function PageSchema({ path, name, description, type = 'WebPage', nodes, k
       ? { description: existingPage?.description ?? description ?? article?.description }
       : {}),
     isPartOf: { '@id': WEBSITE_ID },
+    publisher: { '@id': ORGANIZATION_ID },
     inLanguage: 'en-US',
     ...(['AboutPage', 'ContactPage'].includes(existingPage ? typeOf(existingPage) : type) || path === '/'
       ? { about: { '@id': ORGANIZATION_ID } }
@@ -110,7 +111,7 @@ export function PageSchema({ path, name, description, type = 'WebPage', nodes, k
     ...(main && !existingPage?.mainEntity && !['AboutPage', 'ContactPage', 'ProfilePage'].includes(existingPage ? typeOf(existingPage) : type)
       ? { mainEntity: { '@id': main['@id'] } }
       : {}),
-    ...(primaryImage ? { primaryImageOfPage: { '@type': 'ImageObject', url: primaryImage } } : {}),
+    ...(primaryImage ? { primaryImageOfPage: { '@type': 'ImageObject', url: primaryImage.url, contentUrl: primaryImage.url, width: primaryImage.width, height: primaryImage.height } } : {}),
     ...((article?.dateModified ?? dateModified) ? { dateModified: article?.dateModified ?? dateModified } : {}),
     ...(reviewedBy ? { reviewedBy } : {}),
   };

@@ -15,7 +15,7 @@ import { getLastModified } from "@/lib/site-routes";
 
 const title = "Best IPTV Service 2026 | 24-Hour Free Trial | TryIPTV";
 const description =
-  "TryIPTV offers 25,000+ live channels and 120,000+ movies & TV shows, 2 connections, IPTV plans with no auto-renewal, and a 24-hour free trial.";
+  "Stream 25,000+ live channels and 120,000+ movies & TV shows on 2 connections. IPTV plans have no auto-renewal. Start with a 24-hour free trial.";
 const ogDescription =
   "Stream 25,000+ live channels and 120,000+ movies & TV shows with TryIPTV. Get 2 connections, no auto-renewal, and a 24-hour free trial.";
 const twitterDescription =
@@ -63,7 +63,7 @@ export default function Home() {
         description={description}
         nodes={[]}
         dateModified={getLastModified("/")}
-        primaryImage="https://www.tryiptv.com/images/best-iptv-service-og.jpg"
+        primaryImage={{ url: "https://www.tryiptv.com/images/best-iptv-service-og.jpg", width: 1024, height: 536 }}
       />
       <Hero />
       <HomePricing />
