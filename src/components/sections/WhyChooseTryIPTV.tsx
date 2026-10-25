@@ -1,29 +1,34 @@
 import Link from "next/link";
-import { CheckIcon, X } from "lucide-react";
 import { Container } from "../shared/Container";
 import { Section } from "../shared/Section";
 import { SectionHeader } from "../shared/SectionHeader";
 import { PRODUCT_TRUTHS } from "@/lib/site-config";
 import { COMPANY } from "@/lib/site-data/company";
 
-// Cable points rest on the sourced cable estimates on /pricing (about 140 channels, $100–$170 a month with fees).
-const cableDrawbacks = [
-  "Usually tied to a set-top box at home",
-  "Fewer channels in a typical package",
-  "Usually more expensive once fees are added",
-];
-
 const firstPlan = PRODUCT_TRUTHS.plans[0];
 const lastPlan = PRODUCT_TRUTHS.plans[PRODUCT_TRUTHS.plans.length - 1];
 // One string so the prices render as plain text ("$15.82"), not split by React text markers.
 const priceAnswer = `TryIPTV costs $${firstPlan.price.toFixed(2)} for one month, or about $${lastPlan.monthlyEquivalent.toFixed(2)} a month on the ${parseInt(lastPlan.duration, 10)}-month plan, with no set-top box to rent and no automatic renewal.`;
 
-const tryIptvIncluded = [
-  `Support on WhatsApp and email${COMPANY.support.hours ? `, ${COMPANY.support.hours}` : ""}`,
-  "HD and 4K streams where available",
-  `${PRODUCT_TRUTHS.connections} simultaneous connections on every plan`,
-  "Works on Fire TV, Android TV, Apple TV and more, through a compatible IPTV player",
-  "One-time payment, with no automatic renewal",
+// Cable figures are the labelled estimates also used on /pricing (about 140 channels, $130–$170 a month with fees);
+// check:facts skips cells marked as estimates.
+const comparisonRows = [
+  {
+    label: "Monthly cost",
+    cable: "$130–$170 with fees (our estimate)",
+    estimate: true,
+    tryIptv: `$${firstPlan.price.toFixed(2)} for 1 month, or about $${lastPlan.monthlyEquivalent.toFixed(2)} a month on the ${parseInt(lastPlan.duration, 10)}-month plan`,
+  },
+  { label: "Live channels", cable: "About 140 in a typical package (our estimate)", estimate: true, tryIptv: `${PRODUCT_TRUTHS.channels}` },
+  { label: "Equipment", cable: "Usually a set-top box at home, often rented", estimate: false, tryIptv: "Devices you already own, with a compatible IPTV player app" },
+  { label: "Simultaneous connections", cable: "Varies by provider", estimate: false, tryIptv: `${PRODUCT_TRUTHS.connections} on every plan` },
+  { label: "Renewal", cable: "Usually renews automatically", estimate: false, tryIptv: "One-time payment, no automatic renewal" },
+  {
+    label: "Support",
+    cable: "Varies by provider",
+    estimate: false,
+    tryIptv: `WhatsApp and email${COMPANY.support.hours ? `, ${COMPANY.support.hours}` : ""}`,
+  },
 ];
 
 export function WhyChooseTryIPTV() {
@@ -49,30 +54,28 @@ export function WhyChooseTryIPTV() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-5">
-          <div className="rounded-2xl border border-white/[0.07] bg-card p-6">
-            <h3 className="font-headline text-lg font-bold tracking-tight text-foreground">Traditional Cable</h3>
-            <ul className="mt-4 space-y-2.5 text-base text-muted-foreground sm:text-sm">
-              {cableDrawbacks.map((item) => (
-                <li key={item} className="flex items-start gap-2.5">
-                  <X className="mt-0.5 size-4 shrink-0 text-muted-foreground" aria-hidden />
-                  <span><span className="sr-only">Drawback: </span>{item}</span>
-                </li>
+        <div className="overflow-x-auto rounded-2xl border border-white/[0.07] bg-card">
+          <table className="w-full text-left text-[13px] sm:text-sm">
+            <caption className="sr-only">Traditional cable TV compared with a TryIPTV subscription</caption>
+            <thead className="border-b border-white/[0.07] text-xs uppercase tracking-wide text-muted-foreground">
+              <tr>
+                <th scope="col" className="px-3 py-3 sm:px-5 font-semibold"><span className="sr-only">Feature</span></th>
+                <th scope="col" className="px-3 py-3 sm:px-5 font-semibold">Traditional cable</th>
+                <th scope="col" className="px-3 py-3 sm:px-5 font-semibold text-primary">TryIPTV</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-white/[0.06] text-muted-foreground">
+              {comparisonRows.map((row) => (
+                <tr key={row.label}>
+                  <th scope="row" className="px-3 py-3 sm:px-5 align-top font-semibold text-foreground">{row.label}</th>
+                  <td className="px-3 py-3 sm:px-5 align-top">
+                    {row.estimate ? <span data-facts-ignore>{row.cable}</span> : row.cable}
+                  </td>
+                  <td className="px-3 py-3 sm:px-5 align-top font-medium text-foreground">{row.tryIptv}</td>
+                </tr>
               ))}
-            </ul>
-          </div>
-
-          <div className="rounded-2xl border border-primary/40 bg-card p-6">
-            <h3 className="font-headline text-lg font-bold tracking-tight text-foreground">TryIPTV</h3>
-            <ul className="mt-4 space-y-2.5 text-base text-muted-foreground sm:text-sm">
-              {tryIptvIncluded.map((item) => (
-                <li key={item} className="flex items-start gap-2.5">
-                  <CheckIcon className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden />
-                  <span><span className="sr-only">Included: </span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+            </tbody>
+          </table>
         </div>
 
         <p className="mt-6 text-base text-muted-foreground sm:text-sm">

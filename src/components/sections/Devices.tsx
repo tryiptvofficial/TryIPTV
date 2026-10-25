@@ -35,7 +35,7 @@ export function Devices() {
           <SectionHeader
             align="left"
             title="Which Devices Does TryIPTV Work On?"
-            subtitle="TryIPTV works on Amazon Fire TV and Firestick, Android TV and Google TV, Samsung and LG smart TVs, Apple TV, iPhone and iPad, Android phones, Windows and Mac computers, and MAG boxes, plus Roku through AirPlay or screen mirroring. Each device needs a compatible IPTV player app; pick yours below for step-by-step setup."
+            subtitle="TryIPTV works on Fire TV, Android TV, Apple TV, Samsung and LG smart TVs, MAG boxes, phones, tablets and computers. Roku works through AirPlay or screen mirroring. Each device needs a compatible IPTV player app. Pick yours below for step-by-step setup."
             eyebrow="Device Compatibility"
           />
 
