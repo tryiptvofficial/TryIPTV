@@ -20,7 +20,7 @@ const T = PRODUCT_TRUTHS;
 export function generateMetadata(): Metadata {
   const title = "IPTV Subscription Plans & Pricing 2026 | TryIPTV";
   const description =
-    "IPTV subscription pricing: TryIPTV plans are $15.82 for 1 month, $38.30 for 3, $59.15 for 6 or $88.23 for 12. 2 connections, no auto-renewal.";
+    "IPTV plans from $7.35/mo on the 12-month plan, or $15.82 for 1 month. All 4 plans include 2 connections and no auto-renewal. Compare prices and savings.";
 
   return {
     ...generatePageMetadata({ title, description, canonical: "/pricing" }),
@@ -658,9 +658,9 @@ export default async function IPTVSubscription() {
               usually in that order. Ignore the ads and look at where the market actually sits.
             </p>
             <p className={prose} data-facts-ignore="">
-              Broadly, in the US in 2026: monthly terms run roughly $10–$25, annual plans land around $60–$120, and anything far outside
-              those bands is telling you something. A $2.50 monthly plan either sells one connection, resells a trial, or won&apos;t
-              answer in month two. A $45 monthly plan is mostly paying for a marketing budget.
+              Our estimate, not a market survey: in the US in 2026, monthly IPTV plans commonly cost about $10–$25 and annual plans
+              about $60–$120. Prices far below that often mean a single connection or a resold trial, so compare connections, refund
+              terms and support before you pay.
             </p>
             <p className={prose}>
               At $15.82 for a month and $88.23 for a year, TryIPTV sits mid-band on both. That&apos;s deliberate. We&apos;re not the cheapest

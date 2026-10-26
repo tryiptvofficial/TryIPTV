@@ -71,6 +71,11 @@ const homepageFaqs: FaqItem[] = [
       'You need three things. First, a compatible device such as a Fire TV Stick or smart TV. Second, a stable internet connection of about 25 Mbps (megabits per second) for HD. Third, an IPTV player app such as TiviMate or IPTV Smarters. TryIPTV is not a player app itself; support sends your login after you order. <a href="/guides/how-does-iptv-work" class="text-primary hover:underline">See how IPTV works step by step</a>.',
   },
   {
+    question: "Which IPTV player app should I use?",
+    answer:
+      'Use any compatible IPTV player that accepts an Xtream Codes login or an M3U link; TryIPTV does not require one specific app. TiviMate and IPTV Smarters are two common choices, so pick one that is available for your device. <a href="/players" class="text-primary hover:underline">Compare compatible IPTV players</a>.',
+  },
+  {
     question: "Does TryIPTV offer a free trial?",
     answer:
       '<strong class="font-semibold text-foreground">Yes.</strong> TryIPTV offers a 24-hour free trial at $0. <a href="/iptv-free-trial" class="text-primary hover:underline">Request trial access</a>.',
@@ -110,7 +115,7 @@ const homepageFaqs: FaqItem[] = [
   },
   {
     question: "Is TryIPTV legit?",
-    answer: `TryIPTV is run by ${COMPANY.legalName ?? "its operating company"}${COMPANY.location ? `, a company based in ${COMPANY.location}` : ""}${COMPANY.foundingYear ? `, operating since ${COMPANY.foundingYear}` : ""}. If TryIPTV cannot provide a working subscription, the <a href="/refund-policy" class="text-primary hover:underline">refund policy</a> applies. See the <a href="/about" class="text-primary hover:underline">company details and contact</a>.`,
+    answer: `<strong class="font-semibold text-foreground">Yes.</strong> TryIPTV is run by ${COMPANY.legalName ?? "its operating company"}${COMPANY.location ? `, a company based in ${COMPANY.location}` : ""}${COMPANY.foundingYear ? `, operating since ${COMPANY.foundingYear}` : ""}. If TryIPTV cannot provide a working subscription, the <a href="/refund-policy" class="text-primary hover:underline">refund policy</a> applies. See the <a href="/about" class="text-primary hover:underline">company details and contact</a>.`,
   },
   {
     question: "How do I pay?",

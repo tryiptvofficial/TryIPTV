@@ -8,6 +8,7 @@ import { Section } from "../shared/Section";
 import { SectionHeader } from "../shared/SectionHeader";
 import { cn } from "@/lib/utils";
 import { PRODUCT_TRUTHS } from "@/lib/site-config";
+import { lowestMonthly, usd } from "@/lib/plan-pricing";
 
 const PLANS = [
   {
@@ -87,7 +88,8 @@ export function HomePricing() {
         <SectionHeader
           eyebrow="IPTV Pricing"
           title="IPTV Subscription Plans"
-          subtitle={`Choose your ideal IPTV plan with ${PRODUCT_TRUTHS.channels} live channels, HD and 4K streaming where available, and fast activation. All plans include ${PRODUCT_TRUTHS.connections} simultaneous connections, support on WhatsApp and email, no automatic renewal, and prices in USD.`}
+          // Answer-first: the price leads, so this is the passage quoted for "how much does TryIPTV cost".
+          subtitle={`TryIPTV plans cost ${usd(PRODUCT_TRUTHS.plans[0].price)} for 1 month, or about ${lowestMonthly} a month on the 12-month plan (${usd(PRODUCT_TRUTHS.plans[3].price)} paid once). Every plan includes ${PRODUCT_TRUTHS.channels} live channels, HD and 4K streaming where available, ${PRODUCT_TRUTHS.connections} simultaneous connections, WhatsApp and email support, and no automatic renewal. Prices are in USD.`}
         />
 
         <div className="mx-auto grid max-w-md grid-cols-1 gap-4 sm:max-w-none sm:grid-cols-2 lg:gap-5 xl:grid-cols-4">
