@@ -22,46 +22,49 @@ export default {
         headline: ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
         code: ["monospace"],
       },
+      // Literal values (the same as the :root variables in globals.css, which never change: the site is
+      // dark-only) so Tailwind can build real see-through fallbacks for /opacity utilities in browsers
+      // without color-mix() (iOS Safari < 16.4). With var() it falls back to the solid colour.
       colors: {
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        background: "hsl(150 20% 2%)",
+        foreground: "hsl(150 11% 96%)",
         card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+          DEFAULT: "hsl(150 13% 4%)",
+          foreground: "hsl(150 11% 96%)",
         },
         popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
+          DEFAULT: "hsl(150 12% 6%)",
+          foreground: "hsl(150 11% 96%)",
         },
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "hsl(150 100% 47%)",
+          foreground: "hsl(0 0% 0%)",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          DEFAULT: "hsl(150 10% 7%)",
+          foreground: "hsl(150 11% 96%)",
         },
         muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+          DEFAULT: "hsl(150 8% 8%)",
+          foreground: "hsl(150 3% 68%)",
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+          DEFAULT: "hsl(150 100% 56%)",
+          foreground: "hsl(150 20% 2%)",
         },
         destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
+          DEFAULT: "hsl(0 62.8% 30.6%)",
+          foreground: "hsl(0 0% 98%)",
         },
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
+        border: "hsl(150 8% 18%)",
+        input: "hsl(150 8% 18%)",
+        ring: "hsl(150 100% 47%)",
         chart: {
-          "1": "hsl(var(--chart-1))",
-          "2": "hsl(var(--chart-2))",
-          "3": "hsl(var(--chart-3))",
-          "4": "hsl(var(--chart-4))",
-          "5": "hsl(var(--chart-5))",
+          "1": "hsl(12 76% 61%)",
+          "2": "hsl(173 58% 39%)",
+          "3": "hsl(197 37% 24%)",
+          "4": "hsl(43 74% 66%)",
+          "5": "hsl(27 87% 67%)",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",

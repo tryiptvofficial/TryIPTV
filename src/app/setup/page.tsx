@@ -690,7 +690,8 @@ export default function SetupPage() {
 
           <div className="mt-8 text-center text-base sm:text-xs text-muted-foreground">
             Looking for device-specific instructions with step-by-step screenshots? Visit our{" "}
-            <Link href="/devices" className="text-primary font-semibold hover:underline">
+            {/* 44px tall on touch screens (same pattern as the footer links); normal inline text with a mouse. */}
+            <Link href="/devices" className="inline-flex min-h-11 items-center text-primary font-semibold hover:underline pointer-fine:min-h-0">
               All Devices Directory
             </Link>{" "}
             or select your hardware above.

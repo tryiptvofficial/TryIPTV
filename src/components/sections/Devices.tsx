@@ -1,26 +1,21 @@
 import type { ComponentType } from "react";
 import Link from "next/link";
-import { ArrowRight, Flame, Monitor, Tv } from "lucide-react";
-import {
-  SiAndroid,
-  SiAppletv,
-  SiLg,
-  SiMacos,
-  SiRoku,
-  SiSamsung,
-} from "react-icons/si";
+import { ArrowRight, Flame, Laptop, Monitor, Tv, TvMinimal, TvMinimalPlay } from "lucide-react";
+import { SiAndroid, SiAppletv, SiLg } from "react-icons/si";
 
 import { Container } from "../shared/Container";
 import { SectionHeader } from "../shared/SectionHeader";
 import { Section } from "../shared/Section";
 import { devices } from "@/lib/site-data/devices";
 
+// macOS, Roku and Samsung use plain glyphs: their wordmark logos shrink to 3-6px-tall letters at icon
+// size. The device name sits next to each icon, so nothing is lost.
 const deviceIconMap: Record<string, ComponentType<{ className?: string }>> = {
-  SiMacos,
+  SiMacos: Laptop,
   SiAndroid,
   Monitor,
-  SiRoku,
-  SiSamsung,
+  SiRoku: TvMinimalPlay,
+  SiSamsung: TvMinimal,
   SiLg,
   Flame,
   Tv,
