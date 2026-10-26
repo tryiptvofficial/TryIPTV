@@ -105,9 +105,10 @@ export function GuideToc({ items, className, variant = "desktop" }: GuideTocProp
     >
       <div className="flex items-center gap-2 pb-3 mb-2 border-b border-white/[0.08]">
         <ListFilter className="h-4 w-4 text-primary" aria-hidden="true" />
-        <h3 className="font-headline text-xs font-bold uppercase tracking-wider text-foreground">
+        {/* A label, not a heading: as an h3 it showed up inside the page outline (e.g. under the FAQ h2). */}
+        <p className="font-headline text-xs font-bold uppercase tracking-wider text-foreground">
           On This Page
-        </h3>
+        </p>
       </div>
 
       <ul className="space-y-1 text-xs [max-height:calc(100vh-14rem)] supports-[height:100dvh]:max-h-[calc(100dvh-14rem)] overflow-y-auto pr-1">

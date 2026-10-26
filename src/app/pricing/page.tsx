@@ -456,7 +456,7 @@ export default async function IPTVSubscription() {
           {/* Plan Comparison Table */}
           <div className="mt-10 rounded-xl border border-white/[0.08] bg-card">
             <div className="border-b border-white/[0.07] px-5 py-4 sm:px-6">
-              <h3 className="font-headline text-lg font-extrabold text-foreground">Plan Duration &amp; Price Breakdown</h3>
+              <h2 className="font-headline text-lg font-extrabold text-foreground">Plan Duration &amp; Price Breakdown</h2>
               <p className="mt-1 text-base sm:text-sm leading-6 text-muted-foreground">
                 Every plan includes the same 2 simultaneous connections and features. Only the term, upfront total, and monthly equivalent change.
               </p>

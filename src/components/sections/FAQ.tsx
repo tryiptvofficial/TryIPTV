@@ -58,7 +58,7 @@ const homepageFaqs: FaqItem[] = [
   {
     question: "What is TryIPTV?",
     answer:
-      `${(COMPANY.summary ?? "TryIPTV is an IPTV subscription service.").replace(/^TryIPTV is /, "TryIPTV (also written Try IPTV, at TryIPTV.com) is ")} TryIPTV is not a player app itself. Read more <a href="/about" class="text-primary hover:underline">about TryIPTV and its operator</a>.`,
+      `${(COMPANY.summary ?? "TryIPTV is an IPTV subscription service.").replace(/^TryIPTV is /, "TryIPTV (also written Try IPTV, at TryIPTV.com) is ")}<br /><br />TryIPTV is not a player app itself. Read more <a href="/about" class="text-primary hover:underline">about TryIPTV and its operator</a>.`,
   },
   {
     question: "What is IPTV?",
@@ -73,7 +73,7 @@ const homepageFaqs: FaqItem[] = [
   {
     question: "Which IPTV player app should I use?",
     answer:
-      'Use any compatible IPTV player that accepts an Xtream Codes login or an M3U link; TryIPTV does not require one specific app. TiviMate and IPTV Smarters are two common choices, so pick one that is available for your device. <a href="/players" class="text-primary hover:underline">Compare compatible IPTV players</a>.',
+      'Use any compatible IPTV player that accepts an Xtream Codes login or an M3U link; TryIPTV does not require one specific app. TiviMate and IPTV Smarters are two common choices, so pick one that is available for your device.<br /><br />Other apps that work with the same login: <a href="/players/perfect-player" class="text-primary hover:underline">Perfect Player</a>, <a href="/players/xciptv" class="text-primary hover:underline">XCIPTV</a>, <a href="/players/iptv-extreme" class="text-primary hover:underline">IPTV Extreme</a>, <a href="/players/ott-navigator" class="text-primary hover:underline">OTT Navigator</a> and <a href="/players/televizo" class="text-primary hover:underline">Televizo</a>. <a href="/players" class="text-primary hover:underline">Compare compatible IPTV players</a>.',
   },
   {
     question: "What is the difference between Xtream Codes and M3U?",
@@ -88,7 +88,7 @@ const homepageFaqs: FaqItem[] = [
   {
     question: "Which devices can I use?",
     answer:
-      'TryIPTV works on <a href="/devices/firestick-iptv" class="text-primary hover:underline">Fire TV Stick</a>, <a href="/devices/android-tv-iptv" class="text-primary hover:underline">Android TV</a>, <a href="/devices/samsung-tv-iptv" class="text-primary hover:underline">Samsung</a> and <a href="/devices/lg-tv-iptv" class="text-primary hover:underline">LG</a> smart TVs, <a href="/devices/apple-tv-iptv" class="text-primary hover:underline">Apple TV</a>, <a href="/devices/chromecast-iptv" class="text-primary hover:underline">Chromecast with Google TV</a> and <a href="/devices/mag-box-iptv" class="text-primary hover:underline">MAG boxes</a>, through a compatible IPTV player app. It also works on <a href="/devices/windows-iptv" class="text-primary hover:underline">Windows</a>, <a href="/devices/mac-iptv" class="text-primary hover:underline">Mac</a>, and <a href="/devices/iphone-iptv" class="text-primary hover:underline">iPhone and iPad</a>. <a href="/devices/roku-iptv" class="text-primary hover:underline">Roku</a> works through AirPlay or screen mirroring. Each link opens a setup guide, or <a href="/devices" class="text-primary hover:underline">browse all device guides</a>.',
+      'TryIPTV works on <a href="/devices/firestick-iptv" class="text-primary hover:underline">Fire TV Stick</a>, <a href="/devices/android-tv-iptv" class="text-primary hover:underline">Android TV</a>, <a href="/devices/samsung-tv-iptv" class="text-primary hover:underline">Samsung</a> and <a href="/devices/lg-tv-iptv" class="text-primary hover:underline">LG</a> smart TVs, <a href="/devices/apple-tv-iptv" class="text-primary hover:underline">Apple TV</a>, <a href="/devices/chromecast-iptv" class="text-primary hover:underline">Chromecast with Google TV</a> and <a href="/devices/mag-box-iptv" class="text-primary hover:underline">MAG boxes</a> (IPTV set-top boxes), through a compatible IPTV player app.<br /><br />It also works on <a href="/devices/windows-iptv" class="text-primary hover:underline">Windows</a>, <a href="/devices/mac-iptv" class="text-primary hover:underline">Mac</a>, and <a href="/devices/iphone-iptv" class="text-primary hover:underline">iPhone and iPad</a>. <a href="/devices/roku-iptv" class="text-primary hover:underline">Roku</a> works through AirPlay (Apple\'s screen-casting feature) or screen mirroring. Each device name links to its setup guide, or <a href="/devices" class="text-primary hover:underline">browse all device guides</a>.',
   },
   {
     question: "How do I set up TryIPTV?",
@@ -97,7 +97,7 @@ const homepageFaqs: FaqItem[] = [
   },
   {
     question: "Is TryIPTV easy for beginners?",
-    answer: `<strong class="font-semibold text-foreground">Yes.</strong> Setup takes three steps: install a compatible IPTV player app, enter the login support sends you, and wait for the channel list to load. If you get stuck, support helps on WhatsApp or by email${COMPANY.support.hours ? `, ${COMPANY.support.hours}` : ""}. Read the <a href="/setup" class="text-primary hover:underline">universal IPTV setup guide</a>.`,
+    answer: `<strong class="font-semibold text-foreground">Yes.</strong> Setup takes three steps: install a compatible IPTV player app, enter the login support sends you, and wait for the channel list to load. No technical skills are needed.<br /><br />If you get stuck, support helps on WhatsApp or by email${COMPANY.support.hours ? `, ${COMPANY.support.hours}` : ""}. Read the <a href="/setup" class="text-primary hover:underline">universal IPTV setup guide</a>.`,
   },
   {
     question: "How many simultaneous connections are included?",
@@ -111,7 +111,7 @@ const homepageFaqs: FaqItem[] = [
   },  {
     question: "Is IPTV legal?",
     answer:
-      '<strong class="font-semibold text-foreground">Yes,</strong> IPTV as a technology is legal. Whether a particular service is legal depends on whether it holds the rights to what it streams and on the law where you live.<br /><br />Eurojust, the EU agency for criminal justice cooperation, says IPTV services are not illegal in themselves when the provider holds the correct licences for the content (<a href="https://www.eurojust.europa.eu/sites/default/files/assets/eurojust-iptv-flyer.pdf" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Eurojust IPTV factsheet (EU, PDF), checked October 2026</a>). This is general information, not legal advice. <a href="/disclaimer" class="text-primary hover:underline">Read the disclaimer</a>.',
+      '<strong class="font-semibold text-foreground">Yes,</strong> IPTV as a technology is legal. Whether a particular service is legal depends on whether it holds the rights to what it streams and on the law where you live.<br /><br />Eurojust, the EU agency for criminal justice cooperation, says IPTV services are not illegal in themselves. That holds when the provider has the correct licences for the content (<a href="https://www.eurojust.europa.eu/sites/default/files/assets/eurojust-iptv-flyer.pdf" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Eurojust IPTV factsheet (EU, PDF), checked October 2026</a>). This is general information, not legal advice. <a href="/disclaimer" class="text-primary hover:underline">Read the disclaimer</a>.',
   },
   {
     question: "Can I get a refund?",
@@ -141,7 +141,7 @@ const homepageFaqs: FaqItem[] = [
   {
     question: "Which plan should I choose?",
     // Short lead for voice answers, then the plan that fits each common situation.
-    answer: `Choose ${PRODUCT_TRUTHS.plans[3].duration} ($${PRODUCT_TRUTHS.plans[3].price.toFixed(2)}, about $${PRODUCT_TRUTHS.plans[3].monthlyEquivalent.toFixed(2)} a month) for the lowest monthly cost, or ${PRODUCT_TRUTHS.plans[0].duration} ($${PRODUCT_TRUTHS.plans[0].price.toFixed(2)}) for short-term use.<br /><br />Two TVs in different rooms: any plan works, since every plan includes ${PRODUCT_TRUTHS.connections} connections. One season or one event: ${PRODUCT_TRUTHS.plans[0].duration}. All year: ${PRODUCT_TRUTHS.plans[3].duration}. ${PRODUCT_TRUTHS.plans[1].duration} ($${PRODUCT_TRUTHS.plans[1].price.toFixed(2)}) and ${PRODUCT_TRUTHS.plans[2].duration} ($${PRODUCT_TRUTHS.plans[2].price.toFixed(2)}) sit in between. Not sure yet? Start with the free 24-hour trial. Every plan is a one-time payment. <a href="/pricing" class="text-primary hover:underline">Compare all plans</a>.`,
+    answer: `Choose ${PRODUCT_TRUTHS.plans[3].duration} ($${PRODUCT_TRUTHS.plans[3].price.toFixed(2)}, about $${PRODUCT_TRUTHS.plans[3].monthlyEquivalent.toFixed(2)} a month) for the lowest monthly cost, or ${PRODUCT_TRUTHS.plans[0].duration} ($${PRODUCT_TRUTHS.plans[0].price.toFixed(2)}) for short-term use.<br /><br />Every plan includes ${PRODUCT_TRUTHS.connections} simultaneous connections, so two TVs in different rooms work on any plan. For one season or one event, the ${PRODUCT_TRUTHS.plans[0].duration} plan ($${PRODUCT_TRUTHS.plans[0].price.toFixed(2)}) fits. For year-round viewing, the ${PRODUCT_TRUTHS.plans[3].duration} plan costs the least per month. The ${PRODUCT_TRUTHS.plans[1].duration} ($${PRODUCT_TRUTHS.plans[1].price.toFixed(2)}) and ${PRODUCT_TRUTHS.plans[2].duration} ($${PRODUCT_TRUTHS.plans[2].price.toFixed(2)}) plans sit in between. Not sure yet? Start with the free 24-hour trial. Every plan is a one-time payment. <a href="/pricing" class="text-primary hover:underline">Compare all plans</a>.`,
   },
   {
     question: "Can I watch live sports and PPV events?",
@@ -160,7 +160,7 @@ const homepageFaqs: FaqItem[] = [
   },
   {
     question: "How do I fix IPTV buffering?",
-    answer: 'To fix IPTV buffering, connect your device by Ethernet or 5 GHz Wi-Fi, restart the player app and your router, then try a different channel. If only one channel buffers while others play normally, message support with the channel name so they can check that feed.<br /><br />Buffering usually means video data is not reaching your player fast or steadily enough, often because of weak Wi-Fi, a busy home network or a slow device. <a href="/help/iptv-buffering" class="text-primary hover:underline">Follow the IPTV buffering fix guide</a>.',
+    answer: 'To fix IPTV buffering, try these steps in order:<ol class="my-2 list-decimal space-y-1 pl-5"><li>Connect your device by Ethernet or 5 GHz Wi-Fi.</li><li>Restart the player app and your router.</li><li>Try a different channel.</li><li>If only one channel buffers while others play normally, message support with the channel name so they can check that feed.</li></ol>Buffering usually means video data is not reaching your player fast or steadily enough, often because of weak Wi-Fi, a busy home network or a slow device. <a href="/help/iptv-buffering" class="text-primary hover:underline">Follow the IPTV buffering fix guide</a>.',
   },
   {
     question: "What if a channel stops working?",
@@ -172,7 +172,7 @@ const homepageFaqs: FaqItem[] = [
   },
   {
     question: "Do I need a VPN for IPTV?",
-    answer: '<strong class="font-semibold text-foreground">No,</strong> a VPN is not required to use TryIPTV. Some people use one for privacy or if their internet provider slows down streaming. Using a VPN is permitted under the <a href="/terms-conditions" class="text-primary hover:underline">Terms</a>, but it can lower your speed. <a href="/faq" class="text-primary hover:underline">Read the full answer in the IPTV FAQ</a>.',
+    answer: '<strong class="font-semibold text-foreground">No,</strong> a VPN is not required to use TryIPTV. Some people use one for privacy or if their internet provider slows down streaming.<br /><br />Using a VPN is permitted under the <a href="/terms-conditions" class="text-primary hover:underline">Terms</a>, but it can lower your speed. <a href="/faq" class="text-primary hover:underline">Read the full answer in the IPTV FAQ</a>.',
   },
 ];
 
