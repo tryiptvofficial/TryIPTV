@@ -236,8 +236,8 @@ export default async function IPTVSubscription() {
             as="h1"
             className="max-sm:mb-0"
             eyebrow="Most Popular IPTV Subscription Plans"
-            title={`Choose Your IPTV Plan, From ${FACT_TEXT.fromPrice}/Month`}
-            subtitle={`IPTV subscription pricing at a glance: plans for 1, 3, 6 or 12 months, with ${T.connections} simultaneous connections and no automatic renewal.`}
+            title={`Choose Your IPTV Plan, From ${FACT_TEXT.lowestMonthly}/Month`}
+            subtitle={`${FACT_TEXT.lowestMonthly} a month on the 12-month plan ($${T.plans[3].price.toFixed(2)} paid once), or ${FACT_TEXT.fromPrice} for 1 month. Every plan has ${T.connections} simultaneous connections and no automatic renewal.`}
           />
           <div className="mt-5 flex flex-wrap justify-center gap-2 text-xs font-semibold sm:mt-6 sm:text-sm">
             {/* Phones show the first 3 facts so the plan cards start near the top of the screen. */}
