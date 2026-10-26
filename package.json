@@ -15,7 +15,6 @@
     "test:responsive": "playwright test",
     "content:audit": "node scripts/content-audit.mjs",
     "indexnow": "node scripts/indexnow.mjs",
-    "google-indexing": "node scripts/google-indexing.mjs",
     "check:facts": "node scripts/check-facts.mjs",
     "gsc:test": "node scripts/gsc-test.mjs",
     "gsc:performance": "node scripts/gsc-performance.mjs",
