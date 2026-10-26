@@ -266,7 +266,7 @@ export default async function IPTVSubscription() {
               automatic renewal.
             </p>
           </div>
-          <div className="grid grid-cols-1 items-stretch gap-5 max-sm:order-1 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+          <div className="grid grid-cols-1 items-stretch gap-5 max-sm:order-1 sm:grid-cols-2 lg:gap-6 xl:grid-cols-4">
             {plans.map((plan, index) => {
               const savingsText = planSavingsExact[plan.id];
               const isLowestMonthly = plan.id === "12-months";

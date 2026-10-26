@@ -1,8 +1,7 @@
-"use client";
-
 import {
   ArrowUpRight,
   BookOpen,
+  ChevronDown,
   Mail,
   MessagesSquare,
 } from "lucide-react";
@@ -272,49 +271,42 @@ export function FAQ() {
             </div>
           </div>
 
-          {/* Right Column: Numbered Accordion */}
+          {/* Right Column: numbered questions. Native <details> needs no JavaScript, so this section
+              ships no client code; closed answers stay in the HTML, so they are crawlable. */}
           <div className="lg:col-span-7">
-            <Accordion
-              type="multiple"
-              defaultValue={["item-0"]}
-              className="border-t border-white/[0.07]"
-            >
+            <div className="border-t border-white/[0.07]">
               {homepageFaqs.map((faq, i) => (
-                <AccordionItem
-                  key={faq.question}
-                  value={`item-${i}`}
-                  className="border-b border-white/[0.07] [&>[role=region][data-state=closed]]:hidden"
-                >
-                  <AccordionTrigger className="gap-3.5 py-3 sm:py-3.5 text-left hover:no-underline group">
-                    <span className="flex items-start gap-3.5 sm:gap-5">
-                      {/* The number is CSS-generated so it stays out of the heading text. */}
+                <details key={faq.question} open={i === 0} className="group border-b border-white/[0.07]">
+                  {/* Questions stay h3s, as in the old accordion; a heading inside <summary> is valid HTML. */}
+                  <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-3.5 py-3 text-left sm:py-3.5 [&::-webkit-details-marker]:hidden">
+                    <h3 className="flex items-start gap-3.5 sm:gap-5">
+                      {/* The number is CSS-generated so it stays out of the question text. */}
                       <span
                         aria-hidden
                         data-n={String(i + 1).padStart(2, "0")}
-                        className="mt-0.5 font-mono text-xs sm:text-sm font-semibold text-muted-foreground/60 tabular-nums group-data-[state=open]:text-primary transition-colors shrink-0 before:content-[attr(data-n)]"
+                        className="mt-0.5 shrink-0 font-mono text-xs font-semibold tabular-nums text-muted-foreground/60 transition-colors before:content-[attr(data-n)] group-open:text-primary sm:text-sm"
                       />
-                      <span className="font-headline text-[15.5px] sm:text-[16.5px] font-semibold text-foreground/90 transition-colors group-hover:text-foreground group-data-[state=open]:text-foreground leading-snug">
+                      <span className="font-headline text-[15.5px] font-semibold leading-snug text-foreground/90 transition-colors group-hover:text-foreground group-open:text-foreground sm:text-[16.5px]">
                         {faq.question}
                       </span>
-                    </span>
-                  </AccordionTrigger>
-                  {/* forceMount keeps closed answers in the HTML (hidden until opened) so they are crawlable. */}
-                  <AccordionContent forceMount className="pr-3 pb-4.5 pl-7 sm:pl-10 text-base sm:text-[15px] leading-relaxed text-muted-foreground/95 [&_a]:underline [&_a]:decoration-primary/40 [&_a]:underline-offset-4 [&_a:hover]:decoration-primary">
-                    {/* A div, not a span: some answers contain a list. */}
-                    <div
-                      dangerouslySetInnerHTML={{
-                        __html: faq.answer.includes("support@tryiptv.com")
-                          ? faq.answer.replace(
-                              "support@tryiptv.com",
-                              "<!--email_off-->support@tryiptv.com<!--/email_off-->"
-                            )
-                          : faq.answer,
-                      }}
-                    />
-                  </AccordionContent>
-                </AccordionItem>
+                    </h3>
+                    <ChevronDown aria-hidden className="h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-180 motion-reduce:transition-none" />
+                  </summary>
+                  {/* A div, not a span: some answers contain a list. */}
+                  <div
+                    className="pr-3 pb-4.5 pl-7 text-base leading-relaxed text-muted-foreground/95 sm:pl-10 sm:text-[15px] [&_a]:underline [&_a]:decoration-primary/40 [&_a]:underline-offset-4 [&_a:hover]:decoration-primary"
+                    dangerouslySetInnerHTML={{
+                      __html: faq.answer.includes("support@tryiptv.com")
+                        ? faq.answer.replace(
+                            "support@tryiptv.com",
+                            "<!--email_off-->support@tryiptv.com<!--/email_off-->"
+                          )
+                        : faq.answer,
+                    }}
+                  />
+                </details>
               ))}
-            </Accordion>
+            </div>
           </div>
         </div>
       </Container>

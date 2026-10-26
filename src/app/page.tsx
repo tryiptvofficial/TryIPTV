@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import dynamic from "next/dynamic";
 import { Hero } from "@/components/sections/Hero";
 import { WhyChooseTryIPTV } from "@/components/sections/WhyChooseTryIPTV";
 import { HomePricing } from "@/components/sections/HomePricing";
@@ -8,7 +7,7 @@ import { Devices } from "@/components/sections/Devices";
 import { CustomerFeedback } from "@/components/sections/CustomerFeedback";
 import { CTA } from "@/components/sections/CTA";
 
-const FAQ = dynamic(() => import("@/components/sections/FAQ").then((mod) => mod.FAQ));
+import { FAQ } from "@/components/sections/FAQ";
 import { MobileBuyBar } from "@/components/shared/MobileBuyBar";
 import { PageSchema } from "@/components/shared/Schema";
 import { generateMetadata as generatePageMetadata } from "@/lib/site-config";

@@ -3,21 +3,9 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Container } from '@/components/shared/Container';
 import { Logo } from '@/components/shared/Logo';
-import dynamic from 'next/dynamic';
-import { ArrowUpRight, Menu } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
+import { MobileNav } from '@/components/shared/MobileNav';
 import { navLinks } from '@/lib/site-data/nav';
-
-const MobileNav = dynamic(
-  () => import('@/components/shared/MobileNav').then((mod) => mod.MobileNav),
-  {
-    loading: () => (
-      <Button variant="ghost" size="icon" className="size-11 lg:hidden" aria-label="Open navigation">
-        <Menu className="h-6 w-6" />
-        <span className="sr-only">Toggle Navigation</span>
-      </Button>
-    ),
-  }
-);
 
 export function Navbar() {
   return (

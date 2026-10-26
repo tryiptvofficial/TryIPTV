@@ -79,8 +79,10 @@ const INCLUDED_FEATURES = [
 ] as const;
 
 export function HomePricing() {
+  // Phones and tablets: scroll-mt-0 lands #pricing jumps below the 80px sticky header (the global
+  // scroll-margin-top: -5.5rem would put the eyebrow under it, as section padding is smaller there).
   return (
-    <Section id="pricing">
+    <Section id="pricing" className="max-lg:scroll-mt-0">
       <Container>
         <SectionHeader
           eyebrow="IPTV Pricing"
@@ -88,7 +90,7 @@ export function HomePricing() {
           subtitle={`Choose your ideal IPTV plan with ${PRODUCT_TRUTHS.channels} live channels, HD and 4K streaming where available, and fast activation. All plans include ${PRODUCT_TRUTHS.connections} simultaneous connections, support on WhatsApp and email, no automatic renewal, and prices in USD.`}
         />
 
-        <div className="mx-auto grid max-w-md grid-cols-1 gap-4 sm:max-w-none sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
+        <div className="mx-auto grid max-w-md grid-cols-1 gap-4 sm:max-w-none sm:grid-cols-2 lg:gap-5 xl:grid-cols-4">
           {PLANS.map((plan) => (
             <article
               key={plan.name}
