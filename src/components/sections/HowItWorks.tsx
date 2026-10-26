@@ -49,7 +49,7 @@ export function HowItWorks() {
         <SectionHeader
           align="left"
           title="How Do I Start With TryIPTV?"
-          subtitle={`To start with TryIPTV, choose a plan or request the free ${FACT_TEXT.trialHours}-hour trial on WhatsApp. Support sends your Xtream Codes or M3U login details, usually within ${PRODUCT_TRUTHS.activationTime}. Install a compatible IPTV player such as TiviMate or IPTV Smarters on your device, enter those details, and your channel list loads in the player.`}
+          subtitle={`To start with TryIPTV, choose a plan or request the free ${FACT_TEXT.trialHours}-hour trial on WhatsApp. Support sends your Xtream Codes or M3U login details, usually within ${PRODUCT_TRUTHS.activationTime}.`}
           eyebrow="Setup Process"
         />
         <ol role="list" className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:gap-5">
