@@ -16,8 +16,8 @@ import { AUTHORS } from './site-data/authors.ts';
  * - Adding a new approved URL: add an entry here first.
  * - Making a noindex page indexable: set `indexable: true` and set `lastModified`.
  * - Removing a URL: remove the entry and add a redirect in next.config.js.
- * - The sitemap (src/app/sitemap.ts) derives from this file. robots.txt is the static file
- *   public/robots.txt and is edited by hand.
+ * - The sitemap (src/app/sitemap.ts) derives from this file. robots.txt is served by
+ *   src/app/robots.txt/route.ts, which does not read this file (its crawler groups are edited there).
  */
 
 export type RouteSection =
