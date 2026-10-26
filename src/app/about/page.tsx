@@ -25,7 +25,7 @@ const PAYMENT_METHODS = COMPANY.paymentMethods;
 const SUPPORT_HOURS = COMPANY.support.hours;
 const LANGUAGES = COMPANY.support.languages;
 
-const title = "About TryIPTV: Who Runs It, Plans & Support | TryIPTV";
+const title = "About TryIPTV: Who Runs It, Plans & Support";
 const description =
   "Learn who runs TryIPTV, how the IPTV service works, what plans and the 24-hour free trial include, and how to reach support or request a refund.";
 const canonical = "/about";
