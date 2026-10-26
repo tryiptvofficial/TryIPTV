@@ -48,7 +48,7 @@ interface PageSchemaProps {
   /** WebPage dateModified for pages without an Article (YYYY-MM-DD from site-routes.ts). */
   dateModified?: string;
   /** WebPage primaryImageOfPage (e.g. the page's share image), with its real pixel size. */
-  primaryImage?: { url: string; width: number; height: number };
+  primaryImage?: { url: string; width: number; height: number; caption?: string };
 }
 
 const typeOf = (node: any): string => (Array.isArray(node?.['@type']) ? node['@type'][0] : node?.['@type']) ?? '';
@@ -111,7 +111,12 @@ export function PageSchema({ path, name, description, type = 'WebPage', nodes, k
     ...(main && !existingPage?.mainEntity && !['AboutPage', 'ContactPage', 'ProfilePage'].includes(existingPage ? typeOf(existingPage) : type)
       ? { mainEntity: { '@id': main['@id'] } }
       : {}),
-    ...(primaryImage ? { primaryImageOfPage: { '@type': 'ImageObject', '@id': `${url}#primaryimage`, url: primaryImage.url, contentUrl: primaryImage.url, width: primaryImage.width, height: primaryImage.height } } : {}),
+    ...(primaryImage
+      ? {
+          primaryImageOfPage: { '@type': 'ImageObject', '@id': `${url}#primaryimage`, url: primaryImage.url, contentUrl: primaryImage.url, width: primaryImage.width, height: primaryImage.height, ...(primaryImage.caption ? { caption: primaryImage.caption } : {}) },
+          image: { '@id': `${url}#primaryimage` },
+        }
+      : {}),
     ...((article?.dateModified ?? dateModified) ? { dateModified: article?.dateModified ?? dateModified } : {}),
     ...(reviewedBy ? { reviewedBy } : {}),
   };

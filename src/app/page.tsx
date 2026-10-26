@@ -61,7 +61,7 @@ export default function Home() {
         description={description}
         nodes={[]}
         dateModified={getLastModified("/")}
-        primaryImage={{ url: "https://www.tryiptv.com/images/best-iptv-service.png", width: 1024, height: 682 }}
+        primaryImage={{ url: "https://www.tryiptv.com/images/best-iptv-service.png", width: 1024, height: 682, caption: "Couple watching TV with TryIPTV streaming service" }}
       />
       <Hero />
       <HomePricing />
