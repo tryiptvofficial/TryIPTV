@@ -169,7 +169,7 @@ export function HomePricing() {
               __html: `<!--email_off--><a href="mailto:${COMPANY.support.email}?subject=Plan%20order" class="font-medium text-foreground underline underline-offset-4 hover:text-primary">${COMPANY.support.email}</a><!--/email_off-->`,
             }}
           />{" "}
-          with the plan you want). Choose 1 month for short-term use, 3 months for a shorter commitment, 6 months for balanced value, or 12 months for the lowest monthly equivalent. See the{" "}
+          with the plan you want). See the{" "}
           <Link href="/refund-policy" className="font-medium text-foreground underline underline-offset-4 hover:text-primary">
             refund policy
           </Link>

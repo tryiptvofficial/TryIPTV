@@ -97,12 +97,12 @@ const homepageFaqs: FaqItem[] = [
   },
   {
     question: "Is TryIPTV easy for beginners?",
-    answer: `<strong class="font-semibold text-foreground">Yes.</strong> Setup takes three steps: install a compatible IPTV player app, enter the login support sends you, and wait for the channel list to load. No technical skills are needed.<br /><br />If you get stuck, support helps on WhatsApp or by email${COMPANY.support.hours ? `, ${COMPANY.support.hours}` : ""}. Read the <a href="/setup" class="text-primary hover:underline">universal IPTV setup guide</a>.`,
+    answer: `<strong class="font-semibold text-foreground">Yes.</strong> Setup takes three steps: install a compatible IPTV player app, enter the login support sends you, and wait for the channel list to load. No technical skills are needed.<br /><br />If you get stuck, <a href="/contact-us" class="text-primary hover:underline">message support</a> on WhatsApp or by email. Read the <a href="/setup" class="text-primary hover:underline">universal IPTV setup guide</a>.`,
   },
   {
     question: "How many simultaneous connections are included?",
     answer:
-      `Every TryIPTV plan, and the free trial, includes ${PRODUCT_TRUTHS.connections} simultaneous connections, meaning up to two devices, such as two TVs in different rooms, can stream at the same time.`,
+      `Every TryIPTV plan, and the free trial, includes ${PRODUCT_TRUTHS.connections} simultaneous connections. That means two devices, such as two TVs in different rooms, can stream at the same time.`,
   },
   {
     question: "Do TryIPTV subscriptions renew automatically?",
@@ -151,12 +151,12 @@ const homepageFaqs: FaqItem[] = [
   {
     question: "Is IPTV cheaper than cable?",
     // Cable figures are the TryIPTV estimates shown on /pricing; check:facts skips them.
-    answer: `<strong class="font-semibold text-foreground">Usually, yes.</strong> TryIPTV costs $${PRODUCT_TRUTHS.plans[0].price.toFixed(2)} for one month, or about $${PRODUCT_TRUTHS.plans[3].monthlyEquivalent.toFixed(2)} a month on the 12-month plan, with no box to rent. <span data-facts-ignore>Our estimate for a typical US cable bill is $130–$170 a month with fees.</span><br /><br /><span data-facts-ignore>That is about $100–$120 a month advertised, before fees.</span> Channel line-ups differ, so test yours during the free trial. <a href="/pricing" class="text-primary hover:underline">See the full cost comparison</a>.`,
+    answer: `<strong class="font-semibold text-foreground">Usually, yes.</strong> TryIPTV costs $${PRODUCT_TRUTHS.plans[0].price.toFixed(2)} for one month, or about $${PRODUCT_TRUTHS.plans[3].monthlyEquivalent.toFixed(2)} a month on the 12-month plan, with no box to rent. <span data-facts-ignore>Our estimate for a typical US cable bill is $130–$170 a month with fees.</span><br /><br /><span data-facts-ignore>Cable providers typically advertise about $100–$120 a month before fees (our estimate).</span> Channel line-ups differ, so test yours during the free trial. <a href="/pricing" class="text-primary hover:underline">See the full cost comparison</a>.`,
   },
   {
     question: "What internet speed do I need for IPTV?",
     // 25/50 Mbps are TryIPTV's headroom recommendations; the Netflix minimums (3 and 15 Mbps) are the cited outside reference.
-    answer: 'IPTV needs about 25 Mbps of stable internet for one HD stream, and about 50 Mbps for 4K. These are our own recommendations.<br /><br />They leave room for live TV and other devices on your network. Two devices streaming at once need more, and wired Ethernet is steadier than Wi-Fi at busy times. For comparison, Netflix lists 3 Mbps or higher for HD (720p) and 15 Mbps or higher for 4K (<a href="https://help.netflix.com/en/node/306" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Netflix Help Center, checked October 2026</a>). <a href="/guides/iptv-internet-speed" class="text-primary hover:underline">See the IPTV internet speed guide</a> for every quality level.',
+    answer: 'IPTV needs about 25 Mbps of stable internet for one HD stream, and about 50 Mbps for 4K, based on TryIPTV\'s own recommendations.<br /><br />The 25 Mbps and 50 Mbps figures leave room for live TV and other devices on your network. Two devices streaming at once need more, and wired Ethernet is steadier than Wi-Fi at busy times. For comparison, Netflix lists 3 Mbps or higher for HD (720p) and 15 Mbps or higher for 4K (<a href="https://help.netflix.com/en/node/306" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Netflix Help Center, checked October 2026</a>). <a href="/guides/iptv-internet-speed" class="text-primary hover:underline">See the IPTV internet speed guide</a> for every quality level.',
   },
   {
     question: "How do I fix IPTV buffering?",
@@ -166,7 +166,7 @@ const homepageFaqs: FaqItem[] = [
     question: "What if a channel stops working?",
     answer: `Message support on WhatsApp or at support@tryiptv.com with the channel name and the device you use.${
       COMPANY.support.responseTime
-        ? ` Support replies ${COMPANY.support.responseTime.replace(/^Typically/, "typically")}${COMPANY.support.hours ? ` (${COMPANY.support.hours})` : ""}.`
+        ? ` Support replies ${COMPANY.support.responseTime.replace(/^Typically/, "typically")}.`
         : ""
     }<br /><br />If TryIPTV cannot provide a working subscription, the <a href="/refund-policy" class="text-primary hover:underline">refund policy</a> applies. <a href="/help/iptv-not-working" class="text-primary hover:underline">See the IPTV not working guide</a>, or the <a href="/help/m3u-not-loading" class="text-primary hover:underline">M3U playlist not loading fix</a> if the whole channel list fails.`,
   },

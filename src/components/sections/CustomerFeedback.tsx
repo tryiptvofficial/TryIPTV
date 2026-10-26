@@ -61,7 +61,10 @@ export function CustomerFeedback() {
               TryIPTV support works on WhatsApp and by email at{" "}
               {/* email_off keeps Cloudflare from replacing the address with a /cdn-cgi link crawlers can't read. */}
               <span dangerouslySetInnerHTML={{ __html: `<!--email_off-->${COMPANY.support.email}<!--/email_off-->` }} />
-              {`${COMPANY.support.hours ? `, ${COMPANY.support.hours}${COMPANY.support.hoursUk ? ` (${COMPANY.support.hoursUk})` : ""}` : ""}.${COMPANY.support.responseTime ? ` Response time: ${COMPANY.support.responseTime.charAt(0).toLowerCase()}${COMPANY.support.responseTime.slice(1)}.` : ""} Support handles setup, billing and playback questions. The screenshots in this section are example support conversations. Personal details are hidden.`}
+              {`${COMPANY.support.hours ? `, ${COMPANY.support.hours}${COMPANY.support.hoursUk ? ` (${COMPANY.support.hoursUk})` : ""}` : ""}.${COMPANY.support.responseTime ? ` Response time: ${COMPANY.support.responseTime.charAt(0).toLowerCase()}${COMPANY.support.responseTime.slice(1)}.` : ""}`}
+              <br />
+              <br />
+              Support handles setup, billing and playback questions. The screenshots in this section are example support conversations with personal details hidden.
             </>
           }
           eyebrow="Customer Support"
