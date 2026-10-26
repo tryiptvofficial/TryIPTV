@@ -90,8 +90,8 @@ export function organizationFacts() {
               const profile = AUTHORS.find((a) => a.name === m.name);
               return {
                 '@type': 'Person' as const,
-                name: m.name,
-                jobTitle: m.role,
+                name: profile?.name ?? m.name,
+                jobTitle: profile?.role ?? m.role,
                 ...(profile ? { '@id': personId(siteConfig.url, profile.slug), url: `${siteConfig.url}/authors/${profile.slug}` } : {}),
                 worksFor: { '@id': organizationId },
               };

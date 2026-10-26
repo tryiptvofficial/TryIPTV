@@ -15,9 +15,8 @@ import { getLastModified } from "@/lib/site-routes";
 
 const title = "Best IPTV Service 2026 | 24-Hour Free Trial | TryIPTV";
 const description =
-  "Stream 25,000+ live channels and 120,000+ movies & TV shows with TryIPTV. Get 2 connections, no auto-renewal and a 24-hour free trial.";
-const ogDescription =
   "Stream 25,000+ live channels and 120,000+ movies & TV shows with TryIPTV. Get 2 connections, no auto-renewal, and a 24-hour free trial.";
+const ogDescription = description;
 const twitterDescription = ogDescription;
 
 export function generateMetadata(): Metadata {
