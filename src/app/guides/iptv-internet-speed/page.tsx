@@ -166,7 +166,7 @@ export default function IptvInternetSpeedPage() {
             <h1 className="font-headline text-3xl font-extrabold leading-[1.15] text-foreground sm:text-4xl lg:text-5xl">
               How Much Internet Speed Do You Need for IPTV?
             </h1>
-            <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
+            <p className="mx-auto mt-5 max-w-[60ch] text-base leading-7 text-muted-foreground sm:text-lg">
               A practical guide to streaming bandwidth, household connection planning, Wi-Fi versus Ethernet,
               and multi-stream headroom.
             </p>

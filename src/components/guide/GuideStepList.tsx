@@ -37,7 +37,7 @@ export function GuideStepList({
         <h2 className="font-headline text-2xl sm:text-3xl font-bold text-foreground">
           Step-by-Step Installation Guide for {primaryKeyword}
         </h2>
-        <p className="mt-2 text-base leading-relaxed text-muted-foreground max-w-2xl">
+        <p className="mt-2 text-base leading-relaxed text-muted-foreground max-w-[60ch]">
           {intro ?? `Setting up IPTV on ${primaryKeyword} takes ${steps.length} steps: ${summary}.`}
         </p>
       </div>
@@ -69,7 +69,7 @@ export function GuideStepList({
               {/* Step content */}
               <div className={`min-w-0 flex-1 max-w-[740px] ${isLast ? "pb-2" : "pb-8 sm:pb-11"}`}>
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="font-mono text-[10px] font-extrabold uppercase text-primary tracking-wider bg-primary/[0.08] border border-primary/20 rounded px-1.5 py-0.5">
+                  <span className="font-mono text-xs font-extrabold uppercase text-primary tracking-wider bg-primary/[0.08] border border-primary/20 rounded px-1.5 py-0.5">
                     STEP {stepNumber}
                   </span>
                   <h3 className="font-headline text-base sm:text-lg font-bold text-foreground">

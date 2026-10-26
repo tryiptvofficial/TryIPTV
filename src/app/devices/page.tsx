@@ -67,12 +67,12 @@ export default function DevicesPage() {
                 <Card key={article.id} className="flex flex-col justify-between transition-all duration-200 hover:-translate-y-1 hover:border-primary/40 hover:bg-card/80">
                   <CardHeader className="pb-3">
                     <div className="flex items-center justify-between gap-2 mb-2">
-                      <span className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] px-2.5 py-0.5 text-[11px] font-semibold text-primary">
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] px-2.5 py-0.5 text-xs font-semibold text-primary">
                         <Tv className="h-3 w-3" />
                         {article.primaryKeyword}
                       </span>
                       {totalTimeInMinutes && (
-                        <span className="flex items-center gap-1 text-[11px] text-muted-foreground">
+                        <span className="flex items-center gap-1 text-xs text-muted-foreground">
                           <Clock className="h-3 w-3 text-primary" />
                           {totalTimeInMinutes} min
                         </span>

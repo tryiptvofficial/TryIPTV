@@ -328,8 +328,8 @@ export default function SetupPage() {
                   className="rounded-lg border border-white/[0.08] bg-[#0c100d] p-3.5 transition-colors hover:border-primary/30"
                 >
                   <div className="text-xs font-mono font-bold text-primary mb-1" aria-hidden="true">0{item.num}</div>
-                  <div className="text-xs font-extrabold text-foreground">{item.label}</div>
-                  <div className="text-[11px] text-muted-foreground mt-0.5">{item.desc}</div>
+                  <div className="text-sm font-extrabold text-foreground">{item.label}</div>
+                  <div className="text-sm text-muted-foreground mt-0.5 sm:text-[13px]">{item.desc}</div>
                 </li>
               ))}
             </ol>
@@ -372,7 +372,7 @@ export default function SetupPage() {
                     </div>
                     <div>
                       <CardTitle as="h3" className="text-base font-extrabold">1. High-Speed Internet Connection</CardTitle>
-                      <CardDescription className="text-xs">Wired Ethernet or 5GHz Wi-Fi recommended</CardDescription>
+                      <CardDescription className="text-sm sm:text-xs">Wired Ethernet or 5GHz Wi-Fi recommended</CardDescription>
                     </div>
                   </div>
                 </CardHeader>
@@ -389,7 +389,7 @@ export default function SetupPage() {
                     </div>
                     <div>
                       <CardTitle as="h3" className="text-base font-extrabold">2. Compatible Streaming Hardware</CardTitle>
-                      <CardDescription className="text-xs">Television, streaming stick, computer, or mobile</CardDescription>
+                      <CardDescription className="text-sm sm:text-xs">Television, streaming stick, computer, or mobile</CardDescription>
                     </div>
                   </div>
                 </CardHeader>
@@ -406,7 +406,7 @@ export default function SetupPage() {
                     </div>
                     <div>
                       <CardTitle as="h3" className="text-base font-extrabold">3. A Third-Party IPTV Player Application</CardTitle>
-                      <CardDescription className="text-xs">Software interface to decode and display streams</CardDescription>
+                      <CardDescription className="text-sm sm:text-xs">Software interface to decode and display streams</CardDescription>
                     </div>
                   </div>
                 </CardHeader>
@@ -423,7 +423,7 @@ export default function SetupPage() {
                     </div>
                     <div>
                       <CardTitle as="h3" className="text-base font-extrabold">4. Your Active Subscription Credentials</CardTitle>
-                      <CardDescription className="text-xs">Delivered on WhatsApp within {PRODUCT_TRUTHS.activationTime} of payment confirmation</CardDescription>
+                      <CardDescription className="text-sm sm:text-xs">Delivered on WhatsApp within {PRODUCT_TRUTHS.activationTime} of payment confirmation</CardDescription>
                     </div>
                   </div>
                 </CardHeader>
@@ -471,7 +471,7 @@ export default function SetupPage() {
                 >
                   <CardHeader className="pb-3">
                     <div className="flex items-center justify-between gap-2 mb-2">
-                      <span className="inline-flex items-center gap-1 rounded-full border border-white/[0.08] bg-white/[0.03] px-2.5 py-0.5 text-[11px] font-semibold text-primary">
+                      <span className="inline-flex items-center gap-1 rounded-full border border-white/[0.08] bg-white/[0.03] px-2.5 py-0.5 text-xs font-semibold text-primary">
                         <Icon className="h-3 w-3" />
                         {device.badge}
                       </span>
@@ -511,7 +511,7 @@ export default function SetupPage() {
               <h2 className="font-headline text-2xl sm:text-3xl font-bold text-foreground">
                 Choose an IPTV Player Application
               </h2>
-              <p className="mt-1.5 text-base sm:text-sm text-muted-foreground max-w-2xl">
+              <p className="mt-1.5 text-base sm:text-sm text-muted-foreground max-w-[60ch]">
                 TryIPTV supplies your stream access credentials. Independent media players decode and display the streams on your screen. You have complete freedom to choose the app that suits your preferences.
               </p>
             </div>
@@ -530,7 +530,7 @@ export default function SetupPage() {
             {featuredPlayers.map((player) => (
               <Card key={player.slug} className="flex flex-col justify-between transition-all duration-200 hover:border-primary/40">
                 <CardHeader className="pb-2">
-                  <div className="text-[11px] font-semibold text-primary mb-1">
+                  <div className="text-xs font-semibold text-primary mb-1">
                     {player.platforms}
                   </div>
                   <CardTitle as="h3" className="text-lg font-extrabold">
@@ -579,7 +579,7 @@ export default function SetupPage() {
                   Recommended Method
                 </div>
                 <CardTitle as="h3" className="text-xl font-extrabold">Xtream Codes API</CardTitle>
-                <CardDescription className="text-xs">Modern, fast, structured credential format</CardDescription>
+                <CardDescription className="text-sm sm:text-xs">Modern, fast, structured credential format</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4 text-base sm:text-sm text-muted-foreground leading-relaxed">
                 <p>
@@ -619,7 +619,7 @@ export default function SetupPage() {
                   Universal Format
                 </div>
                 <CardTitle as="h3" className="text-xl font-extrabold">M3U Playlist URL</CardTitle>
-                <CardDescription className="text-xs">Plaintext index compatible with any player</CardDescription>
+                <CardDescription className="text-sm sm:text-xs">Plaintext index compatible with any player</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4 text-base sm:text-sm text-muted-foreground leading-relaxed">
                 <p>
@@ -801,7 +801,7 @@ export default function SetupPage() {
                 <h3 className="text-sm font-extrabold text-foreground group-hover:text-primary transition-colors">
                   What is IPTV?
                 </h3>
-                <p className="text-xs text-muted-foreground mt-1">
+                <p className="text-sm text-muted-foreground mt-1">
                   How packetized IP streams compare to legacy cable and satellite.
                 </p>
               </Link>
@@ -817,7 +817,7 @@ export default function SetupPage() {
                 <h3 className="text-sm font-extrabold text-foreground group-hover:text-primary transition-colors">
                   What is an M3U Playlist?
                 </h3>
-                <p className="text-xs text-muted-foreground mt-1">
+                <p className="text-sm text-muted-foreground mt-1">
                   Playlist syntax, #EXTINF directives, and group tags explained.
                 </p>
               </Link>
@@ -833,7 +833,7 @@ export default function SetupPage() {
                 <h3 className="text-sm font-extrabold text-foreground group-hover:text-primary transition-colors">
                   What are Xtream Codes?
                 </h3>
-                <p className="text-xs text-muted-foreground mt-1">
+                <p className="text-sm text-muted-foreground mt-1">
                   How the standard API login handles categories and authentication.
                 </p>
               </Link>

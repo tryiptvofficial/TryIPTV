@@ -176,7 +176,7 @@ export default function HowDoesIptvWorkPage() {
             <h1 className="font-headline text-3xl font-extrabold leading-[1.15] text-foreground sm:text-4xl lg:text-5xl">
               How Does IPTV Work?
             </h1>
-            <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
+            <p className="mx-auto mt-5 max-w-[60ch] text-base leading-7 text-muted-foreground sm:text-lg">
               IPTV works by sending TV channels and on-demand video as data over the internet. The provider&apos;s
               servers turn each channel into a stream, an M3U playlist or Xtream Codes login tells your player
               where those streams are, and the player on your TV, stick, phone, or computer downloads and plays
@@ -238,27 +238,27 @@ export default function HowDoesIptvWorkPage() {
                 <div className="rounded-lg border border-white/[0.08] bg-card/60 p-3 flex flex-col items-center justify-center">
                   <Radio className="h-5 w-5 text-primary mb-1.5" />
                   <span className="font-extrabold text-foreground">Content Source</span>
-                  <span className="text-[10px] text-muted-foreground mt-0.5">Live Feeds / VOD</span>
+                  <span className="text-xs text-muted-foreground mt-0.5">Live Feeds / VOD</span>
                 </div>
                 <div className="rounded-lg border border-white/[0.08] bg-card/60 p-3 flex flex-col items-center justify-center">
                   <Server className="h-5 w-5 text-primary mb-1.5" />
                   <span className="font-extrabold text-foreground">IPTV Platform</span>
-                  <span className="text-[10px] text-muted-foreground mt-0.5">Encoders &amp; Servers</span>
+                  <span className="text-xs text-muted-foreground mt-0.5">Encoders &amp; Servers</span>
                 </div>
                 <div className="rounded-lg border border-white/[0.08] bg-card/60 p-3 flex flex-col items-center justify-center">
                   <Wifi className="h-5 w-5 text-primary mb-1.5" />
                   <span className="font-extrabold text-foreground">Broadband IP</span>
-                  <span className="text-[10px] text-muted-foreground mt-0.5">Packet Routing</span>
+                  <span className="text-xs text-muted-foreground mt-0.5">Packet Routing</span>
                 </div>
                 <div className="rounded-lg border border-white/[0.08] bg-card/60 p-3 flex flex-col items-center justify-center">
                   <PlaySquare className="h-5 w-5 text-primary mb-1.5" />
                   <span className="font-extrabold text-foreground">Player App</span>
-                  <span className="text-[10px] text-muted-foreground mt-0.5">Decodes Stream</span>
+                  <span className="text-xs text-muted-foreground mt-0.5">Decodes Stream</span>
                 </div>
                 <div className="rounded-lg border border-white/[0.08] bg-card/60 p-3 flex flex-col items-center justify-center">
                   <Tv className="h-5 w-5 text-primary mb-1.5" />
                   <span className="font-extrabold text-foreground">Viewer Screen</span>
-                  <span className="text-[10px] text-muted-foreground mt-0.5">Display Playback</span>
+                  <span className="text-xs text-muted-foreground mt-0.5">Display Playback</span>
                 </div>
               </div>
               <p data-small-print className="mt-4 text-[11px] text-muted-foreground leading-relaxed text-center">

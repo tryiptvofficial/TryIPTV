@@ -17,10 +17,10 @@ const HERO_FACTS = [
 export function Hero() {
   return (
     <section className="relative -mt-20 overflow-hidden pt-24 pb-8 sm:pt-28 sm:pb-10 lg:pt-32 lg:pb-12">
-      {/* Ambient background wash */}
+      {/* Ambient background wash; the mask fades it out toward the bottom so it never ends in a hard edge. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-y-0 right-0 -z-10 w-full bg-gradient-to-l from-primary/10 via-primary/[0.02] to-transparent lg:w-2/3 blur-3xl"
+        className="pointer-events-none absolute inset-y-0 right-0 -z-10 w-full bg-gradient-to-l from-primary/10 via-primary/[0.02] to-transparent [mask-image:linear-gradient(to_bottom,black_55%,transparent)] lg:w-2/3 blur-3xl"
       />
 
       <Container className="relative">
@@ -28,16 +28,16 @@ export function Hero() {
           {/* Left Column: Copy & Actions */}
           {/* On phones and short landscape screens the buttons move above the paragraph so they stay on the first screen. */}
           <div className="flex flex-col lg:col-span-7">
-            <p className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/[0.06] px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-primary">
+            <p className="inline-flex self-start items-center gap-2 rounded-full border border-primary/25 bg-primary/[0.06] px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-primary">
               <span aria-hidden className="size-1.5 rounded-full bg-primary" />
               Best IPTV Service
             </p>
 
-            <h1 className="mt-5 font-headline text-[32px] font-bold leading-[1.1] tracking-tight text-foreground sm:text-[42px] lg:text-[46px] xl:text-[48px]">
+            <h1 className="mt-5 font-headline text-[2rem] font-bold leading-[1.1] tracking-tight text-foreground sm:text-[2.625rem] lg:text-[2.875rem] xl:text-[3rem]">
               TryIPTV — <span className="text-primary">Best IPTV Service</span> for the USA, UK &amp; More
             </h1>
 
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground max-sm:order-3 sm:text-[17px] [@media(max-height:500px)]:order-3">
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground max-sm:order-3 sm:text-[1.0625rem] [@media(max-height:500px)]:order-3">
               TryIPTV is an IPTV service and provider for viewers in the USA, UK, and supported regions. It provides live TV, sports, movies, and TV shows through compatible devices and IPTV player apps—not a player app itself. Choose an IPTV plan, or start with the{" "}
               <Link href="/iptv-free-trial" className="font-semibold text-primary hover:underline">TryIPTV 24-hour IPTV free trial</Link>{" "}
               ($0, no credit card) to see whether the service fits your setup.
@@ -56,7 +56,7 @@ export function Hero() {
               </Button>
             </div>
 
-            <p className="mt-4 text-[12.5px] font-medium text-muted-foreground max-sm:order-2 [@media(max-height:500px)]:order-2">
+            <p className="mt-4 text-[0.78125rem] font-medium text-muted-foreground max-sm:order-2 [@media(max-height:500px)]:order-2">
               Plans from $15.82 • 24-hour free trial • No auto-renewal
             </p>
           </div>
@@ -86,8 +86,8 @@ export function Hero() {
         <dl className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.07] sm:grid-cols-4">
           {HERO_FACTS.map((fact) => (
             <div key={fact.label} className="flex flex-col bg-card px-4 py-4 sm:px-6">
-              <dt className="order-2 mt-1 text-[13px] text-muted-foreground">{fact.label}</dt>
-              <dd className="order-1 font-headline text-xl font-bold tracking-tight text-foreground sm:text-[22px]">{fact.value}</dd>
+              <dt className="order-2 mt-1 text-[0.8125rem] text-muted-foreground">{fact.label}</dt>
+              <dd className="order-1 font-headline text-xl font-bold tracking-tight text-foreground sm:text-[1.375rem]">{fact.value}</dd>
             </div>
           ))}
         </dl>

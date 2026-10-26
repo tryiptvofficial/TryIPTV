@@ -259,7 +259,7 @@ export default async function IptvFreeTrialPage() {
             <h1 className="font-headline text-3xl font-extrabold leading-[1.08] text-foreground sm:text-5xl lg:text-6xl">
               IPTV Free Trial: 24 Hours Free, No Credit Card Needed
             </h1>
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
+            <p className="mx-auto mt-5 max-w-[60ch] text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
               TryIPTV offers a {FACT_TEXT.trialHours}-hour IPTV free trial for $0, with no credit card and no auto-renewal. Tap Start
               My Free Trial to message support on WhatsApp, and your Xtream Codes or M3U login usually arrives within{" "}
               {T.activationTime}. One trial per household; when the {FACT_TEXT.trialHours} hours end, access simply stops.
@@ -301,7 +301,7 @@ export default async function IptvFreeTrialPage() {
 
             <div className="mt-8 overflow-hidden rounded-lg border border-white/[0.09] bg-card">
               <div className="overflow-x-auto" tabIndex={0} role="region" aria-label="Free trial details table">
-                <table className="w-full text-left text-sm">
+                <table className="w-full text-left text-[15px] sm:text-sm">
                   <caption className="sr-only">TryIPTV free trial details and specifications</caption>
                   <tbody className="divide-y divide-white/[0.06]">
                     {quickFacts.map(([label, value]) => (
@@ -395,7 +395,7 @@ export default async function IptvFreeTrialPage() {
             <h3 className="mt-10 mb-4 font-headline text-xl font-extrabold text-foreground">Full Trial Testing Checklist</h3>
             <div className="overflow-hidden rounded-lg border border-white/[0.09] bg-card">
               <div className="overflow-x-auto" tabIndex={0} role="region" aria-label="Trial testing checklist table">
-                <table className="w-full min-w-[32rem] text-left text-sm">
+                <table className="w-full min-w-[32rem] text-left text-[15px] sm:text-sm">
                   <caption className="sr-only">Trial testing priorities and checklist</caption>
                   <thead className="border-b border-white/[0.09] bg-white/[0.02] text-xs font-extrabold uppercase tracking-wider text-muted-foreground">
                     <tr>
@@ -457,7 +457,7 @@ export default async function IptvFreeTrialPage() {
 
             <div className="overflow-hidden rounded-lg border border-white/[0.09] bg-card">
               <div className="overflow-x-auto" tabIndex={0} role="region" aria-label="Free trial length comparison table">
-                <table className="w-full min-w-[640px] text-left text-sm">
+                <table className="w-full min-w-[640px] text-left text-[15px] sm:text-sm">
                   <caption className="sr-only">What a 24-hour, 48-hour and 72-hour IPTV free trial lets you test</caption>
                   <thead className="border-b border-white/[0.09] bg-white/[0.02] text-xs font-extrabold uppercase tracking-wider text-muted-foreground">
                     <tr>
@@ -515,7 +515,7 @@ export default async function IptvFreeTrialPage() {
                     className={`relative rounded-lg border bg-card p-5 ${best ? "border-primary/50" : "border-white/[0.09]"}`}
                   >
                     {best && (
-                      <span className="absolute -top-2.5 left-4 rounded-full bg-primary px-2 py-0.5 text-[11px] font-bold text-primary-foreground">
+                      <span className="absolute -top-2.5 left-4 rounded-full bg-primary px-2 py-0.5 text-xs font-bold text-primary-foreground">
                         Best value
                       </span>
                     )}
@@ -547,7 +547,7 @@ export default async function IptvFreeTrialPage() {
             <h3 className="mt-10 mb-4 font-headline text-xl font-extrabold text-foreground">Free Trial vs. Paid Subscription</h3>
             <div className="overflow-hidden rounded-lg border border-white/[0.09] bg-card">
               <div className="overflow-x-auto" tabIndex={0} role="region" aria-label="Free trial vs paid plan table">
-                <table className="w-full text-left text-sm">
+                <table className="w-full text-left text-[15px] sm:text-sm">
                   <caption className="sr-only">Comparison between free trial and paid subscription plans</caption>
                   <thead className="border-b border-white/[0.09] bg-white/[0.02] text-xs font-extrabold uppercase tracking-wider text-muted-foreground">
                     <tr>

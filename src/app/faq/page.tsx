@@ -39,7 +39,7 @@ export default async function FaqPage() {
         <Container className="relative text-center">
           <Breadcrumb items={[{ label: "FAQ" }]} align="center" />
           <SectionHeader as="h1" eyebrow="Frequently Asked Questions" title="IPTV FAQ: Every Question, Answered Honestly" />
-          <p className="mx-auto -mt-2 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
+          <p className="mx-auto -mt-2 max-w-[60ch] text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
             This is the complete IPTV FAQ: the questions people actually search on Google and ask AI assistants, answered directly. Costs,
             legality, devices, setup, sports, quality and fixes. Every answer gives you the short version first, then the detail. New
             here?{" "}

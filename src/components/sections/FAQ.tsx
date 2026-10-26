@@ -221,7 +221,7 @@ export function FAQ() {
                 title="Frequently Asked Questions"
                 className="mb-4 sm:mb-4 lg:mb-4"
               />
-              <p className="mb-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:mb-8 sm:text-[16.5px]">
+              <p className="mb-6 max-w-[60ch] text-base leading-relaxed text-muted-foreground sm:mb-8 sm:text-[16.5px]">
                 This FAQ covers legality, refunds, payment, delivery, devices and setup. See{" "}
                 <Link href="/faq" className="font-semibold text-primary hover:underline">all IPTV FAQs</Link>{" "}
                 or{" "}

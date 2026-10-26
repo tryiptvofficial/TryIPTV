@@ -159,7 +159,7 @@ export default function M3uVsXtreamCodesPage() {
             <h1 className="font-headline text-3xl font-extrabold leading-[1.15] text-foreground sm:text-4xl lg:text-5xl">
               M3U vs Xtream Codes: What&apos;s the Difference?
             </h1>
-            <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
+            <p className="mx-auto mt-5 max-w-[60ch] text-base leading-7 text-muted-foreground sm:text-lg">
               When configuring an IPTV player, services typically offer two connection options: an M3U
               playlist or an Xtream-compatible login. Understand how each method operates, where their
               practical differences lie, and how to choose the right format for your setup.

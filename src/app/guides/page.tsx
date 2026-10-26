@@ -311,7 +311,7 @@ export default function GuidesPage() {
             <h2 className="font-headline text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
               Pick a Reading Path
             </h2>
-            <p className="mt-2 max-w-3xl text-base text-muted-foreground">
+            <p className="mt-2 max-w-[60ch] text-base text-muted-foreground">
               The guides build on each other. Start from the question you have now and follow the links in order.
             </p>
             <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">

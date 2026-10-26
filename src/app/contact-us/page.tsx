@@ -132,7 +132,7 @@ export default async function ContactPage() {
                 <Container className="relative text-center">
                     <Breadcrumb items={[{ label: "Contact Us" }]} align="center" />
                     <SectionHeader as="h1" eyebrow="TryIPTV" title="Support Center" />
-                    <p className="mx-auto -mt-2 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
+                    <p className="mx-auto -mt-2 max-w-[60ch] text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
                         TryIPTV handles customer support on WhatsApp, by email, and through the form below. Check the quick answers and FAQ
                         first: most questions about setup, logins and delivery are solved in a few minutes. If you still need help, message
                         us and we reply on the same channel you used.
@@ -340,7 +340,7 @@ export default async function ContactPage() {
                         </div>
                     </div>
 
-                    <p className="mx-auto mt-8 max-w-3xl rounded-lg border border-white/[0.09] bg-card p-5 text-center text-base sm:text-sm leading-6 text-muted-foreground">
+                    <p className="mx-auto mt-8 max-w-[60ch] rounded-lg border border-white/[0.09] bg-card p-5 text-center text-base sm:text-sm leading-6 text-muted-foreground">
                         <strong className="text-foreground">Support reminder:</strong> for common questions about setup, apps, login details and
                         delivery, please read the FAQ above first. It reduces wait times and gets you the answer faster.
                     </p>

@@ -711,7 +711,7 @@ export default async function HowToPage({ params }: Props) {
               <h1 className="font-headline text-3xl font-extrabold leading-[1.15] sm:text-4xl lg:text-[46px] xl:text-[48px] text-foreground tracking-tight max-w-4xl mx-auto">
                 {title}
               </h1>
-              <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+              <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed max-w-[60ch] mx-auto">
                 {description}
               </p>
               {/* Phones: the header "Start free trial" button is hidden below sm, so offer it here above the fold. */}
@@ -957,7 +957,7 @@ export default async function HowToPage({ params }: Props) {
                     {extraSections.find((s) => s.id === "two-firesticks") && (
                       <div id="two-firesticks" className="scroll-mt-6 pt-8 border-t border-white/[0.08]">
                         <div className="rounded-xl border border-white/[0.08] bg-[#07080a] p-5 sm:p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
-                          <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/[0.08] border border-primary/20 rounded px-2 py-0.5 inline-block mb-3">
+                          <span className="font-mono text-xs font-bold uppercase tracking-wider text-primary bg-primary/[0.08] border border-primary/20 rounded px-2 py-0.5 inline-block mb-3">
                             Device Policy
                           </span>
                           <h2 className="font-headline text-xl sm:text-2xl font-bold text-foreground mb-3">
@@ -977,7 +977,7 @@ export default async function HowToPage({ params }: Props) {
                     {extraSections.find((s) => s.id === "before-paying") && (
                       <div id="before-paying" className="scroll-mt-6 pt-8 border-t border-white/[0.08]">
                         <div className="rounded-xl border border-white/[0.08] bg-[#07080a] p-5 sm:p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
-                          <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-muted-foreground bg-white/[0.04] border border-white/[0.1] rounded px-2 py-0.5 inline-block mb-3">
+                          <span className="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground bg-white/[0.04] border border-white/[0.1] rounded px-2 py-0.5 inline-block mb-3">
                             Trial Terms
                           </span>
                           <h2 className="font-headline text-xl sm:text-2xl font-bold text-foreground mb-3">
@@ -997,7 +997,7 @@ export default async function HowToPage({ params }: Props) {
                     {extraSections.find((s) => s.id === "storage") && (
                       <div id="storage" className="scroll-mt-6 pt-8 border-t border-white/[0.08]">
                         <div className="rounded-xl border border-white/[0.08] bg-[#07080a] p-5 sm:p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
-                          <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-400/[0.08] border border-amber-400/20 rounded px-2 py-0.5 inline-block mb-3">
+                          <span className="font-mono text-xs font-bold uppercase tracking-wider text-amber-400 bg-amber-400/[0.08] border border-amber-400/20 rounded px-2 py-0.5 inline-block mb-3">
                             Device Maintenance
                           </span>
                           <h2 className="font-headline text-xl sm:text-2xl font-bold text-foreground mb-3">
@@ -1017,7 +1017,7 @@ export default async function HowToPage({ params }: Props) {
                     {extraSections.find((s) => s.id === "security") && (
                       <div id="security" className="scroll-mt-6 pt-8 border-t border-white/[0.08]">
                         <div className="rounded-xl border border-white/[0.08] bg-[#07080a] p-5 sm:p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] space-y-4">
-                          <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-sky-400 bg-sky-400/[0.08] border border-sky-400/20 rounded px-2 py-0.5 inline-block">
+                          <span className="font-mono text-xs font-bold uppercase tracking-wider text-sky-400 bg-sky-400/[0.08] border border-sky-400/20 rounded px-2 py-0.5 inline-block">
                             Security Verification
                           </span>
                           <h2 className="font-headline text-xl sm:text-2xl font-bold text-foreground">

@@ -13,7 +13,7 @@ export function PlayerQuickAnswer({ player, summary, devices, guides, help = [] 
 
   return (
     <section className="mt-8 rounded-xl border border-primary/20 bg-primary/[0.04] p-5 sm:p-6" aria-labelledby="player-quick-answer">
-      <p className="font-mono text-[10px] font-bold uppercase tracking-wider text-primary">Quick answer</p>
+      <p className="font-mono text-xs font-bold uppercase tracking-wider text-primary">Quick answer</p>
       <h2 id="player-quick-answer" className="mt-2 font-headline text-xl font-bold text-foreground sm:text-2xl">
         What is {player}, and how do you use it for IPTV?
       </h2>

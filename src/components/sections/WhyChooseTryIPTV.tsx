@@ -57,24 +57,31 @@ export function WhyChooseTryIPTV() {
           </p>
         </div>
 
-        <div className="overflow-x-auto rounded-2xl border border-white/[0.07] bg-card">
-          <table className="w-full text-left text-[13px] sm:text-sm">
+        {/* Focusable and labelled so keyboard users can scroll it if a narrow phone still needs to. */}
+        <div
+          className="overflow-x-auto rounded-2xl border border-white/[0.07] bg-card"
+          tabIndex={0}
+          role="region"
+          aria-label="Cable TV and TryIPTV comparison table"
+        >
+          {/* Phones: 15px text, with hyphenation so long words fit three columns. */}
+          <table className="w-full text-left text-[15px] max-sm:hyphens-auto sm:text-sm">
             <caption className="sr-only">Traditional cable TV compared with a TryIPTV subscription</caption>
             <thead className="border-b border-white/[0.07] text-xs uppercase tracking-wide text-muted-foreground">
               <tr>
-                <th scope="col" className="px-3 py-3 sm:px-5 font-semibold"><span className="sr-only">Feature</span></th>
-                <th scope="col" className="px-3 py-3 sm:px-5 font-semibold">Traditional cable</th>
-                <th scope="col" className="px-3 py-3 sm:px-5 font-semibold text-primary">TryIPTV</th>
+                <th scope="col" className="px-2 py-3 sm:px-5 font-semibold"><span className="sr-only">Feature</span></th>
+                <th scope="col" className="px-2 py-3 sm:px-5 font-semibold">Traditional cable</th>
+                <th scope="col" className="px-2 py-3 sm:px-5 font-semibold text-primary">TryIPTV</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-white/[0.06] text-muted-foreground">
               {comparisonRows.map((row) => (
                 <tr key={row.label}>
-                  <th scope="row" className="px-3 py-3 sm:px-5 align-top font-semibold text-foreground">{row.label}</th>
-                  <td className="px-3 py-3 sm:px-5 align-top">
+                  <th scope="row" className="px-2 py-3 sm:px-5 align-top font-semibold text-foreground">{row.label}</th>
+                  <td className="px-2 py-3 sm:px-5 align-top">
                     {row.estimate ? <span data-facts-ignore>{row.cable}</span> : row.cable}
                   </td>
-                  <td className="px-3 py-3 sm:px-5 align-top font-medium text-foreground">{row.tryIptv}</td>
+                  <td className="px-2 py-3 sm:px-5 align-top font-medium text-foreground">{row.tryIptv}</td>
                 </tr>
               ))}
             </tbody>

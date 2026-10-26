@@ -198,7 +198,7 @@ export default function WhatIsIptvPage() {
             <h1 className="font-headline text-3xl font-extrabold leading-[1.1] text-foreground sm:text-4xl lg:text-5xl">
               What Is IPTV? A Beginner&apos;s Guide
             </h1>
-            <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
+            <p className="mx-auto mt-5 max-w-[60ch] text-base leading-7 text-muted-foreground sm:text-lg">
               Learn what IPTV is, how it works, the devices and apps it runs on, and what you need to get
               started, including internet speed, an app, and a subscription.
             </p>
@@ -443,7 +443,7 @@ export default function WhatIsIptvPage() {
               <h2 className="font-headline text-2xl font-extrabold text-foreground">
                 Learn the setup path before choosing a plan
               </h2>
-              <p className="mt-3 max-w-2xl text-base leading-6 text-muted-foreground">
+              <p className="mt-3 max-w-[60ch] text-base leading-6 text-muted-foreground">
                 TryIPTV offers a {PRODUCT_TRUTHS.trialDuration.toLowerCase()} free trial with no card
                 required. If you want to test compatibility first, start with the trial, then follow
                 the setup guide for your device and player.

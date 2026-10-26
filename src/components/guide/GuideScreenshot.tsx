@@ -56,7 +56,7 @@ export function GuideScreenshot({
         <figcaption className="mt-2.5 px-2 pb-1 text-xs text-muted-foreground leading-relaxed">
           {caption && <span className="block text-foreground/90 font-medium text-center">{caption}</span>}
           {note && (
-            <span className="block mt-1 text-center text-[11px] text-muted-foreground/80 italic">
+            <span className="block mt-1 text-center text-xs text-muted-foreground/80 italic">
               {note}
             </span>
           )}

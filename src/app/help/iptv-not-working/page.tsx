@@ -136,7 +136,7 @@ export default function IptvNotWorkingPage() {
             <h1 className="font-headline text-3xl font-extrabold leading-[1.15] text-foreground sm:text-4xl lg:text-5xl">
               IPTV Not Working? Start With This Troubleshooting Checklist
             </h1>
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
+            <p className="mx-auto mt-5 max-w-[60ch] text-base leading-7 text-muted-foreground sm:text-lg">
               When IPTV stops working, match what you see to one of six symptoms: the login is rejected, the
               playlist loads 0 channels, channels freeze or buffer, the TV guide is blank, the player app
               crashes, or nothing works on any device. Each symptom points to a different cause, and each has

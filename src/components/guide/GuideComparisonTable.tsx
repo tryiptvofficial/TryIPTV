@@ -56,7 +56,7 @@ export function GuideComparisonTable() {
               <th scope="col" className="py-3.5 px-4 font-bold text-primary w-[36%] bg-primary/[0.02] border-x border-white/[0.06]">
                 <div className="flex items-center gap-2">
                   <span>Xtream Codes API</span>
-                  <span className="text-[10px] font-semibold uppercase tracking-wider px-1.5 py-0.5 rounded border border-primary/30 bg-primary/[0.08] text-primary">
+                  <span className="text-xs font-semibold uppercase tracking-wider px-1.5 py-0.5 rounded border border-primary/30 bg-primary/[0.08] text-primary">
                     Recommended
                   </span>
                 </div>
@@ -104,7 +104,7 @@ export function GuideComparisonTable() {
             <h3 className="font-headline font-bold text-foreground text-base">
               Xtream Codes API
             </h3>
-            <span className="text-[10px] font-semibold uppercase tracking-wider px-1.5 py-0.5 rounded border border-primary/30 bg-primary/[0.08] text-primary">
+            <span className="text-xs font-semibold uppercase tracking-wider px-1.5 py-0.5 rounded border border-primary/30 bg-primary/[0.08] text-primary">
               Recommended
             </span>
           </div>
@@ -129,7 +129,7 @@ export function GuideComparisonTable() {
             <h3 className="font-headline font-bold text-foreground text-base">
               M3U Playlist URL
             </h3>
-            <span className="text-[10px] font-semibold uppercase tracking-wider px-1.5 py-0.5 rounded border border-white/[0.08] bg-white/[0.03] text-muted-foreground">
+            <span className="text-xs font-semibold uppercase tracking-wider px-1.5 py-0.5 rounded border border-white/[0.08] bg-white/[0.03] text-muted-foreground">
               Standard Format
             </span>
           </div>

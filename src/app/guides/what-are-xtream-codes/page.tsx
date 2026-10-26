@@ -119,7 +119,7 @@ export default function WhatAreXtreamCodesPage() {
             <h1 className="font-headline text-3xl font-extrabold leading-[1.15] text-foreground sm:text-4xl lg:text-5xl">
               What Are Xtream Codes? The IPTV API Login Format Explained
             </h1>
-            <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
+            <p className="mx-auto mt-5 max-w-[60ch] text-base leading-7 text-muted-foreground sm:text-lg">
               Xtream Codes is an API-style IPTV login format: you enter a server URL, a username, and a
               password, and the player downloads the provider&apos;s live channels, movies, series, and TV guide
               already sorted into categories. It is a login method supported by most IPTV players, not a

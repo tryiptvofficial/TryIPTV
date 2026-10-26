@@ -126,7 +126,7 @@ export default function IptvBufferingPage() {
             <h1 className="font-headline text-3xl font-extrabold leading-[1.15] text-foreground sm:text-4xl lg:text-5xl">
               How to Troubleshoot and Fix IPTV Buffering
             </h1>
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
+            <p className="mx-auto mt-5 max-w-[60ch] text-base leading-7 text-muted-foreground sm:text-lg">
               Buffering occurs when media data does not reach your player fast enough to maintain
               continuous playback. Learn how to distinguish network starvation from decoder stutter,
               isolate network bottlenecks, and resolve playback interruptions methodically.

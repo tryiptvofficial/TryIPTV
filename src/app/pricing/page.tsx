@@ -344,7 +344,7 @@ export default async function IPTVSubscription() {
             })}
           </div>
 
-          <p className="mx-auto mt-6 max-w-3xl text-center text-base sm:text-sm leading-6 text-muted-foreground max-sm:order-1">
+          <p className="mx-auto mt-6 max-w-[60ch] text-center text-base sm:text-sm leading-6 text-muted-foreground max-sm:order-1">
             Choosing a plan opens WhatsApp, where support sends payment instructions. Credentials typically arrive within <span className="whitespace-nowrap">{T.activationTime}</span> {T.activationHours.split(";")[0]}, after payment confirmation.
             {COMPANY.support.hours ? ` Support answers ${COMPANY.support.hours}.` : ""}
             {COMPANY.support.outOfHours ? ` ${COMPANY.support.outOfHours}` : ""} No WhatsApp? Email{" "}
@@ -355,11 +355,11 @@ export default async function IPTVSubscription() {
             />{" "}
             with the plan you want and support replies with payment instructions.
           </p>
-          <p className="mx-auto mt-2 max-w-3xl text-center text-base sm:text-sm leading-6 text-muted-foreground max-sm:order-1">
+          <p className="mx-auto mt-2 max-w-[60ch] text-center text-base sm:text-sm leading-6 text-muted-foreground max-sm:order-1">
             Catalog counts are approximate and can change as content availability changes. You can check the available selection during the{" "}
             <Link href="/iptv-free-trial" className={link}>free trial</Link>.
           </p>
-          <p className="mx-auto mt-2 max-w-3xl text-center text-base sm:text-sm leading-6 text-muted-foreground max-sm:order-1">
+          <p className="mx-auto mt-2 max-w-[60ch] text-center text-base sm:text-sm leading-6 text-muted-foreground max-sm:order-1">
             TryIPTV is run by {COMPANY.legalName} ({COMPANY.location}, operating since {COMPANY.foundingYear}). TryIPTV sells its own
             subscriptions and issues the logins itself. <Link href="/about" className={link}>About TryIPTV</Link>.
           </p>

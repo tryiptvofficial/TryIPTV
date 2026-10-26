@@ -160,7 +160,7 @@ export function HomePricing() {
           ))}
         </div>
 
-        <p className="mx-auto mt-6 max-w-3xl text-center text-base sm:text-sm leading-6 text-muted-foreground">
+        <p className="mx-auto mt-6 max-w-[60ch] text-center text-base sm:text-sm leading-6 text-muted-foreground">
           Choosing a plan opens WhatsApp, where support sends payment instructions (no WhatsApp? email{" "}
           <span
             dangerouslySetInnerHTML={{
@@ -173,7 +173,7 @@ export function HomePricing() {
           </Link>
           .
         </p>
-        <p className="mx-auto mt-3 max-w-3xl text-center text-base sm:text-sm leading-6 text-muted-foreground">
+        <p className="mx-auto mt-3 max-w-[60ch] text-center text-base sm:text-sm leading-6 text-muted-foreground">
           Catalog counts are approximate and can change as content availability changes. You can check the available selection during the{" "}
           <Link href="/iptv-free-trial" className="font-medium text-foreground underline underline-offset-4 hover:text-primary">
             free trial

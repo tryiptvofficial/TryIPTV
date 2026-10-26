@@ -125,7 +125,7 @@ export default function WhatIsM3uPage() {
             <h1 className="font-headline text-3xl font-extrabold leading-[1.15] text-foreground sm:text-4xl lg:text-5xl">
               What Is an M3U Playlist? Structure, Syntax, and IPTV Usage
             </h1>
-            <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
+            <p className="mx-auto mt-5 max-w-[60ch] text-base leading-7 text-muted-foreground sm:text-lg">
               An M3U playlist is a plain-text file that lists stream URLs, one per channel, with optional
               #EXTINF lines for each channel&apos;s name, logo, group, and guide ID. IPTV providers usually share
               it as a web link that a player app downloads. This guide covers M3U vs M3U8, Extended M3U

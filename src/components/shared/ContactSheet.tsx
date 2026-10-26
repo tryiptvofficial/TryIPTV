@@ -50,10 +50,10 @@ export function ContactSheet() {
   return (
     <>
       {/* Offset by the safe-area insets so the button clears the iPhone home indicator / notch.
-          48px on phones so it covers less text; 56px from sm up. */}
+          48px on phones and short landscape screens so it covers less text; 56px otherwise. */}
       <Button
         ref={triggerRef}
-        className={`fixed bottom-[calc(1rem+env(safe-area-inset-bottom,0px))] right-[calc(1rem+env(safe-area-inset-right,0px))] z-50 h-12 w-12 rounded-full shadow-lg transition-[opacity,translate] duration-200 sm:bottom-[calc(1.5rem+env(safe-area-inset-bottom,0px))] sm:right-[calc(1.5rem+env(safe-area-inset-right,0px))] sm:h-14 sm:w-14 ${
+        className={`fixed bottom-[calc(1rem+env(safe-area-inset-bottom,0px))] right-[calc(1rem+env(safe-area-inset-right,0px))] z-50 h-12 w-12 rounded-full shadow-lg transition-[opacity,translate] duration-200 sm:bottom-[calc(1.5rem+env(safe-area-inset-bottom,0px))] sm:right-[calc(1.5rem+env(safe-area-inset-right,0px))] sm:h-14 sm:w-14 [@media(max-height:500px)]:bottom-[calc(1rem+env(safe-area-inset-bottom,0px))] [@media(max-height:500px)]:right-[calc(1rem+env(safe-area-inset-right,0px))] [@media(max-height:500px)]:h-12 [@media(max-height:500px)]:w-12 ${
           hidden ? "pointer-events-none translate-y-4 opacity-0" : ""
         }`}
         aria-label="Open contact form"

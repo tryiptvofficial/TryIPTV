@@ -125,7 +125,7 @@ export function Footer() {
 
           {/* Explore */}
           <div className="lg:col-span-2">
-            <p className="mb-2.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-foreground/80">
+            <p className="mb-2.5 font-mono text-xs font-semibold uppercase tracking-wider text-foreground/80">
               Explore
             </p>
             <ul className="space-y-0.5">
@@ -133,7 +133,7 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="inline-flex min-h-11 min-w-11 items-center text-[13.5px] text-muted-foreground transition-colors duration-150 hover:text-foreground pointer-fine:min-h-0 pointer-fine:min-w-0 pointer-fine:py-1"
+                    className="inline-flex min-h-11 min-w-11 items-center text-[15px] text-muted-foreground sm:text-[13.5px] transition-colors duration-150 hover:text-foreground pointer-fine:min-h-0 pointer-fine:min-w-0 pointer-fine:py-1"
                   >
                     {link.name}
                   </Link>
@@ -142,7 +142,7 @@ export function Footer() {
             </ul>
 
             {/* Learn: shares the Explore column so the 12-column grid stays intact. */}
-            <p className="mt-6 mb-2.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-foreground/80">
+            <p className="mt-6 mb-2.5 font-mono text-xs font-semibold uppercase tracking-wider text-foreground/80">
               Learn
             </p>
             <ul className="space-y-0.5">
@@ -150,7 +150,7 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="inline-flex min-h-11 min-w-11 items-center text-[13.5px] text-muted-foreground transition-colors duration-150 hover:text-foreground pointer-fine:min-h-0 pointer-fine:min-w-0 pointer-fine:py-1"
+                    className="inline-flex min-h-11 min-w-11 items-center text-[15px] text-muted-foreground sm:text-[13.5px] transition-colors duration-150 hover:text-foreground pointer-fine:min-h-0 pointer-fine:min-w-0 pointer-fine:py-1"
                   >
                     {link.name}
                   </Link>
@@ -161,7 +161,7 @@ export function Footer() {
 
           {/* Device Guides */}
           <div className="lg:col-span-2">
-            <p className="mb-2.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-foreground/80">
+            <p className="mb-2.5 font-mono text-xs font-semibold uppercase tracking-wider text-foreground/80">
               Device Guides
             </p>
             <ul className="space-y-0.5">
@@ -169,7 +169,7 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="inline-flex min-h-11 min-w-11 items-center text-[13.5px] text-muted-foreground transition-colors duration-150 hover:text-foreground pointer-fine:min-h-0 pointer-fine:min-w-0 pointer-fine:py-1"
+                    className="inline-flex min-h-11 min-w-11 items-center text-[15px] text-muted-foreground sm:text-[13.5px] transition-colors duration-150 hover:text-foreground pointer-fine:min-h-0 pointer-fine:min-w-0 pointer-fine:py-1"
                   >
                     {link.name}
                   </Link>
@@ -180,7 +180,7 @@ export function Footer() {
 
           {/* Legal & Trust */}
           <div className="lg:col-span-2">
-            <p className="mb-2.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-foreground/80">
+            <p className="mb-2.5 font-mono text-xs font-semibold uppercase tracking-wider text-foreground/80">
               Legal &amp; Trust
             </p>
             <ul className="space-y-0.5">
@@ -188,7 +188,7 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="inline-flex min-h-11 min-w-11 items-center text-[13.5px] text-muted-foreground transition-colors duration-150 hover:text-foreground pointer-fine:min-h-0 pointer-fine:min-w-0 pointer-fine:py-1"
+                    className="inline-flex min-h-11 min-w-11 items-center text-[15px] text-muted-foreground sm:text-[13.5px] transition-colors duration-150 hover:text-foreground pointer-fine:min-h-0 pointer-fine:min-w-0 pointer-fine:py-1"
                   >
                     {link.name}
                   </Link>
@@ -199,7 +199,7 @@ export function Footer() {
 
           {/* Support & Social */}
           <div className="lg:col-span-2">
-            <p className="mb-2.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-foreground/80">
+            <p className="mb-2.5 font-mono text-xs font-semibold uppercase tracking-wider text-foreground/80">
               Social
             </p>
             <ul className="flex flex-wrap gap-1.5" aria-label="TryIPTV social links">

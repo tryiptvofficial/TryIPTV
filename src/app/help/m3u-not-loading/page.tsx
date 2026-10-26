@@ -126,7 +126,7 @@ export default function M3uNotLoadingPage() {
             <h1 className="font-headline text-3xl font-extrabold leading-[1.15] text-foreground sm:text-4xl lg:text-5xl">
               M3U Playlist Not Loading? How to Diagnose and Fix It
             </h1>
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
+            <p className="mx-auto mt-5 max-w-[60ch] text-base leading-7 text-muted-foreground sm:text-lg">
               When an IPTV player fails to load an M3U playlist, the problem may stem from URL syntax
               defects, network reachability, server response codes, or memory constraints during parsing.
               Use this guide to pinpoint the exact failure layer.

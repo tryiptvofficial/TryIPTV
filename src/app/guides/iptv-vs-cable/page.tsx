@@ -202,7 +202,7 @@ export default function IptvVsCablePage() {
             <h1 className="font-headline text-3xl font-extrabold leading-[1.15] text-foreground sm:text-4xl lg:text-5xl">
               IPTV vs. Cable TV: What&apos;s the Difference?
             </h1>
-            <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
+            <p className="mx-auto mt-5 max-w-[60ch] text-base leading-7 text-muted-foreground sm:text-lg">
               IPTV delivers TV over your home internet connection to an app, while cable TV arrives over the
               cable operator&apos;s own network to a set-top box. IPTV often costs less and works on more devices
               but depends on your broadband; cable keeps working when the internet is slow but usually needs

@@ -133,7 +133,7 @@ export default function EpgNotWorkingPage() {
             <h1 className="font-headline text-3xl font-extrabold leading-[1.15] text-foreground sm:text-4xl lg:text-5xl">
               EPG Not Working? How to Fix Missing or Incorrect IPTV Guide Data
             </h1>
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
+            <p className="mx-auto mt-5 max-w-[60ch] text-base leading-7 text-muted-foreground sm:text-lg">
               When your TV guide shows &quot;No Information,&quot; displays listings with the wrong broadcast
               hours, or drops channels entirely, use this structured diagnostic sequence to isolate the
               metadata failure and restore accurate schedules.

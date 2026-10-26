@@ -42,11 +42,27 @@
     /* Keeps keyboard-focused elements clear of the sticky 80px header (WCAG 2.4.11). */
     scroll-padding-top: 5.5rem;
   }
+  /* Big monitors (2000px+): the root font grows smoothly from 16px to 20px (reached at 2500px),
+     so rem-based text, spacing and the container scale up instead of leaving a narrow column. */
+  @media (min-width: 2000px) {
+    html {
+      font-size: clamp(16px, calc(16px + (100vw - 2000px) * 0.008), 20px);
+    }
+  }
   /* #anchor jumps must land on exactly the same pixel as before scroll-padding existed:
      non-interactive targets cancel it (zero specificity, so any scroll-mt-* class still wins;
      those were reduced by 5.5rem for the same reason). Focusable elements keep the clearance. */
   :where(main [id]:not(a, button, input, select, textarea, summary, [tabindex])) {
     scroll-margin-top: -5.5rem;
+  }
+  /* Short landscape screens use a 56px header (Navbar), so the clearance shrinks to match. */
+  @media (max-height: 500px) {
+    html {
+      scroll-padding-top: 4rem;
+    }
+    :where(main [id]:not(a, button, input, select, textarea, summary, [tabindex])) {
+      scroll-margin-top: -4rem;
+    }
   }
   body {
     @apply bg-background text-foreground;
@@ -113,6 +129,15 @@
   p {
     text-wrap: pretty;
   }
+  /* Running text stays near 75-80 characters per line on wide screens (about 60-80 is comfortable).
+     Zero specificity, so a max-w-* class on the element still wins; tables are left alone.
+     In centered blocks the narrower paragraph stays centered. */
+  main :where(p, li, dd, blockquote):not(:where(table *)) {
+    max-width: 60ch;
+  }
+  main :where(.text-center) :where(p) {
+    margin-inline: auto;
+  }
   
   .prose {
     --tw-prose-body: hsl(var(--foreground) / 0.8);
@@ -140,7 +165,7 @@
   }
 
   .eyebrow {
-    @apply text-[11px] font-semibold uppercase tracking-[0.08em] text-primary;
+    @apply text-xs font-semibold uppercase tracking-[0.08em] text-primary;
   }
 
   /* ==========================================================================
