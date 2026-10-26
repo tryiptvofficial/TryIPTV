@@ -6,6 +6,8 @@ import heroImage from "../../../public/images/best-iptv-service.png";
 
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/shared/Container";
+import { lowestMonthly } from "@/lib/plan-pricing";
+import { FACT_TEXT } from "@/lib/site-config";
 
 const HERO_FACTS = [
   { value: "25,000+", label: "Live Channels" },
@@ -38,9 +40,7 @@ export function Hero() {
             </h1>
 
             <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground max-sm:order-3 sm:text-[1.0625rem] [@media(max-height:500px)]:order-3">
-              TryIPTV is an IPTV service and provider for viewers in the USA, UK, and supported regions. It provides live TV, sports, movies, and TV shows through compatible devices and IPTV player apps—not a player app itself. Choose an IPTV plan, or start with the{" "}
-              <Link href="/iptv-free-trial" className="font-semibold text-primary hover:underline">TryIPTV 24-hour IPTV free trial</Link>{" "}
-              ($0, no credit card) to see whether the service fits your setup.
+              TryIPTV is an IPTV service and provider for viewers in the USA, UK, and supported regions. It delivers live TV, sports, movies, and TV shows to your own devices through IPTV player apps; TryIPTV is not a player app itself.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 max-sm:order-1 max-sm:mt-6 sm:flex-row sm:items-center [@media(max-height:500px)]:order-1 [@media(max-height:500px)]:mt-5">
@@ -57,7 +57,8 @@ export function Hero() {
             </div>
 
             <p className="mt-4 text-[0.78125rem] font-medium text-muted-foreground max-sm:order-2 [@media(max-height:500px)]:order-2">
-              Plans from $15.82 • 24-hour free trial • No auto-renewal
+              {/* Each price names its plan, so "$15.82" and "$7.35/mo" (also on the mobile buy bar) never look like a clash. */}
+              From {lowestMonthly}/mo on the 12-month plan • {FACT_TEXT.fromPrice} for 1 month • No auto-renewal
             </p>
           </div>
 
@@ -75,7 +76,8 @@ export function Hero() {
                   loading="eager"
                   fetchPriority="high"
                   className="h-auto w-full object-cover"
-                  sizes="(min-width: 1024px) 460px, (min-width: 640px) 512px, 100vw"
+                  // Phones: the container's 1.25rem side padding, so 412px phones get the 1024px file, not 1280px.
+                  sizes="(min-width: 1024px) 460px, (min-width: 640px) 512px, calc(100vw - 2.5rem)"
                 />
               </div>
             </div>

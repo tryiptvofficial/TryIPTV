@@ -125,6 +125,10 @@ const homepageFaqs: FaqItem[] = [
     answer: `Login details are usually provided within ${PRODUCT_TRUTHS.activationTime} after confirmation, ${PRODUCT_TRUTHS.activationHours.replace(";", ".").replace(" requests", " Requests")}. Read the <a href="/setup" class="text-primary hover:underline">universal IPTV setup guide</a>, or use the <a href="/help/epg-not-working" class="text-primary hover:underline">EPG not working fix</a> if the TV guide stays empty.`,
   },
   {
+    question: "How much does TryIPTV cost?",
+    answer: `TryIPTV costs $${PRODUCT_TRUTHS.plans[0].price.toFixed(2)} for one month, or about $${PRODUCT_TRUTHS.plans[3].monthlyEquivalent.toFixed(2)} a month on the 12-month plan ($${PRODUCT_TRUTHS.plans[3].price.toFixed(2)} paid once). Every plan includes ${PRODUCT_TRUTHS.connections} simultaneous connections and does not renew automatically. <a href="/pricing" class="text-primary hover:underline">Compare all plan prices</a>.`,
+  },
+  {
     question: "Which plan should I choose?",
     answer: `Choose ${PRODUCT_TRUTHS.plans[3].duration} ($${PRODUCT_TRUTHS.plans[3].price.toFixed(2)}, about $${PRODUCT_TRUTHS.plans[3].monthlyEquivalent.toFixed(2)} a month) for the lowest monthly cost, or ${PRODUCT_TRUTHS.plans[0].duration} ($${PRODUCT_TRUTHS.plans[0].price.toFixed(2)}) for short-term use. ${PRODUCT_TRUTHS.plans[1].duration} ($${PRODUCT_TRUTHS.plans[1].price.toFixed(2)}) and ${PRODUCT_TRUTHS.plans[2].duration} ($${PRODUCT_TRUTHS.plans[2].price.toFixed(2)}) sit in between. Not sure yet? Start with the free 24-hour trial. Every plan is a one-time payment with ${PRODUCT_TRUTHS.connections} connections. <a href="/pricing" class="text-primary hover:underline">Compare all plans</a>.`,
   },

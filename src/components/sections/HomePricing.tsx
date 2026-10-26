@@ -130,7 +130,7 @@ export function HomePricing() {
                     <span className="font-medium text-foreground">{plan.monthlyEquivalent}</span>
                     {plan.savings && (
                       <span className="rounded bg-primary/10 px-1.5 text-xs font-semibold leading-5 text-primary">
-                        {plan.savings}
+                        {plan.savings} vs the 1-month price
                       </span>
                     )}
                   </>

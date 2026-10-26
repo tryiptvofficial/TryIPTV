@@ -41,6 +41,7 @@ export function MobileBuyBar() {
       <div className="flex h-12 items-center justify-between gap-3 rounded-xl border border-white/[0.1] bg-[#050606]/95 pl-4 pr-0.5 shadow-[0_12px_32px_rgba(0,0,0,0.45)] backdrop-blur-xl">
         <p className="text-sm font-semibold leading-tight text-foreground">
           From <span className="text-primary">{lowestMonthly}/mo</span>
+          <span className="block text-xs font-medium text-muted-foreground">12-month plan</span>
         </p>
         <a
           href="#pricing"
