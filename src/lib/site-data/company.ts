@@ -67,6 +67,8 @@ export const COMPANY = {
     dmcaEmail: "care@tryiptv.com",
     /** Confirmed 2026-10-21: same hours for WhatsApp and email. */
     hours: "9:00 AM–10:00 PM ET, every day" as string | null,
+    /** The same hours for UK visitors. "About" because US and UK clocks change on different dates, so the gap is 4 hours for a few weeks a year. */
+    hoursUk: "about 2:00 PM–3:00 AM UK time" as string | null,
     /** Confirmed 2026-10-21. Stated once next to the hours, not repeated in every mention. */
     coverage: "Support is open every day, including weekends and public holidays." as string | null,
     /** Machine-readable form of `hours` for schema ContactPoint.hoursAvailable. */

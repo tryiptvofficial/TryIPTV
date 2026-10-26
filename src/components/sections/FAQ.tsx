@@ -63,17 +63,22 @@ const homepageFaqs: FaqItem[] = [
   {
     question: "What is IPTV?",
     answer:
-      'IPTV (Internet Protocol Television) delivers live TV channels and on-demand video over your internet connection instead of a cable or satellite signal. You enter a provider\'s login in an IPTV player app on a device you own, and the app streams the channels. <a href="/guides/how-does-iptv-work" class="text-primary hover:underline">See how IPTV works step by step</a>, or <a href="/guides/what-is-iptv" class="text-primary hover:underline">read the full IPTV guide</a>.',
+      'IPTV (Internet Protocol Television) delivers live TV channels and on-demand video over your internet connection instead of a cable or satellite signal.<br /><br />You enter a provider\'s login in an IPTV player app on a device you own, and the app streams the channels. <a href="/guides/how-does-iptv-work" class="text-primary hover:underline">See how IPTV works step by step</a>, or <a href="/guides/what-is-iptv" class="text-primary hover:underline">read the full IPTV guide</a>.',
   },
   {
     question: "What do I need to watch IPTV?",
     answer:
-      'You need three things. First, a compatible device such as a Fire TV Stick or smart TV. Second, a stable internet connection of about 25 Mbps (megabits per second) for HD. Third, an IPTV player app such as TiviMate or IPTV Smarters. TryIPTV is not a player app itself; support sends your login after you order. <a href="/guides/how-does-iptv-work" class="text-primary hover:underline">See how IPTV works step by step</a>.',
+      'You need three things:<ol class="my-2 list-decimal space-y-1 pl-5"><li>A compatible device, such as a Fire TV Stick or a smart TV.</li><li>A stable internet connection of about 25 Mbps (megabits per second) for HD.</li><li>An IPTV player app, such as TiviMate or IPTV Smarters.</li></ol>TryIPTV is not a player app itself; support sends your login after you order. <a href="/guides/how-does-iptv-work" class="text-primary hover:underline">See how IPTV works step by step</a>.',
   },
   {
     question: "Which IPTV player app should I use?",
     answer:
       'Use any compatible IPTV player that accepts an Xtream Codes login or an M3U link; TryIPTV does not require one specific app. TiviMate and IPTV Smarters are two common choices, so pick one that is available for your device. <a href="/players" class="text-primary hover:underline">Compare compatible IPTV players</a>.',
+  },
+  {
+    question: "What is the difference between Xtream Codes and M3U?",
+    answer:
+      'Both are ways to enter your TryIPTV login in a player app. An Xtream Codes login is a server address, username and password; an M3U link is one playlist address.<br /><br />Support sends either one, so use the format your app supports. <a href="/guides/m3u-vs-xtream-codes" class="text-primary hover:underline">Compare M3U and Xtream Codes in detail</a>.',
   },
   {
     question: "Does TryIPTV offer a free trial?",
@@ -127,7 +132,7 @@ const homepageFaqs: FaqItem[] = [
   },
   {
     question: "How quickly do I get my login?",
-    answer: `Login details are usually provided within ${PRODUCT_TRUTHS.activationTime} after confirmation, ${PRODUCT_TRUTHS.activationHours.replace(";", ".").replace(" requests", " Requests")}. Read the <a href="/setup" class="text-primary hover:underline">universal IPTV setup guide</a>, or use the <a href="/help/epg-not-working" class="text-primary hover:underline">EPG not working fix</a> if the TV guide stays empty.`,
+    answer: `Login details are usually provided within ${PRODUCT_TRUTHS.activationTime} after confirmation, ${PRODUCT_TRUTHS.activationHours.replace("ET);", `ET${COMPANY.support.hoursUk ? `, ${COMPANY.support.hoursUk}` : ""}).<br /><br />`).replace(" requests", "Requests")}. Read the <a href="/setup" class="text-primary hover:underline">universal IPTV setup guide</a>, or use the <a href="/help/epg-not-working" class="text-primary hover:underline">EPG not working fix</a> if the TV guide stays empty.`,
   },
   {
     question: "How much does TryIPTV cost?",
@@ -135,7 +140,8 @@ const homepageFaqs: FaqItem[] = [
   },
   {
     question: "Which plan should I choose?",
-    answer: `Choose ${PRODUCT_TRUTHS.plans[3].duration} ($${PRODUCT_TRUTHS.plans[3].price.toFixed(2)}, about $${PRODUCT_TRUTHS.plans[3].monthlyEquivalent.toFixed(2)} a month) for the lowest monthly cost, or ${PRODUCT_TRUTHS.plans[0].duration} ($${PRODUCT_TRUTHS.plans[0].price.toFixed(2)}) for short-term use. ${PRODUCT_TRUTHS.plans[1].duration} ($${PRODUCT_TRUTHS.plans[1].price.toFixed(2)}) and ${PRODUCT_TRUTHS.plans[2].duration} ($${PRODUCT_TRUTHS.plans[2].price.toFixed(2)}) sit in between. Not sure yet? Start with the free 24-hour trial. Every plan is a one-time payment with ${PRODUCT_TRUTHS.connections} connections. <a href="/pricing" class="text-primary hover:underline">Compare all plans</a>.`,
+    // Short lead for voice answers, then the plan that fits each common situation.
+    answer: `Choose ${PRODUCT_TRUTHS.plans[3].duration} ($${PRODUCT_TRUTHS.plans[3].price.toFixed(2)}, about $${PRODUCT_TRUTHS.plans[3].monthlyEquivalent.toFixed(2)} a month) for the lowest monthly cost, or ${PRODUCT_TRUTHS.plans[0].duration} ($${PRODUCT_TRUTHS.plans[0].price.toFixed(2)}) for short-term use.<br /><br />Two TVs in different rooms: any plan works, since every plan includes ${PRODUCT_TRUTHS.connections} connections. One season or one event: ${PRODUCT_TRUTHS.plans[0].duration}. All year: ${PRODUCT_TRUTHS.plans[3].duration}. ${PRODUCT_TRUTHS.plans[1].duration} ($${PRODUCT_TRUTHS.plans[1].price.toFixed(2)}) and ${PRODUCT_TRUTHS.plans[2].duration} ($${PRODUCT_TRUTHS.plans[2].price.toFixed(2)}) sit in between. Not sure yet? Start with the free 24-hour trial. Every plan is a one-time payment. <a href="/pricing" class="text-primary hover:underline">Compare all plans</a>.`,
   },
   {
     question: "Can I watch live sports and PPV events?",
@@ -145,7 +151,7 @@ const homepageFaqs: FaqItem[] = [
   {
     question: "Is IPTV cheaper than cable?",
     // Cable figures are the TryIPTV estimates shown on /pricing; check:facts skips them.
-    answer: `<strong class="font-semibold text-foreground">Usually, yes.</strong> TryIPTV costs $${PRODUCT_TRUTHS.plans[0].price.toFixed(2)} for one month, or about $${PRODUCT_TRUTHS.plans[3].monthlyEquivalent.toFixed(2)} a month on the 12-month plan, with no box to rent. <span data-facts-ignore>Our estimate for a typical US cable bill is $100–$120 a month advertised and $130–$170 with fees.</span> Channel line-ups differ, so test yours during the free trial. <a href="/pricing" class="text-primary hover:underline">See the full cost comparison</a>.`,
+    answer: `<strong class="font-semibold text-foreground">Usually, yes.</strong> TryIPTV costs $${PRODUCT_TRUTHS.plans[0].price.toFixed(2)} for one month, or about $${PRODUCT_TRUTHS.plans[3].monthlyEquivalent.toFixed(2)} a month on the 12-month plan, with no box to rent. <span data-facts-ignore>Our estimate for a typical US cable bill is $130–$170 a month with fees.</span><br /><br /><span data-facts-ignore>That is about $100–$120 a month advertised, before fees.</span> Channel line-ups differ, so test yours during the free trial. <a href="/pricing" class="text-primary hover:underline">See the full cost comparison</a>.`,
   },
   {
     question: "What internet speed do I need for IPTV?",
@@ -162,7 +168,7 @@ const homepageFaqs: FaqItem[] = [
       COMPANY.support.responseTime
         ? ` Support replies ${COMPANY.support.responseTime.replace(/^Typically/, "typically")}${COMPANY.support.hours ? ` (${COMPANY.support.hours})` : ""}.`
         : ""
-    } If TryIPTV cannot provide a working subscription, the <a href="/refund-policy" class="text-primary hover:underline">refund policy</a> applies. <a href="/help/iptv-not-working" class="text-primary hover:underline">See the IPTV not working guide</a>, or the <a href="/help/m3u-not-loading" class="text-primary hover:underline">M3U playlist not loading fix</a> if the whole channel list fails.`,
+    }<br /><br />If TryIPTV cannot provide a working subscription, the <a href="/refund-policy" class="text-primary hover:underline">refund policy</a> applies. <a href="/help/iptv-not-working" class="text-primary hover:underline">See the IPTV not working guide</a>, or the <a href="/help/m3u-not-loading" class="text-primary hover:underline">M3U playlist not loading fix</a> if the whole channel list fails.`,
   },
   {
     question: "Do I need a VPN for IPTV?",
