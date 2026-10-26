@@ -111,7 +111,7 @@ const homepageFaqs: FaqItem[] = [
   },  {
     question: "Is IPTV legal?",
     answer:
-      '<strong class="font-semibold text-foreground">Yes,</strong> IPTV as a technology is legal.<br /><br />Whether a particular service is legal depends on whether it holds the rights to what it streams and on the law where you live. Eurojust, the EU agency for criminal justice cooperation, says IPTV services are not illegal in themselves when the provider has the correct licences for the content (<a href="https://www.eurojust.europa.eu/sites/default/files/assets/eurojust-iptv-flyer.pdf" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Eurojust IPTV factsheet (EU, PDF), checked October 2026</a>). This is general information, not legal advice. <a href="/disclaimer" class="text-primary hover:underline">Read the TryIPTV disclaimer</a>.',
+      '<strong class="font-semibold text-foreground">Yes,</strong> IPTV as a technology is legal.<br /><br />Whether a particular service is legal depends on whether it holds the rights to what it streams and on the law where you live. The EU justice agency Eurojust says IPTV services are not illegal in themselves when the provider has the correct content licences. Source: <a href="https://www.eurojust.europa.eu/sites/default/files/assets/eurojust-iptv-flyer.pdf" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Eurojust IPTV factsheet (EU, PDF), checked October 2026</a>. This is general information, not legal advice. <a href="/disclaimer" class="text-primary hover:underline">Read the TryIPTV disclaimer</a>.',
   },
   {
     question: "Can I get a refund?",
