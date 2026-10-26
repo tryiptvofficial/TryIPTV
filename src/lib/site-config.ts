@@ -80,6 +80,16 @@ export const siteConfig = {
 
 export type SiteConfig = typeof siteConfig;
 
+// Google-specific preview limits for indexable pages. Page metadata replaces the layout's
+// `robots` object as a whole, so every indexable page has to carry these again.
+export const GOOGLEBOT_PREVIEW = {
+  index: true,
+  follow: true,
+  'max-video-preview': -1,
+  'max-image-preview': 'large',
+  'max-snippet': -1,
+} as const;
+
 // Helper for generating page-specific metadata
 export function generateMetadata({
   title,
@@ -131,6 +141,6 @@ export function generateMetadata({
     },
     robots: noIndex
       ? { index: false, follow: true }
-      : { index: true, follow: true },
+      : { index: true, follow: true, googleBot: GOOGLEBOT_PREVIEW },
   };
 }

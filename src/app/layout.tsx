@@ -13,7 +13,7 @@ const ContactSheet = dynamic(() => import("@/components/shared/ContactSheet").th
 import { Analytics } from "@/components/shared/Analytics";
 import { Schema } from "@/components/shared/Schema";
 import { generateOrganizationSchema, generateWebSiteSchema } from "@/lib/schema";
-import { SITE_URL, siteConfig } from "@/lib/site-config";
+import { GOOGLEBOT_PREVIEW, SITE_URL, siteConfig } from "@/lib/site-config";
 
 export const viewport: Viewport = {
   themeColor: [
@@ -83,13 +83,7 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
+    googleBot: GOOGLEBOT_PREVIEW,
   },
   verification: {
     google: [
