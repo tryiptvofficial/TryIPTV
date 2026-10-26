@@ -259,7 +259,7 @@ export default function IptvVsCablePage() {
             <div className="my-8 overflow-hidden rounded-xl border border-white/[0.08] bg-[#070908] shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
               <div className="overflow-x-auto" tabIndex={0} role="region" aria-label="IPTV vs cable comparison table">
                 <table className="w-full min-w-[36rem] text-left text-xs sm:text-sm">
-                  <thead className="border-b border-white/[0.08] bg-white/[0.02] text-primary font-mono uppercase tracking-wider text-[11px]">
+                  <thead className="border-b border-white/[0.08] bg-white/[0.02] text-primary font-mono uppercase tracking-wider text-xs">
                     <tr>
                       <th className="p-3.5 sm:p-4 w-[22%]">Feature</th>
                       <th className="p-3.5 sm:p-4 w-[28%]">IPTV</th>
@@ -279,7 +279,7 @@ export default function IptvVsCablePage() {
                         <td className="p-3.5 sm:p-4 text-muted-foreground align-top">
                           {row.cable}
                         </td>
-                        <td className="p-3.5 sm:p-4 text-[11px] sm:text-xs text-primary/90 align-top">
+                        <td className="p-3.5 sm:p-4 text-xs text-primary/90 align-top">
                           {row.impact}
                         </td>
                       </tr>
@@ -287,7 +287,7 @@ export default function IptvVsCablePage() {
                   </tbody>
                 </table>
               </div>
-              <p data-small-print className="p-3.5 text-center text-[11px] text-muted-foreground border-t border-white/[0.06]">
+              <p data-small-print className="p-3.5 text-center text-xs text-muted-foreground border-t border-white/[0.06]">
                 * Practical comparison guidelines. Specific features and terms vary across cable operators and independent IPTV providers.
               </p>
             </div>

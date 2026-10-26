@@ -233,7 +233,13 @@ export default function PlayersHubPage() {
             </p>
           </div>
 
-          <div className="mt-8 overflow-x-auto rounded-xl border border-white/[0.08] bg-white/[0.02]">
+          {/* Focusable and labelled so keyboard users can scroll it; on phones it is wider than the screen. */}
+          <div
+            className="mt-8 overflow-x-auto rounded-xl border border-white/[0.08] bg-white/[0.02]"
+            tabIndex={0}
+            role="region"
+            aria-label="IPTV player comparison table"
+          >
             <table className="w-full text-left text-sm whitespace-nowrap lg:whitespace-normal">
               <thead>
                 <tr className="border-b border-white/[0.08] bg-white/[0.03] text-xs font-semibold uppercase tracking-wider text-foreground">
@@ -260,7 +266,7 @@ export default function PlayersHubPage() {
                     <td className="p-4 text-xs text-muted-foreground">{player.platforms}</td>
                     <td className="p-4 text-xs text-muted-foreground">{player.protocols}</td>
                     <td className="p-4 text-xs">
-                      <span className={`inline-flex rounded-full border px-2 py-0.5 text-[11px] font-medium ${player.badgeColor}`}>
+                      <span className={`inline-flex rounded-full border px-2 py-0.5 text-xs font-medium ${player.badgeColor}`}>
                         {player.bestFor}
                       </span>
                     </td>
@@ -296,7 +302,7 @@ export default function PlayersHubPage() {
               <Card key={player.slug} className="flex min-w-0 flex-col justify-between border-white/[0.08] bg-white/[0.02] transition-all duration-200 motion-safe:hover:-translate-y-1 hover:border-primary/40 hover:bg-white/[0.04]">
                 <CardHeader className="pb-3">
                   <div className="flex items-center justify-between gap-2 mb-2">
-                    <span className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-[11px] font-semibold ${player.badgeColor}`}>
+                    <span className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-semibold ${player.badgeColor}`}>
                       <player.icon className="h-3 w-3" />
                       {player.bestFor}
                     </span>
@@ -315,7 +321,7 @@ export default function PlayersHubPage() {
                     {player.description}
                   </p>
                   <div className="pt-3 border-t border-white/[0.06] flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
-                    <span className="text-[11px] text-muted-foreground font-mono">
+                    <span className="text-xs text-muted-foreground font-mono">
                       {player.pricing}
                     </span>
                     <Button asChild size="sm" variant="ghost" className="h-auto min-h-8 whitespace-normal text-left text-primary hover:text-primary group p-0">
@@ -466,7 +472,7 @@ export default function PlayersHubPage() {
                         Start 24-Hour Free Trial <ArrowRight className="ml-2 h-4 w-4" />
                       </Link>
                     </Button>
-                    <p data-small-print className="mt-2 text-center text-[11px] text-muted-foreground">
+                    <p data-small-print className="mt-2 text-center text-xs text-muted-foreground">
                       Trial login details usually arrive on WhatsApp within {PRODUCT_TRUTHS.activationTime}
                     </p>
                   </div>

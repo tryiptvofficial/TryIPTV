@@ -224,7 +224,7 @@ export default function IptvInternetSpeedPage() {
             <div className="my-8 overflow-hidden rounded-xl border border-white/[0.08] bg-[#070908] shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
               <div className="overflow-x-auto" tabIndex={0} role="region" aria-label="IPTV internet speed table">
                 <table className="w-full min-w-[36rem] text-left text-xs sm:text-sm">
-                  <thead className="border-b border-white/[0.08] bg-white/[0.02] text-primary font-mono uppercase tracking-wider text-[11px]">
+                  <thead className="border-b border-white/[0.08] bg-white/[0.02] text-primary font-mono uppercase tracking-wider text-xs">
                     <tr>
                       <th className="p-3.5 sm:p-4">Resolution</th>
                       <th className="p-3.5 sm:p-4">Stream Bitrate (Approx.)</th>
@@ -237,7 +237,7 @@ export default function IptvInternetSpeedPage() {
                       <tr key={tier.resolution} className="transition-colors hover:bg-white/[0.02]">
                         <td className="p-3.5 sm:p-4 font-semibold text-foreground">
                           {tier.resolution}
-                          <div className="text-[11px] font-normal text-muted-foreground mt-0.5">{tier.notes}</div>
+                          <div className="text-xs font-normal text-muted-foreground mt-0.5">{tier.notes}</div>
                         </td>
                         <td className="p-3.5 sm:p-4 font-mono">{tier.bitrateRange}</td>
                         <td className="p-3.5 sm:p-4 font-mono text-foreground">{tier.headroomSingle}</td>
@@ -247,7 +247,7 @@ export default function IptvInternetSpeedPage() {
                   </tbody>
                 </table>
               </div>
-              <p data-small-print className="p-3.5 text-center text-[11px] text-muted-foreground border-t border-white/[0.06]">
+              <p data-small-print className="p-3.5 text-center text-xs text-muted-foreground border-t border-white/[0.06]">
                 * Approximate planning ranges only. Official streaming services publish different recommended speeds because encoding, bitrate, codec, and playback behavior vary.
               </p>
             </div>

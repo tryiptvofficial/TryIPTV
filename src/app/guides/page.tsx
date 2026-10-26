@@ -222,7 +222,7 @@ export default function GuidesPage() {
                 >
                   <CardHeader className="pb-3">
                     <div className="mb-3 flex items-center justify-between gap-2">
-                      <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/10 px-2.5 py-0.5 text-[11px] font-semibold text-primary">
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/10 px-2.5 py-0.5 text-xs font-semibold text-primary">
                         <Icon className="h-3 w-3" />
                         {guide.badge}
                       </span>
@@ -274,7 +274,7 @@ export default function GuidesPage() {
                 >
                   <CardHeader className="pb-3">
                     <div className="mb-3 flex items-center justify-between gap-2">
-                      <span className="inline-flex items-center gap-1.5 rounded-full border border-blue-400/20 bg-blue-400/10 px-2.5 py-0.5 text-[11px] font-semibold text-blue-400">
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-blue-400/20 bg-blue-400/10 px-2.5 py-0.5 text-xs font-semibold text-blue-400">
                         <Icon className="h-3 w-3" />
                         {guide.badge}
                       </span>

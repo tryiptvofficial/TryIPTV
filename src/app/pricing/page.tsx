@@ -308,7 +308,7 @@ export default async function IPTVSubscription() {
                         </span>
                       </p>
                       {savingsText && (
-                        <p className="mt-2 inline-block rounded bg-primary/10 px-2 py-0.5 text-[11px] font-semibold text-primary">
+                        <p className="mt-2 inline-block rounded bg-primary/10 px-2 py-0.5 text-xs font-semibold text-primary">
                           {savingsText}
                         </p>
                       )}

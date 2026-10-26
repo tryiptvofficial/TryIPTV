@@ -261,7 +261,7 @@ export default function HowDoesIptvWorkPage() {
                   <span className="text-xs text-muted-foreground mt-0.5">Display Playback</span>
                 </div>
               </div>
-              <p data-small-print className="mt-4 text-[11px] text-muted-foreground leading-relaxed text-center">
+              <p data-small-print className="mt-4 text-xs text-muted-foreground leading-relaxed text-center">
                 * Note: This diagram illustrates the generalized industry streaming pipeline. Exact network configurations differ by provider and player.
               </p>
             </div>

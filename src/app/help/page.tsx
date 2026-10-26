@@ -193,7 +193,7 @@ export default function HelpPage() {
                 >
                   <CardHeader className="pb-3">
                     <div className="mb-3 flex items-center justify-between gap-2">
-                      <span className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-[11px] font-semibold ${guide.badgeColor}`}>
+                      <span className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-semibold ${guide.badgeColor}`}>
                         <Icon className="h-3 w-3" />
                         {guide.badge}
                       </span>
