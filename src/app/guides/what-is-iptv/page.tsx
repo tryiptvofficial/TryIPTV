@@ -118,13 +118,13 @@ const legalityRows = [
   { label: "Watching a licensed IPTV service", us: "Legal", uk: "Legal" },
   {
     label: "Watching unlicensed streams",
-    us: "Copyright infringement; viewers can face civil claims",
+    us: "The law mainly targets operators; viewer liability is less settled",
     uk: "Unlawful (GOV.UK 2018; EU Court of Justice C-527/15)",
   },
   {
     label: "Selling or running an unlicensed service",
-    us: "Federal crime under 18 U.S.C. § 2319C",
-    uk: "Criminal offence under copyright and fraud law",
+    us: "Federal crime under 18 U.S.C. § 2319C, for services primarily designed to stream without authorization",
+    uk: "Can be a criminal offence under copyright law",
   },
 ];
 
@@ -152,12 +152,12 @@ const faqs = [
   {
     question: "Do you have to pay for IPTV?",
     answer:
-      "Usually, yes. Licensed IPTV services charge a subscription because they pay for the rights to their channels. IPTV player apps are often free or cheap, but they contain no channels. A free trial, such as the 24-hour TryIPTV trial, lets you test before paying.",
+      "Usually, yes. Licensed IPTV services charge a subscription because they pay for the rights to their channels. IPTV player apps are often free or cheap, but they contain no channels.",
   },
   {
     question: "Can I watch IPTV for free?",
     answer:
-      "Some broadcasters offer free, legal streams of their own channels, but free lists of premium channels are almost always unlicensed and can be unsafe or illegal to use. A free trial from a paid service is the safer way to test IPTV on your own device before you subscribe.",
+      "Some broadcasters offer free, legal streams of their own channels, but free lists of premium channels are almost always unlicensed and can be unsafe or illegal to use. A free trial from a paid service is the safer way to test on your own device, without installing unknown apps or lists.",
   },
   {
     question: "Is IPTV the same as Netflix or YouTube TV?",
@@ -395,11 +395,12 @@ export default function WhatIsIptvPage() {
               </p>
               <h3>Is IPTV legal in the US?</h3>
               <p>
-                Yes, IPTV itself is legal in the US. Running an unlicensed streaming service for profit is
-                a federal crime under the Protecting Lawful Streaming Act of 2020{" "}
+                Yes, IPTV itself is legal in the US. Under the Protecting Lawful Streaming Act of 2020{" "}
                 (<a href="https://www.law.cornell.edu/uscode/text/18/2319C" target="_blank" rel="noopener noreferrer">18 U.S.C. § 2319C</a>),
-                which targets the people who operate such services. Viewers of unlicensed streams can
-                still be liable for copyright infringement.
+                it is a federal crime to willfully, and for commercial advantage or private financial gain,
+                offer a streaming service that is primarily designed or marketed to stream copyrighted
+                works without authorization. The law mainly targets operators; whether viewers are liable
+                is less settled.
               </p>
               <h3>Is IPTV legal in the UK?</h3>
               <p>
@@ -407,8 +408,8 @@ export default function WhatIsIptvPage() {
                 streaming boxes become illegal to use once apps or add-ons give access to paid-for
                 content for free{" "}
                 (<a href="https://www.gov.uk/government/news/pressure-grows-on-producers-of-illegal-streaming-devices-and-thieves-of-paid-for-content" target="_blank" rel="noopener noreferrer">GOV.UK, October 2018</a>),
-                and the EU Court of Justice ruled in 2017 that streaming unlicensed content is not
-                lawful (<a href="https://curia.europa.eu/juris/liste.jsf?num=C-527/15" target="_blank" rel="noopener noreferrer">case C-527/15</a>).
+                and the EU Court of Justice ruled in 2017, while the UK was in the EU, that streaming
+                unlicensed content is not lawful (<a href="https://curia.europa.eu/juris/liste.jsf?num=C-527/15" target="_blank" rel="noopener noreferrer">case C-527/15</a>).
               </p>
             </div>
 

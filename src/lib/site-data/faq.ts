@@ -369,7 +369,7 @@ export const faqTopics: FaqTopic[] = [
       },
       {
         question: "How do I know an IPTV provider is legit?",
-        answer: `Look for clear published prices, a written refund policy and terms, a working way to contact support, a free trial, and no pressure to pay upfront for long plans. Read those pages before you pay: TryIPTV's are the ${a("/pricing", "pricing page")}, ${a("/refund-policy", "refund policy")} and ${a("/terms-conditions", "terms")}.`,
+        answer: "Look for whether it holds the rights to its channels, clear published prices, a written refund policy and terms, a working way to contact support, a free trial, and no pressure to pay upfront for long plans.",
       },
       {
         question: "Are there legal IPTV providers?",
