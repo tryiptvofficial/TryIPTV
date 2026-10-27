@@ -160,7 +160,7 @@ const homepageFaqs: FaqItem[] = [
   },
   {
     question: "How do I fix IPTV buffering?",
-    answer: 'To fix IPTV buffering, try these steps in order:<ol class="my-2 list-decimal space-y-1 pl-5"><li>Connect your device by Ethernet or 5 GHz Wi-Fi.</li><li>Restart the player app and your router.</li><li>Try a different channel.</li><li>If only one channel buffers while others play normally, message support with the channel name so they can check that feed.</li></ol>Buffering usually means video data is not reaching your player fast or steadily enough, often because of weak Wi-Fi, a busy home network or a slow device. <a href="/help/iptv-buffering" class="text-primary hover:underline">Follow the IPTV buffering fix guide</a>.',
+    answer: 'Most IPTV buffering is fixed by switching to Ethernet or 5 GHz Wi-Fi and restarting the player app and your router. Try these steps in order:<ol class="my-2 list-decimal space-y-1 pl-5"><li>Connect your device by Ethernet or 5 GHz Wi-Fi.</li><li>Restart the player app and your router.</li><li>Try a different channel.</li><li>If only one channel buffers while others play normally, message support with the channel name so they can check that feed.</li></ol>Buffering usually means video data is not reaching your player fast or steadily enough. Common causes are weak Wi-Fi, a busy home network or a slow device. <a href="/help/iptv-buffering" class="text-primary hover:underline">Follow the IPTV buffering fix guide</a>.',
   },
   {
     question: "What if a channel stops working?",

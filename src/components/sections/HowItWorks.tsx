@@ -21,7 +21,7 @@ const steps: Step[] = [
     {
         icon: CheckCircle,
         title: "Receive Your Login",
-        description: `Credentials are typically delivered within ${PRODUCT_TRUTHS.activationTime} after confirmation, ${PRODUCT_TRUTHS.activationHours.split(";")[0]}, including M3U or Xtream Codes details.`
+        description: `Credentials are typically delivered within ${PRODUCT_TRUTHS.activationTime} after confirmation, ${PRODUCT_TRUTHS.activationHours.split(";")[0]}. They come as an Xtream Codes login (server address, username and password) or an M3U playlist link.`
     },
     {
         icon: Tv,
