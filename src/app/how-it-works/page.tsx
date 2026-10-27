@@ -12,6 +12,7 @@ import { PageSchema } from "@/components/shared/Schema";
 import { generateBreadcrumbSchema } from "@/lib/schema";
 import { SITE_URL, PRODUCT_TRUTHS, FACT_TEXT, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { COMPANY } from "@/lib/site-data/company";
+import { getLastModified } from "@/lib/site-routes";
 
 /**
  * How it works — the buying path: message support, optional trial, pay, receive the login, renew.
@@ -23,6 +24,7 @@ import { COMPANY } from "@/lib/site-data/company";
 const whatsAppUrl =
   "https://wa.me/212694833293?text=Hello%20TryIPTV%2C%20I%20would%20like%20help%20choosing%20a%20plan.";
 
+const usd = (n: number) => `$${n.toFixed(2)}`;
 const link = "font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary";
 const T = PRODUCT_TRUTHS;
 const pay = COMPANY.paymentMethods ?? "the methods support lists when you order";
@@ -30,9 +32,10 @@ const months = T.plans.map((p) => parseInt(p.duration, 10));
 /** "1, 3, 6 or 12" */
 const durations = `${months.slice(0, -1).join(", ")} or ${months[months.length - 1]}`;
 
+const description = `How a TryIPTV subscription starts: message us on WhatsApp, try the ${FACT_TEXT.trialHours}-hour free trial, pay once and get your login in ${T.activationTime}. Nothing auto-renews.`;
+
 export function generateMetadata(): Metadata {
-  const title = "How TryIPTV Works: From First Message to First Stream";
-  const description = `How a TryIPTV subscription starts: message support on WhatsApp, test the ${FACT_TEXT.trialHours}-hour free trial, pay once, and get your login within ${T.activationTime}. Nothing renews automatically.`;
+  const title = "How TryIPTV Works: Message, Free Trial, Login";
 
   return {
     ...generatePageMetadata({ title, description, canonical: "/how-it-works" }),
@@ -44,7 +47,7 @@ const overview = [
   {
     step: "01",
     title: "Find your fit",
-    text: `Compare the ${durations}-month plans. A standard plan includes ${T.connections} simultaneous connections. ${T.extraConnections}`,
+    text: `Compare the ${durations}-month plans. A standard plan includes ${T.connections} simultaneous connections.`,
   },
   {
     step: "02",
@@ -103,7 +106,7 @@ const journey = [
   {
     label: "Step 3 · Choose and pay",
     title: "Pick a plan and pay support",
-    text: `Plans cost ${FACT_TEXT.priceList}, paid once. ${T.extraConnections} Support sends payment instructions on WhatsApp, and you can pay by ${pay}.`,
+    text: `Choose a ${durations}-month plan, paid once (prices below). Support sends payment instructions on WhatsApp. You can pay by ${pay}.`,
   },
   {
     label: "Step 4 · Activate",
@@ -119,21 +122,25 @@ const journey = [
 
 const faqs: { question: string; answer: React.ReactNode }[] = [
   {
-    question: "What is IPTV and how does TryIPTV work?",
+    question: "How does TryIPTV work?",
     answer: (
       <>
-        IPTV delivers live TV and on-demand video over the internet instead of cable or satellite. TryIPTV gives you a login for{" "}
-        {T.channels} live channels and {T.vod} movies and shows, which you enter in an IPTV player app on your own device. Read{" "}
+        TryIPTV gives you a login for {T.channels} live channels and {T.vod} movies and shows, which you enter in an IPTV player app on
+        your own device. IPTV delivers TV over the internet instead of cable or satellite. Read{" "}
         <Link href="/guides/what-is-iptv" className={link}>
           what IPTV is
         </Link>{" "}
-        for the full explanation.
+        and{" "}
+        <Link href="/guides/how-does-iptv-work" className={link}>
+          how IPTV works
+        </Link>
+        .
       </>
     ),
   },
   {
     question: "Is TryIPTV a good IPTV service for live TV?",
-    answer: `Judge it on your own setup: the ${FACT_TEXT.trialHours}-hour free trial gives you the full channel list, HD and 4K where available, PPV events and catch-up TV with the TV guide. Test your must-have channels during a busy evening before you pay.`,
+    answer: `It has ${T.channels} live channels, and the ${FACT_TEXT.trialHours}-hour free trial lets you test them on your own screen before you pay. The trial includes HD and 4K where available, PPV events and catch-up TV with the TV guide. Test your must-have channels during a busy evening.`,
   },
   {
     question: "How much do TryIPTV plans cost?",
@@ -151,8 +158,8 @@ const faqs: { question: string; answer: React.ReactNode }[] = [
     question: "Can I request a trial before choosing a plan?",
     answer: (
       <>
-        Yes. The free trial lasts {FACT_TEXT.trialHours} hours, costs $0 and needs no credit card. Request it on WhatsApp; the login usually
-        arrives within {T.activationTime}. One trial per household.{" "}
+        Yes. The free trial lasts {FACT_TEXT.trialHours} hours, costs $0 and needs no credit card. Request it on WhatsApp. One trial per
+        household.{" "}
         <Link href="/iptv-free-trial" className={link}>
           Start the free trial
         </Link>
@@ -196,13 +203,33 @@ const faqs: { question: string; answer: React.ReactNode }[] = [
       "No. 4K is available where a channel or title is produced in 4K; many streams are HD or Full HD. For 4K you also need a 4K screen, a 4K-capable device and about 50 Mbps of stable internet.",
   },
   {
-    question: "How do activation, renewals and refunds work?",
+    question: "How long does it take to get my login after paying?",
+    answer: `Your login usually arrives on WhatsApp within ${T.activationTime} after payment is confirmed. Support is open ${COMPANY.support.hours}; a message sent outside those hours is answered when support reopens.`,
+  },
+  {
+    question: "What if my login does not arrive or does not work?",
     answer: (
       <>
-        Your login arrives on WhatsApp within {T.activationTime} after payment is confirmed, during support hours. Nothing renews
-        automatically: you order a new plan when you want one. {T.refund.summary}{" "}
+        If nothing has arrived {T.activationTime} after payment is confirmed, reply in the same WhatsApp chat. If the login arrives but
+        will not connect, check the server URL, username and password for typing errors, then follow the{" "}
+        <Link href="/help/iptv-login-not-working" className={link}>
+          login troubleshooting guide
+        </Link>
+        .
+      </>
+    ),
+  },
+  {
+    question: "Do TryIPTV plans renew automatically?",
+    answer: (
+      <>
+        No. Nothing renews automatically, so you are never charged without asking. {T.expiry.summary} To renew, tap a plan on the{" "}
+        <Link href="/pricing" className={link}>
+          pricing page
+        </Link>{" "}
+        to open WhatsApp and say you are renewing. Refunds are given only if TryIPTV cannot provide a working subscription; read the{" "}
         <Link href="/refund-policy" className={link}>
-          Read the refund policy
+          refund policy
         </Link>
         .
       </>
@@ -233,18 +260,6 @@ const faqs: { question: string; answer: React.ReactNode }[] = [
     question: "Does TryIPTV work in the USA, the UK and other countries?",
     answer: `TryIPTV serves the ${T.markets}. The subscription ${T.travel}, so it also keeps working when you travel.`,
   },
-  {
-    question: "How do I renew a TryIPTV plan?",
-    answer: (
-      <>
-        Order a new plan the same way as the first one: tap a plan on the{" "}
-        <Link href="/pricing" className={link}>
-          pricing page
-        </Link>{" "}
-        to open WhatsApp and say you are renewing. Nothing renews automatically, so you are never charged without asking.
-      </>
-    ),
-  },
 ];
 
 function CtaButtons() {
@@ -271,7 +286,13 @@ export default function HowItWorksPage() {
 
   return (
     <>
-      <PageSchema path="/how-it-works" name="How a TryIPTV Subscription Starts" nodes={[breadcrumbSchema]} />
+      <PageSchema
+        path="/how-it-works"
+        name="How a TryIPTV Subscription Starts"
+        description={description}
+        dateModified={getLastModified("/how-it-works")}
+        nodes={[breadcrumbSchema]}
+      />
 
       {/* Hero */}
       <Section className="relative overflow-hidden border-b border-white/[0.07] pt-12 pb-14 sm:pt-16 sm:pb-20">
@@ -305,9 +326,9 @@ export default function HowItWorksPage() {
         <Container>
           <div className="mx-auto max-w-4xl">
             <SectionHeader
-              eyebrow="From curious to connected"
-              title="Less Figuring It Out, More Pressing Play"
-              subtitle={`Starting with TryIPTV takes three steps: choose a plan, talk to support on WhatsApp, then enter your login in a player. Logins usually arrive within ${T.activationTime} after payment is confirmed.`}
+              eyebrow="Less figuring it out, more pressing play"
+              title="How Does TryIPTV Work?"
+              subtitle={`TryIPTV works in five steps: message support on WhatsApp, test the ${FACT_TEXT.trialHours}-hour free trial if you want one, pay support for a ${durations}-month plan, enter the login support sends in an IPTV player app, and renew only when you choose. The three cards sum it up; the full path is below.`}
             />
             <ol className="grid grid-cols-1 gap-4 md:grid-cols-3">
               {overview.map((s) => (
@@ -377,6 +398,36 @@ export default function HowItWorksPage() {
                 </li>
               ))}
             </ol>
+
+            <h3 className="mt-10 mb-4 font-headline text-xl font-extrabold text-foreground">TryIPTV Plan Prices</h3>
+            <div className="overflow-hidden rounded-lg border border-white/[0.09] bg-card">
+              <div className="overflow-x-auto" tabIndex={0} role="region" aria-label="TryIPTV plan prices table">
+                <table className="w-full text-left text-[15px] sm:text-sm">
+                  <caption className="sr-only">TryIPTV plan prices, paid once, with the cost per month</caption>
+                  <thead className="border-b border-white/[0.09] bg-white/[0.02] text-xs font-extrabold uppercase tracking-wider text-muted-foreground">
+                    <tr>
+                      <th scope="col" className="px-5 py-3 text-primary">Plan</th>
+                      <th scope="col" className="px-5 py-3">Price, paid once</th>
+                      <th scope="col" className="px-5 py-3">Per month</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-white/[0.06]">
+                    {T.plans.map((p) => (
+                      <tr key={p.duration} className="transition-colors hover:bg-white/[0.02]">
+                        <th scope="row" className="px-5 py-3.5 font-semibold text-foreground">
+                          {p.duration}
+                        </th>
+                        <td className="px-5 py-3.5 text-muted-foreground">{usd(p.price)}</td>
+                        <td className="px-5 py-3.5 text-muted-foreground">{usd(p.monthlyEquivalent)}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <p className="mt-3 text-base sm:text-sm leading-6 text-muted-foreground">
+              Every standard plan includes {T.connections} simultaneous connections. {T.extraConnections}
+            </p>
             <p className="mt-6 rounded-lg border border-white/[0.08] bg-card/60 p-4 text-base sm:text-sm leading-6 text-muted-foreground">
               Activation is not automatic: it depends on confirmed payment and on support hours. Support is open {COMPANY.support.hours} (
               {COMPANY.support.hoursUk}). A message sent outside those hours is answered when support reopens. For the player steps, follow
@@ -395,8 +446,8 @@ export default function HowItWorksPage() {
         <Container>
           <div className="mx-auto max-w-4xl">
             <SectionHeader
-              eyebrow="A little clarity"
-              title="Good Questions, Straight Answers"
+              eyebrow="Good questions, straight answers"
+              title="Questions About Starting a TryIPTV Subscription"
               subtitle="Know what to expect before you choose your IPTV plan."
             />
             <div className="overflow-hidden rounded-lg border border-white/[0.08] bg-[#07080a]">
@@ -429,8 +480,8 @@ export default function HowItWorksPage() {
       <Section className="py-10 sm:py-14">
         <Container>
           <div className="mx-auto max-w-4xl overflow-hidden rounded-lg border border-primary/25 bg-[#0b100d] p-7 text-center sm:p-9">
-            <p className="eyebrow mb-3">The next great watch is waiting</p>
-            <h2 className="font-headline text-2xl font-extrabold text-foreground sm:text-3xl">Make Room for Something Good</h2>
+            <p className="eyebrow mb-3">Make room for something good</p>
+            <h2 className="font-headline text-2xl font-extrabold text-foreground sm:text-3xl">Start Your TryIPTV Subscription</h2>
             <p className="mx-auto mt-3 max-w-xl text-base leading-7 text-muted-foreground">
               Find your plan. Check your device. Let&apos;s get you ready.
             </p>
