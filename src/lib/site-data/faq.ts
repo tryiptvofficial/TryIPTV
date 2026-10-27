@@ -291,7 +291,7 @@ export const faqTopics: FaqTopic[] = [
       },
       {
         question: "Can several people watch different channels at once?",
-        answer: `Yes, up to ${T.connections} at the same time on one TryIPTV plan, each on a different channel. For more simultaneous viewers, add a second subscription.`,
+        answer: `Yes, up to ${T.connections} at the same time on a standard TryIPTV plan, each on a different channel. ${T.extraConnections}`,
       },
       {
         question: "Does IPTV work on slow internet?",

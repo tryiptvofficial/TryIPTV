@@ -433,7 +433,7 @@ export default function SetupPage() {
                     <li><strong className="text-primary font-semibold">Xtream Codes API:</strong> Server URL, Username, and Password.</li>
                     <li><strong className="text-primary font-semibold">M3U Playlist URL:</strong> A complete web link containing your stream authentication token.</li>
                   </ul>
-                  Every subscription allows up to <strong>{PRODUCT_TRUTHS.connections} simultaneous connections</strong>.
+                  Every standard plan includes <strong>{PRODUCT_TRUTHS.connections} simultaneous connections</strong>. {PRODUCT_TRUTHS.extraConnections}
                 </CardContent>
               </Card>
             </div>
