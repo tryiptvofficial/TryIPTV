@@ -47,13 +47,14 @@ export const PRODUCT_TRUTHS = {
     email: "support@tryiptv.com",
     whatsapp: "+212694833293",
   },
-  /** Owner-confirmed 2026-10-27 (replaces the 2026-10-09 list: cryptocurrency, PayPal, Stripe). */
+  /** Owner-confirmed 2026-10-27, bank transfer added the same day (replaces the 2026-10-09 list: cryptocurrency, PayPal, Stripe). */
   paymentMethods: [
     "Card",
     "Apple Pay",
     "Google Pay",
     "PayPal",
     "USDT (crypto)",
+    "Bank transfer",
   ] as const,
   /** Owner-confirmed 2026-10-27: plan changes go through WhatsApp support and can be paid by any accepted method. How a mid-term change is priced was not given; do not state it. */
   planChange: "Change plan through WhatsApp support; pay by any accepted payment method.",

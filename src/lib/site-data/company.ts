@@ -63,6 +63,8 @@ export const COMPANY = {
     /** Same number in E.164 form (no plus sign in the wa.me link). */
     whatsappE164: "+212694833293",
     whatsappUrl: "https://wa.me/212694833293",
+    /** Owner-confirmed 2026-10-27: the number is Moroccan because the support team works from Morocco. */
+    whatsappNote: "The WhatsApp number starts with +212, Morocco's country code, because the TryIPTV support team works from Morocco." as string | null,
     /** Owner-supplied 2026-10-20 (DMCA page text); confirm the inbox exists (eeat-confirm Q13). */
     dmcaEmail: "care@tryiptv.com",
     /** Confirmed 2026-10-21: same hours for WhatsApp and email. */
@@ -86,7 +88,7 @@ export const COMPANY = {
     mediaContact: "Simo Alaoui" as string | null,
   },
   /** Owner-confirmed 2026-10-27 (was "cryptocurrency, PayPal and Stripe" on 2026-10-09). Mirrors PRODUCT_TRUTHS.paymentMethods. */
-  paymentMethods: "card, Apple Pay, Google Pay, PayPal and USDT (crypto)" as string | null,
+  paymentMethods: "card, Apple Pay, Google Pay, PayPal, USDT (crypto) and bank transfer" as string | null,
   /** Governing law for the Terms, e.g. "the laws of Ontario, Canada". */
   /** Owner-supplied 2026-10-21 (exact wording, shown in Terms §17). */
   governingLaw:

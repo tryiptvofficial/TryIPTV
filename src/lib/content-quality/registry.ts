@@ -741,7 +741,7 @@ const editorialOverrides: Record<string, Partial<Omit<ContentQualityEntry, 'url'
         'Four fixed-term plan durations: 1 Month, 3 Months, 6 Months, and 12 Months',
         'Upfront prices ($15.82, $38.30, $59.15, $88.23) and effective monthly equivalents ($15.82, $12.77, $9.86, $7.35)',
         '2 simultaneous connections across all 4 plans',
-        'Accepted payment methods: card, Apple Pay, Google Pay, PayPal, USDT (crypto)',
+        'Accepted payment methods: card, Apple Pay, Google Pay, PayPal, USDT (crypto), bank transfer',
         'Fixed-term billing with zero automatic renewal',
         'Direct functional checkout links per duration',
         'Refund policy handoff (7-day technical evaluation policy)',
@@ -758,7 +758,7 @@ const editorialOverrides: Record<string, Partial<Omit<ContentQualityEntry, 'url'
     factCheck: {
       completed: false,
       sources: [
-        'Owner confirmation: card, Apple Pay, Google Pay, PayPal, USDT (crypto) (2026-10-27)',
+        'Owner confirmation: card, Apple Pay, Google Pay, PayPal, USDT (crypto), bank transfer (2026-10-27)',
         'src/lib/site-config.ts:4-25',
         'src/lib/site-data/pricing.ts:2-83',
         'src/app/pricing/page.tsx:102-153',
@@ -770,7 +770,7 @@ const editorialOverrides: Record<string, Partial<Omit<ContentQualityEntry, 'url'
         completed: true,
         checkedAt: '2026-10-09',
         sources: [
-          'Owner confirmation: card, Apple Pay, Google Pay, PayPal, USDT (crypto) (2026-10-27)',
+          'Owner confirmation: card, Apple Pay, Google Pay, PayPal, USDT (crypto), bank transfer (2026-10-27)',
           'src/lib/site-config.ts:4-25',
           'src/lib/site-data/pricing.ts:2-83',
           'src/app/pricing/page.tsx:102-153',
@@ -795,7 +795,7 @@ const editorialOverrides: Record<string, Partial<Omit<ContentQualityEntry, 'url'
     satisfaction: { passed: true, unansweredQuestions: [] },
     evidenceLog: [
       { id: 'pricing-plans-product-truth', type: 'product-source-of-truth', title: 'Fixed-term plan prices, durations, and checkout links', description: 'PRODUCT_TRUTHS.plans and pricing data define the 4 fixed-term durations ($15.82, $38.30, $59.15, $88.23), monthly equivalents, fixed-term non-recurring billing, and FlujiPay checkout URLs.', recordedAt: '2026-10-09', source: 'src/lib/site-config.ts:19-24, src/lib/site-data/pricing.ts:2-83', relatedClaims: ['Fixed-term plan prices, durations, and checkout links'], verified: true },
-      { id: 'pricing-payment-methods-user-truth', type: 'product-source-of-truth', title: 'Accepted payment methods', description: 'Owner confirmed accepted payment methods as card, Apple Pay, Google Pay, PayPal and USDT (crypto) on 2026-10-27, replacing the 2026-10-09 list (cryptocurrency, PayPal, Stripe).', recordedAt: '2026-10-09', source: 'User business specification', relatedClaims: ['Payment methods include card, Apple Pay, Google Pay, PayPal and USDT (crypto)'], verified: true },
+      { id: 'pricing-payment-methods-user-truth', type: 'product-source-of-truth', title: 'Accepted payment methods', description: 'Owner confirmed accepted payment methods as card, Apple Pay, Google Pay, PayPal, USDT (crypto) and bank transfer on 2026-10-27, replacing the 2026-10-09 list (cryptocurrency, PayPal, Stripe).', recordedAt: '2026-10-09', source: 'User business specification', relatedClaims: ['Payment methods include card, Apple Pay, Google Pay, PayPal, USDT (crypto) and bank transfer'], verified: true },
       { id: 'pricing-connections-product-truth', type: 'product-source-of-truth', title: 'Simultaneous connections per plan', description: 'PRODUCT_TRUTHS establishes 2 simultaneous connections across all 4 fixed-term plans.', recordedAt: '2026-10-09', source: 'src/lib/site-config.ts:9', relatedClaims: ['All fixed-term plans include 2 simultaneous connections'], verified: true },
       { id: 'trial-cost-product-truth', type: 'product-source-of-truth', title: '24-hour trial price', description: 'PRODUCT_TRUTHS establishes the 24-hour trial price as $0. This verifies zero monetary price, but does not independently establish payment-method or credit card collection terms.', recordedAt: '2026-10-09', source: 'src/lib/site-config.ts:11', relatedClaims: ['Trial price is $0'], verified: true },
     ],

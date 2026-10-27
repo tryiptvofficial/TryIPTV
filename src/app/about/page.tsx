@@ -203,6 +203,7 @@ export default function AboutPage() {
                 <li>
                   WhatsApp: <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={link}>{COMPANY.support.whatsappDisplay}</a>
                   {SUPPORT_HOURS ? `, ${SUPPORT_HOURS}` : ""}
+                  {COMPANY.support.whatsappNote ? `. ${COMPANY.support.whatsappNote}` : ""}
                 </li>
                 <li>
                   Email: <a href={`mailto:${siteConfig.links.email}`} className={link}>{siteConfig.links.email}</a>

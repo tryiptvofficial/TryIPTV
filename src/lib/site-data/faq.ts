@@ -135,6 +135,10 @@ export const faqTopics: FaqTopic[] = [
         answer: `Message support on WhatsApp or email ${T.support.email} from the number or address you ordered with, and support can resend your details. Support answers ${COMPANY.support.hours}. Never share your login publicly. ${a("/help/iptv-login-not-working", "Login not working? See the fix guide")}.`,
       },
       {
+        question: "Why does TryIPTV's WhatsApp number start with +212?",
+        answer: `+212 is Morocco's country code, and the TryIPTV support team works from Morocco. The company, ${COMPANY.legalName ?? "TryIPTV"}, is based in ${COMPANY.location ?? "New York, United States"}. Messages over WhatsApp use the internet, so you can write from any country.`,
+      },
+      {
         question: "How do I cancel my IPTV subscription, and is there a refund?",
         answer: `There is nothing to cancel: plans are paid once and stop on their own at the end of the term. Refunds are limited: ${T.refund.summary.charAt(0).toLowerCase() + T.refund.summary.slice(1)} ${a("/refund-policy", "Read the refund policy")}.`,
       },
