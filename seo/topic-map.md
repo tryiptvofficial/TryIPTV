@@ -28,6 +28,7 @@ Linking rules (implemented in `src/lib/site-data/topic-map.ts` and `<TopicCluste
 / (home)
 ├── Pricing & buying ─ pillar /pricing ✅
 │   ├── /iptv-free-trial ✅
+│   ├── /how-it-works ✅ (the buying path: WhatsApp → trial → payment → login → renewal; player steps stay on /setup)
 │   ├── /faq ✅
 │   ├── 🧩 "How much should IPTV cost?" (section on /pricing, not a new URL: avoids cannibalising /pricing)
 │   └── ➕ /guides/iptv-connections  How many devices can I use? Connections and multi-screen explained

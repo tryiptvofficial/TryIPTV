@@ -4,6 +4,7 @@ export const footerLinks = {
         { name: "Setup Hub", href: "/setup" },
         { name: "Pricing", href: "/pricing" },
         { name: "Free Trial", href: "/iptv-free-trial" },
+        { name: "How It Works", href: "/how-it-works" },
         { name: "FAQ", href: "/faq" },
         { name: "About", href: "/about" },
         { name: "Press", href: "/press" },

@@ -13,6 +13,7 @@ The linked website pages hold the current facts. Pricing, trial terms, and refun
 - [TryIPTV](https://www.tryiptv.com/): Service overview.
 - [Pricing](https://www.tryiptv.com/pricing): Current plans, prices, and included connections.
 - [Free trial](https://www.tryiptv.com/iptv-free-trial): Trial duration, access, and request process.
+- [How it works](https://www.tryiptv.com/how-it-works): How a subscription starts, from the first WhatsApp message to payment, login and renewal.
 - [FAQ](https://www.tryiptv.com/faq): Common service and account questions.
 
 ## Setup

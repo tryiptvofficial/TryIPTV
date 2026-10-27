@@ -48,6 +48,7 @@ export const SITE_ROUTES: SiteRoute[] = [
   { path: '/pricing',           section: 'commercial', indexable: true,  lastModified: '2026-10-26' },
   { path: '/iptv-free-trial',   section: 'commercial', indexable: true,  lastModified: '2026-10-23' },
   { path: '/setup',             section: 'commercial', indexable: true,  lastModified: '2026-10-23' },
+  { path: '/how-it-works',      section: 'commercial', indexable: true,  lastModified: '2026-10-27' },
 
   // ── Devices hub + device pages ────────────────────────────────────────────
   { path: '/devices',                section: 'devices', indexable: true,  lastModified: '2026-10-04' },
