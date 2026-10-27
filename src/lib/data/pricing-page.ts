@@ -20,7 +20,7 @@ export const getPricingPageData = cache(
     };
   },
   // Bump the version when the static data above changes: the data cache outlives rebuilds.
-  ['pricing-page-data-v7'], // Unique cache key
+  ['pricing-page-data-v8'], // Unique cache key
   {
     revalidate: 3600, // Revalidate every hour
     tags: ['pages', 'pricing-page'], // Tag for on-demand revalidation

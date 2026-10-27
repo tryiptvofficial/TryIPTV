@@ -12,7 +12,7 @@ export const pricingPageFaqs: { question: string; answer: string; link?: { href:
   {
     question: "Does the price go up when my plan renews?",
     answer:
-      "Plans do not renew automatically, so you are never charged again without asking. When your term ends, access stops; if you want to continue, you buy a new term at the price shown on this page at that time.",
+      `Plans do not renew automatically, so you are never charged again without asking. ${T.expiry.summary} ${T.expiry.nextStep} A new plan costs the price shown on this page at that time.`,
   },
   {
     question: "How many devices does each plan cover?",

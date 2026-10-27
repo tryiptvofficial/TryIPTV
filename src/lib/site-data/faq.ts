@@ -128,7 +128,7 @@ export const faqTopics: FaqTopic[] = [
       },
       {
         question: "What happens when my IPTV subscription expires?",
-        answer: "Streaming stops at the end of your term. You are not billed again. To keep watching, buy a new plan at any time.",
+        answer: `${T.expiry.summary} ${T.expiry.nextStep}`,
       },
       {
         question: "I lost my IPTV login details. What do I do?",
@@ -260,7 +260,7 @@ export const faqTopics: FaqTopic[] = [
       },
       {
         question: "Does my subscription work when I travel?",
-        answer: "Your login works over the internet, so it plays wherever you have a fast enough connection, within your simultaneous-connection limit. Hotel and public Wi-Fi can be slow or block streaming; test before you rely on it.",
+        answer: `Yes, your subscription ${T.travel}. Hotel and public Wi-Fi can be slow or block streaming; test before you rely on it.`,
       },
       {
         question: "Can I use one subscription at home and at a second home?",

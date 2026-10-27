@@ -21,6 +21,13 @@ export const PRODUCT_TRUTHS = {
   /** Owner-confirmed 2026-10-21: support runs 9:00 AM–10:00 PM ET daily; requests outside those hours are queued until support reopens. */
   activationHours: "during support hours (9:00 AM–10:00 PM ET); requests sent outside those hours are answered when support reopens",
   billing: "Fixed-term plans, no automatic renewal",
+  /** Owner-confirmed 2026-10-27: when a trial or plan ends, streaming stops immediately, nothing is billed, and a new plan can be bought at any time on WhatsApp. */
+  expiry: {
+    summary: "When a trial or plan ends, streaming stops immediately and nothing is billed.",
+    nextStep: "You can buy a new plan at any time on WhatsApp.",
+  },
+  /** Owner-confirmed 2026-10-27: the subscription works abroad over the internet, within the connection limit. */
+  travel: "works abroad over the internet, within your simultaneous-connection limit",
   /**
    * Owner-confirmed 2026-10-24: PPV events, catch-up TV and the USA/UK market are true claims.
    * Shown on the homepage hero and the plan cards (HomePricing.tsx, pricing/page.tsx); do not flag or remove them.
