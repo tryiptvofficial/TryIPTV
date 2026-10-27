@@ -32,10 +32,10 @@ const months = T.plans.map((p) => parseInt(p.duration, 10));
 /** "1, 3, 6 or 12" */
 const durations = `${months.slice(0, -1).join(", ")} or ${months[months.length - 1]}`;
 
-const description = `How a TryIPTV subscription starts: message us on WhatsApp, try the ${FACT_TEXT.trialHours}-hour free trial, pay once and get your login in ${T.activationTime}. Nothing auto-renews.`;
+const description = `How to buy IPTV from TryIPTV: message us on WhatsApp, try the ${FACT_TEXT.trialHours}-hour free trial, pay once and get your login in ${T.activationTime}. Nothing auto-renews.`;
 
 export function generateMetadata(): Metadata {
-  const title = "How TryIPTV Works: Message, Free Trial, Login";
+  const title = "How to Buy IPTV: TryIPTV Step by Step";
 
   return {
     ...generatePageMetadata({ title, description, canonical: "/how-it-works" }),
@@ -288,7 +288,7 @@ export default function HowItWorksPage() {
     <>
       <PageSchema
         path="/how-it-works"
-        name="How a TryIPTV Subscription Starts"
+        name="How to Buy IPTV From TryIPTV"
         description={description}
         dateModified={getLastModified("/how-it-works")}
         nodes={[breadcrumbSchema]}
@@ -301,10 +301,10 @@ export default function HowItWorksPage() {
             <Breadcrumb items={[{ label: "How It Works" }]} align="center" />
             <p className="eyebrow mb-3">How it works</p>
             <h1 className="font-headline text-3xl font-extrabold leading-[1.08] text-foreground sm:text-5xl lg:text-6xl">
-              How a TryIPTV Subscription Starts
+              How to Buy IPTV From TryIPTV
             </h1>
             <p className="mx-auto mt-5 max-w-[60ch] text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
-              Pick a plan, message support on WhatsApp, test the {FACT_TEXT.trialHours}-hour free trial if you want one, then set up a
+              To buy IPTV from TryIPTV, pick a plan, message support on WhatsApp, test the {FACT_TEXT.trialHours}-hour free trial if you want one, then set up a
               player with the login support sends after payment. Payment is arranged with support, not on this website.
             </p>
             <p className="mx-auto mt-3 max-w-[60ch] text-base leading-7 text-muted-foreground">
