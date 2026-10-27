@@ -233,7 +233,8 @@ export default async function IPTVSubscription() {
         '@type': 'Product' as const,
         'name': `TryIPTV ${plan.name} IPTV Subscription`,
         'description': `TryIPTV ${plan.name} IPTV subscription: ${T.channels} live channels, ${T.vod} movies and shows, ${T.connections} simultaneous connections, no auto-renewal.`,
-        'brand': { '@id': `${SITE_URL}/#organization` },
+        'image': `${SITE_URL}/images/best-iptv-service-og.jpg`,
+        'brand': { '@type': 'Brand' as const, 'name': 'TryIPTV' },
         'offers': {
           '@type': 'Offer' as const,
           'price': plan.price.toFixed(2),
