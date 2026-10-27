@@ -492,6 +492,11 @@ export default async function IptvFreeTrialPage() {
               watch.
             </p>
             <p className="mt-3 text-base leading-7 text-muted-foreground">
+              Requesting the trial from the UK? It works the same way: message support on WhatsApp and test on your own TV and broadband.
+              Support hours are {COMPANY.support.hoursUk}, so a request sent on a UK morning is answered from early afternoon. Run your
+              peak-hour test on a UK weekday evening, when home broadband is busiest.
+            </p>
+            <p className="mt-3 text-base leading-7 text-muted-foreground">
               Need longer than 24 hours to decide? The <Link href="/pricing" className={link}>1-month plan</Link> is{" "}
               {FACT_TEXT.fromPrice} and does not renew. Read the <Link href="/refund-policy" className={link}>refund policy</Link>{" "}
               first: refunds apply only when TryIPTV cannot provide a working subscription.

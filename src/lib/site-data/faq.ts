@@ -365,7 +365,7 @@ export const faqTopics: FaqTopic[] = [
       },
       {
         question: "Do I need a VPN for IPTV?",
-        answer: `No, a VPN is not required to use TryIPTV. Some people use one for privacy or if their internet provider slows down streaming. Using a VPN is permitted under the ${a("/terms-conditions", "Terms")}, but it can lower your speed.`,
+        answer: `No, a VPN is not required to use TryIPTV. Some people use one for privacy or if their internet provider slows down streaming. Using a VPN is permitted under the ${a("/terms-conditions", "Terms")}, but it can lower your speed. The same applies in the UK: TryIPTV works on UK broadband without a VPN.`,
       },
       {
         question: "How do I know an IPTV provider is legit?",
