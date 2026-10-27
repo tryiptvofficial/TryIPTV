@@ -13,7 +13,7 @@ const HERO_FACTS = [
   { value: "25,000+", label: "Live Channels" },
   { value: "120,000+", label: "Movies & TV Shows" },
   { value: "2", label: "Simultaneous Connections" },
-  { value: "From $15.82", label: "Starting Price" },
+  { value: FACT_TEXT.fromPrice, label: "1-Month Price" },
 ] as const;
 
 export function Hero() {

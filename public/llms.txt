@@ -1,6 +1,6 @@
 # TryIPTV
 
-> TryIPTV is an IPTV service with 25,000+ live channels and 120,000+ movies and TV shows, watched on your own devices through compatible IPTV player apps. Plans start at $15.82 with 2 connections, no automatic renewal and a 24-hour free trial.
+> TryIPTV is an IPTV service with 25,000+ live channels and 120,000+ movies and TV shows, watched on your own devices through compatible IPTV player apps. Plans cost $15.82 for 1 month, or about $7.35 a month on the 12-month plan, with 2 connections, no automatic renewal and a 24-hour free trial.
 
 The linked website pages hold the current facts. Pricing, trial terms, and refund conditions are governed by their respective pages. Device pages cover platform setup; player pages cover app configuration; guides explain concepts; help pages diagnose problems.
 

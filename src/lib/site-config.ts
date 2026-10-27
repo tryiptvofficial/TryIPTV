@@ -71,7 +71,7 @@ export const siteConfig = {
   url: SITE_URL,
   ogImage: "/api/og",
   // Canonical two-sentence brand description (reused by BRAND in site-data/brand.ts, schema, manifest, llms.txt).
-  description: `TryIPTV is an IPTV service with ${PRODUCT_TRUTHS.channels} live channels and ${PRODUCT_TRUTHS.vod} movies and TV shows, watched on your own devices through compatible IPTV player apps. Plans start at ${FACT_TEXT.fromPrice} with ${PRODUCT_TRUTHS.connections} connections, no automatic renewal and a 24-hour free trial.`,
+  description: `TryIPTV is an IPTV service with ${PRODUCT_TRUTHS.channels} live channels and ${PRODUCT_TRUTHS.vod} movies and TV shows, watched on your own devices through compatible IPTV player apps. Plans cost ${FACT_TEXT.fromPrice} for 1 month, or about ${FACT_TEXT.lowestMonthly} a month on the 12-month plan, with ${PRODUCT_TRUTHS.connections} connections, no automatic renewal and a 24-hour free trial.`,
   links: {
     email: "support@tryiptv.com",
     whatsapp: "+212694833293",
