@@ -37,6 +37,7 @@ The linked website pages hold the current facts. Pricing, trial terms, and refun
 - [What are Xtream Codes?](https://www.tryiptv.com/guides/what-are-xtream-codes): Server URL, username, and password login method.
 - [M3U vs Xtream Codes](https://www.tryiptv.com/guides/m3u-vs-xtream-codes): Comparison and choice of connection method.
 - [What is EPG?](https://www.tryiptv.com/guides/what-is-epg): Programme schedule data and its relationship to XMLTV.
+- [IPTV connections](https://www.tryiptv.com/guides/iptv-connections): What counts as a connection and how many devices can watch at once.
 
 ## Troubleshooting
 

@@ -84,6 +84,7 @@ export const SITE_ROUTES: SiteRoute[] = [
   { path: '/guides/what-is-epg',         section: 'guides', indexable: true,  lastModified: '2026-10-20' },
   { path: '/guides/iptv-internet-speed', section: 'guides', indexable: true,  lastModified: '2026-10-20' },
   { path: '/guides/iptv-vs-cable',       section: 'guides', indexable: true,  lastModified: '2026-10-22' },
+  { path: '/guides/iptv-connections',    section: 'guides', indexable: true,  lastModified: '2026-10-27' },
 
   // ── Help hub + help pages ─────────────────────────────────────────────────
   { path: '/help',                        section: 'help', indexable: true,  lastModified: '2026-10-23' },

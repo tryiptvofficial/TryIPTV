@@ -45,6 +45,7 @@ export const PILLARS: Pillar[] = [
       { path: "/guides/m3u-vs-xtream-codes", anchor: "M3U vs Xtream Codes", blurb: "Which login format to choose, compared side by side.", siblings: ["/guides/what-is-m3u", "/guides/what-are-xtream-codes", "/guides/what-is-epg"] },
       { path: "/guides/what-is-epg", anchor: "What is an EPG?", blurb: "How IPTV TV guides and XMLTV data work.", siblings: ["/guides/what-is-m3u", "/guides/m3u-vs-xtream-codes", "/guides/how-does-iptv-work"] },
       { path: "/guides/iptv-internet-speed", anchor: "IPTV internet speed", blurb: "Mbps per stream, data per hour and Wi-Fi vs Ethernet.", siblings: ["/guides/how-does-iptv-work", "/guides/iptv-vs-cable", "/guides/what-is-iptv"] },
+      { path: "/guides/iptv-connections", anchor: "IPTV connections", blurb: "What counts as a stream and how many devices can watch at once.", siblings: ["/guides/iptv-internet-speed", "/guides/how-does-iptv-work", "/guides/what-is-iptv"] },
       { path: "/guides/iptv-vs-cable", anchor: "IPTV vs cable TV", blurb: "Cost, equipment, reliability and flexibility compared.", siblings: ["/guides/what-is-iptv", "/guides/iptv-internet-speed", "/guides/how-does-iptv-work"] },
     ],
   },

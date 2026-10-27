@@ -11,6 +11,7 @@ import {
   HelpCircle,
   KeyRound,
   Layers,
+  MonitorSmartphone,
   Radio,
   Tv,
   Wifi,
@@ -73,6 +74,16 @@ const coreGuides = [
     badge: "Network Planning",
     icon: Wifi,
     readTime: "7 min read",
+  },
+  {
+    title: "How Many Devices Can Use One IPTV Subscription?",
+    href: "/guides/iptv-connections",
+    linkLabel: "IPTV connections guide",
+    description:
+      "What counts as a connection, installed devices vs streams playing, casting and multi-view, and how many connections a household needs.",
+    badge: "Multi-Screen",
+    icon: MonitorSmartphone,
+    readTime: "5 min read",
   },
   {
     title: "What Is an M3U Playlist? Structure, Syntax, and IPTV Usage",

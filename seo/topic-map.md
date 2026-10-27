@@ -31,7 +31,7 @@ Linking rules (implemented in `src/lib/site-data/topic-map.ts` and `<TopicCluste
 │   ├── /how-it-works ✅ (the buying path: WhatsApp → trial → payment → login → renewal; player steps stay on /setup)
 │   ├── /faq ✅
 │   ├── 🧩 "How much should IPTV cost?" (section on /pricing, not a new URL: avoids cannibalising /pricing)
-│   └── ➕ /guides/iptv-connections  How many devices can I use? Connections and multi-screen explained
+│   └── /guides/iptv-connections ✅ (published 2026-10-27; informational, no prices, so it does not compete with /pricing)
 ├── Devices ─ pillar /devices ✅ (all 11 clusters linked) · start-here hub /setup 🟡 (overlap C1)
 │   ├── /devices/firestick-iptv ✅ (🧩 add: Firestick models, 4K Max/Lite/Cube, Ethernet adapter, recording)
 │   ├── /devices/android-tv-iptv ✅ (🧩 add: Nvidia Shield, Sony/TCL/Philips Google TV; one page, not per brand)
