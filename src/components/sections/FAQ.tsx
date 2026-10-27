@@ -18,7 +18,7 @@ import { Section } from "../shared/Section";
 import { SectionHeader } from "../shared/SectionHeader";
 import { cn } from "@/lib/utils";
 import { COMPANY } from "@/lib/site-data/company";
-import { FACT_TEXT, PRODUCT_TRUTHS } from "@/lib/site-config";
+import { PRODUCT_TRUTHS } from "@/lib/site-config";
 
 export interface FaqItem {
   question: string;
@@ -120,7 +120,7 @@ const homepageFaqs: FaqItem[] = [
   },
   {
     question: "Is TryIPTV legit?",
-    answer: `You can check TryIPTV before you pay. The <a href="/iptv-free-trial" class="text-primary hover:underline">${FACT_TEXT.trialHours}-hour free trial</a> costs $0 and needs no credit card. Support answers on WhatsApp and by email${COMPANY.support.hours ? `, ${COMPANY.support.hours}` : ""}.<br /><br />If TryIPTV cannot provide a working subscription, the <a href="/refund-policy" class="text-primary hover:underline">refund policy</a> applies. To contact us or see the company details, visit the <a href="/about" class="text-primary hover:underline">about page</a>.`,
+    answer: `TryIPTV support answers on WhatsApp and by email${COMPANY.support.hours ? `, ${COMPANY.support.hours}` : ""}.<br /><br />If TryIPTV cannot provide a working subscription, the <a href="/refund-policy" class="text-primary hover:underline">refund policy</a> applies. To contact us or see the company details, visit the <a href="/about" class="text-primary hover:underline">about page</a>.`,
   },
   {
     question: "How do I pay?",
