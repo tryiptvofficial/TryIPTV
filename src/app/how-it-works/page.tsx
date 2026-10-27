@@ -212,20 +212,8 @@ const faqs: { question: string; answer: React.ReactNode }[] = [
     question: "What should I check before using an IPTV service?",
     answer: (
       <>
-        Look for clear published prices, a written refund policy and terms, a working way to contact support and a free trial. Read
-        TryIPTV&apos;s{" "}
-        <Link href="/pricing" className={link}>
-          pricing page
-        </Link>
-        ,{" "}
-        <Link href="/refund-policy" className={link}>
-          refund policy
-        </Link>{" "}
-        and{" "}
-        <Link href="/terms-conditions" className={link}>
-          terms
-        </Link>{" "}
-        before you pay.
+        Look for whether it holds the rights to its channels, clear published prices, a written refund policy and terms, a working
+        way to contact support and a free trial.
       </>
     ),
   },
