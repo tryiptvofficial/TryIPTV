@@ -560,6 +560,7 @@ const DEVICE_NEXT_STEPS: Record<string, SetupLink[]> = {
     { href: "/guides/m3u-vs-xtream-codes", label: "Choose M3U or Xtream Codes" },
     { href: "/help/iptv-buffering", label: "Troubleshoot Firestick buffering" },
     { href: "/players/xciptv", label: "XCIPTV availability on Fire TV" },
+    { href: "/devices/chromecast-iptv", label: "Compare with Chromecast with Google TV" },
     { href: "/iptv-free-trial", label: "Start 24-hour Fire TV trial" },
   ],
   "android-tv-iptv": [
@@ -568,6 +569,7 @@ const DEVICE_NEXT_STEPS: Record<string, SetupLink[]> = {
     { href: "/help/iptv-login-not-working", label: "Troubleshoot login errors" },
     { href: "/players/iptv-extreme", label: "IPTV Extreme for Android TV" },
     { href: "/players/perfect-player", label: "Perfect Player (legacy) setup and migration" },
+    { href: "/devices/chromecast-iptv", label: "Chromecast with Google TV setup" },
     { href: "/iptv-free-trial", label: "Test Android TV with a free trial" },
   ],
   "samsung-tv-iptv": [
@@ -611,12 +613,14 @@ const DEVICE_NEXT_STEPS: Record<string, SetupLink[]> = {
     { href: "/players/iptv-smarters", label: "IPTV Smarters Pro for Windows" },
     { href: "/guides/what-is-m3u", label: "Load M3U streams in VLC" },
     { href: "/help/m3u-not-loading", label: "Fix M3U playlist loading errors" },
+    { href: "/devices/roku-iptv", label: "Mirror a Windows PC to a Roku TV" },
     { href: "/iptv-free-trial", label: "Test on Windows with a free trial" },
   ],
   "iphone-iptv": [
     { href: "/players/iptv-smarters", label: "Smarters Player Lite on iPhone" },
     { href: "/guides/iptv-internet-speed", label: "Mobile data and speed planning" },
     { href: "/help/iptv-login-not-working", label: "Fix iPhone player login errors" },
+    { href: "/devices/roku-iptv", label: "AirPlay from iPhone to a Roku TV" },
     { href: "/iptv-free-trial", label: "Test on iPhone with a free trial" },
   ],
   "mac-iptv": [
@@ -624,6 +628,7 @@ const DEVICE_NEXT_STEPS: Record<string, SetupLink[]> = {
     { href: "/guides/m3u-vs-xtream-codes", label: "Choose M3U or Xtream Codes" },
     { href: "/help/iptv-login-not-working", label: "Resolve macOS player login errors" },
     { href: "/devices/iphone-iptv", label: "IPTV on iPhone and iPad" },
+    { href: "/devices/roku-iptv", label: "AirPlay from a Mac to a Roku TV" },
     { href: "/iptv-free-trial", label: "Test on Mac with a free trial" },
   ],
 };

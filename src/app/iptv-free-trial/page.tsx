@@ -746,9 +746,13 @@ export default async function IptvFreeTrialPage() {
             </div>
 
             <p className="mt-6 text-center text-base sm:text-sm text-muted-foreground">
-              Need help with a specific issue?{" "}
+              More questions? Read the{" "}
+              <Link href="/faq" className={link}>
+                full IPTV FAQ
+              </Link>{" "}
+              or{" "}
               <Link href="/contact-us" className={link}>
-                Contact support
+                contact support
               </Link>
               .
             </p>

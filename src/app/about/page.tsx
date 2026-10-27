@@ -174,6 +174,7 @@ export default function AboutPage() {
                 <div><Confirm value={COMPANY.registry} question="Which registry is company number 8683949 filed with (e.g. New York Department of State)?" /></div>
                 <div><Confirm value={COMPANY.foundingYear} question="Year TryIPTV started operating." /></div>
               </div>
+              <p>Writing about TryIPTV? The <Link href="/press" className={link}>press kit and fact sheet</Link> has logos, key facts and a media contact.</p>
             </section>
 
             <section className="space-y-3">
@@ -237,6 +238,7 @@ export default function AboutPage() {
                 <li><strong className="text-foreground">Install a compatible player.</strong> Add an IPTV player app to your device and enter your Xtream Codes or M3U details. Our <Link href="/setup" className={link}>IPTV setup guide</Link> walks you through it.</li>
                 <li><strong className="text-foreground">Start watching.</strong> Your channels, on-demand library and TV guide load in the player.</li>
               </ol>
+              <p>Every step, from the first WhatsApp message to renewal, is on <Link href="/how-it-works" className={link}>how TryIPTV works</Link>.</p>
             </section>
 
             <section className="space-y-3">
@@ -287,7 +289,7 @@ export default function AboutPage() {
                 Contact us by email at <a href={`mailto:${siteConfig.links.email}`} className={link}>{siteConfig.links.email}</a> or through our{" "}
                 <Link href="/contact-us" className={link}>contact page</Link>.{SUPPORT_HOURS ? ` WhatsApp and email support hours: ${SUPPORT_HOURS}.` : ""}
               </p>
-              <p>Many common problems, such as buffering, login errors or a missing TV guide, have step-by-step fixes in our <Link href="/help" className={link}>IPTV troubleshooting guides</Link>.</p>
+              <p>Many common problems, such as buffering, login errors or a missing TV guide, have step-by-step fixes in our <Link href="/help" className={link}>IPTV troubleshooting guides</Link>. Questions about plans, devices or legality are answered in the <Link href="/faq" className={link}>IPTV FAQ</Link>.</p>
             </section>
 
             <section className="space-y-3">

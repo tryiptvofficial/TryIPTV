@@ -232,7 +232,8 @@ export default async function ContactPage() {
                     <FaqList items={supportFaqs} />
                     <p className="mt-6 text-center text-base sm:text-sm text-muted-foreground">
                         More answers in the <Link href="/faq" className={link}>full IPTV FAQ</Link> and the{" "}
-                        <Link href="/help" className={link}>Help Center</Link>.
+                        <Link href="/help" className={link}>Help Center</Link>. Journalists: see the{" "}
+                        <Link href="/press" className={link}>press kit</Link>.
                     </p>
                 </Container>
             </Section>

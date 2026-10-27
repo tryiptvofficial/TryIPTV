@@ -359,7 +359,9 @@ export default function IptvLoginNotWorkingPage() {
                 <li>
                   <strong>ISP or Device Locks:</strong> Some providers lock accounts to a single public IP
                   address or require MAC address registration. If you attempt to connect from a secondary
-                  location or a different device, the server may refuse authorization.
+                  location or a different device, the server may refuse authorization. On a MAG box, the
+                  box&apos;s MAC address must be registered first; see the{" "}
+                  <Link href="/devices/mag-box-iptv">MAG box setup guide</Link>.
                 </li>
               </ul>
 
