@@ -8,7 +8,6 @@ import { COMPANY } from "@/lib/site-data/company";
 const firstPlan = PRODUCT_TRUTHS.plans[0];
 const lastPlan = PRODUCT_TRUTHS.plans[PRODUCT_TRUTHS.plans.length - 1];
 // One string so the prices render as plain text ("$15.82"), not split by React text markers.
-const priceAnswer = `TryIPTV costs $${firstPlan.price.toFixed(2)} for one month, or about $${lastPlan.monthlyEquivalent.toFixed(2)} a month on the ${parseInt(lastPlan.duration, 10)}-month plan, with no set-top box to rent and no automatic renewal.`;
 
 // Cable figures are the labelled estimates also used on /pricing (about 140 channels, $130–$170 a month with fees);
 // check:facts skips cells marked as estimates.
@@ -41,11 +40,11 @@ export function WhyChooseTryIPTV() {
           title="How Is TryIPTV Different From Cable TV?"
           className="mb-4 sm:mb-4 lg:mb-4"
         />
-        {/* Answer first; the cable figure is the same labelled estimate as on /pricing, so check:facts skips it. */}
+        {/* Comparison first (the price is in the table below); the cable figure is the same labelled estimate as on /pricing, so check:facts skips it. */}
         <div className="mb-10 max-w-2xl space-y-3 text-base leading-relaxed text-muted-foreground sm:mb-12 sm:text-[16.5px] lg:mb-14">
           <p>
-            {priceAnswer}{" "}
             <span data-facts-ignore>Our estimate for a typical US cable bill is $130–$170 a month once fees are added.</span>{" "}
+            TryIPTV has no set-top box to rent and no automatic renewal.{" "}
             You watch on devices you already own, with {PRODUCT_TRUTHS.connections} simultaneous connections on every plan.
           </p>
           <p>

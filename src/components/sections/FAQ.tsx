@@ -107,7 +107,7 @@ const homepageFaqs: FaqItem[] = [
   {
     question: "Do TryIPTV subscriptions renew automatically?",
     answer:
-      '<strong class="font-semibold text-foreground">No, there is nothing to cancel.</strong> Plans are paid once for the selected duration (1, 3, 6 or 12 months) and do not automatically renew. Nothing is charged again unless you buy another plan. <a href="/pricing" class="text-primary hover:underline">Compare plans</a> on the pricing page.',
+      `<strong class="font-semibold text-foreground">No, there is nothing to cancel.</strong> ${PRODUCT_TRUTHS.expiry.summary} Plans are paid once for the selected duration (1, 3, 6 or 12 months) and do not automatically renew. Nothing is charged again unless you buy another plan. <a href="/pricing" class="text-primary hover:underline">Compare plans</a> on the pricing page.`,
   },  {
     question: "Is IPTV legal?",
     answer:
@@ -116,7 +116,7 @@ const homepageFaqs: FaqItem[] = [
   {
     question: "Can I get a refund?",
     answer:
-      '<strong class="font-semibold text-foreground">Yes, but only if</strong> TryIPTV cannot provide a working subscription. Once your account is activated and the login details are delivered, the sale is final. <a href="/refund-policy" class="text-primary hover:underline">Read the refund policy</a>.',
+      '<strong class="font-semibold text-foreground">TryIPTV refunds a purchase only if</strong> it cannot provide a working subscription. Once your account is activated and the login details are delivered, the sale is final. <a href="/refund-policy" class="text-primary hover:underline">Read the refund policy</a>.',
   },
   {
     question: "Is TryIPTV legit?",
@@ -128,11 +128,11 @@ const homepageFaqs: FaqItem[] = [
       COMPANY.paymentMethods
         ? `Each plan is a one-time payment by ${COMPANY.paymentMethods}. Support sends the payment instructions on WhatsApp or by email when you order.`
         : "Each plan is a one-time payment. Support sends the payment instructions when you order."
-    } <a href="/pricing" class="text-primary hover:underline">See plans and prices</a>.`,
+    } <a href="/pricing" class="text-primary hover:underline">See plans and prices</a>, or read the <a href="/privacy-policy" class="text-primary hover:underline">Privacy Policy</a>.`,
   },
   {
     question: "How quickly do I get my login?",
-    answer: `Login details are usually provided within ${PRODUCT_TRUTHS.activationTime} after confirmation, ${PRODUCT_TRUTHS.activationHours.replace("ET);", `ET${COMPANY.support.hoursUk ? `, ${COMPANY.support.hoursUk}` : ""}).<br /><br />`).replace(" requests", "Requests")}. Read the <a href="/setup" class="text-primary hover:underline">universal IPTV setup guide</a>, or use the <a href="/help/epg-not-working" class="text-primary hover:underline">TV guide (EPG) not working fix</a> if the guide stays empty.`,
+    answer: `Login details are usually provided within ${PRODUCT_TRUTHS.activationTime} after confirmation, during support hours.${COMPANY.support.hours ? ` Support is open ${COMPANY.support.hours}${COMPANY.support.hoursUk ? ` (${COMPANY.support.hoursUk})` : ""}.` : ""}<br /><br />${PRODUCT_TRUTHS.activationHours.split("; ")[1].replace(/^r/, "R")}. Read the <a href="/setup" class="text-primary hover:underline">universal IPTV setup guide</a>, or use the <a href="/help/epg-not-working" class="text-primary hover:underline">TV guide (EPG) not working fix</a> if the guide stays empty.`,
   },
   {
     question: "How much does TryIPTV cost?",
