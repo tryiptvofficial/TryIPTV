@@ -57,6 +57,7 @@ export const PILLARS: Pillar[] = [
       { path: "/help/iptv-buffering", anchor: "Fix IPTV buffering", blurb: "Network, device and stream causes, with fixes in order.", siblings: ["/help/iptv-not-working", "/help/epg-not-working", "/help/m3u-not-loading"] },
       { path: "/help/iptv-login-not-working", anchor: "IPTV login not working", blurb: "401/403 errors, wrong server URLs and connection limits.", siblings: ["/help/m3u-not-loading", "/help/iptv-not-working", "/help/iptv-buffering"] },
       { path: "/help/m3u-not-loading", anchor: "M3U playlist not loading", blurb: "Bad URLs, encoding, parser crashes and large playlists.", siblings: ["/help/iptv-login-not-working", "/help/epg-not-working", "/help/iptv-not-working"] },
+      { path: "/help/iptv-error-codes", anchor: "IPTV error codes", blurb: "What HTTP, Cloudflare, MAG, Formuler and app error codes mean.", siblings: ["/help/iptv-not-working", "/help/iptv-login-not-working", "/help/m3u-not-loading"] },
       { path: "/help/epg-not-working", anchor: "EPG not working", blurb: "Missing guide data, wrong times and channel mapping.", siblings: ["/help/m3u-not-loading", "/help/iptv-buffering", "/help/iptv-not-working"] },
     ],
   },

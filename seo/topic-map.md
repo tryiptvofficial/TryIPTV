@@ -55,7 +55,7 @@ Linking rules (implemented in `src/lib/site-data/topic-map.ts` and `<TopicCluste
 ├── Troubleshooting ─ pillar /help ✅ (all 5 clusters linked)
 │   ├── iptv-not-working ✅ · iptv-buffering ✅ (🧩 add: freezing every 10/30 s, IPTV on Firestick keeps freezing)
 │   ├── iptv-login-not-working ✅ · m3u-not-loading ✅ · epg-not-working ✅
-│   ├── ➕ /help/iptv-error-codes  401, 403, 404, 458, 511, 522, 503 and "code 7", explained in one page
+│   ├── /help/iptv-error-codes ✅ (2026-10-27; lookup index linking to the 5 /help pages; only verified codes, 456/458 listed as having no official meaning)
 │   ├── ➕ /help/iptv-black-screen-no-sound  black screen with sound, no audio, audio out of sync
 │   ├── ➕ /help/catch-up-not-working  catch-up/timeshift not working (+ what catch-up is)
 │   └── ➕ /help/iptv-not-working-with-vpn  (paired with the VPN guide below)

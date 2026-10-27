@@ -46,6 +46,7 @@ The linked website pages hold the current facts. Pricing, trial terms, and refun
 - [Login not working](https://www.tryiptv.com/help/iptv-login-not-working): Diagnose rejected credentials or server access.
 - [M3U not loading](https://www.tryiptv.com/help/m3u-not-loading): Diagnose playlist download or parsing failures.
 - [EPG not working](https://www.tryiptv.com/help/epg-not-working): Diagnose missing or incorrect guide data.
+- [IPTV error codes](https://www.tryiptv.com/help/iptv-error-codes): What verified IPTV error codes and messages mean, with a link to each fix.
 - [IPTV buffering](https://www.tryiptv.com/help/iptv-buffering): Diagnose interrupted playback.
 
 ## Policies and contact

@@ -93,6 +93,7 @@ export const SITE_ROUTES: SiteRoute[] = [
   { path: '/help/iptv-login-not-working', section: 'help', indexable: true,  lastModified: '2026-10-20' },
   { path: '/help/m3u-not-loading',        section: 'help', indexable: true,  lastModified: '2026-10-05' },
   { path: '/help/epg-not-working',        section: 'help', indexable: true,  lastModified: '2026-10-06' },
+  { path: '/help/iptv-error-codes',       section: 'help', indexable: true,  lastModified: '2026-10-27' },
 
   // ── Utility ───────────────────────────────────────────────────────────────
   { path: '/about',      section: 'utility', indexable: true, lastModified: '2026-10-23' },

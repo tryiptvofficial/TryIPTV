@@ -74,6 +74,7 @@ export const GUIDE_REVIEWERS: Record<string, string> = {
   "/help/iptv-login-not-working": "simo-alaoui",
   "/help/m3u-not-loading": "simo-alaoui",
   "/help/epg-not-working": "simo-alaoui",
+  "/help/iptv-error-codes": "simo-alaoui",
 };
 
 /** Link text for guides listed on author pages: each page's own title, without the brand suffix. */
@@ -110,6 +111,7 @@ export const GUIDE_TITLES: Record<string, string> = {
   "/help/iptv-login-not-working": "IPTV Login Not Working? Diagnose Authentication Errors",
   "/help/m3u-not-loading": "M3U Playlist Not Loading? How to Diagnose and Fix It",
   "/help/epg-not-working": "EPG Not Working? Fix Missing or Wrong IPTV Guide Data",
+  "/help/iptv-error-codes": "IPTV Error Codes Explained",
 };
 
 /** Stable schema.org @id for a person, so Article, Organization and ProfilePage point to one entity. */
