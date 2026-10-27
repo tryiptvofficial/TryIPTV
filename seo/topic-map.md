@@ -163,7 +163,7 @@ Linking rules (implemented in `src/lib/site-data/topic-map.ts` and `<TopicCluste
 | 2 | /players/ibo-player | ➕ | /players | Screenshots of activation on Samsung or LG |
 | 2 | /help/iptv-buffering: freezing section | 🧩 | /help | "every 10 seconds" patterns and their causes |
 | 3 | /help/iptv-error-codes | ➕ | /help | Table: code → meaning (RFC 9110 for HTTP) → fix |
-| 3 | /pricing: "How much should IPTV cost?" | 🧩 | /pricing | Per-month maths from `FACT_TEXT`, prepaid vs monthly |
+| 3 | /pricing: "How much should IPTV cost?" | 🧩 | /pricing | Per-month maths from `FACT_TEXT`, one-time payment vs monthly |
 | 4 | /devices/formuler-iptv | ➕ | /devices | Needs a real Formuler device or owner screenshots |
 | 4 | /devices/firestick-iptv: models section; /devices/android-tv-iptv: Shield and Google TV brands section | 🧩🧩 | /devices | — |
 

@@ -16,9 +16,9 @@ The primary keyword was checked on all 46 pages. It appears in the first 100 wor
 | Page | Intent | Primary keyword | Secondary keywords |
 |---|---|---|---|
 | `/` | commercial | **iptv service** | best iptv service, iptv provider, iptv usa, iptv uk |
-| `/pricing` | commercial (transactional) | **iptv subscription** | iptv pricing, iptv plans, prepaid iptv, iptv subscription price |
+| `/pricing` | commercial (transactional) | **iptv subscription** | iptv pricing, iptv plans, iptv subscription price |
 | `/iptv-free-trial` | commercial (transactional) | **iptv free trial** | 24 hour iptv trial, free iptv trial no credit card, iptv trial, test iptv before buying |
-| `/about` | navigational | **about tryiptv** | tryiptv company, prepaid iptv service, who runs tryiptv |
+| `/about` | navigational | **about tryiptv** | tryiptv company, who runs tryiptv |
 | `/contact-us` | navigational | **contact tryiptv** | tryiptv support, iptv customer support, iptv support email, iptv support whatsapp |
 | `/faq` | informational | **tryiptv faq** | iptv faq, iptv free trial questions, iptv refund, iptv activation time |
 | `/setup` | informational | **how to set up iptv** | iptv setup, iptv credentials, xtream codes login, iptv setup guide |
