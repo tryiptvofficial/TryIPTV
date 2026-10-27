@@ -1,35 +1,40 @@
 import type { Metadata } from "next";
+import { TopicClusterLinks } from "@/components/shared/TopicClusterLinks";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Container } from "@/components/shared/Container";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { Section } from "@/components/shared/Section";
 import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { getLastModified } from "@/lib/site-routes";
 
-const title = "XCIPTV Player: App Availability, Setup & Features";
+const title = "XCIPTV Player Guide: App Availability, Setup & Features";
 const description =
   "Learn where XCIPTV Player by OTTRUN is available, how to connect with Xtream Codes or M3U, and how its ExoPlayer and VLC playback engines work.";
 const canonical = "/players/xciptv";
 
 export function generateMetadata(): Metadata {
+  // Title tag and og:title only; the H1 and Article headline keep the longer wording.
+  const metaTitle = "XCIPTV Player Guide: Availability & Setup";
   return {
-    ...generatePageMetadata({ title, description, canonical }),
-    title: { absolute: title },
+    ...generatePageMetadata({ title: metaTitle, description, canonical }),
+    title: { absolute: `${metaTitle} | TryIPTV` },
   };
 }
 
 const articleSchema = generateArticleSchema({
   headline: title,
   description,
-  dateModified: "2026-10-11",
+  dateModified: getLastModified("/players/xciptv"),
   url: `${SITE_URL}${canonical}`,
 });
 
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "Home", item: `${SITE_URL}/` },
   { name: "Players", item: `${SITE_URL}/players` },
-  { name: "XCIPTV Player", item: `${SITE_URL}${canonical}` },
+  { name: "XCIPTV", item: `${SITE_URL}${canonical}` },
 ]);
 
 const headingClass = "font-headline text-2xl font-bold tracking-tight text-foreground sm:text-3xl";
@@ -40,8 +45,7 @@ const linkClass = "text-primary underline decoration-primary/40 underline-offset
 export default function XciptvPage() {
   return (
     <>
-      <Schema id="article" schema={articleSchema} />
-      <Schema id="breadcrumb" schema={breadcrumbSchema} />
+      <PageSchema nodes={[articleSchema, breadcrumbSchema]} />
 
       <Section className="border-b border-white/[0.07] py-12 sm:py-16">
         <Container>
@@ -53,6 +57,7 @@ export default function XciptvPage() {
             <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
               XCIPTV is an IPTV media player and does not include channels or subscriptions. You need an M3U playlist URL or compatible login details from your IPTV provider. Install XCIPTV, enter those details, allow the available channels and EPG data to load, then test playback on several channels.
             </p>
+            <GuideByline path="/players/xciptv" />
           </div>
         </Container>
       </Section>
@@ -139,7 +144,7 @@ export default function XciptvPage() {
             <section>
               <h2 className={headingClass}>How to Set Up XCIPTV with Xtream Codes</h2>
               <p className={textClass}>
-                To set up XCIPTV with Xtream Codes, enter the server or portal address, username, and password supplied by your IPTV provider. OTTRUN&apos;s documentation confirms these login fields for compatible server connections. A profile label may appear in some versions, but it is only a name for the entry. XCIPTV does not issue the IPTV credentials or control the provider account.
+                To set up XCIPTV with Xtream Codes, enter the server or portal address, username, and password supplied by your IPTV provider. OTTRUN&apos;s documentation confirms these login fields for compatible server connections. A profile label may appear in some versions, but it is only a name for the entry. XCIPTV does not issue the IPTV credentials or control the provider account. XCIPTV works with any Xtream Codes login, including our <Link href="/pricing" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">IPTV plans from $15.82</Link> a month.
               </p>
               <ol className={listClass}>
                 <li>Choose the Xtream Codes or compatible API login in your XCIPTV version.</li>
@@ -282,6 +287,7 @@ export default function XciptvPage() {
           </article>
         </Container>
       </Section>
+      <TopicClusterLinks path="/players/xciptv" />
     </>
   );
 }

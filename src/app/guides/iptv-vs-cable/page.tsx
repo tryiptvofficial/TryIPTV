@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { TopicClusterLinks } from "@/components/shared/TopicClusterLinks";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -23,20 +25,21 @@ import {
 } from "lucide-react";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Container } from "@/components/shared/Container";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { Section } from "@/components/shared/Section";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { ArticleProse, ArticleSummary } from "@/components/guide";
 import { FaqList, type FaqItem } from "@/components/sections/FAQ";
-import { generateArticleSchema, generateBreadcrumbSchema, generateFAQPageSchema } from "@/lib/schema";
+import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { PRODUCT_TRUTHS, SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { getLastModified } from "@/lib/site-routes";
 
-const title = "IPTV vs Cable: What's the Difference? | TryIPTV";
+const title = "IPTV vs Cable TV: Cost, Setup & Reliability | TryIPTV";
 const description =
-  "Compare IPTV and cable TV across cost, setup, devices, internet dependence, reliability, flexibility, and on-demand access to see which model fits you better.";
+  "Compare IPTV and cable TV on cost, setup, devices, internet dependence, reliability, and on-demand access. See which TV model fits your home better.";
 const canonical = "/guides/iptv-vs-cable";
-const modifiedDate = "2026-10-06";
+const modifiedDate = getLastModified("/guides/iptv-vs-cable");
 
 export function generateMetadata(): Metadata {
   return {
@@ -104,9 +107,9 @@ const comparisonRows: ComparisonRow[] = [
   },
   {
     feature: "Billing & Contracts",
-    iptv: "Billing models vary across providers (prepaid terms, monthly subscriptions, or credits). TryIPTV specifically uses prepaid terms with no automatic renewal.",
+    iptv: "Billing models vary across providers (fixed terms, monthly subscriptions, or credits). TryIPTV specifically uses fixed terms with no automatic renewal.",
     cable: "Contracts, promotional periods, recurring billing, and cancellation terms vary by operator and market.",
-    impact: "Commitment terms depend entirely on the specific service; prepaid IPTV avoids contracts, while cable often features term agreements or promotional rates.",
+    impact: "Commitment terms depend entirely on the specific service; fixed-term IPTV avoids contracts, while cable often features term agreements or promotional rates.",
   },
   {
     feature: "Fee Structure",
@@ -151,7 +154,7 @@ const faqs: FaqItem[] = [
   {
     question: "Can IPTV completely replace a traditional cable TV subscription?",
     answer:
-      "Many households transition completely to IPTV if they maintain a reliable broadband connection (recommended 25+ Mbps for HD/4K) and feel comfortable using streaming apps. However, households with slow rural internet or those who prefer traditional set-top box numeric remotes may still prefer cable.",
+      "Many households transition completely to IPTV if they maintain a reliable broadband connection (recommended 25+ Mbps for Full HD and 50+ Mbps for 4K) and feel comfortable using streaming apps. However, households with slow rural internet or those who prefer traditional set-top box numeric remotes may still prefer cable.",
   },
   {
     question: "Does IPTV use more internet data than standard web browsing?",
@@ -178,14 +181,11 @@ const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "IPTV vs Cable", item: `${SITE_URL}${canonical}` },
 ]);
 
-const faqSchema = generateFAQPageSchema(faqs);
 
 export default function IptvVsCablePage() {
   return (
     <>
-      <Schema id="article" schema={articleSchema} />
-      <Schema id="breadcrumb" schema={breadcrumbSchema} />
-      <Schema id="faq" schema={faqSchema} />
+      <PageSchema nodes={[articleSchema, breadcrumbSchema]} />
 
       {/* Hero Header */}
       <Section className="border-b border-white/[0.07] pt-10 pb-14 sm:pt-14 sm:pb-20">
@@ -202,10 +202,13 @@ export default function IptvVsCablePage() {
             <h1 className="font-headline text-3xl font-extrabold leading-[1.15] text-foreground sm:text-4xl lg:text-5xl">
               IPTV vs. Cable TV: What&apos;s the Difference?
             </h1>
-            <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
-              A balanced, side-by-side evaluation of television delivery methods, equipment costs, internet dependencies,
-              reliability factors, and flexibility to help you choose the right model.
+            <p className="mx-auto mt-5 max-w-[60ch] text-base leading-7 text-muted-foreground sm:text-lg">
+              IPTV delivers TV over your home internet connection to an app, while cable TV arrives over the
+              cable operator&apos;s own network to a set-top box. IPTV often costs less and works on more devices
+              but depends on your broadband; cable keeps working when the internet is slow but usually needs
+              rented equipment and longer contracts.
             </p>
+            <GuideByline path="/guides/iptv-vs-cable" />
           </div>
         </Container>
       </Section>
@@ -256,7 +259,7 @@ export default function IptvVsCablePage() {
             <div className="my-8 overflow-hidden rounded-xl border border-white/[0.08] bg-[#070908] shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
               <div className="overflow-x-auto" tabIndex={0} role="region" aria-label="IPTV vs cable comparison table">
                 <table className="w-full min-w-[36rem] text-left text-xs sm:text-sm">
-                  <thead className="border-b border-white/[0.08] bg-white/[0.02] text-primary font-mono uppercase tracking-wider text-[11px]">
+                  <thead className="border-b border-white/[0.08] bg-white/[0.02] text-primary font-mono uppercase tracking-wider text-xs">
                     <tr>
                       <th className="p-3.5 sm:p-4 w-[22%]">Feature</th>
                       <th className="p-3.5 sm:p-4 w-[28%]">IPTV</th>
@@ -276,7 +279,7 @@ export default function IptvVsCablePage() {
                         <td className="p-3.5 sm:p-4 text-muted-foreground align-top">
                           {row.cable}
                         </td>
-                        <td className="p-3.5 sm:p-4 text-[11px] sm:text-xs text-primary/90 align-top">
+                        <td className="p-3.5 sm:p-4 text-xs text-primary/90 align-top">
                           {row.impact}
                         </td>
                       </tr>
@@ -284,7 +287,7 @@ export default function IptvVsCablePage() {
                   </tbody>
                 </table>
               </div>
-              <p data-small-print className="p-3.5 text-center text-[11px] text-muted-foreground border-t border-white/[0.06]">
+              <p data-small-print className="p-3.5 text-center text-xs text-muted-foreground border-t border-white/[0.06]">
                 * Practical comparison guidelines. Specific features and terms vary across cable operators and independent IPTV providers.
               </p>
             </div>
@@ -321,7 +324,7 @@ export default function IptvVsCablePage() {
               <ul>
                 <li>
                   <strong className="text-foreground font-semibold">Bandwidth Requirements:</strong> While individual streams typically consume
-                  4–15 Mbps depending on resolution and frame rate, household networks need surplus headroom to absorb background traffic and
+                  about 3–35 Mbps depending on resolution and frame rate (roughly 7–15 Mbps for 1080p), household networks need surplus headroom to absorb background traffic and
                   Wi-Fi fluctuations. For detailed speed planning benchmarks across resolutions, explore our guide on{" "}
                   <Link href="/guides/iptv-internet-speed" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                     IPTV internet speed requirements
@@ -393,11 +396,11 @@ export default function IptvVsCablePage() {
                 </li>
                 <li>
                   <strong className="text-foreground font-semibold">IPTV Cost Factors:</strong> In the broader IPTV market, billing models vary by provider
-                  (monthly recurring plans, multi-month packages, or credit-based systems). TryIPTV specifically operates on flat prepaid terms with no
-                  automatic renewal, no equipment rental fees, and no cancellation penalties, starting at $16 for 1 month and $90 prepaid for 12 months
-                  (equivalent to $7.50/month). See details on our{" "}
+                  (monthly recurring plans, multi-month packages, or credit-based systems). TryIPTV specifically operates on fixed terms with no
+                  automatic renewal, no equipment rental fees, and no cancellation penalties, starting at $15.82 for 1 month and $88.23 for 12 months
+                  (equivalent to $7.35/month). See details on our{" "}
                   <Link href="/pricing" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
-                    prepaid plans page
+                    plans page
                   </Link>
                   .
                 </li>
@@ -452,10 +455,10 @@ export default function IptvVsCablePage() {
                 IPTV may appeal to viewers who:
               </p>
               <ul>
-                <li>Maintain a reliable broadband internet connection with sufficient speed (such as 25+ Mbps for HD/4K).</li>
+                <li>Maintain a reliable broadband internet connection with sufficient speed (such as 25+ Mbps for Full HD and 50+ Mbps for 4K).</li>
                 <li>Prefer watching on existing consumer hardware (Firestick, Apple TV, Smart TVs, tablets, or laptops) without dedicated box rentals.</li>
                 <li>Value portability across devices and locations, subject to provider terms and network access.</li>
-                <li>Prefer prepaid, non-recurring subscription models (such as TryIPTV) over long-term contracts.</li>
+                <li>Prefer one-time, non-recurring subscription models (such as TryIPTV) over long-term contracts.</li>
                 <li>Are comfortable installing apps and navigating streaming player settings.</li>
               </ul>
 
@@ -490,7 +493,7 @@ export default function IptvVsCablePage() {
                 </div>
                 <div className="rounded-lg border border-white/[0.08] bg-[#070908] p-4 text-base sm:text-sm">
                   <div className="font-bold text-foreground mb-1">4. Contract &amp; Billing Preference</div>
-                  <p className="text-muted-foreground">If you prefer prepaid terms without auto-renewal, certain IPTV services fit that model. If you prefer consolidated billing from a local telecom, cable fits that model.</p>
+                  <p className="text-muted-foreground">If you prefer fixed terms without auto-renewal, certain IPTV services fit that model. If you prefer consolidated billing from a local telecom, cable fits that model.</p>
                 </div>
                 <div className="rounded-lg border border-white/[0.08] bg-[#070908] p-4 text-base sm:text-sm">
                   <div className="font-bold text-foreground mb-1">5. Setup Comfort Level</div>
@@ -525,7 +528,7 @@ export default function IptvVsCablePage() {
               </h2>
               <p className="mt-2 text-base sm:text-sm leading-relaxed text-muted-foreground">
                 Evaluate stream performance and device compatibility directly with our full-access 24-hour trial ($0, no credit card required).
-                Every TryIPTV plan includes {PRODUCT_TRUTHS.connections} simultaneous connections across flat prepaid terms with no recurring contracts.
+                Every TryIPTV plan includes {PRODUCT_TRUTHS.connections} simultaneous connections across fixed terms with no recurring contracts.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
                 {/* Below 360px the label is wider than the card; let it wrap instead of overflowing. */}
@@ -535,7 +538,7 @@ export default function IptvVsCablePage() {
                   </Link>
                 </Button>
                 <Button asChild variant="outline">
-                  <Link href="/pricing">View Prepaid Plans</Link>
+                  <Link href="/pricing">View IPTV Plans</Link>
                 </Button>
                 <Button asChild variant="outline">
                   <Link href="/setup">Universal Setup Guide</Link>
@@ -545,6 +548,7 @@ export default function IptvVsCablePage() {
           </article>
         </Container>
       </Section>
+      <TopicClusterLinks path="/guides/iptv-vs-cable" />
     </>
   );
 }

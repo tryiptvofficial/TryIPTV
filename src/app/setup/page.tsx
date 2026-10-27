@@ -20,13 +20,13 @@ import {
 } from "lucide-react";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Container } from "@/components/shared/Container";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { Section } from "@/components/shared/Section";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { FaqList, type FaqItem } from "@/components/sections/FAQ";
-import { generateBreadcrumbSchema, generateFAQPageSchema } from "@/lib/schema";
+import { generateBreadcrumbSchema } from "@/lib/schema";
 import { PRODUCT_TRUTHS, SITE_URL, siteConfig, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 
 const title = "IPTV Setup Hub: From Credentials to Your Device | TryIPTV";
@@ -85,6 +85,13 @@ const deviceGuides = [
     badge: "tvOS",
   },
   {
+    name: "iPhone & iPad",
+    slug: "iphone-iptv",
+    description: "Install an App Store IPTV player, paste your Xtream Codes details, and AirPlay streams to your TV.",
+    icon: Smartphone,
+    badge: "iOS / iPadOS",
+  },
+  {
     name: "Google Chromecast",
     slug: "chromecast-iptv",
     description: "Stream via Google TV interface or cast streams wirelessly from your phone, tablet, or browser.",
@@ -126,7 +133,7 @@ const featuredPlayers = [
     name: "TiviMate IPTV Player",
     slug: "tivimate",
     platforms: "Android TV, Google TV, Fire TV",
-    description: "Broadcast-grade television interface with dynamic timeline EPG, multi-view, and fast channel switching.",
+    description: "A TV-style app with a timeline TV guide (EPG), multi-view and fast channel switching.",
   },
   {
     name: "IPTV Smarters Pro",
@@ -243,7 +250,7 @@ const setupFaqs: FaqItem[] = [
   {
     question: "What do I need to set up IPTV?",
     answer:
-      "To set up IPTV, you need three elements: a reliable high-speed internet connection (recommended 25+ Mbps for HD and 50+ Mbps for 4K), a compatible streaming device or Smart TV, and a third-party IPTV player application. Once you have these, you simply enter the subscription credentials (Xtream Codes API details or M3U playlist link) provided with your TryIPTV account.",
+      "To set up IPTV, you need three elements: a reliable high-speed internet connection (recommended 25+ Mbps for Full HD and 50+ Mbps for 4K), a compatible streaming device or Smart TV, and a third-party IPTV player application. Once you have these, you simply enter the subscription credentials (Xtream Codes API details or M3U playlist link) provided with your TryIPTV account.",
   },
   {
     question: "Should I set up using Xtream Codes API or M3U playlist?",
@@ -263,7 +270,7 @@ const setupFaqs: FaqItem[] = [
   {
     question: "How long does it take to activate and configure my subscription?",
     answer:
-      "Credentials are automatically prepared and typically delivered within 5–15 minutes following order or trial confirmation. Once you receive your credentials, entering your Server URL, Username, and Password into your player completes the initial connection.",
+      `Credentials are typically delivered on WhatsApp within ${PRODUCT_TRUTHS.activationTime} of order or trial confirmation, ${PRODUCT_TRUTHS.activationHours}. Once you receive your credentials, entering your Server URL, Username, and Password into your player completes the initial connection.`,
   },
 ];
 
@@ -275,12 +282,9 @@ export default function SetupPage() {
     { name: "Setup Hub", item: `${baseUrl}/setup` },
   ]);
 
-  const faqSchema = generateFAQPageSchema(setupFaqs);
-
   return (
     <>
-      <Schema id="breadcrumb" schema={breadcrumbSchema} />
-      <Schema id="faq" schema={faqSchema} />
+      <PageSchema path="/setup" name={title.replace(" | TryIPTV", "")} description={description} nodes={[breadcrumbSchema]} />
 
       {/* Hero Section */}
       <Section className="relative overflow-hidden border-b border-white/[0.07] pt-12 pb-14 sm:pt-16 sm:pb-20">
@@ -302,12 +306,20 @@ export default function SetupPage() {
           <div className="mx-auto max-w-3xl text-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/[0.06] px-3.5 py-1 text-xs font-semibold text-primary mb-4">
               <Sparkles className="h-3.5 w-3.5" />
-              Quick Answer: How IPTV Setup Works
+              Quick Answer
             </div>
+            <h2 className="font-headline text-2xl sm:text-3xl font-bold text-foreground mb-3">How do I set up IPTV?</h2>
             <p className="text-base sm:text-lg leading-relaxed text-foreground font-medium mb-6">
-              Setting up an IPTV subscription delivers live TV, sports, and on-demand entertainment to your screen over standard internet protocol. Across every operating system, the configuration process follows five core steps:
+              Setting up IPTV takes the same five steps on every device. Pick your device and install an IPTV player app. Then
+              enter your TryIPTV login, which is either an <strong>Xtream Codes</strong> login (a server address, username and password) or an{" "}
+              <strong>M3U link</strong> (a playlist web address). Once the channels and the TV guide load, you can watch on up to{" "}
+              {PRODUCT_TRUTHS.connections} screens at once. No login yet? See{" "}
+              <Link href="/how-it-works" className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
+                how to get your TryIPTV login
+              </Link>
+              . The steps:
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-5 gap-3 text-left">
+            <ol className="grid grid-cols-1 sm:grid-cols-5 gap-3 text-left">
               {[
                 { num: "1", label: "Choose device", desc: "TV, stick, PC, or phone" },
                 { num: "2", label: "Install player", desc: "From official app store" },
@@ -315,16 +327,16 @@ export default function SetupPage() {
                 { num: "4", label: "Sync content", desc: "Channels and TV guide" },
                 { num: "5", label: "Start watching", desc: "Stream across 2 connections" },
               ].map((item) => (
-                <div
+                <li
                   key={item.num}
                   className="rounded-lg border border-white/[0.08] bg-[#0c100d] p-3.5 transition-colors hover:border-primary/30"
                 >
-                  <div className="text-xs font-mono font-bold text-primary mb-1">0{item.num}</div>
-                  <div className="text-xs font-extrabold text-foreground">{item.label}</div>
-                  <div className="text-[11px] text-muted-foreground mt-0.5">{item.desc}</div>
-                </div>
+                  <div className="text-xs font-mono font-bold text-primary mb-1" aria-hidden="true">0{item.num}</div>
+                  <div className="text-sm font-extrabold text-foreground">{item.label}</div>
+                  <div className="text-sm text-muted-foreground mt-0.5 sm:text-[13px]">{item.desc}</div>
+                </li>
               ))}
-            </div>
+            </ol>
           </div>
         </Container>
       </Section>
@@ -337,10 +349,11 @@ export default function SetupPage() {
               <div className="sticky top-24">
                 <span className="eyebrow mb-1">Prerequisites</span>
                 <h2 className="font-headline text-2xl sm:text-3xl font-bold text-foreground mb-4">
-                  What You Need Before Starting
+                  What do I need to set up IPTV?
                 </h2>
                 <p className="text-base leading-relaxed text-muted-foreground mb-6">
-                  Having everything prepared ensures a smooth, straightforward installation. Review this checklist before configuring your application.
+                  You need an internet connection (about 25 Mbps for HD, 50 Mbps for 4K), a compatible device, an IPTV player app and
+                  your TryIPTV login details.
                 </p>
                 <div className="rounded-xl border border-primary/20 bg-primary/[0.04] p-5 space-y-3">
                   <div className="flex items-center gap-2 text-base sm:text-xs font-bold text-primary">
@@ -363,12 +376,12 @@ export default function SetupPage() {
                     </div>
                     <div>
                       <CardTitle as="h3" className="text-base font-extrabold">1. High-Speed Internet Connection</CardTitle>
-                      <CardDescription className="text-xs">Wired Ethernet or 5GHz Wi-Fi recommended</CardDescription>
+                      <CardDescription className="text-sm sm:text-xs">Wired Ethernet or 5GHz Wi-Fi recommended</CardDescription>
                     </div>
                   </div>
                 </CardHeader>
                 <CardContent className="text-base sm:text-sm text-muted-foreground leading-relaxed">
-                  Stable streaming requires consistent download bandwidth: minimum 15–25 Mbps for 1080p Full HD streams and 40–50+ Mbps for 4K Ultra HD live broadcasts. A wired Ethernet cable or low-interference 5GHz Wi-Fi connection eliminates packet buffering.
+                  Stable streaming requires consistent download bandwidth: about 25–35 Mbps for one 1080p Full HD stream and 50–60 Mbps for one 4K Ultra HD stream. A wired Ethernet cable or low-interference 5GHz Wi-Fi connection reduces buffering.
                 </CardContent>
               </Card>
 
@@ -380,7 +393,7 @@ export default function SetupPage() {
                     </div>
                     <div>
                       <CardTitle as="h3" className="text-base font-extrabold">2. Compatible Streaming Hardware</CardTitle>
-                      <CardDescription className="text-xs">Television, streaming stick, computer, or mobile</CardDescription>
+                      <CardDescription className="text-sm sm:text-xs">Television, streaming stick, computer, or mobile</CardDescription>
                     </div>
                   </div>
                 </CardHeader>
@@ -397,7 +410,7 @@ export default function SetupPage() {
                     </div>
                     <div>
                       <CardTitle as="h3" className="text-base font-extrabold">3. A Third-Party IPTV Player Application</CardTitle>
-                      <CardDescription className="text-xs">Software interface to decode and display streams</CardDescription>
+                      <CardDescription className="text-sm sm:text-xs">Software interface to decode and display streams</CardDescription>
                     </div>
                   </div>
                 </CardHeader>
@@ -414,7 +427,7 @@ export default function SetupPage() {
                     </div>
                     <div>
                       <CardTitle as="h3" className="text-base font-extrabold">4. Your Active Subscription Credentials</CardTitle>
-                      <CardDescription className="text-xs">Delivered via email upon order confirmation</CardDescription>
+                      <CardDescription className="text-sm sm:text-xs">Delivered on WhatsApp within {PRODUCT_TRUTHS.activationTime} of payment confirmation</CardDescription>
                     </div>
                   </div>
                 </CardHeader>
@@ -424,7 +437,7 @@ export default function SetupPage() {
                     <li><strong className="text-primary font-semibold">Xtream Codes API:</strong> Server URL, Username, and Password.</li>
                     <li><strong className="text-primary font-semibold">M3U Playlist URL:</strong> A complete web link containing your stream authentication token.</li>
                   </ul>
-                  Every subscription allows up to <strong>{PRODUCT_TRUTHS.connections} simultaneous connections</strong>.
+                  Every standard plan includes <strong>{PRODUCT_TRUTHS.connections} simultaneous connections</strong>. {PRODUCT_TRUTHS.extraConnections}
                 </CardContent>
               </Card>
             </div>
@@ -462,7 +475,7 @@ export default function SetupPage() {
                 >
                   <CardHeader className="pb-3">
                     <div className="flex items-center justify-between gap-2 mb-2">
-                      <span className="inline-flex items-center gap-1 rounded-full border border-white/[0.08] bg-white/[0.03] px-2.5 py-0.5 text-[11px] font-semibold text-primary">
+                      <span className="inline-flex items-center gap-1 rounded-full border border-white/[0.08] bg-white/[0.03] px-2.5 py-0.5 text-xs font-semibold text-primary">
                         <Icon className="h-3 w-3" />
                         {device.badge}
                       </span>
@@ -482,7 +495,7 @@ export default function SetupPage() {
                         href={`/devices/${device.slug}`}
                         className="tap-target inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline"
                       >
-                        Read Setup Guide <ArrowRight className="h-3.5 w-3.5" />
+                        {device.name} setup guide <ArrowRight className="h-3.5 w-3.5" />
                       </Link>
                     </div>
                   </CardContent>
@@ -502,7 +515,7 @@ export default function SetupPage() {
               <h2 className="font-headline text-2xl sm:text-3xl font-bold text-foreground">
                 Choose an IPTV Player Application
               </h2>
-              <p className="mt-1.5 text-base sm:text-sm text-muted-foreground max-w-2xl">
+              <p className="mt-1.5 text-base sm:text-sm text-muted-foreground max-w-[60ch]">
                 TryIPTV supplies your stream access credentials. Independent media players decode and display the streams on your screen. You have complete freedom to choose the app that suits your preferences.
               </p>
             </div>
@@ -521,7 +534,7 @@ export default function SetupPage() {
             {featuredPlayers.map((player) => (
               <Card key={player.slug} className="flex flex-col justify-between transition-all duration-200 hover:border-primary/40">
                 <CardHeader className="pb-2">
-                  <div className="text-[11px] font-semibold text-primary mb-1">
+                  <div className="text-xs font-semibold text-primary mb-1">
                     {player.platforms}
                   </div>
                   <CardTitle as="h3" className="text-lg font-extrabold">
@@ -539,7 +552,7 @@ export default function SetupPage() {
                       href={`/players/${player.slug}`}
                       className="tap-target inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline"
                     >
-                      Player Tutorial <ArrowRight className="h-3.5 w-3.5" />
+                      {player.name} setup guide <ArrowRight className="h-3.5 w-3.5" />
                     </Link>
                   </div>
                 </CardContent>
@@ -570,7 +583,7 @@ export default function SetupPage() {
                   Recommended Method
                 </div>
                 <CardTitle as="h3" className="text-xl font-extrabold">Xtream Codes API</CardTitle>
-                <CardDescription className="text-xs">Modern, fast, structured credential format</CardDescription>
+                <CardDescription className="text-sm sm:text-xs">Modern, fast, structured credential format</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4 text-base sm:text-sm text-muted-foreground leading-relaxed">
                 <p>
@@ -610,7 +623,7 @@ export default function SetupPage() {
                   Universal Format
                 </div>
                 <CardTitle as="h3" className="text-xl font-extrabold">M3U Playlist URL</CardTitle>
-                <CardDescription className="text-xs">Plaintext index compatible with any player</CardDescription>
+                <CardDescription className="text-sm sm:text-xs">Plaintext index compatible with any player</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4 text-base sm:text-sm text-muted-foreground leading-relaxed">
                 <p>
@@ -650,10 +663,11 @@ export default function SetupPage() {
           <div className="mx-auto max-w-3xl text-center mb-12">
             <span className="eyebrow mb-1">Standard Workflow</span>
             <h2 className="font-headline text-2xl sm:text-3xl font-bold text-foreground">
-              7-Step Universal Setup Walkthrough
+              How do I set up IPTV step by step?
             </h2>
             <p className="mt-2 text-base sm:text-sm text-muted-foreground leading-relaxed">
-              While exact buttons and layout differ slightly between applications, this generic sequence applies to virtually all IPTV player software.
+              The five steps above, broken down into seven. Exact buttons differ between player apps, but this sequence works in almost
+              every one.
             </p>
           </div>
 
@@ -680,7 +694,8 @@ export default function SetupPage() {
 
           <div className="mt-8 text-center text-base sm:text-xs text-muted-foreground">
             Looking for device-specific instructions with step-by-step screenshots? Visit our{" "}
-            <Link href="/devices" className="text-primary font-semibold hover:underline">
+            {/* 44px tall on touch screens (same pattern as the footer links); normal inline text with a mouse. */}
+            <Link href="/devices" className="inline-flex min-h-11 items-center text-primary font-semibold hover:underline pointer-fine:min-h-0">
               All Devices Directory
             </Link>{" "}
             or select your hardware above.
@@ -791,7 +806,7 @@ export default function SetupPage() {
                 <h3 className="text-sm font-extrabold text-foreground group-hover:text-primary transition-colors">
                   What is IPTV?
                 </h3>
-                <p className="text-xs text-muted-foreground mt-1">
+                <p className="text-sm text-muted-foreground mt-1">
                   How packetized IP streams compare to legacy cable and satellite.
                 </p>
               </Link>
@@ -807,7 +822,7 @@ export default function SetupPage() {
                 <h3 className="text-sm font-extrabold text-foreground group-hover:text-primary transition-colors">
                   What is an M3U Playlist?
                 </h3>
-                <p className="text-xs text-muted-foreground mt-1">
+                <p className="text-sm text-muted-foreground mt-1">
                   Playlist syntax, #EXTINF directives, and group tags explained.
                 </p>
               </Link>
@@ -823,7 +838,7 @@ export default function SetupPage() {
                 <h3 className="text-sm font-extrabold text-foreground group-hover:text-primary transition-colors">
                   What are Xtream Codes?
                 </h3>
-                <p className="text-xs text-muted-foreground mt-1">
+                <p className="text-sm text-muted-foreground mt-1">
                   How the standard API login handles categories and authentication.
                 </p>
               </Link>
@@ -860,14 +875,14 @@ export default function SetupPage() {
               Experience High-Definition IPTV Streaming
             </h2>
             <p className="mx-auto mt-3 max-w-xl text-base sm:text-sm leading-relaxed text-muted-foreground">
-              Test stream reliability, channel availability, and player compatibility with our 24-hour free trial (no credit card required), or explore transparent prepaid plans with 2 simultaneous connections.
+              Test stream reliability, channel availability, and player compatibility with our 24-hour free trial (no credit card required), or explore transparent IPTV plans with 2 simultaneous connections.
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-3">
               <Button asChild size="lg">
                 <Link href="/iptv-free-trial">Start 24-Hour Free Trial</Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href="/pricing">View Prepaid Plans (${PRODUCT_TRUTHS.plans[0].price.toFixed(0)}/mo)</Link>
+                <Link href="/pricing">View IPTV Plans (${PRODUCT_TRUTHS.plans[0].price.toFixed(2)}/mo)</Link>
               </Button>
             </div>
           </div>

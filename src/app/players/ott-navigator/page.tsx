@@ -1,28 +1,33 @@
 import type { Metadata } from "next";
+import { TopicClusterLinks } from "@/components/shared/TopicClusterLinks";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Container } from "@/components/shared/Container";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { Section } from "@/components/shared/Section";
 import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { getLastModified } from "@/lib/site-routes";
 
 const title = "OTT Navigator IPTV Setup Guide: M3U, Xtream Codes & Fixes";
 const description =
-  "Set up OTT Navigator with M3U or Xtream Codes, check EPG and connection limits, and diagnose 401, 403, playlist, and playback problems.";
+  "Set up OTT Navigator with an M3U playlist or Xtream Codes login, check EPG and connection limits, and diagnose 401, 403, playlist, and playback errors.";
 const canonical = "/players/ott-navigator";
 
 export function generateMetadata(): Metadata {
+  // Title tag and og:title only; the H1 and Article headline keep the longer wording.
+  const metaTitle = "OTT Navigator Setup: M3U, Xtream Codes & Fixes";
   return {
-    ...generatePageMetadata({ title, description, canonical }),
-    title: { absolute: title },
+    ...generatePageMetadata({ title: metaTitle, description, canonical }),
+    title: { absolute: `${metaTitle} | TryIPTV` },
   };
 }
 
 const articleSchema = generateArticleSchema({
   headline: title,
   description,
-  dateModified: "2026-10-08",
+  dateModified: getLastModified("/players/ott-navigator"),
   url: `${SITE_URL}${canonical}`,
 });
 
@@ -40,8 +45,7 @@ const linkClass = "text-primary underline decoration-primary/40 underline-offset
 export default function OttNavigatorPage() {
   return (
     <>
-      <Schema id="article" schema={articleSchema} />
-      <Schema id="breadcrumb" schema={breadcrumbSchema} />
+      <PageSchema nodes={[articleSchema, breadcrumbSchema]} />
 
       <Section className="border-b border-white/[0.07] py-12 sm:py-16">
         <Container>
@@ -53,6 +57,7 @@ export default function OttNavigatorPage() {
             <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
               OTT Navigator is an IPTV media player; it supplies no channels or subscription. Add your IPTV provider inside the app using an M3U/M3U8 playlist or Xtream Codes details supplied by that provider. OTT Navigator then loads the available channel list, on-demand content, and EPG data, which you should check separately before testing playback.
             </p>
+            <GuideByline path="/players/ott-navigator" />
           </div>
         </Container>
       </Section>
@@ -254,6 +259,7 @@ export default function OttNavigatorPage() {
           </article>
         </Container>
       </Section>
+      <TopicClusterLinks path="/players/ott-navigator" />
     </>
   );
 }

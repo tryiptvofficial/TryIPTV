@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { TopicClusterLinks } from "@/components/shared/TopicClusterLinks";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import {
   AlertCircle,
@@ -24,7 +26,7 @@ import {
 import { FaqList } from "@/components/sections/FAQ";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Container } from "@/components/shared/Container";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { Section } from "@/components/shared/Section";
 import { Button } from "@/components/ui/button";
 import {
@@ -34,9 +36,9 @@ import {
 import {
   generateArticleSchema,
   generateBreadcrumbSchema,
-  generateFAQPageSchema,
 } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { getLastModified } from "@/lib/site-routes";
 
 const title = "IPTV Not Working? Start With This Troubleshooting Checklist";
 const description =
@@ -45,7 +47,7 @@ const canonical = "/help/iptv-not-working";
 // Shorter search-result description; `description` stays in the article schema.
 const metaDescription =
   "A troubleshooting checklist to isolate why IPTV is not working: login errors, playlist failures, buffering streams, blank guides, or app crashes.";
-const modifiedDate = "2026-10-05";
+const modifiedDate = getLastModified("/help/iptv-not-working");
 
 /**
  * IPTV Not Working Master Troubleshooting Router
@@ -53,14 +55,16 @@ const modifiedDate = "2026-10-05";
  * Source of truth: src/lib/site-routes.ts (indexable: true)
  */
 export function generateMetadata(): Metadata {
+  // Title tag and og:title only; the H1 and Article headline keep the longer wording.
+  const metaTitle = "IPTV Not Working? Troubleshooting Checklist";
   return {
     ...generatePageMetadata({
-      title,
+      title: metaTitle,
       description: metaDescription,
       canonical,
     }),
     title: {
-      absolute: title,
+      absolute: `${metaTitle} | TryIPTV`,
     },
   };
 }
@@ -108,17 +112,14 @@ const articleSchema = generateArticleSchema({
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "Home", item: `${SITE_URL}/` },
   { name: "Help", item: `${SITE_URL}/help` },
-  { name: "IPTV Troubleshooting Checklist", item: `${SITE_URL}${canonical}` },
+  { name: "Master Troubleshooting Checklist", item: `${SITE_URL}${canonical}` },
 ]);
 
-const faqSchema = generateFAQPageSchema(faqs);
 
 export default function IptvNotWorkingPage() {
   return (
     <>
-      <Schema id="article" schema={articleSchema} />
-      <Schema id="breadcrumb" schema={breadcrumbSchema} />
-      <Schema id="faq" schema={faqSchema} />
+      <PageSchema nodes={[articleSchema, breadcrumbSchema]} />
 
       {/* Hero Header */}
       <Section className="border-b border-white/[0.07] pt-10 pb-14 sm:pt-14 sm:pb-20">
@@ -135,11 +136,13 @@ export default function IptvNotWorkingPage() {
             <h1 className="font-headline text-3xl font-extrabold leading-[1.15] text-foreground sm:text-4xl lg:text-5xl">
               IPTV Not Working? Start With This Troubleshooting Checklist
             </h1>
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
-              When television playback fails, the broad symptom &quot;IPTV not working&quot; can stem from six
-              completely different failure points. Use this triage guide to pinpoint the exact failure layer
-              and route directly to the right diagnostic solution.
+            <p className="mx-auto mt-5 max-w-[60ch] text-base leading-7 text-muted-foreground sm:text-lg">
+              When IPTV stops working, match what you see to one of six symptoms: the login is rejected, the
+              playlist loads 0 channels, channels freeze or buffer, the TV guide is blank, the player app
+              crashes, or nothing works on any device. Each symptom points to a different cause, and each has
+              its own fix below.
             </p>
+            <GuideByline path="/help/iptv-not-working" />
           </div>
         </Container>
       </Section>
@@ -169,10 +172,14 @@ export default function IptvNotWorkingPage() {
             </ArticleSummary>
 
             <ArticleProse>
-              <h2>Master Triage: Match Your Symptom to the Right Fix</h2>
+              <h2 id="triage" className="scroll-mt-4">Master Triage: Match Your Symptom to the Right Fix</h2>
               <p>
                 Review the six primary failure symptoms below. Each card links directly to our dedicated,
                 in-depth technical guide for that specific layer:
+              </p>
+              <p>
+                Seeing an error code instead? Look it up in the{" "}
+                <Link href="/help/iptv-error-codes" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">IPTV error codes list</Link>.
               </p>
             </ArticleProse>
 
@@ -352,13 +359,18 @@ export default function IptvNotWorkingPage() {
             </ArticleProse>
 
             {/* Two-Minute Checklist Table */}
-            <div className="my-8 overflow-hidden rounded-2xl border border-white/[0.08] bg-[#07080a]">
+            {/* A real <table> (so answer engines read rows and headers), laid out with the same grid as before. */}
+            <table className="my-8 block w-full overflow-hidden rounded-2xl border border-white/[0.08] bg-[#07080a]">
+              <caption className="sr-only">Two-minute IPTV checklist</caption>
               {/* Header shows from sm up; stacked mobile cells repeat it via CSS-generated labels (data-label). */}
-              <div className="hidden bg-white/[0.03] px-4 py-3 text-xs sm:text-sm font-bold text-foreground sm:grid sm:grid-cols-12 border-b border-white/[0.08]">
-                <div className="sm:col-span-1">#</div>
-                <div className="sm:col-span-5">Check Point</div>
-                <div className="sm:col-span-6">Diagnostic Routing</div>
-              </div>
+              <thead className="hidden sm:block">
+                <tr className="grid grid-cols-12 bg-white/[0.03] px-4 py-3 text-xs sm:text-sm font-bold text-foreground border-b border-white/[0.08]">
+                  <th scope="col" className="col-span-1 text-left font-bold">#</th>
+                  <th scope="col" className="col-span-5 text-left font-bold">Check Point</th>
+                  <th scope="col" className="col-span-6 text-left font-bold">Diagnostic Routing</th>
+                </tr>
+              </thead>
+              <tbody className="block">
               {[
                 {
                   step: "1",
@@ -405,15 +417,15 @@ export default function IptvNotWorkingPage() {
                   route: "Isolates hardware/app issues from account/upstream failures.",
                 },
               ].map((item, idx) => (
-                <div
+                <tr
                   key={item.step}
                   className={`grid grid-cols-1 gap-2 px-4 py-3.5 text-xs sm:text-sm leading-6 sm:grid-cols-12 ${
                     idx !== 0 ? "border-t border-white/[0.08]" : ""
                   } ${idx % 2 === 1 ? "bg-white/[0.02]" : ""}`}
                 >
-                  <div data-label="#" className="font-bold text-primary sm:col-span-1 before:content-[attr(data-label)] sm:before:content-none">{item.step}</div>
-                  <div data-label="Check Point: " className="font-semibold text-foreground sm:col-span-5 before:font-semibold before:text-foreground/80 before:content-[attr(data-label)] sm:before:content-none">{item.check}</div>
-                  <div data-label="Diagnostic Routing: " className="text-muted-foreground sm:col-span-6 before:font-semibold before:text-foreground/80 before:content-[attr(data-label)] sm:before:content-none">
+                  <td data-label="#" className="font-bold text-primary sm:col-span-1 before:content-[attr(data-label)] sm:before:content-none">{item.step}</td>
+                  <th scope="row" data-label="Check Point: " className="text-left font-semibold text-foreground sm:col-span-5 before:font-semibold before:text-foreground/80 before:content-[attr(data-label)] sm:before:content-none">{item.check}</th>
+                  <td data-label="Diagnostic Routing: " className="text-muted-foreground sm:col-span-6 before:font-semibold before:text-foreground/80 before:content-[attr(data-label)] sm:before:content-none">
                     {item.link ? (
                       <Link href={item.link} className="tap-target text-primary hover:underline font-medium">
                         {item.route}
@@ -421,10 +433,11 @@ export default function IptvNotWorkingPage() {
                     ) : (
                       item.route
                     )}
-                  </div>
-                </div>
+                  </td>
+                </tr>
               ))}
-            </div>
+              </tbody>
+            </table>
 
             <ArticleProse>
               <h2>Rapid Network Baseline Check</h2>
@@ -453,7 +466,7 @@ export default function IptvNotWorkingPage() {
                 low packet loss and steady latency rather than just burst bandwidth.
               </p>
 
-              <h2>Local Issue vs. Upstream Service Issue</h2>
+              <h2 id="local-vs-upstream" className="scroll-mt-4">Local Issue vs. Upstream Service Issue</h2>
               <p>
                 To avoid wasting time debugging the wrong system, use this isolation framework to distinguish between
                 local problems and upstream server problems:
@@ -497,7 +510,7 @@ export default function IptvNotWorkingPage() {
             </div>
 
             <ArticleProse>
-              <h2>How to Contact Support with Useful Information</h2>
+              <h2 id="contact-support" className="scroll-mt-4">How to Contact Support with Useful Information</h2>
               <p>
                 If your troubleshooting indicates an upstream provider or account issue, reaching out to customer
                 support is the logical next step. To get your ticket resolved rapidly, provide actionable technical
@@ -585,6 +598,7 @@ export default function IptvNotWorkingPage() {
           </div>
         </Container>
       </Section>
+      <TopicClusterLinks path="/help/iptv-not-working" />
     </>
   );
 }

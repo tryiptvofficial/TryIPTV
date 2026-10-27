@@ -11,21 +11,22 @@ import {
   HelpCircle,
   KeyRound,
   Layers,
+  MonitorSmartphone,
   Radio,
   Tv,
   Wifi,
 } from "lucide-react";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Container } from "@/components/shared/Container";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { Section } from "@/components/shared/Section";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { generateBreadcrumbSchema } from "@/lib/schema";
+import { generateBreadcrumbSchema, generateItemListSchema } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 
-const title = "IPTV Guides & Technical Explainers — TryIPTV Knowledge Base";
+const title = "IPTV Guides & Technical Explainers";
 const description =
   "Technical IPTV guides explaining how streaming works, M3U playlists, Xtream Codes logins, electronic programme guides (EPG), and format comparisons.";
 const canonical = "/guides";
@@ -38,7 +39,7 @@ export function generateMetadata(): Metadata {
       canonical,
     }),
     title: {
-      absolute: title,
+      absolute: `${title} | TryIPTV`,
     },
   };
 }
@@ -47,6 +48,7 @@ const coreGuides = [
   {
     title: "What Is IPTV? How Internet Protocol Television Works",
     href: "/guides/what-is-iptv",
+    linkLabel: "IPTV basics guide",
     description:
       "A foundational overview of Internet Protocol Television, explaining packetized IP stream delivery, linear broadcasts, and how internet streaming compares to cable and satellite infrastructure.",
     badge: "Foundational Architecture",
@@ -56,6 +58,7 @@ const coreGuides = [
   {
     title: "How Does IPTV Work? From Server to Screen",
     href: "/guides/how-does-iptv-work",
+    linkLabel: "How IPTV works guide",
     description:
       "A technical walkthrough of linear video streaming over IP networks: ingestion, transcoding, packaging, unicast delivery, client-side buffering, and playback decoders.",
     badge: "Delivery Architecture",
@@ -65,6 +68,7 @@ const coreGuides = [
   {
     title: "IPTV Internet Speed: How Much Bandwidth Do You Need?",
     href: "/guides/iptv-internet-speed",
+    linkLabel: "IPTV speed guide",
     description:
       "A practical bandwidth planning guide covering bitrate vs plan speed, HD and 4K requirements, two simultaneous streams, Wi-Fi stability, and hourly data consumption.",
     badge: "Network Planning",
@@ -72,8 +76,19 @@ const coreGuides = [
     readTime: "7 min read",
   },
   {
+    title: "How Many Devices Can Use One IPTV Subscription?",
+    href: "/guides/iptv-connections",
+    linkLabel: "IPTV connections guide",
+    description:
+      "What counts as a connection, installed devices vs streams playing, casting and multi-view, and how many connections a household needs.",
+    badge: "Multi-Screen",
+    icon: MonitorSmartphone,
+    readTime: "5 min read",
+  },
+  {
     title: "What Is an M3U Playlist? Structure, Syntax, and IPTV Usage",
     href: "/guides/what-is-m3u",
+    linkLabel: "M3U playlist guide",
     description:
       "A technical guide to M3U and M3U8 files in IPTV: playlist header directives, #EXTINF syntax, community metadata attributes (tvg-id, group-title), and UTF-8 encoding standards.",
     badge: "Playlist Specifications",
@@ -83,6 +98,7 @@ const coreGuides = [
   {
     title: "What Are Xtream Codes? The IPTV API Login Format Explained",
     href: "/guides/what-are-xtream-codes",
+    linkLabel: "Xtream Codes guide",
     description:
       "Understand how the de facto API login format works in IPTV players: server URL, username, password authentication, dynamic category queries, and critical security practices.",
     badge: "API Protocols",
@@ -92,6 +108,7 @@ const coreGuides = [
   {
     title: "What Is an EPG? How IPTV TV Guides Work",
     href: "/guides/what-is-epg",
+    linkLabel: "EPG guide",
     description:
       "Explore how Electronic Programme Guides operate in IPTV, how XMLTV schedules are ingested by players, channel-matching conventions (tvg-id), and timezone synchronization.",
     badge: "Metadata & TV Guides",
@@ -104,6 +121,7 @@ const comparisonGuides = [
   {
     title: "M3U vs. Xtream Codes: What's the Difference?",
     href: "/guides/m3u-vs-xtream-codes",
+    linkLabel: "M3U vs Xtream Codes comparison",
     description:
       "A neutral side-by-side comparison between M3U playlists and Xtream-compatible API logins: data delivery architectures, VOD organization, player compatibility, and practical trade-offs.",
     badge: "Format Comparison",
@@ -113,11 +131,49 @@ const comparisonGuides = [
   {
     title: "IPTV vs. Cable: What's the Difference?",
     href: "/guides/iptv-vs-cable",
+    linkLabel: "IPTV vs cable comparison",
     description:
       "A balanced side-by-side comparison between IPTV and traditional cable TV: network delivery architectures, equipment costs, internet dependencies, and decision criteria.",
     badge: "Service Comparison",
     icon: Cable,
     readTime: "8 min read",
+  },
+];
+
+const readingPaths = [
+  {
+    title: "New to IPTV",
+    text: "What IPTV is, how a stream reaches your screen, and whether your connection is fast enough.",
+    steps: [
+      { label: "What is IPTV?", href: "/guides/what-is-iptv" },
+      { label: "How IPTV works", href: "/guides/how-does-iptv-work" },
+      { label: "Internet speed for IPTV", href: "/guides/iptv-internet-speed" },
+    ],
+  },
+  {
+    title: "You have login details",
+    text: "Understand the two login formats providers send, then pick the one your player handles best.",
+    steps: [
+      { label: "What is an M3U playlist?", href: "/guides/what-is-m3u" },
+      { label: "What are Xtream Codes?", href: "/guides/what-are-xtream-codes" },
+      { label: "M3U vs Xtream Codes", href: "/guides/m3u-vs-xtream-codes" },
+    ],
+  },
+  {
+    title: "The TV guide looks wrong",
+    text: "How EPG data is matched to channels, and what to do when the guide is empty or shifted.",
+    steps: [
+      { label: "What is an EPG?", href: "/guides/what-is-epg" },
+      { label: "EPG not working", href: "/help/epg-not-working" },
+    ],
+  },
+  {
+    title: "Deciding whether to switch",
+    text: "Compare IPTV with cable on cost, setup and reliability, then check what plans cost.",
+    steps: [
+      { label: "IPTV vs cable TV", href: "/guides/iptv-vs-cable" },
+      { label: "IPTV subscription pricing", href: "/pricing" },
+    ],
   },
 ];
 
@@ -129,7 +185,16 @@ export default function GuidesPage() {
 
   return (
     <>
-      <Schema id="breadcrumb" schema={breadcrumbSchema} />
+      <PageSchema
+        path="/guides"
+        name={title}
+        description={description}
+        type="CollectionPage"
+        nodes={[
+          breadcrumbSchema,
+          generateItemListSchema("IPTV guides", [...coreGuides, ...comparisonGuides].map((g) => ({ name: g.title, path: g.href }))),
+        ]}
+      />
 
       {/* Hero Header */}
       <Section className="relative overflow-hidden border-b border-white/[0.07] pt-12 pb-14 sm:pt-16 sm:pb-20">
@@ -168,7 +233,7 @@ export default function GuidesPage() {
                 >
                   <CardHeader className="pb-3">
                     <div className="mb-3 flex items-center justify-between gap-2">
-                      <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/10 px-2.5 py-0.5 text-[11px] font-semibold text-primary">
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/10 px-2.5 py-0.5 text-xs font-semibold text-primary">
                         <Icon className="h-3 w-3" />
                         {guide.badge}
                       </span>
@@ -190,7 +255,7 @@ export default function GuidesPage() {
                         href={guide.href}
                         className="tap-target inline-flex items-center gap-1.5 text-xs font-bold text-primary transition-colors hover:underline"
                       >
-                        Read Full Guide <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                        {guide.linkLabel} <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                       </Link>
                     </div>
                   </CardContent>
@@ -220,7 +285,7 @@ export default function GuidesPage() {
                 >
                   <CardHeader className="pb-3">
                     <div className="mb-3 flex items-center justify-between gap-2">
-                      <span className="inline-flex items-center gap-1.5 rounded-full border border-blue-400/20 bg-blue-400/10 px-2.5 py-0.5 text-[11px] font-semibold text-blue-400">
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-blue-400/20 bg-blue-400/10 px-2.5 py-0.5 text-xs font-semibold text-blue-400">
                         <Icon className="h-3 w-3" />
                         {guide.badge}
                       </span>
@@ -242,13 +307,41 @@ export default function GuidesPage() {
                         href={guide.href}
                         className="tap-target inline-flex items-center gap-1.5 text-xs font-bold text-primary transition-colors hover:underline"
                       >
-                        Read Full Guide <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                        {guide.linkLabel} <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                       </Link>
                     </div>
                   </CardContent>
                 </Card>
               );
             })}
+          </div>
+
+          {/* Reading paths */}
+          <div className="mt-16">
+            <p className="eyebrow mb-2">Where to Start</p>
+            <h2 className="font-headline text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+              Pick a Reading Path
+            </h2>
+            <p className="mt-2 max-w-[60ch] text-base text-muted-foreground">
+              The guides build on each other. Start from the question you have now and follow the links in order.
+            </p>
+            <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
+              {readingPaths.map((path) => (
+                <div key={path.title} className="rounded-xl border border-white/[0.08] bg-[#07080a] p-5">
+                  <h3 className="font-headline text-lg font-bold text-foreground">{path.title}</h3>
+                  <p className="mt-1.5 text-base leading-relaxed text-muted-foreground sm:text-sm">{path.text}</p>
+                  <ol className="mt-3 list-decimal space-y-1 pl-5 text-base sm:text-sm">
+                    {path.steps.map((step) => (
+                      <li key={step.href}>
+                        <Link href={step.href} className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
+                          {step.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Cross-Directory Navigation Banner */}

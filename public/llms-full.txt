@@ -2,38 +2,47 @@
 
 ## About TryIPTV
 
-TryIPTV is a prepaid IPTV subscription service at https://www.tryiptv.com/. The service provides access details for live television and on-demand content. Viewers use those details in compatible third-party IPTV player applications. TryIPTV does not develop or own the player apps described on its website.
+TryIPTV is an IPTV subscription service at https://www.tryiptv.com/. Brand name: TryIPTV (logo wordmark: "Try IPTV"). Tagline: "IPTV service with a 24-hour free trial". TryIPTV sells its own subscriptions and issues the login details itself. Viewers use those details in compatible third-party IPTV player applications. TryIPTV does not develop or own the player apps described on its website.
 
-The website separates five intents: commercial pages describe the service and terms; device pages explain platform setup; player pages explain specific apps; guides explain IPTV concepts; help pages diagnose symptoms. Follow the most specific page for a question.
+The website separates five intents: commercial pages describe the service and terms; device pages explain platform setup; player pages explain specific apps; guides explain IPTV concepts; help pages diagnose symptoms. Each question is answered most fully on the most specific page.
+
+## Company
+
+- Operated by: Simo Alaoui LLC, New York, United States
+- Operating since: 2021
+- Founder / Operations: Simo Alaoui, who oversees TryIPTV's operations, customer experience and service development
+- Support: WhatsApp +212 694-833293 (https://wa.me/212694833293) and support@tryiptv.com, 9:00 AM–10:00 PM ET, every day including weekends and public holidays; replies typically within 15 minutes during those hours, and messages sent outside them are answered when support reopens
+- Press and media: press@tryiptv.com (media contact: Simo Alaoui, Founder / Operations)
+- About page: https://www.tryiptv.com/about
 
 ## Service facts
 
-- Service model: fixed-term prepaid plans with no automatic renewal.
+- Service model: fixed-term plans with no automatic renewal.
 - Access methods: M3U playlist URLs and Xtream Codes-style credentials.
 - Simultaneous connections: two active streams under a standard plan.
 - Typical credential delivery and activation: 5–15 minutes after confirmation; this is not an instant guarantee.
-- The site states a catalog of 25,000+ live channels worldwide and 120,000+ movies and TV shows. Availability and playback quality may vary.
+- The catalog is 25,000+ live channels worldwide and 120,000+ movies and TV shows. Catalog counts are approximate and can change as content availability changes. You can check the available selection during the free trial. Playback quality may vary.
 
-For current service questions, use the [FAQ](https://www.tryiptv.com/faq). The [homepage](https://www.tryiptv.com/) provides the service overview.
+The [FAQ](https://www.tryiptv.com/faq) answers common service questions. The [homepage](https://www.tryiptv.com/) provides the service overview.
 
 ## Plans and pricing
 
-The website currently lists these prepaid plans:
+The website currently lists these plans:
 
 | Duration | Price |
 | --- | ---: |
-| 1 month | $16 |
-| 3 months | $39 |
-| 6 months | $60 |
-| 12 months | $90 |
+| 1 month | $15.82 |
+| 3 months | $38.30 |
+| 6 months | $59.15 |
+| 12 months | $88.23 |
 
-[Pricing](https://www.tryiptv.com/pricing) is the authority for current prices and plan inclusions. If a summary here differs from that page, use the pricing page.
+[Pricing](https://www.tryiptv.com/pricing) is the authority for current prices and plan inclusions.
 
 ## Trial and refunds
 
-The [free trial page](https://www.tryiptv.com/iptv-free-trial) describes a 24-hour trial with no credit card required and two simultaneous connections. It owns the current request process and trial conditions.
+The [free trial page](https://www.tryiptv.com/iptv-free-trial) describes a 24-hour trial that costs $0 and requires no credit card. The trial includes two simultaneous connections, the same as paid plans. That page holds the current request process and trial conditions.
 
-The [refund policy](https://www.tryiptv.com/refund-policy) describes a seven-day technical resolution window: a full or partial refund may be available when qualifying critical technical defects cannot be resolved by support. It also lists exclusions and the request process. Refer to that policy for exact current eligibility; do not reduce it to an unconditional seven-day refund guarantee.
+The [refund policy](https://www.tryiptv.com/refund-policy) states that once a subscription is activated and account details are delivered, all sales are final. A refund is only issued when TryIPTV cannot provide a working subscription (for example, the account is not delivered or the service does not start at all). Refunds are not given for internet issues, device or player incompatibility, or channel changes. Refund requests are answered within 24–48 hours.
 
 The [terms and conditions](https://www.tryiptv.com/terms-conditions), [privacy policy](https://www.tryiptv.com/privacy-policy), and [disclaimer](https://www.tryiptv.com/disclaimer) provide further policy detail.
 
@@ -46,6 +55,7 @@ The [setup overview](https://www.tryiptv.com/setup) explains the general path: r
 - [Samsung TV](https://www.tryiptv.com/devices/samsung-tv-iptv)
 - [LG TV](https://www.tryiptv.com/devices/lg-tv-iptv)
 - [Apple TV](https://www.tryiptv.com/devices/apple-tv-iptv)
+- [iPhone and iPad](https://www.tryiptv.com/devices/iphone-iptv)
 - [Chromecast](https://www.tryiptv.com/devices/chromecast-iptv)
 - [MAG Box](https://www.tryiptv.com/devices/mag-box-iptv)
 - [Roku](https://www.tryiptv.com/devices/roku-iptv)

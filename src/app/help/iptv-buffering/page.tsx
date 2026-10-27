@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { TopicClusterLinks } from "@/components/shared/TopicClusterLinks";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import {
   Activity,
@@ -20,7 +22,7 @@ import {
 import { FaqList } from "@/components/sections/FAQ";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Container } from "@/components/shared/Container";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { Section } from "@/components/shared/Section";
 import { Button } from "@/components/ui/button";
 import {
@@ -30,9 +32,9 @@ import {
 import {
   generateArticleSchema,
   generateBreadcrumbSchema,
-  generateFAQPageSchema,
 } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { getLastModified } from "@/lib/site-routes";
 
 const title = "How to Troubleshoot and Fix IPTV Buffering: Practical Diagnostic Guide";
 const description =
@@ -40,7 +42,7 @@ const description =
 const canonical = "/help/iptv-buffering";
 // Shorter search-result title; `title` stays the article headline.
 const seoTitle = "How to Fix IPTV Buffering: A Practical Diagnostic Guide";
-const modifiedDate = "2026-10-11";
+const modifiedDate = getLastModified("/help/iptv-buffering");
 
 /**
  * IPTV Buffering Troubleshooting Guide
@@ -48,14 +50,16 @@ const modifiedDate = "2026-10-11";
  * Source of truth: src/lib/site-routes.ts (indexable: true)
  */
 export function generateMetadata(): Metadata {
+  // Title tag and og:title only; the H1 and Article headline keep the longer wording.
+  const metaTitle = "How to Fix IPTV Buffering: Diagnostic Guide";
   return {
     ...generatePageMetadata({
-      title: seoTitle,
+      title: metaTitle,
       description,
       canonical,
     }),
     title: {
-      absolute: seoTitle,
+      absolute: `${metaTitle} | TryIPTV`,
     },
   };
 }
@@ -98,17 +102,14 @@ const articleSchema = generateArticleSchema({
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "Home", item: `${SITE_URL}/` },
   { name: "Help", item: `${SITE_URL}/help` },
-  { name: "IPTV Buffering", item: `${SITE_URL}${canonical}` },
+  { name: "IPTV Buffering Troubleshooting", item: `${SITE_URL}${canonical}` },
 ]);
 
-const faqSchema = generateFAQPageSchema(faqs);
 
 export default function IptvBufferingPage() {
   return (
     <>
-      <Schema id="article" schema={articleSchema} />
-      <Schema id="breadcrumb" schema={breadcrumbSchema} />
-      <Schema id="faq" schema={faqSchema} />
+      <PageSchema nodes={[articleSchema, breadcrumbSchema]} />
 
       {/* Hero Header */}
       <Section className="border-b border-white/[0.07] pt-10 pb-14 sm:pt-14 sm:pb-20">
@@ -125,11 +126,12 @@ export default function IptvBufferingPage() {
             <h1 className="font-headline text-3xl font-extrabold leading-[1.15] text-foreground sm:text-4xl lg:text-5xl">
               How to Troubleshoot and Fix IPTV Buffering
             </h1>
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
+            <p className="mx-auto mt-5 max-w-[60ch] text-base leading-7 text-muted-foreground sm:text-lg">
               Buffering occurs when media data does not reach your player fast enough to maintain
               continuous playback. Learn how to distinguish network starvation from decoder stutter,
               isolate network bottlenecks, and resolve playback interruptions methodically.
             </p>
+            <GuideByline path="/help/iptv-buffering" />
           </div>
         </Container>
       </Section>
@@ -144,7 +146,7 @@ export default function IptvBufferingPage() {
               className="mb-10 sm:mb-12"
             >
               <p className="font-medium text-foreground">
-                Before changing router settings, modifying cables, or reinstalling applications, execute this 60-second initial triage:
+                IPTV usually buffers because video data is not reaching the player fast or steadily enough: weak Wi-Fi, a busy home network, an overloaded server, or a device that struggles to decode the stream. Most cases improve with Ethernet or 5 GHz Wi-Fi, a restart, or a lower quality. Start with this 60-second check:
               </p>
               <ul className="mt-3 list-disc space-y-2 pl-5 text-base leading-relaxed text-muted-foreground">
                 <li>
@@ -483,6 +485,7 @@ export default function IptvBufferingPage() {
           </div>
         </Container>
       </Section>
+      <TopicClusterLinks path="/help/iptv-buffering" />
     </>
   );
 }

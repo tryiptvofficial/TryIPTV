@@ -1,34 +1,35 @@
 import type { Metadata } from "next";
+import { EmailOff } from "@/components/shared/EmailOff";
 import Link from "next/link";
 import type React from "react";
 import { Container } from "@/components/shared/Container";
 import { Section } from "@/components/shared/Section";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { siteConfig, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { formatLegalDate } from "@/lib/site-data/page-modifications";
+import { AUTHORS } from "@/lib/site-data/authors";
 import { plans } from "@/lib/site-data/pricing";
-import { publicBrandSocialLinks } from "@/lib/site-data/socials";
+import { COMPANY, LICENSING_CONFIRMED, SHOW_CONFIRM_MARKERS } from "@/lib/site-data/company";
+import { Confirm } from "@/components/shared/Confirm";
+import { BRAND } from "@/lib/site-data/brand";
+import { PRODUCT_TRUTHS } from "@/lib/site-config";
 
-const LAST_UPDATED = "2026-10-19";
+const LAST_UPDATED = "2026-10-21";
 
-// Facts still to be confirmed by the owner. Each line on the page that needs one is only
-// rendered once it is filled in, so the page never shows guesses or placeholders.
-const OPERATOR: { name: string | null; location: string | null; since: string | null } = {
-  name: null, // legal entity or owner name
-  location: null, // country, city (only if the owner wants it published)
-  since: null, // year started
-};
-const PAYMENT_METHODS: string | null = null; // e.g. "…" — accepted payment methods
-const SUPPORT_HOURS: string | null = null; // WhatsApp hours, time zone, typical response time
-const LANGUAGES: string | null = null;
+// Company facts live in src/lib/site-data/company.ts. An unconfirmed fact is not rendered in
+// production; Preview/dev builds show a [CONFIRM] marker in its place (see <Confirm>).
+const OPERATOR = { name: COMPANY.legalName, location: COMPANY.location, since: COMPANY.foundingYear };
+const PAYMENT_METHODS = COMPANY.paymentMethods;
+const SUPPORT_HOURS = COMPANY.support.hours;
+const LANGUAGES = COMPANY.support.languages;
 
-const title = "About Us: Prepaid IPTV Service, Trial & Support | TryIPTV";
+const title = "About TryIPTV: Who Runs It, Plans & Support";
 const description =
-  "Learn who runs TryIPTV, how the prepaid IPTV service works, what plans and the 24-hour free trial include, and how to reach support or request a refund.";
+  "Learn who runs TryIPTV, how the IPTV service works, what plans and the 24-hour free trial include, and how to reach support or request a refund.";
 const canonical = "/about";
-const whatsappUrl = `https://wa.me/${siteConfig.links.whatsapp.replace(/\D/g, "")}`;
+const whatsappUrl = COMPANY.support.whatsappUrl;
 
 export function generateMetadata(): Metadata {
   return { ...generatePageMetadata({ title, description, canonical }), title: { absolute: title } };
@@ -43,6 +44,20 @@ const runBy = [
   OPERATOR.since && `running since ${OPERATOR.since}`,
 ].filter(Boolean);
 
+// Company Information table: confirmed facts only (an unconfirmed row is simply left out).
+const companyRows: [string, React.ReactNode][] = [
+  ["Brand", BRAND.name],
+  ["Website", siteConfig.url.replace("https://", "")],
+  ...(COMPANY.legalName ? [["Operated by", COMPANY.legalName] as [string, React.ReactNode]] : []),
+  ...(COMPANY.location ? [["Location", COMPANY.location] as [string, React.ReactNode]] : []),
+  ...(COMPANY.registrationNumber
+    ? [["Company registration number", COMPANY.registry ? `${COMPANY.registrationNumber} (${COMPANY.registry})` : COMPANY.registrationNumber] as [string, React.ReactNode]]
+    : []),
+  ...(COMPANY.foundingYear ? [["Operating since", COMPANY.foundingYear] as [string, React.ReactNode]] : []),
+  ["Customer support", `${COMPANY.support.email} · WhatsApp ${COMPANY.support.whatsappDisplay}`],
+  ["Copyright notices", COMPANY.support.dmcaEmail],
+];
+
 // FAQ answers are rendered visibly and reused verbatim (as plain text) in the FAQPage schema.
 const faqs: { question: string; answer: React.ReactNode; text: string }[] = [
   ...(OPERATOR.name
@@ -54,23 +69,23 @@ const faqs: { question: string; answer: React.ReactNode; text: string }[] = [
     : []),
   {
     question: "How do I pay?",
-    answer: <>Choose a plan and you&apos;ll be taken to WhatsApp, where support sends payment instructions.{PAYMENT_METHODS ? ` Accepted payment methods: ${PAYMENT_METHODS}.` : ""} All plans are one-time prepaid payments.</>,
-    text: `Choose a plan and you'll be taken to WhatsApp, where support sends payment instructions.${PAYMENT_METHODS ? ` Accepted payment methods: ${PAYMENT_METHODS}.` : ""} All plans are one-time prepaid payments.`,
+    answer: <>Choose a plan and you&apos;ll be taken to WhatsApp, where support sends payment instructions.{PAYMENT_METHODS ? ` Accepted payment methods: ${PAYMENT_METHODS}.` : ""} All plans are one-time payments.</>,
+    text: `Choose a plan and you'll be taken to WhatsApp, where support sends payment instructions.${PAYMENT_METHODS ? ` Accepted payment methods: ${PAYMENT_METHODS}.` : ""} All plans are one-time payments.`,
   },
   {
     question: "Do plans renew automatically?",
-    answer: "No. Every plan is prepaid for a fixed term and does not renew automatically. When it ends, access stops unless you buy another term.",
-    text: "No. Every plan is prepaid for a fixed term and does not renew automatically. When it ends, access stops unless you buy another term.",
+    answer: "No. Every plan is paid once for a fixed term and does not renew automatically. When it ends, access stops unless you buy another term.",
+    text: "No. Every plan is paid once for a fixed term and does not renew automatically. When it ends, access stops unless you buy another term.",
   },
   {
     question: "Can I get a refund?",
-    answer: <>Technical problems that support cannot resolve within 7 days of purchase may qualify for a refund. See our <Link href="/refund-policy" className={link}>refund policy</Link> for the full conditions.</>,
-    text: "Technical problems that support cannot resolve within 7 days of purchase may qualify for a refund. See our refund policy for the full conditions.",
+    answer: <>Only if we can&apos;t provide a working subscription, for example if your account isn&apos;t delivered or the service doesn&apos;t start at all. Once your account is activated and delivered, all sales are final. See our <Link href="/refund-policy" className={link}>refund policy</Link>.</>,
+    text: "Only if we can't provide a working subscription, for example if your account isn't delivered or the service doesn't start at all. Once your account is activated and delivered, all sales are final. See our refund policy.",
   },
   {
     question: "How do I contact support?",
-    answer: <>Email {siteConfig.links.email} or use the <Link href="/contact-us" className={link}>contact page</Link>.{SUPPORT_HOURS ? ` WhatsApp support hours: ${SUPPORT_HOURS}.` : ""}</>,
-    text: `Email ${siteConfig.links.email} or use the contact page.${SUPPORT_HOURS ? ` WhatsApp support hours: ${SUPPORT_HOURS}.` : ""}`,
+    answer: <>Email {siteConfig.links.email} or use the <Link href="/contact-us" className={link}>contact page</Link>.{SUPPORT_HOURS ? ` WhatsApp and email support hours: ${SUPPORT_HOURS}.` : ""}</>,
+    text: `Email ${siteConfig.links.email} or use the contact page.${SUPPORT_HOURS ? ` WhatsApp and email support hours: ${SUPPORT_HOURS}.` : ""}`,
   },
 ];
 
@@ -88,16 +103,7 @@ const schema = {
       about: { "@id": `${base}/#organization` },
       breadcrumb: { "@id": `${base}/about#breadcrumb` },
     },
-    {
-      "@type": "Organization",
-      "@id": `${base}/#organization`,
-      name: siteConfig.name,
-      url: `${base}/`,
-      logo: `${base}/brand-logo-square.png`,
-      email: siteConfig.links.email,
-      contactPoint: { "@type": "ContactPoint", contactType: "customer support", email: siteConfig.links.email },
-      sameAs: [...publicBrandSocialLinks],
-    },
+    // The OnlineBusiness node itself comes from the root layout on every page; AboutPage.about references its @id.
     {
       "@type": "BreadcrumbList",
       "@id": `${base}/about#breadcrumb`,
@@ -117,7 +123,8 @@ const schema = {
 export default function AboutPage() {
   return (
     <>
-      <Schema id="about" schema={schema} />
+      <PageSchema path="/about" nodes={[schema]} keep={["FAQPage"]} />
+      <EmailOff>
 
       <Section className="relative overflow-hidden border-b border-white/[0.07] pt-12 pb-14 sm:pt-16 sm:pb-20">
         <Container className="relative text-center">
@@ -139,19 +146,77 @@ export default function AboutPage() {
 
             <section className="space-y-3">
               <h2 className={h2}>Who we are</h2>
-              <p>TryIPTV is an IPTV service provider. We supply streaming access to live TV and on-demand content that you watch on your own devices through a compatible IPTV player app.</p>
-              <p>TryIPTV is not a player app. We don&apos;t make or sell the software you watch with. You bring a device and a player; we provide the service and the login details that player needs.</p>
+              <Confirm value={COMPANY.story} question="Company story: how and why TryIPTV started, in 2–4 sentences.">
+                <p>{COMPANY.story}</p>
+              </Confirm>
+              <p>
+                TryIPTV (TryIPTV.com) is an IPTV subscription service operated by {COMPANY.legalName ?? "TryIPTV"}
+                {COMPANY.location ? `, based in ${COMPANY.location}` : ""}. You watch on your own devices through a compatible
+                IPTV player app. Plans run for 1, 3, 6 or 12 months, with {PRODUCT_TRUTHS.connections} simultaneous
+                connections and no automatic renewal, and you can test the service first with the{" "}
+                <Link href="/iptv-free-trial" className={link}>TryIPTV 24-hour IPTV free trial</Link>.
+                {SUPPORT_HOURS ? ` Support is available on WhatsApp and email, ${SUPPORT_HOURS}.` : ""}
+              </p>
+              <p>TryIPTV is not a player app. We don&apos;t make or sell the software you watch with. You bring a device and a player; we provide the subscription and the login details that player needs.</p>
             </section>
 
             <section className="space-y-3">
-              <h2 className={h2}>Who runs TryIPTV</h2>
-              {runBy.length > 0 && <p>TryIPTV is {runBy.join(", ")}.</p>}
-              <p>The quickest ways to reach us:</p>
+              <h2 className={h2}>Company information</h2>
+              <dl className="divide-y divide-white/[0.06] overflow-hidden rounded-xl border border-white/[0.07] bg-card text-sm">
+                {companyRows.map(([label, value]) => (
+                  <div key={label} className="grid grid-cols-1 gap-1 px-5 py-3 sm:grid-cols-[13rem_1fr] sm:gap-4">
+                    <dt className="font-semibold text-foreground">{label}</dt>
+                    <dd className="break-words">{value}</dd>
+                  </div>
+                ))}
+              </dl>
+              <div className="space-y-1">
+                <div><Confirm value={COMPANY.registry} question="Which registry is company number 8683949 filed with (e.g. New York Department of State)?" /></div>
+                <div><Confirm value={COMPANY.foundingYear} question="Year TryIPTV started operating." /></div>
+              </div>
+              <p>Writing about TryIPTV? The <Link href="/press" className={link}>press kit and fact sheet</Link> has logos, key facts and a media contact.</p>
+            </section>
+
+            <section className="space-y-3">
+              <h2 className={h2}>Meet the team</h2>
+              <Confirm value={COMPANY.team} question="Team members who agree to be named publicly (name, role, short bio).">
+                <ul className="space-y-3">
+                  {COMPANY.team.map((m) => (
+                    <li key={m.name} className="rounded-xl border border-white/[0.07] bg-card px-5 py-4">
+                      <p className="font-headline text-lg font-bold text-foreground">
+                        {AUTHORS.some((a) => a.name === m.name) ? (
+                          <Link href={`/authors/${AUTHORS.find((a) => a.name === m.name)!.slug}`} className={link}>{m.name}</Link>
+                        ) : (
+                          m.name
+                        )}
+                      </p>
+                      <p className="text-sm font-semibold text-primary">{m.role}</p>
+                      {m.bio && <p className="mt-2">{m.bio}</p>}
+                    </li>
+                  ))}
+                </ul>
+              </Confirm>
+            </section>
+
+            <section className="space-y-3">
+              <h2 className={h2}>Support availability</h2>
               <ul className="list-disc space-y-1 pl-6">
-                <li>Email: <a href={`mailto:${siteConfig.links.email}`} className={link}>{siteConfig.links.email}</a></li>
-                <li>WhatsApp: <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={link}>message support</a>{SUPPORT_HOURS ? ` (${SUPPORT_HOURS})` : ""}</li>
+                <li>
+                  WhatsApp: <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={link}>{COMPANY.support.whatsappDisplay}</a>
+                  {SUPPORT_HOURS ? `, ${SUPPORT_HOURS}` : ""}
+                  {COMPANY.support.whatsappNote ? `. ${COMPANY.support.whatsappNote}` : ""}
+                </li>
+                <li>
+                  Email: <a href={`mailto:${siteConfig.links.email}`} className={link}>{siteConfig.links.email}</a>
+                  {SUPPORT_HOURS ? `, ${SUPPORT_HOURS}` : ""}
+                </li>
                 {LANGUAGES && <li>Languages: {LANGUAGES}</li>}
+                {COMPANY.support.responseTime && <li>Response time: {COMPANY.support.responseTime}</li>}
               </ul>
+              {(COMPANY.support.coverage || COMPANY.support.outOfHours) && (
+                <p>{[COMPANY.support.coverage, COMPANY.support.outOfHours].filter(Boolean).join(" ")}</p>
+              )}
+              <Confirm value={SUPPORT_HOURS} question="Support hours (with time zone) for WhatsApp and email." />
             </section>
 
             <section className="space-y-3">
@@ -168,19 +233,20 @@ export default function AboutPage() {
             <section className="space-y-3">
               <h2 className={h2}>How it works</h2>
               <ol className="list-decimal space-y-2 pl-6">
-                <li><strong className="text-foreground">Choose a plan or start the free trial.</strong> Pick a prepaid plan on our <Link href="/pricing" className={link}>pricing page</Link> or request the <Link href="/iptv-free-trial" className={link}>24-hour free trial</Link>.</li>
+                <li><strong className="text-foreground">Choose a plan or start the free trial.</strong> Pick an IPTV plan on our <Link href="/pricing" className={link}>pricing page</Link> or request the <Link href="/iptv-free-trial" className={link}>24-hour free trial</Link>.</li>
                 <li><strong className="text-foreground">Receive your credentials.</strong> For paid plans, login details usually arrive about 5–15 minutes after payment is confirmed.</li>
                 <li><strong className="text-foreground">Install a compatible player.</strong> Add an IPTV player app to your device and enter your Xtream Codes or M3U details. Our <Link href="/setup" className={link}>IPTV setup guide</Link> walks you through it.</li>
                 <li><strong className="text-foreground">Start watching.</strong> Your channels, on-demand library and TV guide load in the player.</li>
               </ol>
+              <p>Every step, from the first WhatsApp message to renewal, is on <Link href="/how-it-works" className={link}>how TryIPTV works</Link>.</p>
             </section>
 
             <section className="space-y-3">
               <h2 className={h2}>Plans, pricing and payment</h2>
-              <p>All plans are prepaid and do not renew automatically:</p>
+              <p>All plans are paid once and do not renew automatically:</p>
               <div className="overflow-hidden rounded-xl border border-white/[0.07] bg-card">
                 <table className="w-full text-left text-sm">
-                  <caption className="sr-only">TryIPTV prepaid plans and prices</caption>
+                  <caption className="sr-only">TryIPTV plans and prices</caption>
                   <thead className="border-b border-white/[0.07] text-xs uppercase tracking-wide">
                     <tr><th className="px-5 py-3 font-semibold">Plan</th><th className="px-5 py-3 font-semibold">Price</th></tr>
                   </thead>
@@ -188,7 +254,7 @@ export default function AboutPage() {
                     {plans.map((plan) => (
                       <tr key={plan.id}>
                         <th scope="row" className="px-5 py-3 font-semibold text-foreground">{plan.name}</th>
-                        <td className="px-5 py-3">${plan.price}</td>
+                        <td className="px-5 py-3">${plan.price.toFixed(2)}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -221,14 +287,14 @@ export default function AboutPage() {
               <h2 className={h2}>Support</h2>
               <p>
                 Contact us by email at <a href={`mailto:${siteConfig.links.email}`} className={link}>{siteConfig.links.email}</a> or through our{" "}
-                <Link href="/contact-us" className={link}>contact page</Link>.{SUPPORT_HOURS ? ` WhatsApp support hours: ${SUPPORT_HOURS}.` : ""}
+                <Link href="/contact-us" className={link}>contact page</Link>.{SUPPORT_HOURS ? ` WhatsApp and email support hours: ${SUPPORT_HOURS}.` : ""}
               </p>
-              <p>Many common problems, such as buffering, login errors or a missing TV guide, have step-by-step fixes in our <Link href="/help" className={link}>IPTV troubleshooting guides</Link>.</p>
+              <p>Many common problems, such as buffering, login errors or a missing TV guide, have step-by-step fixes in our <Link href="/help" className={link}>IPTV troubleshooting guides</Link>. Questions about plans, devices or legality are answered in the <Link href="/faq" className={link}>IPTV FAQ</Link>.</p>
             </section>
 
             <section className="space-y-3">
               <h2 className={h2}>Refunds and policies</h2>
-              <p>Technical problems that support cannot resolve within 7 days of purchase may qualify for a refund. The exact conditions are in our <Link href="/refund-policy" className={link}>refund policy</Link>.</p>
+              <p>{PRODUCT_TRUTHS.refund.summary} {PRODUCT_TRUTHS.refund.exclusions} The exact conditions are in our <Link href="/refund-policy" className={link}>refund policy</Link>.</p>
               <p>
                 Please also read our <Link href="/terms-conditions" className={link}>terms and conditions</Link>,{" "}
                 <Link href="/privacy-policy" className={link}>privacy policy</Link> and <Link href="/disclaimer" className={link}>disclaimer</Link>.
@@ -237,10 +303,16 @@ export default function AboutPage() {
 
             <section className="space-y-3">
               <h2 className={h2}>Content and copyright</h2>
-              {/* Content-source / licensing statement: add only the owner-approved wording here. */}
+              {/* Content-source / licensing statement: only owner-confirmed wording, from company.ts. */}
+              {(LICENSING_CONFIRMED || SHOW_CONFIRM_MARKERS) && (
+                <p>
+                  How TryIPTV is licensed to distribute its channels is explained on our{" "}
+                  <Link href="/content-licensing" className={link}>content licensing page</Link>.
+                </p>
+              )}
               <p>
                 If you believe content accessible through TryIPTV infringes your copyright, email{" "}
-                <a href="mailto:dmca@tryiptv.com" className={link}>dmca@tryiptv.com</a> or use our{" "}
+                <a href={`mailto:${COMPANY.support.dmcaEmail}`} className={link}>{COMPANY.support.dmcaEmail}</a> or use our{" "}
                 <Link href="/dmca-report" className={link}>copyright (DMCA) report page</Link>.
               </p>
             </section>
@@ -263,6 +335,7 @@ export default function AboutPage() {
           </div>
         </Container>
       </Section>
+      </EmailOff>
     </>
   );
 }

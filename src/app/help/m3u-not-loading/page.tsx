@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { TopicClusterLinks } from "@/components/shared/TopicClusterLinks";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import {
   AlertCircle,
@@ -22,7 +24,7 @@ import {
 import { FaqList } from "@/components/sections/FAQ";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Container } from "@/components/shared/Container";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { Section } from "@/components/shared/Section";
 import { Button } from "@/components/ui/button";
 import {
@@ -32,15 +34,15 @@ import {
 import {
   generateArticleSchema,
   generateBreadcrumbSchema,
-  generateFAQPageSchema,
 } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { getLastModified } from "@/lib/site-routes";
 
 const title = "M3U Playlist Not Loading? How to Diagnose and Fix It";
 const description =
   "A systematic troubleshooting guide to diagnose M3U playlist loading errors, verify URL syntax and encoding, identify parser crashes, and restore access.";
 const canonical = "/help/m3u-not-loading";
-const modifiedDate = "2026-10-05";
+const modifiedDate = getLastModified("/help/m3u-not-loading");
 
 /**
  * M3U Not Loading Troubleshooting Guide
@@ -48,14 +50,16 @@ const modifiedDate = "2026-10-05";
  * Source of truth: src/lib/site-routes.ts (indexable: true)
  */
 export function generateMetadata(): Metadata {
+  // Title tag and og:title only; the H1 and Article headline keep the longer wording.
+  const metaTitle = "M3U Playlist Not Loading? How to Fix It";
   return {
     ...generatePageMetadata({
-      title,
+      title: metaTitle,
       description,
       canonical,
     }),
     title: {
-      absolute: title,
+      absolute: `${metaTitle} | TryIPTV`,
     },
   };
 }
@@ -98,17 +102,14 @@ const articleSchema = generateArticleSchema({
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "Home", item: `${SITE_URL}/` },
   { name: "Help", item: `${SITE_URL}/help` },
-  { name: "M3U Not Loading", item: `${SITE_URL}${canonical}` },
+  { name: "M3U Loading Troubleshooting", item: `${SITE_URL}${canonical}` },
 ]);
 
-const faqSchema = generateFAQPageSchema(faqs);
 
 export default function M3uNotLoadingPage() {
   return (
     <>
-      <Schema id="article" schema={articleSchema} />
-      <Schema id="breadcrumb" schema={breadcrumbSchema} />
-      <Schema id="faq" schema={faqSchema} />
+      <PageSchema nodes={[articleSchema, breadcrumbSchema]} />
 
       {/* Hero Header */}
       <Section className="border-b border-white/[0.07] pt-10 pb-14 sm:pt-14 sm:pb-20">
@@ -125,11 +126,12 @@ export default function M3uNotLoadingPage() {
             <h1 className="font-headline text-3xl font-extrabold leading-[1.15] text-foreground sm:text-4xl lg:text-5xl">
               M3U Playlist Not Loading? How to Diagnose and Fix It
             </h1>
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
+            <p className="mx-auto mt-5 max-w-[60ch] text-base leading-7 text-muted-foreground sm:text-lg">
               When an IPTV player fails to load an M3U playlist, the problem may stem from URL syntax
               defects, network reachability, server response codes, or memory constraints during parsing.
               Use this guide to pinpoint the exact failure layer.
             </p>
+            <GuideByline path="/help/m3u-not-loading" />
           </div>
         </Container>
       </Section>
@@ -230,7 +232,7 @@ export default function M3uNotLoadingPage() {
                 </li>
               </ul>
 
-              <h2>Step 3: Understand HTTP Error Codes (RFC 9110 Meanings)</h2>
+              <h2 id="http-error-codes" className="scroll-mt-4">Step 3: Understand HTTP Error Codes (RFC 9110 Meanings)</h2>
               <p>
                 If your player reports an HTTP error status when requesting the M3U link, the server is
                 responding with a standardized HTTP status code (RFC 9110):
@@ -405,6 +407,7 @@ export default function M3uNotLoadingPage() {
           </div>
         </Container>
       </Section>
+      <TopicClusterLinks path="/help/m3u-not-loading" />
     </>
   );
 }

@@ -22,17 +22,18 @@ import {
 } from "lucide-react";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Container } from "@/components/shared/Container";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { Section } from "@/components/shared/Section";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { generateBreadcrumbSchema } from "@/lib/schema";
-import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { generateBreadcrumbSchema, generateItemListSchema } from "@/lib/schema";
+import { PRODUCT_TRUTHS, SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { COMPANY } from "@/lib/site-data/company";
 
-const title = "IPTV Help & Troubleshooting Directory — TryIPTV Support";
+const title = "IPTV Help & Troubleshooting Directory";
 const description =
-  "Systematic troubleshooting guides for IPTV problems: fix buffering, resolve login failures, diagnose playlists that will not load, and correct TV guide errors.";
+  "Troubleshooting guides for IPTV problems: fix buffering, resolve login failures, diagnose playlists that will not load, and correct TV guide errors fast.";
 const canonical = "/help";
 
 export function generateMetadata(): Metadata {
@@ -43,7 +44,7 @@ export function generateMetadata(): Metadata {
       canonical,
     }),
     title: {
-      absolute: title,
+      absolute: `${title} | TryIPTV`,
     },
   };
 }
@@ -89,6 +90,26 @@ const specialistGuides = [
     icon: Calendar,
     badgeColor: "text-emerald-400 border-emerald-400/20 bg-emerald-400/10",
   },
+  {
+    title: "Error Code or Message on Screen",
+    href: "/help/iptv-error-codes",
+    symptom: "Player shows a number such as 401, 403, 503 or 522, a Formuler code, or a MAG portal message.",
+    description:
+      "Look up what the code means, with sources, and jump to the step that fixes it. Only codes with an official or standards source are listed.",
+    badge: "Error Codes",
+    icon: AlertCircle,
+    badgeColor: "text-primary border-primary/20 bg-primary/10",
+  },
+];
+
+// Speeds match /guides/iptv-internet-speed (about 25 Mbps for HD, 50 Mbps for 4K).
+const quickChecks = [
+  "Restart the device and your router, then reopen the player app.",
+  "Try a second channel and a second device: if only one channel fails, the problem is that channel, not your setup.",
+  "Check your login details for typos or spaces, and check that your plan or trial has not expired.",
+  "Run a speed test on the same device: about 25 Mbps is enough for one HD stream and 50 Mbps for 4K.",
+  "Use Ethernet or move closer to the router if streams stutter only on Wi-Fi.",
+  `Close the stream on other screens: every plan allows ${PRODUCT_TRUTHS.connections} simultaneous connections.`,
 ];
 
 export default function HelpPage() {
@@ -99,7 +120,19 @@ export default function HelpPage() {
 
   return (
     <>
-      <Schema id="breadcrumb" schema={breadcrumbSchema} />
+      <PageSchema
+        path="/help"
+        name={title}
+        description={description}
+        type="CollectionPage"
+        nodes={[
+          breadcrumbSchema,
+          generateItemListSchema("IPTV troubleshooting guides", [
+            { name: "IPTV Not Working? Start With This Troubleshooting Checklist", path: "/help/iptv-not-working" },
+            ...specialistGuides.map((g) => ({ name: g.title, path: g.href })),
+          ]),
+        ]}
+      />
 
       {/* Hero Header */}
       <Section className="relative overflow-hidden border-b border-white/[0.07] pt-12 pb-14 sm:pt-16 sm:pb-20">
@@ -161,16 +194,18 @@ export default function HelpPage() {
           </div>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            {specialistGuides.map((guide) => {
+            {specialistGuides.map((guide, i) => {
               const Icon = guide.icon;
+              // An odd last card spans both columns instead of sitting alone.
+              const span = i === specialistGuides.length - 1 && specialistGuides.length % 2 === 1 ? "md:col-span-2 " : "";
               return (
                 <Card
                   key={guide.href}
-                  className="group flex flex-col justify-between border-white/[0.08] bg-[#07080a] transition-all duration-200 hover:-translate-y-1 hover:border-primary/40 hover:bg-[#07080a] shadow-sm"
+                  className={`${span}group flex flex-col justify-between border-white/[0.08] bg-[#07080a] transition-all duration-200 hover:-translate-y-1 hover:border-primary/40 hover:bg-[#07080a] shadow-sm`}
                 >
                   <CardHeader className="pb-3">
                     <div className="mb-3 flex items-center justify-between gap-2">
-                      <span className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-[11px] font-semibold ${guide.badgeColor}`}>
+                      <span className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-semibold ${guide.badgeColor}`}>
                         <Icon className="h-3 w-3" />
                         {guide.badge}
                       </span>
@@ -201,6 +236,61 @@ export default function HelpPage() {
                 </Card>
               );
             })}
+          </div>
+
+          {/* Quick checks and support */}
+          <div className="mt-16 grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <div className="rounded-2xl border border-white/[0.08] bg-[#07080a] p-6 sm:p-8">
+              <h2 className="font-headline text-xl font-bold text-foreground sm:text-2xl">Quick Checks Before You Troubleshoot</h2>
+              <p className="mt-2 text-base leading-relaxed text-muted-foreground sm:text-sm">
+                Most IPTV problems clear up with one of these. Try them in order, then open the guide for your symptom if the problem stays.
+              </p>
+              <ul className="mt-4 space-y-2.5 text-base leading-relaxed text-muted-foreground sm:text-sm">
+                {quickChecks.map((check) => (
+                  <li key={check} className="flex items-start gap-2.5">
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden />
+                    <span>{check}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-4 text-base text-muted-foreground sm:text-sm">
+                Setting up a new device instead? Start with the{" "}
+                <Link href="/devices" className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
+                  device setup guides
+                </Link>{" "}
+                or the{" "}
+                <Link href="/players" className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
+                  IPTV player guides
+                </Link>
+                .
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-white/[0.08] bg-[#07080a] p-6 sm:p-8">
+              <h2 className="font-headline text-xl font-bold text-foreground sm:text-2xl">Still Stuck? Contact Support</h2>
+              <p className="mt-2 text-base leading-relaxed text-muted-foreground sm:text-sm">
+                Message support on WhatsApp ({COMPANY.support.whatsappDisplay}) or email, {COMPANY.support.hours}.
+                {COMPANY.support.responseTime ? ` Replies arrive ${COMPANY.support.responseTime.charAt(0).toLowerCase()}${COMPANY.support.responseTime.slice(1)}.` : ""}
+                {COMPANY.support.outOfHours ? ` ${COMPANY.support.outOfHours}` : ""}
+              </p>
+              <p className="mt-3 text-base leading-relaxed text-muted-foreground sm:text-sm">To get a fix faster, include:</p>
+              <ul className="mt-2 list-disc space-y-1.5 pl-5 text-base leading-relaxed text-muted-foreground sm:text-sm">
+                <li>your device and the IPTV player app you use;</li>
+                <li>the exact error message, or a photo of the screen;</li>
+                <li>which channels or menus are affected, and since when;</li>
+                <li>which of the quick checks you already tried.</li>
+              </ul>
+              <div className="mt-5 flex flex-wrap gap-3">
+                <Button asChild size="sm">
+                  <a href={COMPANY.support.whatsappUrl} target="_blank" rel="noopener noreferrer">
+                    Message Support on WhatsApp
+                  </a>
+                </Button>
+                <Button asChild size="sm" variant="outline">
+                  <Link href="/contact-us">All Contact Options</Link>
+                </Button>
+              </div>
+            </div>
           </div>
 
           {/* Cross-Directory Navigation Banner */}

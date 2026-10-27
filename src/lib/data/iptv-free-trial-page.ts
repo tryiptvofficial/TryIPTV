@@ -1,33 +1,47 @@
 import { unstable_cache as cache } from 'next/cache';
 import { generateBreadcrumbSchema, generateServiceSchema } from '@/lib/schema';
 import type { BreadcrumbList, Service } from 'schema-dts';
-import { siteConfig } from '@/lib/site-config';
+import { FACT_TEXT, PRODUCT_TRUTHS, siteConfig } from '@/lib/site-config';
 
+const T = PRODUCT_TRUTHS;
+
+// Question order follows the owner-supplied page (2026-10-20); answers come from PRODUCT_TRUTHS.
 export const trialFaqs = [
   {
-    question: "How long is the TryIPTV free trial?",
-    answer:
-      "The trial provides access for 24 consecutive hours from the time your credentials are confirmed and generated.",
-  },
-  {
-    question: "Is the IPTV trial really free?",
-    answer:
-      "Yes. The trial costs $0. You are not required to enter payment information, billing details, or future payment commitments.",
+    question: "How long does the free trial last?",
+    answer: `The TryIPTV free trial lasts ${FACT_TEXT.trialHours} consecutive hours, counted from the moment your login details are activated. When the time is up, access stops on its own.`,
   },
   {
     question: "Do I need a credit card for the IPTV free trial?",
     answer:
-      "No. Trial access is issued without collecting credit card or payment information.",
+      "No. The TryIPTV free trial is issued without collecting any credit card, PayPal, or other payment details. You request it on WhatsApp, receive login details, and get 24 hours of access for $0. When the trial ends it simply stops; nothing is charged and it never turns into a paid plan.",
   },
   {
-    question: "How long does trial activation take?",
-    answer:
-      "Credentials typically arrive via WhatsApp within 5–15 minutes after request confirmation.",
+    question: "How fast do trial credentials arrive?",
+    answer: `Trial login details usually arrive on WhatsApp within ${T.activationTime} after your request is confirmed. It is usually quick but not always instant; if nothing has arrived after that, reply in the same WhatsApp chat.`,
   },
   {
-    question: "Which devices can I use for the trial?",
+    question: "What devices can I use during the trial?",
     answer:
-      "You can test on supported smart TVs, streaming media players, and personal computers, including Firestick, Android TV, Samsung TV, LG TV, Apple TV, Windows, Mac, MAG, and Chromecast with Google TV. Roku works through AirPlay or screen mirroring from another device.",
+      "You can test on supported smart TVs, streaming media players, and personal computers, including Firestick, Android TV, Samsung TV, LG TV, Apple TV, iPhone and iPad, Windows, Mac, MAG, and Chromecast with Google TV. Roku works through AirPlay or screen mirroring from another device.",
+  },
+  {
+    question: "Is the free trial the same as a paid plan?",
+    answer: `The trial is for judging streams, picture quality, and TV guide data on your own setup before you pay. It includes the same ${T.connections} simultaneous connections as a paid plan, so you can test two screens at once.`,
+  },
+  {
+    question: "What happens when the 24 hours end?",
+    answer:
+      "Your trial login expires and streaming stops. The trial does not renew or turn into a paid subscription, and you do not need to cancel anything. If you want to keep watching, you choose an IPTV plan; if not, you owe nothing.",
+  },
+  {
+    question: "How much does IPTV cost after the trial?",
+    answer: `TryIPTV plans cost ${FACT_TEXT.priceList}. Every plan includes ${T.connections} simultaneous connections and none of them renews automatically.`,
+  },
+  {
+    question: "Can I get another free trial?",
+    answer:
+      "No. The free trial is limited to one per household or user, as set out in the Terms & Conditions. After your trial, you can continue with an IPTV plan, starting with 1 month if you want a short commitment.",
   },
   {
     question: "Can I use TiviMate?",
@@ -42,27 +56,7 @@ export const trialFaqs = [
   {
     question: "Can I test specific channels before paying?",
     answer:
-      "Yes. You can use the trial to check whether the specific channels and content you care about are available and play correctly on your setup.",
-  },
-  {
-    question: "Does the free trial automatically renew?",
-    answer:
-      "No. The trial does not automatically renew or convert into a paid subscription.",
-  },
-  {
-    question: "What happens when the 24-hour trial ends?",
-    answer:
-      "Your trial credentials expire and streaming stops. You can choose to purchase a prepaid subscription on the pricing page or simply discontinue use.",
-  },
-  {
-    question: "Is the trial exactly the same as a paid subscription?",
-    answer:
-      "The trial allows you to evaluate stream playback, channel availability, and guide data. However, paid plans include two simultaneous connections, whereas trial connection limits are confirmed upon issuance.",
-  },
-  {
-    question: "What should I test during an IPTV free trial?",
-    answer:
-      "Focus on testing the specific channels you watch most often, verifying picture quality on your main TV screen, observing channel startup time, and confirming that EPG data loads properly.",
+      "Yes. Use the trial to check that the specific channels and content you care about are available and play correctly on your setup.",
   },
 ];
 
@@ -79,13 +73,16 @@ export const getIptvFreeTrialPageData = cache(
     const serviceSchema: Service = generateServiceSchema({
       serviceType: "Free IPTV Trial",
       providerName: "TryIPTV",
-      name: "24-Hour IPTV Free Trial",
-      description:
-        "24-hour free trial of TryIPTV to evaluate available live TV and on-demand viewing on a compatible device. No credit card required.",
+      name: `TryIPTV ${FACT_TEXT.trialHours}-Hour IPTV Free Trial`,
+      description: `TryIPTV offers a ${FACT_TEXT.trialHours}-hour IPTV free trial for $0, with no credit card and no auto-renewal. Login details for a compatible IPTV player usually arrive on WhatsApp within ${PRODUCT_TRUTHS.activationTime} during support hours.`,
+      image: `${baseUrl}/images/free-trial/iptv-free-trial-24-hours-no-credit-card.jpg`,
+      url: `${baseUrl}/iptv-free-trial`,
       offers: {
         "@type": "Offer",
         price: "0",
         priceCurrency: "USD",
+        url: `${baseUrl}/iptv-free-trial`,
+        availability: "https://schema.org/InStock",
       },
     });
 
@@ -96,7 +93,7 @@ export const getIptvFreeTrialPageData = cache(
     };
   },
   // Bump the version when the static data above changes: the data cache outlives rebuilds.
-  ['iptv-free-trial-page-data-v2'],
+  ['iptv-free-trial-page-data-v9'],
   {
     revalidate: 3600,
     tags: ['pages', 'iptv-free-trial-page'],

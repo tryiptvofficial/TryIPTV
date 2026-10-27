@@ -11,14 +11,24 @@ export interface StepItem {
 interface GuideStepListProps {
   steps: StepItem[];
   primaryKeyword?: string;
+  /** Replaces the generated summary when the "steps" are alternatives rather than a sequence. */
+  intro?: string;
   className?: string;
 }
 
 export function GuideStepList({
   steps,
   primaryKeyword = "Fire TV Stick",
+  intro,
   className,
 }: GuideStepListProps) {
+  // Answer-first summary built from the real step titles, so the count and order always match the list.
+  const lower = (t: string) => t.charAt(0).toLowerCase() + t.slice(1);
+  const titles = steps.map((s) => lower(s.title));
+  const summary =
+    titles.length > 1
+      ? `${titles.slice(0, -1).join("; ")}; and ${titles[titles.length - 1]}`
+      : titles[0] ?? "";
 
   return (
     <div id="setup-steps" className={`scroll-mt-6 my-10 ${className || ""}`}>
@@ -27,18 +37,18 @@ export function GuideStepList({
         <h2 className="font-headline text-2xl sm:text-3xl font-bold text-foreground">
           Step-by-Step Installation Guide for {primaryKeyword}
         </h2>
-        <p className="mt-2 text-base leading-relaxed text-muted-foreground max-w-2xl">
-          Follow this 7-step sequence to configure your IPTV player, load channel bouquets, and verify live stream playback.
+        <p className="mt-2 text-base leading-relaxed text-muted-foreground max-w-[60ch]">
+          {intro ?? `Setting up IPTV on ${primaryKeyword} takes ${steps.length} steps: ${summary}.`}
         </p>
       </div>
 
-      <div className="relative">
+      <ol className="relative list-none">
         {steps.map((step, index) => {
           const stepNumber = String(index + 1).padStart(2, "0");
           const isLast = index === steps.length - 1;
 
           return (
-            <div
+            <li
               key={index}
               id={`step-${index + 1}`}
               className="group relative flex items-start gap-4 sm:gap-6 scroll-mt-6"
@@ -59,7 +69,7 @@ export function GuideStepList({
               {/* Step content */}
               <div className={`min-w-0 flex-1 max-w-[740px] ${isLast ? "pb-2" : "pb-8 sm:pb-11"}`}>
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="font-mono text-[10px] font-extrabold uppercase text-primary tracking-wider bg-primary/[0.08] border border-primary/20 rounded px-1.5 py-0.5">
+                  <span className="font-mono text-xs font-extrabold uppercase text-primary tracking-wider bg-primary/[0.08] border border-primary/20 rounded px-1.5 py-0.5">
                     STEP {stepNumber}
                   </span>
                   <h3 className="font-headline text-base sm:text-lg font-bold text-foreground">
@@ -72,10 +82,10 @@ export function GuideStepList({
                   dangerouslySetInnerHTML={{ __html: step.description }}
                 />
               </div>
-            </div>
+            </li>
           );
         })}
-      </div>
+      </ol>
     </div>
   );
 }

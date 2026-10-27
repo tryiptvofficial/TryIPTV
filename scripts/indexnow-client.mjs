@@ -11,7 +11,7 @@ const statusMessages = {
   202: 'URLs accepted; IndexNow may still need to verify the key.',
   400: 'Malformed IndexNow request.',
   403: 'IndexNow key verification failed or the key does not match.',
-  422: 'IndexNow rejected the URL, host, or key schema.',
+  422: 'IndexNow rejected the URL, host, or key schema (or the URLs were resubmitted without changes).',
   429: 'IndexNow rate limit reached; try again later.',
 };
 
@@ -32,7 +32,7 @@ export function validateIndexNowUrls(urls) {
 
 export async function submitIndexNowUrls(urls) {
   const urlList = validateIndexNowUrls(urls);
-  const response = await fetch(ENDPOINT, {
+  const send = () => fetch(ENDPOINT, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json; charset=utf-8' },
     body: JSON.stringify({
@@ -42,6 +42,15 @@ export async function submitIndexNowUrls(urls) {
       urlList,
     }),
   });
+
+  let response = await send();
+  // indexnow.org: on 429 honour Retry-After before trying again (one retry, capped at 10 minutes).
+  if (response.status === 429) {
+    const waitSeconds = Math.min(Number(response.headers.get('retry-after')) || 300, 600);
+    console.log(`IndexNow returned 429; retrying once in ${waitSeconds}s.`);
+    await new Promise((resolve) => setTimeout(resolve, waitSeconds * 1000));
+    response = await send();
+  }
 
   return {
     count: urlList.length,

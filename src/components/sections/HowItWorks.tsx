@@ -4,6 +4,7 @@ import { CheckCircle, Package, Tv } from "lucide-react";
 import { Container } from "../shared/Container";
 import { SectionHeader } from "../shared/SectionHeader";
 import { Section } from "../shared/Section";
+import { PRODUCT_TRUTHS, FACT_TEXT } from "@/lib/site-config";
 
 interface Step {
   icon: typeof Package;
@@ -15,12 +16,12 @@ const steps: Step[] = [
     {
         icon: Package,
         title: "Choose a Plan or Start a Trial",
-        description: <>Choose a prepaid plan or start the <Link href="/iptv-free-trial" className="font-semibold text-primary hover:underline">24-hour free trial</Link>.</>
+        description: <>Choose an IPTV plan or start the <Link href="/iptv-free-trial" className="font-semibold text-primary hover:underline">24-hour free trial</Link>. See the <Link href="/how-it-works" className="font-semibold text-primary hover:underline">full buying path</Link>, step by step.</>
     },
     {
         icon: CheckCircle,
         title: "Receive Your Login",
-        description: "Credentials are typically delivered within 5–15 minutes after confirmation, including M3U or Xtream Codes details."
+        description: `Credentials are typically delivered within ${PRODUCT_TRUTHS.activationTime} after confirmation, ${PRODUCT_TRUTHS.activationHours.split(";")[0]}. They come as an Xtream Codes login (server address, username and password) or an M3U playlist link.`
     },
     {
         icon: Tv,
@@ -48,12 +49,12 @@ export function HowItWorks() {
         <SectionHeader
           align="left"
           title="How Do I Start With TryIPTV?"
-          subtitle="Use your TryIPTV access details with a compatible IPTV player, then follow the setup guide for your device."
+          subtitle={`To start with TryIPTV, choose a plan or request the free ${FACT_TEXT.trialHours}-hour trial on WhatsApp. Support sends your Xtream Codes or M3U login details, usually within ${PRODUCT_TRUTHS.activationTime}.`}
           eyebrow="Setup Process"
         />
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:gap-5">
+        <ol role="list" className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:gap-5">
           {steps.map((step, i) => (
-            <div key={i} className="rounded-2xl border border-white/[0.07] bg-card p-6">
+            <li key={i} className="rounded-2xl border border-white/[0.07] bg-card p-6">
               <div className="flex items-center justify-between">
                 <span className="grid size-10 place-items-center rounded-xl border border-white/[0.07] bg-white/[0.03] text-primary">
                   <step.icon className="size-5" aria-hidden />
@@ -68,9 +69,9 @@ export function HowItWorks() {
               <p className="mt-2 text-base sm:text-sm leading-6 text-muted-foreground">
                 {step.description}
               </p>
-            </div>
+            </li>
           ))}
-        </div>
+        </ol>
       </Container>
     </Section>
   );

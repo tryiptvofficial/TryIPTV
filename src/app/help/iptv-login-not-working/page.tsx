@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { TopicClusterLinks } from "@/components/shared/TopicClusterLinks";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import {
   AlertTriangle,
@@ -19,7 +21,7 @@ import {
 import { FaqList } from "@/components/sections/FAQ";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Container } from "@/components/shared/Container";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { Section } from "@/components/shared/Section";
 import { Button } from "@/components/ui/button";
 import {
@@ -29,9 +31,9 @@ import {
 import {
   generateArticleSchema,
   generateBreadcrumbSchema,
-  generateFAQPageSchema,
 } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { getLastModified } from "@/lib/site-routes";
 
 const title = "IPTV Login Not Working? How to Diagnose Authentication Errors";
 const description =
@@ -39,7 +41,7 @@ const description =
 const canonical = "/help/iptv-login-not-working";
 // Shorter search-result title; `title` stays the article headline.
 const seoTitle = "IPTV Login Not Working? Diagnose Authentication Errors";
-const modifiedDate = "2026-10-06";
+const modifiedDate = getLastModified("/help/iptv-login-not-working");
 
 /**
  * IPTV Login Troubleshooting Guide
@@ -47,14 +49,16 @@ const modifiedDate = "2026-10-06";
  * Source of truth: src/lib/site-routes.ts (indexable: true)
  */
 export function generateMetadata(): Metadata {
+  // Title tag and og:title only; the H1 and Article headline keep the longer wording.
+  const metaTitle = "IPTV Login Not Working? Fix Login Errors";
   return {
     ...generatePageMetadata({
-      title: seoTitle,
+      title: metaTitle,
       description,
       canonical,
     }),
     title: {
-      absolute: seoTitle,
+      absolute: `${metaTitle} | TryIPTV`,
     },
   };
 }
@@ -97,17 +101,14 @@ const articleSchema = generateArticleSchema({
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "Home", item: `${SITE_URL}/` },
   { name: "Help", item: `${SITE_URL}/help` },
-  { name: "IPTV Login Not Working", item: `${SITE_URL}${canonical}` },
+  { name: "IPTV Login Troubleshooting", item: `${SITE_URL}${canonical}` },
 ]);
 
-const faqSchema = generateFAQPageSchema(faqs);
 
 export default function IptvLoginNotWorkingPage() {
   return (
     <>
-      <Schema id="article" schema={articleSchema} />
-      <Schema id="breadcrumb" schema={breadcrumbSchema} />
-      <Schema id="faq" schema={faqSchema} />
+      <PageSchema nodes={[articleSchema, breadcrumbSchema]} />
 
       {/* Hero Header */}
       <Section className="border-b border-white/[0.07] pt-10 pb-14 sm:pt-14 sm:pb-20">
@@ -124,11 +125,13 @@ export default function IptvLoginNotWorkingPage() {
             <h1 className="font-headline text-3xl font-extrabold leading-[1.15] text-foreground sm:text-4xl lg:text-5xl">
               IPTV Login Not Working? How to Diagnose Authentication Errors
             </h1>
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
-              Authentication errors can stem from typographical mistakes, server reachability issues,
-              middleware status codes, or account limits. Follow this systematic sequence to identify the
-              exact cause and restore access safely.
+            <p className="mx-auto mt-5 max-w-[60ch] text-base leading-7 text-muted-foreground sm:text-lg">
+              An IPTV login usually fails for one of four reasons: a typing mistake in the server URL,
+              username, or password; a server that cannot be reached; an expired or suspended account; or too
+              many devices streaming at once. Re-copy your details exactly, then follow the six checks below
+              in order.
             </p>
+            <GuideByline path="/help/iptv-login-not-working" />
           </div>
         </Container>
       </Section>
@@ -222,7 +225,11 @@ export default function IptvLoginNotWorkingPage() {
                 IP addresses that generate excessive failed authentications within a short window.
               </p>
 
-              <h2>Step 3: Understand HTTP Response Codes (Standards-Based Meanings)</h2>
+              <h2 id="http-status-codes" className="scroll-mt-4">Step 3: Understand HTTP Response Codes (Standards-Based Meanings)</h2>
+              <p>
+                Seeing a code or message that is not covered here? Look it up in the{" "}
+                <Link href="/help/iptv-error-codes" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">IPTV error codes list</Link>.
+              </p>
               <p>
                 When an IPTV player attempts an API login, the server responds with a standard HTTP status
                 code as defined by Internet standards (RFC 9110). Understanding the formal meaning of these
@@ -336,7 +343,7 @@ export default function IptvLoginNotWorkingPage() {
                 HTTP services function normally. A failed ping test does not prove the streaming server is down.
               </p>
 
-              <h2>Step 5: Verify Account Status and Concurrent Connection Limits</h2>
+              <h2 id="account-status" className="scroll-mt-4">Step 5: Verify Account Status and Concurrent Connection Limits</h2>
               <p>
                 If your entered credentials are confirmed accurate and the server is reachable, consider
                 account-level limitations configured in the provider&apos;s middleware:
@@ -356,7 +363,9 @@ export default function IptvLoginNotWorkingPage() {
                 <li>
                   <strong>ISP or Device Locks:</strong> Some providers lock accounts to a single public IP
                   address or require MAC address registration. If you attempt to connect from a secondary
-                  location or a different device, the server may refuse authorization.
+                  location or a different device, the server may refuse authorization. On a MAG box, the
+                  box&apos;s MAC address must be registered first; see the{" "}
+                  <Link href="/devices/mag-box-iptv">MAG box setup guide</Link>.
                 </li>
               </ul>
 
@@ -448,6 +457,7 @@ export default function IptvLoginNotWorkingPage() {
           </div>
         </Container>
       </Section>
+      <TopicClusterLinks path="/help/iptv-login-not-working" />
     </>
   );
 }

@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { TopicClusterLinks } from "@/components/shared/TopicClusterLinks";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -20,20 +22,21 @@ import {
 } from "lucide-react";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Container } from "@/components/shared/Container";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { Section } from "@/components/shared/Section";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { ArticleProse, ArticleSummary } from "@/components/guide";
 import { FaqList, type FaqItem } from "@/components/sections/FAQ";
-import { generateArticleSchema, generateBreadcrumbSchema, generateFAQPageSchema } from "@/lib/schema";
+import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { PRODUCT_TRUTHS, SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { getLastModified } from "@/lib/site-routes";
 
 const title = "How Does IPTV Work? From Server to Screen | TryIPTV";
 const description =
   "Learn how IPTV works, from servers and internet delivery to IPTV players, M3U playlists, Xtream Codes, EPG, live TV and on-demand streaming.";
 const canonical = "/guides/how-does-iptv-work";
-const modifiedDate = "2026-10-06";
+const modifiedDate = getLastModified("/guides/how-does-iptv-work");
 
 export function generateMetadata(): Metadata {
   return {
@@ -152,14 +155,11 @@ const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "How Does IPTV Work?", item: `${SITE_URL}${canonical}` },
 ]);
 
-const faqSchema = generateFAQPageSchema(faqs);
 
 export default function HowDoesIptvWorkPage() {
   return (
     <>
-      <Schema id="article" schema={articleSchema} />
-      <Schema id="breadcrumb" schema={breadcrumbSchema} />
-      <Schema id="faq" schema={faqSchema} />
+      <PageSchema nodes={[articleSchema, breadcrumbSchema]} />
 
       {/* Hero Header */}
       <Section className="border-b border-white/[0.07] pt-10 pb-14 sm:pt-14 sm:pb-20">
@@ -176,10 +176,13 @@ export default function HowDoesIptvWorkPage() {
             <h1 className="font-headline text-3xl font-extrabold leading-[1.15] text-foreground sm:text-4xl lg:text-5xl">
               How Does IPTV Work?
             </h1>
-            <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
-              A clear, practical explanation of how television broadcasts travel from media servers across
-              broadband networks to your streaming player, screen, and sound system.
+            <p className="mx-auto mt-5 max-w-[60ch] text-base leading-7 text-muted-foreground sm:text-lg">
+              IPTV works by sending TV channels and on-demand video as data over the internet. The provider&apos;s
+              servers turn each channel into a stream, an M3U playlist or Xtream Codes login tells your player
+              where those streams are, and the player on your TV, stick, phone, or computer downloads and plays
+              them, with EPG data adding the schedule.
             </p>
+            <GuideByline path="/guides/how-does-iptv-work" />
           </div>
         </Container>
       </Section>
@@ -235,30 +238,30 @@ export default function HowDoesIptvWorkPage() {
                 <div className="rounded-lg border border-white/[0.08] bg-card/60 p-3 flex flex-col items-center justify-center">
                   <Radio className="h-5 w-5 text-primary mb-1.5" />
                   <span className="font-extrabold text-foreground">Content Source</span>
-                  <span className="text-[10px] text-muted-foreground mt-0.5">Live Feeds / VOD</span>
+                  <span className="text-xs text-muted-foreground mt-0.5">Live Feeds / VOD</span>
                 </div>
                 <div className="rounded-lg border border-white/[0.08] bg-card/60 p-3 flex flex-col items-center justify-center">
                   <Server className="h-5 w-5 text-primary mb-1.5" />
                   <span className="font-extrabold text-foreground">IPTV Platform</span>
-                  <span className="text-[10px] text-muted-foreground mt-0.5">Encoders &amp; Servers</span>
+                  <span className="text-xs text-muted-foreground mt-0.5">Encoders &amp; Servers</span>
                 </div>
                 <div className="rounded-lg border border-white/[0.08] bg-card/60 p-3 flex flex-col items-center justify-center">
                   <Wifi className="h-5 w-5 text-primary mb-1.5" />
                   <span className="font-extrabold text-foreground">Broadband IP</span>
-                  <span className="text-[10px] text-muted-foreground mt-0.5">Packet Routing</span>
+                  <span className="text-xs text-muted-foreground mt-0.5">Packet Routing</span>
                 </div>
                 <div className="rounded-lg border border-white/[0.08] bg-card/60 p-3 flex flex-col items-center justify-center">
                   <PlaySquare className="h-5 w-5 text-primary mb-1.5" />
                   <span className="font-extrabold text-foreground">Player App</span>
-                  <span className="text-[10px] text-muted-foreground mt-0.5">Decodes Stream</span>
+                  <span className="text-xs text-muted-foreground mt-0.5">Decodes Stream</span>
                 </div>
                 <div className="rounded-lg border border-white/[0.08] bg-card/60 p-3 flex flex-col items-center justify-center">
                   <Tv className="h-5 w-5 text-primary mb-1.5" />
                   <span className="font-extrabold text-foreground">Viewer Screen</span>
-                  <span className="text-[10px] text-muted-foreground mt-0.5">Display Playback</span>
+                  <span className="text-xs text-muted-foreground mt-0.5">Display Playback</span>
                 </div>
               </div>
-              <p data-small-print className="mt-4 text-[11px] text-muted-foreground leading-relaxed text-center">
+              <p data-small-print className="mt-4 text-xs text-muted-foreground leading-relaxed text-center">
                 * Note: This diagram illustrates the generalized industry streaming pipeline. Exact network configurations differ by provider and player.
               </p>
             </div>
@@ -476,7 +479,7 @@ export default function HowDoesIptvWorkPage() {
               </p>
               <ol>
                 <li>
-                  <strong>A Stable Broadband Connection:</strong> While individual streams use 5–25 Mbps, we recommend plan speeds of at least 25 Mbps for 1080p Full HD and 50+ Mbps for 4K to leave ample headroom for household devices. For detailed bandwidth planning, see our complete guide on{" "}
+                  <strong>A Stable Broadband Connection:</strong> While individual streams typically use about 3–35 Mbps depending on resolution, we recommend plan speeds of at least 25 Mbps for 1080p Full HD and 50+ Mbps for 4K to leave ample headroom for household devices. For detailed bandwidth planning, see our complete guide on{" "}
                   <Link href="/guides/iptv-internet-speed" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                     IPTV internet speed requirements
                   </Link>
@@ -522,7 +525,7 @@ export default function HowDoesIptvWorkPage() {
               </h2>
               <p className="mt-2 text-base sm:text-sm leading-relaxed text-muted-foreground">
                 Now that you understand the underlying streaming pipeline, follow our universal setup guide to activate your
-                device. TryIPTV includes {PRODUCT_TRUTHS.connections} simultaneous connections across prepaid plans with no recurring
+                device. TryIPTV includes {PRODUCT_TRUTHS.connections} simultaneous connections across plans with no recurring
                 contracts, and offers a {PRODUCT_TRUTHS.trialDuration.toLowerCase()} free evaluation trial ($0, no credit card required).
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
@@ -536,13 +539,14 @@ export default function HowDoesIptvWorkPage() {
                   <Link href="/iptv-free-trial">Start 24-Hour Free Trial</Link>
                 </Button>
                 <Button asChild variant="outline">
-                  <Link href="/pricing">View Prepaid Plans</Link>
+                  <Link href="/pricing">View IPTV Plans</Link>
                 </Button>
               </div>
             </div>
           </article>
         </Container>
       </Section>
+      <TopicClusterLinks path="/guides/how-does-iptv-work" />
     </>
   );
 }

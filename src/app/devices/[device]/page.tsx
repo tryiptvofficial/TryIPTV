@@ -1,6 +1,7 @@
 import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import { Container } from "@/components/shared/Container";
 import { Section } from "@/components/shared/Section";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
@@ -19,8 +20,9 @@ import {
   HardDrive,
 } from "lucide-react";
 import InternalLinks from "@/components/shared/InternalLinks";
-import { Schema } from "@/components/shared/Schema";
-import { generateArticleSchema, generateHowToSchema, generateFAQPageSchema, generateBreadcrumbSchema } from "@/lib/schema";
+import { GuideByline } from "@/components/shared/GuideByline";
+import { PageSchema } from "@/components/shared/Schema";
+import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { siteConfig, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import {
   GuideQuickInfo,
@@ -63,7 +65,7 @@ async function getArticleData(deviceId: string): Promise<ArticleType | undefined
 
 function StructuredData({ article }: { article: ArticleType }) {
     if (!article) return null;
-    const { id, title, description, steps, faqs, image, dateModified, totalTime } = article;
+    const { id, title, description, image, dateModified } = article;
     const baseUrl = siteConfig.url;
 
     const articleSchema = generateArticleSchema({
@@ -74,24 +76,7 @@ function StructuredData({ article }: { article: ArticleType }) {
         url: `${baseUrl}/devices/${id}`,
     });
 
-    const howToSchema = generateHowToSchema({
-        name: title,
-        description: description,
-        totalTime: totalTime,
-        image: image ? {
-            url: image.imageUrl,
-            width: image.width,
-            height: image.height
-        } : undefined,
-        steps: steps.map((step, index) => ({
-            name: step.title,
-            text: step.description,
-            url: `${baseUrl}/devices/${id}#step-${index + 1}`,
-        })),
-    });
-
-    const faqSchema = faqs ? generateFAQPageSchema(faqs) : null;
-
+    // HowTo and FAQPage are not emitted here: the shared Schema rule drops both (see Schema.tsx).
     const breadcrumbSchema = generateBreadcrumbSchema([
         { name: "Home", item: `${baseUrl}/` },
         { name: "Devices", item: `${baseUrl}/devices` },
@@ -100,10 +85,7 @@ function StructuredData({ article }: { article: ArticleType }) {
 
     return (
         <>
-            <Schema id="article" schema={articleSchema} />
-            <Schema id="how-to" schema={howToSchema} />
-            {faqSchema && <Schema id="faq" schema={faqSchema} />}
-            <Schema id="breadcrumb" schema={breadcrumbSchema} />
+            <PageSchema nodes={[articleSchema, breadcrumbSchema]} />
         </>
     );
 }
@@ -125,7 +107,7 @@ const DEVICE_SEO_OVERRIDES: Record<string, { seoTitle?: string; metaDescription?
   },
   'samsung-tv-iptv': {
     seoTitle: 'How to Install IPTV on Samsung Smart TV (Tizen)',
-    metaDescription: 'Set up IPTV on a Samsung Smart TV with Tizen OS: choose a Smart Hub app like IBO Player or Smart IPTV, add credentials via web portal, and handle audio formats.',
+    metaDescription: 'Set up IPTV on a Samsung Smart TV with Tizen OS: pick a Smart Hub app such as IBO Player, add your login via its web portal, and fix audio format issues.',
   },
   'lg-tv-iptv': {
     seoTitle: 'How to Install IPTV on LG Smart TV (webOS)',
@@ -149,10 +131,14 @@ const DEVICE_SEO_OVERRIDES: Record<string, { seoTitle?: string; metaDescription?
   },
   'windows-iptv': {
     seoTitle: 'IPTV on Windows: Players & PC Setup Guide',
-    metaDescription: 'Learn how to use IPTV on Windows, choose a compatible PC player, connect with Xtream Codes or M3U, and download apps from trusted sources.',
+    metaDescription: 'Learn how to use IPTV on a Windows 10 or 11 PC: choose a compatible player, connect with Xtream Codes or M3U, and download apps only from trusted sources.',
+  },
+  'iphone-iptv': {
+    seoTitle: 'IPTV on iPhone & iPad: App Store Setup Guide',
+    metaDescription: 'Set up IPTV on iPhone or iPad: install a player from the App Store, add Xtream Codes or M3U, load the TV guide, and send streams to your TV with AirPlay.',
   },
   'mac-iptv': {
-    seoTitle: 'How to Set Up IPTV on Mac (macOS Guide)',
+    seoTitle: 'How to Set Up IPTV on a Mac (macOS Guide)',
     metaDescription: 'Stream IPTV on a MacBook, iMac, or Mac mini: choose a native player like UHF or IINA, handle macOS Gatekeeper permissions, and use Picture-in-Picture.',
   },
 };
@@ -209,6 +195,11 @@ const DEVICE_QUICK_SPECS: Record<string, DeviceQuickSpecs> = {
     loginFormat: 'Xtream Codes or M3U',
     difficulty: 'Simple Guided Setup',
   },
+  'iphone-iptv': {
+    setupMethod: 'App Store Player',
+    loginFormat: 'Xtream Codes or M3U',
+    difficulty: 'Simple Guided Setup',
+  },
   'mac-iptv': {
     setupMethod: 'macOS App or IINA / VLC',
     loginFormat: 'Xtream Codes or M3U',
@@ -220,7 +211,7 @@ type SetupLink = { href: string; label: string };
 
 const DEVICE_QUICK_ANSWERS: Record<string, string> = {
   "firestick-iptv":
-    "Install Downloader from the Amazon Appstore, sideload a dedicated IPTV player like IPTV Smarters Pro or TiviMate, enter your Xtream Codes API credentials, and optimize Fire TV remote navigation and buffer settings.",
+    "Install the Downloader app from the Amazon Appstore, allow it to install unknown apps under Settings > My Fire TV > Developer Options, sideload an IPTV player such as TiviMate or IPTV Smarters Pro from its developer's official download link, then sign in with your Xtream Codes or M3U details.",
   "android-tv-iptv":
     "To use IPTV on Android TV or Google TV: (1) install a compatible TV player from Google Play; (2) open the player and choose Xtream Codes or M3U; (3) enter the credentials supplied by your IPTV provider and load your playlist.",
   "samsung-tv-iptv":
@@ -237,6 +228,8 @@ const DEVICE_QUICK_ANSWERS: Record<string, string> = {
     "Because Roku OS does not support Android APK sideloading or native uncertified IPTV player apps, stream using Apple AirPlay 2 (on supported models) or screen mirror via Miracast/Smart View from a mobile device or PC over a stable local Wi-Fi connection.",
   "windows-iptv":
     "To use IPTV on a Windows PC: (1) install a compatible player from the Microsoft Store or the player's verified developer website; (2) open the player and enter your provider's Xtream Codes credentials or M3U playlist URL; (3) allow the playlist and EPG to load, then test a channel.",
+  "iphone-iptv":
+    "To watch IPTV on iPhone or iPad: (1) install an IPTV player such as Smarters Player Lite or UHF from the App Store; (2) choose Xtream Codes or M3U and paste your login details; (3) let channels and the TV guide load, then play a channel or AirPlay it to your TV.",
   "mac-iptv":
     "Download a native client like UHF from the Mac App Store or install players like IPTV Smarters/IINA (authorizing Gatekeeper only if installing standalone DMG packages), and use Picture-in-Picture for flexible desktop multitasking.",
 };
@@ -476,6 +469,32 @@ const DEVICE_REQUIREMENTS: Record<string, RequirementItem[]> = {
       tag: "Service",
     },
   ],
+  "iphone-iptv": [
+    {
+      title: "iPhone or iPad",
+      desc: "An iPhone or iPad updated to a recent iOS or iPadOS version so current App Store players install.",
+      icon: Smartphone,
+      tag: "Hardware",
+    },
+    {
+      title: "Wi-Fi or 5G/4G",
+      desc: "Wi-Fi for setup and long viewing; mobile data works but uses about 3–7 GB per hour at 1080p.",
+      icon: Wifi,
+      tag: "Network",
+    },
+    {
+      title: "App Store IPTV Player",
+      desc: "A player with Xtream Codes support, such as Smarters Player Lite or UHF - IPTV Client.",
+      icon: Layers,
+      tag: "Application",
+    },
+    {
+      title: "TryIPTV Xtream or M3U Details",
+      desc: "Server URL, username and password, or an M3U playlist link, copied from your login message.",
+      icon: KeyRound,
+      tag: "Service",
+    },
+  ],
   "mac-iptv": [
     {
       title: "Apple Mac (macOS)",
@@ -504,6 +523,12 @@ const DEVICE_REQUIREMENTS: Record<string, RequirementItem[]> = {
   ],
 };
 
+// Step-list intros for devices whose "steps" are alternative methods, not one sequence.
+const DEVICE_STEP_INTROS: Record<string, string> = {
+  "roku-iptv":
+    "Roku cannot install IPTV player apps, so you watch IPTV on Roku by sending video from another device: AirPlay 2 from an iPhone, iPad or Mac, screen mirroring (Smart View or Miracast) from Android or Windows, or a web-video caster app. Check that your Roku model supports the method you choose.",
+};
+
 const DEVICE_CTA_DESCRIPTIONS: Record<string, string> = {
   "firestick-iptv":
     "Verify channel loading speed, Fire TV remote navigation, Downloader setup, and EPG guide behavior during the stated 24-hour evaluation period.",
@@ -523,6 +548,8 @@ const DEVICE_CTA_DESCRIPTIONS: Record<string, string> = {
     "Test AirPlay 2 or screen mirroring playback stability, audio synchronization, and wireless connection performance on your Roku TV with our 24-hour evaluation pass.",
   "windows-iptv":
     "Test multi-monitor playback, GPU hardware acceleration, and channel switching on your Windows PC with our full-access trial.",
+  "iphone-iptv":
+    "Test your App Store player, AirPlay to your TV, and mobile playback on iPhone or iPad with our 24-hour evaluation pass.",
   "mac-iptv":
     "Test native macOS player performance, Picture-in-Picture multitasking, and Apple Silicon efficiency with our 24-hour evaluation pass.",
 };
@@ -532,12 +559,17 @@ const DEVICE_NEXT_STEPS: Record<string, SetupLink[]> = {
     { href: "/players/iptv-smarters", label: "IPTV Smarters Pro for Fire TV" },
     { href: "/guides/m3u-vs-xtream-codes", label: "Choose M3U or Xtream Codes" },
     { href: "/help/iptv-buffering", label: "Troubleshoot Firestick buffering" },
+    { href: "/players/xciptv", label: "XCIPTV availability on Fire TV" },
+    { href: "/devices/chromecast-iptv", label: "Compare with Chromecast with Google TV" },
     { href: "/iptv-free-trial", label: "Start 24-hour Fire TV trial" },
   ],
   "android-tv-iptv": [
     { href: "/players/tivimate", label: "TiviMate setup on Android TV" },
     { href: "/guides/what-are-xtream-codes", label: "Enter Xtream Codes credentials" },
     { href: "/help/iptv-login-not-working", label: "Troubleshoot login errors" },
+    { href: "/players/iptv-extreme", label: "IPTV Extreme for Android TV" },
+    { href: "/players/perfect-player", label: "Perfect Player (legacy) setup and migration" },
+    { href: "/devices/chromecast-iptv", label: "Chromecast with Google TV setup" },
     { href: "/iptv-free-trial", label: "Test Android TV with a free trial" },
   ],
   "samsung-tv-iptv": [
@@ -556,6 +588,7 @@ const DEVICE_NEXT_STEPS: Record<string, SetupLink[]> = {
     { href: "/players/iptv-smarters", label: "Smarters Player Lite on tvOS" },
     { href: "/guides/m3u-vs-xtream-codes", label: "Choose M3U or Xtream Codes" },
     { href: "/help/iptv-login-not-working", label: "Troubleshoot Apple TV login errors" },
+    { href: "/devices/iphone-iptv", label: "Set up the same player on iPhone and iPad" },
     { href: "/iptv-free-trial", label: "Test Apple TV with 24-hour trial" },
   ],
   "chromecast-iptv": [
@@ -568,6 +601,7 @@ const DEVICE_NEXT_STEPS: Record<string, SetupLink[]> = {
     { href: "/guides/what-are-xtream-codes", label: "Xtream Codes vs Stalker Portals" },
     { href: "/guides/what-is-epg", label: "Configure MAG EPG time zones" },
     { href: "/help/iptv-not-working", label: "Diagnose MAG status messages" },
+    { href: "/help/iptv-error-codes", label: "MAG portal messages explained" },
     { href: "/iptv-free-trial", label: "Activate MAG trial with MAC address" },
   ],
   "roku-iptv": [
@@ -580,12 +614,22 @@ const DEVICE_NEXT_STEPS: Record<string, SetupLink[]> = {
     { href: "/players/iptv-smarters", label: "IPTV Smarters Pro for Windows" },
     { href: "/guides/what-is-m3u", label: "Load M3U streams in VLC" },
     { href: "/help/m3u-not-loading", label: "Fix M3U playlist loading errors" },
+    { href: "/devices/roku-iptv", label: "Mirror a Windows PC to a Roku TV" },
     { href: "/iptv-free-trial", label: "Test on Windows with a free trial" },
+  ],
+  "iphone-iptv": [
+    { href: "/players/iptv-smarters", label: "Smarters Player Lite on iPhone" },
+    { href: "/guides/iptv-internet-speed", label: "Mobile data and speed planning" },
+    { href: "/help/iptv-login-not-working", label: "Fix iPhone player login errors" },
+    { href: "/devices/roku-iptv", label: "AirPlay from iPhone to a Roku TV" },
+    { href: "/iptv-free-trial", label: "Test on iPhone with a free trial" },
   ],
   "mac-iptv": [
     { href: "/players/iptv-smarters", label: "IPTV Smarters for macOS" },
     { href: "/guides/m3u-vs-xtream-codes", label: "Choose M3U or Xtream Codes" },
     { href: "/help/iptv-login-not-working", label: "Resolve macOS player login errors" },
+    { href: "/devices/iphone-iptv", label: "IPTV on iPhone and iPad" },
+    { href: "/devices/roku-iptv", label: "AirPlay from a Mac to a Roku TV" },
     { href: "/iptv-free-trial", label: "Test on Mac with a free trial" },
   ],
 };
@@ -673,9 +717,15 @@ export default async function HowToPage({ params }: Props) {
               <h1 className="font-headline text-3xl font-extrabold leading-[1.15] sm:text-4xl lg:text-[46px] xl:text-[48px] text-foreground tracking-tight max-w-4xl mx-auto">
                 {title}
               </h1>
-              <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+              <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed max-w-[60ch] mx-auto">
                 {description}
               </p>
+              {/* Phones: the header "Start free trial" button is hidden below sm, so offer it here above the fold. */}
+              <div className="mt-5 sm:hidden">
+                <Button asChild size="lg" className="w-full">
+                  <Link href="/iptv-free-trial">Start the free 24-hour trial</Link>
+                </Button>
+              </div>
 
               {/* Informational Specs Rail */}
               {(() => {
@@ -710,6 +760,7 @@ export default async function HowToPage({ params }: Props) {
                   </time>
                 </span>
               </div>
+              <GuideByline path={`/devices/${id}`} />
 
               {/* Mobile Table of Contents */}
               <GuideToc items={tocItems} variant="mobile" />
@@ -746,7 +797,7 @@ export default async function HowToPage({ params }: Props) {
                 <GuideRequirements primaryKeyword={primaryKeyword} items={deviceRequirements} />
 
                 {/* Step-by-Step Sequence */}
-                <GuideStepList steps={steps} primaryKeyword={primaryKeyword} />
+                <GuideStepList steps={steps} primaryKeyword={primaryKeyword} intro={DEVICE_STEP_INTROS[id]} />
 
                 {/* Stream Isolation Callout right after steps */}
                 {isFirestick && (
@@ -912,7 +963,7 @@ export default async function HowToPage({ params }: Props) {
                     {extraSections.find((s) => s.id === "two-firesticks") && (
                       <div id="two-firesticks" className="scroll-mt-6 pt-8 border-t border-white/[0.08]">
                         <div className="rounded-xl border border-white/[0.08] bg-[#07080a] p-5 sm:p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
-                          <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/[0.08] border border-primary/20 rounded px-2 py-0.5 inline-block mb-3">
+                          <span className="font-mono text-xs font-bold uppercase tracking-wider text-primary bg-primary/[0.08] border border-primary/20 rounded px-2 py-0.5 inline-block mb-3">
                             Device Policy
                           </span>
                           <h2 className="font-headline text-xl sm:text-2xl font-bold text-foreground mb-3">
@@ -932,7 +983,7 @@ export default async function HowToPage({ params }: Props) {
                     {extraSections.find((s) => s.id === "before-paying") && (
                       <div id="before-paying" className="scroll-mt-6 pt-8 border-t border-white/[0.08]">
                         <div className="rounded-xl border border-white/[0.08] bg-[#07080a] p-5 sm:p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
-                          <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-muted-foreground bg-white/[0.04] border border-white/[0.1] rounded px-2 py-0.5 inline-block mb-3">
+                          <span className="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground bg-white/[0.04] border border-white/[0.1] rounded px-2 py-0.5 inline-block mb-3">
                             Trial Terms
                           </span>
                           <h2 className="font-headline text-xl sm:text-2xl font-bold text-foreground mb-3">
@@ -952,7 +1003,7 @@ export default async function HowToPage({ params }: Props) {
                     {extraSections.find((s) => s.id === "storage") && (
                       <div id="storage" className="scroll-mt-6 pt-8 border-t border-white/[0.08]">
                         <div className="rounded-xl border border-white/[0.08] bg-[#07080a] p-5 sm:p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
-                          <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-400/[0.08] border border-amber-400/20 rounded px-2 py-0.5 inline-block mb-3">
+                          <span className="font-mono text-xs font-bold uppercase tracking-wider text-amber-400 bg-amber-400/[0.08] border border-amber-400/20 rounded px-2 py-0.5 inline-block mb-3">
                             Device Maintenance
                           </span>
                           <h2 className="font-headline text-xl sm:text-2xl font-bold text-foreground mb-3">
@@ -972,7 +1023,7 @@ export default async function HowToPage({ params }: Props) {
                     {extraSections.find((s) => s.id === "security") && (
                       <div id="security" className="scroll-mt-6 pt-8 border-t border-white/[0.08]">
                         <div className="rounded-xl border border-white/[0.08] bg-[#07080a] p-5 sm:p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] space-y-4">
-                          <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-sky-400 bg-sky-400/[0.08] border border-sky-400/20 rounded px-2 py-0.5 inline-block">
+                          <span className="font-mono text-xs font-bold uppercase tracking-wider text-sky-400 bg-sky-400/[0.08] border border-sky-400/20 rounded px-2 py-0.5 inline-block">
                             Security Verification
                           </span>
                           <h2 className="font-headline text-xl sm:text-2xl font-bold text-foreground">

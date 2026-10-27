@@ -3,40 +3,47 @@ import { Container } from "../shared/Container";
 import { SectionHeader } from "../shared/SectionHeader";
 import { Section } from "../shared/Section";
 import { MessageSquareCheck } from "lucide-react";
+import { COMPANY } from "@/lib/site-data/company";
+
+import feedback1 from "../../../public/images/feedback/customer-feedback-1.jpg";
+import feedback2 from "../../../public/images/feedback/customer-feedback-2.jpg";
+import feedback3 from "../../../public/images/feedback/customer-feedback-3.jpg";
+import feedback4 from "../../../public/images/feedback/customer-feedback-4.jpg";
+import feedback5 from "../../../public/images/feedback/customer-feedback-5.jpg";
 
 export const customerFeedbackItems = [
   {
     id: "feedback-1",
-    src: "/images/feedback/customer-feedback-1.jpg",
-    alt: "TryIPTV customer WhatsApp chat showing Xtream Codes API setup assistance on IPTV Smarters Pro",
+    src: feedback1,
+    alt: "WhatsApp support chat recommending a player app for Xtream Codes login details",
     title: "IPTV Smarters Pro Setup",
     highlight: "Xtream Codes API • Setup Completed",
   },
   {
     id: "feedback-2",
-    src: "/images/feedback/customer-feedback-2.jpg",
-    alt: "TryIPTV customer support conversation on WhatsApp assisting with Smart TV OTT player playlist activation",
+    src: feedback2,
+    alt: "WhatsApp support chat about adding an account in a TV player app",
     title: "Smart TV OTT Player",
     highlight: "Live TV Setup • Support Assisted",
   },
   {
     id: "feedback-3",
-    src: "/images/feedback/customer-feedback-3.jpg",
-    alt: "TryIPTV subscriber WhatsApp conversation showing M3U playlist and Xtream Codes delivery",
+    src: feedback3,
+    alt: "WhatsApp support chat in which login details are sent, with the details hidden",
     title: "M3U & Xtream Delivery",
     highlight: "M3U & Xtream Delivery",
   },
   {
     id: "feedback-4",
-    src: "/images/feedback/customer-feedback-4.jpg",
-    alt: "TryIPTV 12-month prepaid subscription feedback on WhatsApp confirming Smart IPTV app MAC address activation",
+    src: feedback4,
+    alt: "WhatsApp support chat about activating the Smart IPTV app with a device MAC address",
     title: "12-Month Smart IPTV Activation",
     highlight: "Annual Subscription • MAC Address Loaded",
   },
   {
     id: "feedback-5",
-    src: "/images/feedback/customer-feedback-5.jpg",
-    alt: "TryIPTV customer WhatsApp conversation about streaming setup and playback",
+    src: feedback5,
+    alt: "WhatsApp support chat about whether a VPN is needed",
     title: "Streaming Setup Feedback",
     highlight: "Stream Setup Feedback",
   },
@@ -48,8 +55,18 @@ export function CustomerFeedback() {
       <Container>
         <SectionHeader
           align="left"
-          title="Customer Support Conversations"
-          subtitle="WhatsApp conversations with TryIPTV customers showing account setup, credential delivery, and player assistance. Personal details are blurred."
+          title="How Does TryIPTV Support Work?"
+          subtitle={
+            <>
+              TryIPTV support works on WhatsApp and by email at{" "}
+              {/* email_off keeps Cloudflare from replacing the address with a /cdn-cgi link crawlers can't read. */}
+              <span dangerouslySetInnerHTML={{ __html: `<!--email_off-->${COMPANY.support.email}<!--/email_off-->` }} />
+              {`.${COMPANY.support.hours ? ` It is open ${COMPANY.support.hours}${COMPANY.support.hoursUk ? ` (${COMPANY.support.hoursUk})` : ""}.` : ""}${COMPANY.support.responseTime ? ` Response time: ${COMPANY.support.responseTime.charAt(0).toLowerCase()}${COMPANY.support.responseTime.slice(1)}.` : ""}`}
+              <br />
+              <br />
+              Support handles setup, billing and playback questions. The screenshots in this section are example support conversations with personal details hidden.
+            </>
+          }
           eyebrow="Customer Support"
         />
 
@@ -68,8 +85,7 @@ export function CustomerFeedback() {
                     <Image
                       src={item.src}
                       alt={item.alt}
-                      width={525}
-                      height={1024}
+                      placeholder="blur"
                       className="h-full w-full object-cover"
                       sizes="260px"
                       loading="lazy"

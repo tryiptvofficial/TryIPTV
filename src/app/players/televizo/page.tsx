@@ -1,28 +1,33 @@
 import type { Metadata } from "next";
+import { TopicClusterLinks } from "@/components/shared/TopicClusterLinks";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Container } from "@/components/shared/Container";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { Section } from "@/components/shared/Section";
 import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { getLastModified } from "@/lib/site-routes";
 
 const title = "Televizo IPTV Player Setup Guide: M3U & Xtream Codes";
 const description =
-  "Set up Televizo with an M3U playlist or Xtream Codes, add EPG, and troubleshoot playlist, login, and playback problems.";
+  "Set up Televizo on Android with an M3U playlist or Xtream Codes login, add EPG guide data, and troubleshoot playlist, login, and playback problems.";
 const canonical = "/players/televizo";
 
 export function generateMetadata(): Metadata {
+  // Title tag and og:title only; the H1 and Article headline keep the longer wording.
+  const metaTitle = "Televizo IPTV Setup: M3U & Xtream Codes";
   return {
-    ...generatePageMetadata({ title, description, canonical }),
-    title: { absolute: title },
+    ...generatePageMetadata({ title: metaTitle, description, canonical }),
+    title: { absolute: `${metaTitle} | TryIPTV` },
   };
 }
 
 const articleSchema = generateArticleSchema({
   headline: title,
   description,
-  dateModified: "2026-10-08",
+  dateModified: getLastModified("/players/televizo"),
   url: `${SITE_URL}${canonical}`,
 });
 
@@ -40,8 +45,7 @@ const linkClass = "text-primary underline decoration-primary/40 underline-offset
 export default function TelevizoPage() {
   return (
     <>
-      <Schema id="article" schema={articleSchema} />
-      <Schema id="breadcrumb" schema={breadcrumbSchema} />
+      <PageSchema nodes={[articleSchema, breadcrumbSchema]} />
 
       <Section className="border-b border-white/[0.07] py-12 sm:py-16">
         <Container>
@@ -53,6 +57,7 @@ export default function TelevizoPage() {
             <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
               Televizo is an IPTV media player; it does not include channels. To use it, get an M3U playlist URL or Xtream Codes server URL, username, and password from your IPTV provider. Install Televizo, add the playlist or credentials, save the entry, and allow the channels and any available EPG data to load.
             </p>
+            <GuideByline path="/players/televizo" />
           </div>
         </Container>
       </Section>
@@ -177,6 +182,7 @@ export default function TelevizoPage() {
           </article>
         </Container>
       </Section>
+      <TopicClusterLinks path="/players/televizo" />
     </>
   );
 }

@@ -3,6 +3,8 @@ import { ArrowUpRight, MessageCircle } from "lucide-react";
 
 import { Container } from "./Container";
 import { Logo } from "./Logo";
+import { BRAND } from "@/lib/site-data/brand";
+import { COMPANY } from "@/lib/site-data/company";
 import { footerLinks } from "@/lib/site-data/footer";
 import { socialLinks } from "@/lib/site-data/socials";
 
@@ -99,7 +101,7 @@ export function Footer() {
           <div className="pointer-coarse:max-sm:col-span-2 sm:col-span-2 md:col-span-3 lg:col-span-4">
             <Logo />
             <p className="mt-3.5 max-w-sm text-base leading-relaxed text-muted-foreground/90 sm:text-[13.5px]">
-              Premium live TV and on-demand entertainment, built for the devices you already use. Prepaid access with 25,000+ live channels worldwide and 120,000+ movies and TV shows.
+              {BRAND.description}
             </p>
             <div className="mt-4 flex flex-col items-start text-sm">
               <span
@@ -108,7 +110,7 @@ export function Footer() {
                 }}
               />
               <a
-                href="https://wa.me/15205648298"
+                href="https://wa.me/212694833293"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group/wa inline-flex min-h-11 items-center gap-2 py-1 font-medium pointer-fine:min-h-0 text-muted-foreground/90 transition-colors hover:text-primary"
@@ -123,15 +125,32 @@ export function Footer() {
 
           {/* Explore */}
           <div className="lg:col-span-2">
-            <h3 className="mb-2.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-foreground/80">
+            <p className="mb-2.5 font-mono text-xs font-semibold uppercase tracking-wider text-foreground/80">
               Explore
-            </h3>
+            </p>
             <ul className="space-y-0.5">
               {footerLinks.quickLinks.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="inline-flex min-h-11 min-w-11 items-center text-[13.5px] text-muted-foreground transition-colors duration-150 hover:text-foreground pointer-fine:min-h-0 pointer-fine:min-w-0 pointer-fine:py-1"
+                    className="inline-flex min-h-11 min-w-11 items-center text-[15px] text-muted-foreground sm:text-[13.5px] transition-colors duration-150 hover:text-foreground pointer-fine:min-h-0 pointer-fine:min-w-0 pointer-fine:py-1"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            {/* Learn: shares the Explore column so the 12-column grid stays intact. */}
+            <p className="mt-6 mb-2.5 font-mono text-xs font-semibold uppercase tracking-wider text-foreground/80">
+              Learn
+            </p>
+            <ul className="space-y-0.5">
+              {footerLinks.learnLinks.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="inline-flex min-h-11 min-w-11 items-center text-[15px] text-muted-foreground sm:text-[13.5px] transition-colors duration-150 hover:text-foreground pointer-fine:min-h-0 pointer-fine:min-w-0 pointer-fine:py-1"
                   >
                     {link.name}
                   </Link>
@@ -142,15 +161,15 @@ export function Footer() {
 
           {/* Device Guides */}
           <div className="lg:col-span-2">
-            <h3 className="mb-2.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-foreground/80">
+            <p className="mb-2.5 font-mono text-xs font-semibold uppercase tracking-wider text-foreground/80">
               Device Guides
-            </h3>
+            </p>
             <ul className="space-y-0.5">
               {footerLinks.supportedLinks.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="inline-flex min-h-11 min-w-11 items-center text-[13.5px] text-muted-foreground transition-colors duration-150 hover:text-foreground pointer-fine:min-h-0 pointer-fine:min-w-0 pointer-fine:py-1"
+                    className="inline-flex min-h-11 min-w-11 items-center text-[15px] text-muted-foreground sm:text-[13.5px] transition-colors duration-150 hover:text-foreground pointer-fine:min-h-0 pointer-fine:min-w-0 pointer-fine:py-1"
                   >
                     {link.name}
                   </Link>
@@ -161,15 +180,15 @@ export function Footer() {
 
           {/* Legal & Trust */}
           <div className="lg:col-span-2">
-            <h3 className="mb-2.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-foreground/80">
+            <p className="mb-2.5 font-mono text-xs font-semibold uppercase tracking-wider text-foreground/80">
               Legal &amp; Trust
-            </h3>
+            </p>
             <ul className="space-y-0.5">
               {footerLinks.legalLinks.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="inline-flex min-h-11 min-w-11 items-center text-[13.5px] text-muted-foreground transition-colors duration-150 hover:text-foreground pointer-fine:min-h-0 pointer-fine:min-w-0 pointer-fine:py-1"
+                    className="inline-flex min-h-11 min-w-11 items-center text-[15px] text-muted-foreground sm:text-[13.5px] transition-colors duration-150 hover:text-foreground pointer-fine:min-h-0 pointer-fine:min-w-0 pointer-fine:py-1"
                   >
                     {link.name}
                   </Link>
@@ -180,9 +199,9 @@ export function Footer() {
 
           {/* Support & Social */}
           <div className="lg:col-span-2">
-            <h3 className="mb-2.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-foreground/80">
+            <p className="mb-2.5 font-mono text-xs font-semibold uppercase tracking-wider text-foreground/80">
               Social
-            </h3>
+            </p>
             <ul className="flex flex-wrap gap-1.5" aria-label="TryIPTV social links">
               {socialFooterLinks.map((link) => (
                 <li key={link.name}>
@@ -204,7 +223,10 @@ export function Footer() {
 
         {/* Bottom copyright and legal bar */}
         <div className="mt-10 flex flex-col-reverse gap-4 border-t border-white/[0.06] pt-6 text-xs text-muted-foreground/80 sm:flex-row sm:items-center sm:justify-between">
-          <p>&copy; {new Date().getFullYear()} TryIPTV. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} TryIPTV (TryIPTV.com). All rights reserved.
+            {COMPANY.legalName ? ` TryIPTV is operated by ${COMPANY.legalName}${COMPANY.location ? `, ${COMPANY.location.replace("United States", "USA")}` : ""}.` : ""}
+          </p>
         </div>
       </Container>
     </footer>

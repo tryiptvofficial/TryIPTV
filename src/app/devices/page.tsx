@@ -6,8 +6,8 @@ import { SectionHeader } from "@/components/shared/SectionHeader";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Schema } from "@/components/shared/Schema";
-import { generateBreadcrumbSchema } from "@/lib/schema";
+import { PageSchema } from "@/components/shared/Schema";
+import { generateBreadcrumbSchema, generateItemListSchema } from "@/lib/schema";
 import { siteConfig, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { howToArticles, getDeviceSlug } from "@/lib/how-to";
 import { ArrowRight, Clock, Tv, CheckCircle2 } from "lucide-react";
@@ -30,7 +30,19 @@ export default function DevicesPage() {
 
   return (
     <>
-      <Schema id="breadcrumb" schema={breadcrumbSchema} />
+      <PageSchema
+        path="/devices"
+        name="IPTV Setup Guides for All Compatible Devices"
+        description="Step-by-step setup guides to install and configure TryIPTV on Amazon Fire TV Stick, Android TV, Apple TV, Smart TVs, Windows, macOS, and MAG boxes."
+        type="CollectionPage"
+        nodes={[
+          breadcrumbSchema,
+          generateItemListSchema(
+            "IPTV device setup guides",
+            howToArticles.map((a) => ({ name: a.title, path: `/devices/${getDeviceSlug(a.id)}` })),
+          ),
+        ]}
+      />
 
       <Section className="relative overflow-hidden border-b border-white/[0.07] pt-12 pb-14 sm:pt-16 sm:pb-20">
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:linear-gradient(to_bottom,black,transparent_90%)]" />
@@ -55,12 +67,12 @@ export default function DevicesPage() {
                 <Card key={article.id} className="flex flex-col justify-between transition-all duration-200 hover:-translate-y-1 hover:border-primary/40 hover:bg-card/80">
                   <CardHeader className="pb-3">
                     <div className="flex items-center justify-between gap-2 mb-2">
-                      <span className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] px-2.5 py-0.5 text-[11px] font-semibold text-primary">
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] px-2.5 py-0.5 text-xs font-semibold text-primary">
                         <Tv className="h-3 w-3" />
                         {article.primaryKeyword}
                       </span>
                       {totalTimeInMinutes && (
-                        <span className="flex items-center gap-1 text-[11px] text-muted-foreground">
+                        <span className="flex items-center gap-1 text-xs text-muted-foreground">
                           <Clock className="h-3 w-3 text-primary" />
                           {totalTimeInMinutes} min
                         </span>
@@ -85,7 +97,7 @@ export default function DevicesPage() {
                         href={`/devices/${getDeviceSlug(article.id)}`}
                         className="tap-target inline-flex items-center gap-1.5 text-xs font-bold text-primary group-hover:underline"
                       >
-                        Read Guide <ArrowRight className="h-3.5 w-3.5" />
+                        {article.primaryKeyword} setup guide <ArrowRight className="h-3.5 w-3.5" />
                       </Link>
                     </div>
                   </CardContent>
@@ -110,7 +122,10 @@ export default function DevicesPage() {
               Ready to Start Watching on a Compatible Device?
             </h2>
             <p className="mx-auto mt-3 max-w-xl text-base leading-6 text-muted-foreground">
-              Get access to 25,000+ live channels worldwide and 120,000+ movies and TV shows with 2 simultaneous connections on compatible devices and supported player apps.
+              Get access to 25,000+ live channels worldwide and 120,000+ movies and TV shows with 2 simultaneous connections on compatible devices and supported player apps.{" "}
+              <Link href="/guides/iptv-connections" className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
+                How many devices can watch at once?
+              </Link>
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-3">
               <Button asChild size="lg">

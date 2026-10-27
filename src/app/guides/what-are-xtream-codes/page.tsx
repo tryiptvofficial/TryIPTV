@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { TopicClusterLinks } from "@/components/shared/TopicClusterLinks";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -9,7 +11,7 @@ import {
 import { FaqList } from "@/components/sections/FAQ";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Container } from "@/components/shared/Container";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { Section } from "@/components/shared/Section";
 import { Button } from "@/components/ui/button";
 import {
@@ -20,15 +22,15 @@ import {
 import {
   generateArticleSchema,
   generateBreadcrumbSchema,
-  generateFAQPageSchema,
 } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { getLastModified } from "@/lib/site-routes";
 
 const title = "What Are Xtream Codes? The IPTV API Login Format Explained";
 const description =
   "A clear guide explaining what Xtream Codes credentials are, how the API-based login format works in IPTV players, and essential security considerations.";
 const canonical = "/guides/what-are-xtream-codes";
-const modifiedDate = "2026-10-06";
+const modifiedDate = getLastModified("/guides/what-are-xtream-codes");
 
 /**
  * What Are Xtream Codes Guide
@@ -36,14 +38,16 @@ const modifiedDate = "2026-10-06";
  * Source of truth: src/lib/site-routes.ts (indexable: true)
  */
 export function generateMetadata(): Metadata {
+  // Title tag and og:title only; the H1 and Article headline keep the longer wording.
+  const metaTitle = "What Are Xtream Codes? IPTV Login Explained";
   return {
     ...generatePageMetadata({
-      title,
+      title: metaTitle,
       description,
       canonical,
     }),
     title: {
-      absolute: title,
+      absolute: `${metaTitle} | TryIPTV`,
     },
   };
 }
@@ -94,14 +98,11 @@ const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "What Are Xtream Codes?", item: `${SITE_URL}${canonical}` },
 ]);
 
-const faqSchema = generateFAQPageSchema(faqs);
 
 export default function WhatAreXtreamCodesPage() {
   return (
     <>
-      <Schema id="article" schema={articleSchema} />
-      <Schema id="breadcrumb" schema={breadcrumbSchema} />
-      <Schema id="faq" schema={faqSchema} />
+      <PageSchema nodes={[articleSchema, breadcrumbSchema]} />
 
       {/* Hero Header */}
       <Section className="border-b border-white/[0.07] pt-10 pb-14 sm:pt-14 sm:pb-20">
@@ -118,11 +119,13 @@ export default function WhatAreXtreamCodesPage() {
             <h1 className="font-headline text-3xl font-extrabold leading-[1.15] text-foreground sm:text-4xl lg:text-5xl">
               What Are Xtream Codes? The IPTV API Login Format Explained
             </h1>
-            <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
-              Xtream Codes is a widely used API-style login format supported by many IPTV applications.
-              Learn how it communicates with streaming servers, what information you enter, and how it
-              organizes content.
+            <p className="mx-auto mt-5 max-w-[60ch] text-base leading-7 text-muted-foreground sm:text-lg">
+              Xtream Codes is an API-style IPTV login format: you enter a server URL, a username, and a
+              password, and the player downloads the provider&apos;s live channels, movies, series, and TV guide
+              already sorted into categories. It is a login method supported by most IPTV players, not a
+              service or an app.
             </p>
+            <GuideByline path="/guides/what-are-xtream-codes" />
           </div>
         </Container>
       </Section>
@@ -382,7 +385,9 @@ export default function WhatAreXtreamCodesPage() {
               <p>
                 Having an Xtream-compatible player does not provide any video content on its own. You must have
                 an active subscription with an IPTV service provider to supply valid server, username, and
-                password details.
+                password details. If you&apos;re weighing up providers, see{" "}
+                <Link href="/pricing" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">how much an IPTV subscription costs</Link>{" "}
+                on our pricing page before you buy credentials.
               </p>
 
               <h2>Summary: What Xtream Codes Is and Is Not</h2>
@@ -455,6 +460,7 @@ export default function WhatAreXtreamCodesPage() {
           </div>
         </Container>
       </Section>
+      <TopicClusterLinks path="/guides/what-are-xtream-codes" />
     </>
   );
 }

@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
+import { TopicClusterLinks } from "@/components/shared/TopicClusterLinks";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Container } from "@/components/shared/Container";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { Section } from "@/components/shared/Section";
 import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { getLastModified } from "@/lib/site-routes";
 
 const title = "Perfect Player IPTV Guide: Legacy Setup, M3U, EPG & Migration";
 const description = "Learn how to configure legacy Perfect Player by Niklabs with M3U and EPG, troubleshoot playback issues, and migrate safely to a maintained IPTV player.";
@@ -14,11 +17,11 @@ const canonical = "/players/perfect-player";
 const seoTitle = "Perfect Player IPTV: Legacy Setup, EPG & Migration";
 
 export function generateMetadata(): Metadata {
-  return { ...generatePageMetadata({ title: seoTitle, description, canonical }), title: { absolute: seoTitle } };
+  return { ...generatePageMetadata({ title: seoTitle, description, canonical }), title: { absolute: `${seoTitle} | TryIPTV` } };
 }
 
 const articleSchema = generateArticleSchema({
-  headline: title, description, dateModified: "2026-10-08", url: `${SITE_URL}${canonical}`,
+  headline: title, description, dateModified: getLastModified("/players/perfect-player"), url: `${SITE_URL}${canonical}`,
 });
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "Home", item: `${SITE_URL}/` },
@@ -31,14 +34,14 @@ const a = "text-primary underline decoration-primary/40 underline-offset-4 hover
 
 export default function PerfectPlayerPage() {
   return <>
-    <Schema id="article" schema={articleSchema} />
-    <Schema id="breadcrumb" schema={breadcrumbSchema} />
+    <PageSchema nodes={[articleSchema, breadcrumbSchema]} />
     <Section className="border-b border-white/[0.07] pt-12 pb-14 sm:pt-16 sm:pb-20"><Container>
       <Breadcrumb items={[{ label: "Players", href: "/players" }, { label: "Perfect Player" }]} />
       <div className="mt-8 max-w-4xl">
         <span className="font-mono text-xs font-semibold uppercase tracking-wider text-amber-400">Legacy player guide</span>
         <h1 className="mt-3 font-headline text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl">Perfect Player IPTV Guide: Legacy Setup, M3U, EPG &amp; Migration</h1>
         <p className="mt-4 text-base leading-8 text-muted-foreground sm:text-lg">Perfect Player IPTV by Niklabs Software is a legacy media player with no channels included. Existing installations can still load an M3U playlist and a separate EPG source. The original Niklabs Android app is no longer available on Google Play, so verify the developer before trusting a similarly named app or download.</p>
+        <GuideByline path="/players/perfect-player" />
       </div>
     </Container></Section>
     <Section className="py-12 sm:py-16"><Container><article className="mx-auto max-w-4xl space-y-12">
@@ -97,5 +100,6 @@ export default function PerfectPlayerPage() {
       </section>
       <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 text-base sm:text-sm text-muted-foreground">Need IPTV credentials for an existing player or a replacement? <Link href="/iptv-free-trial" className={a}>Start with a 24-hour IPTV trial</Link>. TryIPTV is independent of Niklabs.</div>
     </article></Container></Section>
+    <TopicClusterLinks path="/players/perfect-player" />
   </>;
 }

@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { TopicClusterLinks } from "@/components/shared/TopicClusterLinks";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -18,7 +20,7 @@ import {
 import { FaqList } from "@/components/sections/FAQ";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Container } from "@/components/shared/Container";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { Section } from "@/components/shared/Section";
 import { Button } from "@/components/ui/button";
 import {
@@ -29,15 +31,15 @@ import {
 import {
   generateArticleSchema,
   generateBreadcrumbSchema,
-  generateFAQPageSchema,
 } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { getLastModified } from "@/lib/site-routes";
 
-const title = "What Is an EPG? How IPTV TV Guides Work";
+const title = "What Is an EPG? How IPTV TV Guides and XMLTV Data Work";
 const description =
   "A clear guide to Electronic Programme Guides (EPG) in IPTV: how TV guide data works, XMLTV and provider ingestion, channel matching, and time offsets.";
 const canonical = "/guides/what-is-epg";
-const modifiedDate = "2026-10-06";
+const modifiedDate = getLastModified("/guides/what-is-epg");
 
 /**
  * What Is EPG Guide
@@ -45,14 +47,16 @@ const modifiedDate = "2026-10-06";
  * Source of truth: src/lib/site-routes.ts (indexable: true)
  */
 export function generateMetadata(): Metadata {
+  // Title tag and og:title only; the H1 and Article headline keep the longer wording.
+  const metaTitle = "What Is an EPG? IPTV TV Guides & XMLTV";
   return {
     ...generatePageMetadata({
-      title,
+      title: metaTitle,
       description,
       canonical,
     }),
     title: {
-      absolute: title,
+      absolute: `${metaTitle} | TryIPTV`,
     },
   };
 }
@@ -108,14 +112,11 @@ const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "What Is an EPG?", item: `${SITE_URL}${canonical}` },
 ]);
 
-const faqSchema = generateFAQPageSchema(faqs);
 
 export default function WhatIsEpgPage() {
   return (
     <>
-      <Schema id="article" schema={articleSchema} />
-      <Schema id="breadcrumb" schema={breadcrumbSchema} />
-      <Schema id="faq" schema={faqSchema} />
+      <PageSchema nodes={[articleSchema, breadcrumbSchema]} />
 
       {/* Hero Header */}
       <Section className="border-b border-white/[0.07] pt-10 pb-14 sm:pt-14 sm:pb-20">
@@ -132,11 +133,13 @@ export default function WhatIsEpgPage() {
             <h1 className="font-headline text-3xl font-extrabold leading-[1.15] text-foreground sm:text-4xl lg:text-5xl">
               What Is an EPG? How IPTV TV Guides Work
             </h1>
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
-              An Electronic Programme Guide transforms a raw list of live video streams into a familiar,
-              navigable television guide. Understand how guide data is structured, how IPTV players ingest
-              schedules, and how streams and metadata interact.
+            <p className="mx-auto mt-5 max-w-[60ch] text-base leading-7 text-muted-foreground sm:text-lg">
+              An EPG (Electronic Programme Guide) is the on-screen TV guide in an IPTV player: schedule
+              data that shows what is airing now and next on each channel. It is usually supplied as an
+              XMLTV file and matched to the playlist&apos;s channels by ID. This guide explains how that data
+              is structured, loaded, and kept in sync.
             </p>
+            <GuideByline path="/guides/what-is-epg" />
           </div>
         </Container>
       </Section>
@@ -497,6 +500,7 @@ export default function WhatIsEpgPage() {
           </div>
         </Container>
       </Section>
+      <TopicClusterLinks path="/guides/what-is-epg" />
     </>
   );
 }

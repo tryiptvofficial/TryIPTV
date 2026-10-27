@@ -1,63 +1,56 @@
+import { FACT_TEXT, PRODUCT_TRUTHS } from "../site-config.ts";
+import { COMPANY } from "./company.ts";
+
+const T = PRODUCT_TRUTHS;
+
+// Question order follows the owner-supplied page (2026-10-20); answers come from PRODUCT_TRUTHS and COMPANY.
 export const pricingPageFaqs: { question: string; answer: string; link?: { href: string; label: string } }[] = [
   {
-    question: "How much does TryIPTV cost?",
-    answer:
-      "TryIPTV prepaid plans cost $16 for 1 month, $39 for 3 months, $60 for 6 months, and $90 for 12 months. All plans are one-time prepaid purchases with no recurring billing, and longer terms reduce the effective monthly cost down to $7.50 per month.",
+    question: "How much does an IPTV subscription cost?",
+    answer: `TryIPTV plans cost ${FACT_TEXT.priceList}. The longer the term, the lower the monthly equivalent: from ${FACT_TEXT.fromPrice} a month on the 1-month plan down to ${FACT_TEXT.lowestMonthly} a month on the 12-month plan.`,
   },
   {
-    question: "Which plan has the lowest monthly equivalent?",
+    question: "Does the price go up when my plan renews?",
     answer:
-      "The 12-month plan has the lowest equivalent monthly cost at $7.50 per month ($90 total upfront), compared to $16.00 per month on the 1-month plan.",
+      `Plans do not renew automatically, so you are never charged again without asking. ${T.expiry.summary} ${T.expiry.nextStep} A new plan costs the price shown on this page at that time.`,
   },
   {
-    question: "Are plans prepaid?",
-    answer:
-      "Yes. All TryIPTV plans are paid upfront for the chosen duration (1, 3, 6, or 12 months). There are no recurring fees or ongoing monthly invoices.",
+    question: "How many devices does each plan cover?",
+    answer: `Every paid plan includes ${T.connections} simultaneous connections. You can set up your login on as many compatible devices as you like, but only ${T.connections} can stream at the same time. ${T.extraConnections} Ask support on WhatsApp for the price.`,
   },
   {
-    question: "Do subscriptions automatically renew?",
-    answer:
-      "No. TryIPTV subscriptions do not automatically renew. When your prepaid period ends, access simply expires unless you manually choose to purchase another term.",
+    question: "How fast do I receive my login?",
+    answer: `Your login details are typically delivered on WhatsApp within ${T.activationTime} after payment is confirmed.`,
   },
   {
-    question: "How many simultaneous connections are included?",
+    question: "Can I get English-only channels?",
     answer:
-      "Every paid plan includes 2 simultaneous connections. You can set up the service on multiple compatible devices, but streaming is limited to two screens at the same time.",
+      "Most IPTV players, including TiviMate and IPTV Smarters, let you hide the channel groups you don't need, so you can keep only the categories and languages you watch. Use the free trial to check that the English channels you want are there before you buy.",
   },
   {
-    question: "How are plan savings calculated?",
+    question: "Why does some EPG show \"No Information\"?",
     answer:
-      "Savings are calculated by comparing the total prepaid price against purchasing the 1-month plan ($16) repeatedly. For example, twelve 1-month purchases cost $192, while the 12-month plan costs $90—a savings of $102.",
+      "That usually means the player has not loaded the TV guide yet, the guide needs refreshing, or that particular channel has no schedule data.",
+    link: { href: "/help/epg-not-working", label: "Follow the EPG troubleshooting guide" },
+  },
+  {
+    question: "Do you offer refunds?",
+    answer: `Only in limited cases. ${T.refund.summary} ${T.refund.exclusions} The refund policy page explains how to make a request.`,
+    link: { href: "/refund-policy", label: "Read the refund policy" },
   },
   {
     question: "What payment methods are available?",
-    answer:
-      "Current payment instructions are provided when ordering at checkout. All orders are one-time prepaid purchases with no automatic renewals or recurring charges.",
+    answer: COMPANY.paymentMethods
+      ? `You can pay by ${COMPANY.paymentMethods}. Support sends the payment instructions on WhatsApp when you order. Every order is a one-time purchase with no automatic renewal.`
+      : "Current payment instructions are provided when ordering. All orders are one-time purchases with no automatic renewals or recurring charges.",
   },
   {
-    question: "How quickly is an order activated?",
-    answer:
-      "Credentials and setup instructions are typically delivered within 5–15 minutes after payment confirmation.",
+    question: "Which plan has the lowest monthly equivalent?",
+    answer: `The 12-month plan, at ${FACT_TEXT.lowestMonthly} a month ($88.23 paid upfront), compared with ${FACT_TEXT.fromPrice} a month on the 1-month plan.`,
   },
   {
     question: "Can I test TryIPTV before buying?",
-    answer:
-      "Yes. You can request a 24-hour free trial with no credit card required to evaluate channels, playback, and device compatibility before choosing a paid plan.",
-  },
-  {
-    question: "What happens when my prepaid term expires?",
-    answer:
-      "When your prepaid term ends, streaming access stops automatically. You are not billed again. To continue using the service, you can purchase a new prepaid term at any time.",
-  },
-  {
-    question: "Is there a refund policy?",
-    answer:
-      "Yes. Technical issues that support cannot resolve may qualify under our 7-day refund policy. Review our refund policy page for specific terms and conditions.",
-  },
-  {
-    question: "Why does the TV guide show \"No Information\"?",
-    answer:
-      "That usually means the player has not loaded the EPG yet or the guide source needs refreshing.",
-    link: { href: "/help/epg-not-working", label: "Follow the EPG troubleshooting guide" },
+    answer: `Yes. You can request a ${FACT_TEXT.trialHours}-hour free trial with no credit card required to check channels, playback, and device compatibility before choosing a paid plan.`,
+    link: { href: "/iptv-free-trial", label: "Start the free trial" },
   },
 ];

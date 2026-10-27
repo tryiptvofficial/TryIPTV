@@ -1,22 +1,27 @@
 import type { Metadata } from "next";
+import { TopicClusterLinks } from "@/components/shared/TopicClusterLinks";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Container } from "@/components/shared/Container";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { Section } from "@/components/shared/Section";
 import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { getLastModified } from "@/lib/site-routes";
 
 const title = "IPTV Extreme Setup Guide: M3U, Xtream Codes & MAG/Stalker";
-const description = "Learn how to set up IPTV Extreme with M3U, Xtream Codes or MAG/Stalker, configure EPG, and diagnose playlist, login and playback problems.";
+const description = "Learn how to set up IPTV Extreme with M3U, Xtream Codes, or MAG/Stalker, configure EPG guide data, and diagnose playlist, login, and playback problems.";
 const canonical = "/players/iptv-extreme";
 
 export function generateMetadata(): Metadata {
-  return { ...generatePageMetadata({ title, description, canonical }), title: { absolute: title } };
+  // Title tag and og:title only; the H1 and Article headline keep the longer wording.
+  const metaTitle = "IPTV Extreme Setup: M3U, Xtream & MAG/Stalker";
+  return { ...generatePageMetadata({ title: metaTitle, description, canonical }), title: { absolute: `${metaTitle} | TryIPTV` } };
 }
 
 const articleSchema = generateArticleSchema({
-  headline: title, description, dateModified: "2026-10-08", url: `${SITE_URL}${canonical}`,
+  headline: title, description, dateModified: getLastModified("/players/iptv-extreme"), url: `${SITE_URL}${canonical}`,
 });
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "Home", item: `${SITE_URL}/` },
@@ -39,14 +44,14 @@ const cases = [
 
 export default function IptvExtremePage() {
   return <>
-    <Schema id="article" schema={articleSchema} />
-    <Schema id="breadcrumb" schema={breadcrumbSchema} />
+    <PageSchema nodes={[articleSchema, breadcrumbSchema]} />
     <Section className="border-b border-white/[0.07] pt-12 pb-14 sm:pt-16 sm:pb-20"><Container>
       <Breadcrumb items={[{ label: "Players", href: "/players" }, { label: "IPTV Extreme" }]} />
       <div className="mt-8 max-w-4xl">
         <span className="font-mono text-xs font-semibold uppercase tracking-wider text-primary">IPTV Extreme guide</span>
         <h1 className="mt-3 font-headline text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl">IPTV Extreme Setup Guide: M3U, Xtream Codes &amp; MAG/Stalker</h1>
-        <p className="mt-4 text-base leading-8 text-muted-foreground sm:text-lg">IPTV Extreme is a playlist player; it does not include channels or a subscription. Add your own compatible M3U playlist or, on supported versions, an Xtream Codes or MAG/Stalker configuration. The app can then load the channels, on-demand items, and EPG data available from that source. Check each stage separately if setup stops working.</p>
+        <p className="mt-4 text-base leading-8 text-muted-foreground sm:text-lg">IPTV Extreme is a playlist player; it does not include channels or a subscription. Add your own compatible M3U playlist or, on supported versions, an Xtream Codes or MAG/Stalker configuration. The app can then load the channels, on-demand items, and EPG data available from that source. Check each stage separately if setup stops working. IPTV Extreme is free to install; what you pay for is the subscription, and our <Link href="/pricing" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">IPTV plans with no auto-renewal</Link> start at $15.82.</p>
+        <GuideByline path="/players/iptv-extreme" />
       </div>
     </Container></Section>
     <Section className="py-12 sm:py-16"><Container><article className="mx-auto max-w-4xl space-y-12">
@@ -61,7 +66,7 @@ export default function IptvExtremePage() {
         <p className={p}>Check the Amazon Appstore on your Fire TV first. If the app is unavailable there, the developer&apos;s <a href="https://react.iptvextreme.eu/downloads" target="_blank" rel="noopener noreferrer" className={a}>official APK downloads page</a> is the source to check for an Android package. Fire TV permits installation of compatible Android apps outside the Appstore, but compatibility can vary. Follow your device&apos;s current installation prompts and use the <Link href="/devices/firestick-iptv" className={a}>Firestick setup guide</Link> for device preparation. Avoid unverified Downloader codes and APK mirrors.</p>
       </section>
       <section><h2 className={h2}>M3U, Xtream Codes or MAG/Stalker?</h2>
-        <p className={p}>Choose the format that matches what your provider supplied. An M3U source is a playlist link or file. Xtream Codes normally uses a server URL, username, and password. MAG/Stalker uses a portal URL and a MAG MAC address authorized by the provider. IPTV Extreme&apos;s official portal has separate forms for these methods; choosing the wrong one can fail even with an active account.</p>
+        <p className={p}>Choose the format that matches what your provider supplied. An M3U source is a playlist link or file. Xtream Codes normally uses a server URL, username, and password. MAG/Stalker uses a portal URL and a MAG MAC address authorized by the provider. IPTV Extreme&apos;s official portal has separate forms for these methods; choosing the wrong one can fail even with an active account. Setting up the MAG box itself? See the <Link href="/devices/mag-box-iptv" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">MAG box setup guide</Link>.</p>
         <div tabIndex={0} role="region" aria-label="Playlist format comparison table" className="mt-5 overflow-x-auto rounded-xl border border-white/[0.08]"><table className="w-full min-w-[580px] text-left text-sm"><thead className="bg-white/[0.05] text-foreground"><tr><th className="p-3">What you received</th><th className="p-3">Setup path</th><th className="p-3">Key check</th></tr></thead><tbody className="divide-y divide-white/[0.08] text-muted-foreground">
           <tr><td className="p-3">Playlist URL or file</td><td className="p-3">M3U</td><td className="p-3">Complete, reachable playlist</td></tr>
           <tr><td className="p-3">Server URL, username, password</td><td className="p-3">Xtream Codes</td><td className="p-3">Exact credentials and active account</td></tr>
@@ -124,5 +129,6 @@ export default function IptvExtremePage() {
         <div className="mt-8 rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 text-base sm:text-sm text-muted-foreground">Need IPTV credentials for IPTV Extreme? <Link href="/iptv-free-trial" className={a}>Start with a 24-hour IPTV trial</Link>. TryIPTV is independent of IPTV Extreme and Paolo Turatti.</div>
       </section>
     </article></Container></Section>
+    <TopicClusterLinks path="/players/iptv-extreme" />
   </>;
 }

@@ -3,7 +3,8 @@ import type React from 'react';
 
 interface SectionHeaderProps {
   title: string;
-  subtitle?: string;
+  /** Text, or nodes when part of it needs markup (e.g. an email kept out of Cloudflare obfuscation). */
+  subtitle?: React.ReactNode;
   className?: string;
   eyebrow?: string;
   align?: 'left' | 'center';
@@ -38,8 +39,8 @@ export function SectionHeader({
         className={cn(
           "font-headline font-bold text-foreground tracking-tight",
           Heading === 'h1'
-            ? "text-4xl sm:text-5xl lg:text-[52px] leading-[1.08]"
-            : "text-[28px] sm:text-[34px] lg:text-[36px] xl:text-[38px] leading-[1.14]"
+            ? "text-4xl sm:text-5xl lg:text-[3.25rem] leading-[1.08]"
+            : "text-[1.75rem] sm:text-[2.125rem] lg:text-[2.25rem] xl:text-[2.375rem] leading-[1.14]"
         )}
       >
         {title}
@@ -47,7 +48,7 @@ export function SectionHeader({
       {subtitle && (
         <p
           className={cn(
-            "mt-4 max-w-2xl text-base sm:text-[16.5px] leading-relaxed text-muted-foreground",
+            "mt-4 max-w-[60ch] text-base sm:text-[1.03125rem] leading-relaxed text-muted-foreground",
             align === 'center' && 'mx-auto'
           )}
         >

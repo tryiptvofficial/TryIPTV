@@ -1,26 +1,21 @@
 import type { ComponentType } from "react";
 import Link from "next/link";
-import { ArrowRight, Flame, Monitor, Tv } from "lucide-react";
-import {
-  SiAndroid,
-  SiAppletv,
-  SiLg,
-  SiMacos,
-  SiRoku,
-  SiSamsung,
-} from "react-icons/si";
+import { ArrowRight, Flame, Laptop, Monitor, Tv, TvMinimal, TvMinimalPlay } from "lucide-react";
+import { SiAndroid, SiAppletv, SiLg } from "react-icons/si";
 
 import { Container } from "../shared/Container";
 import { SectionHeader } from "../shared/SectionHeader";
 import { Section } from "../shared/Section";
 import { devices } from "@/lib/site-data/devices";
 
+// macOS, Roku and Samsung use plain glyphs: their wordmark logos shrink to 3-6px-tall letters at icon
+// size. The device name sits next to each icon, so nothing is lost.
 const deviceIconMap: Record<string, ComponentType<{ className?: string }>> = {
-  SiMacos,
+  SiMacos: Laptop,
   SiAndroid,
   Monitor,
-  SiRoku,
-  SiSamsung,
+  SiRoku: TvMinimalPlay,
+  SiSamsung: TvMinimal,
   SiLg,
   Flame,
   Tv,
@@ -34,8 +29,8 @@ export function Devices() {
         <div className="border-t border-white/[0.07] pt-14 sm:pt-16 md:pt-20 lg:pt-24">
           <SectionHeader
             align="left"
-            title="Supported Devices and IPTV Players"
-            subtitle="TryIPTV works on Smart TVs, streaming sticks, set-top boxes, and computers through a compatible IPTV player app. Pick your device for step-by-step setup."
+            title="Which Devices Does TryIPTV Work On?"
+            subtitle="TryIPTV works on Fire TV, Android TV, Apple TV, Samsung and LG smart TVs, MAG boxes, phones, tablets and computers. Roku works through AirPlay or screen mirroring. Each device needs a compatible IPTV player app. Choose your device for step-by-step setup."
             eyebrow="Device Compatibility"
           />
 

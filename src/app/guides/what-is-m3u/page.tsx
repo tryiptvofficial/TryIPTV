@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import { TopicClusterLinks } from "@/components/shared/TopicClusterLinks";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import { ArrowRight, Code, Globe, List, Tv } from "lucide-react";
 import { FaqList } from "@/components/sections/FAQ";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Container } from "@/components/shared/Container";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { Section } from "@/components/shared/Section";
 import { Button } from "@/components/ui/button";
 import {
@@ -16,15 +18,15 @@ import {
 import {
   generateArticleSchema,
   generateBreadcrumbSchema,
-  generateFAQPageSchema,
 } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { getLastModified } from "@/lib/site-routes";
 
 const title = "What Is an M3U Playlist? Structure, Syntax, and IPTV Usage";
 const description =
   "A comprehensive technical guide to M3U and M3U8 playlists in IPTV: header syntax, #EXTINF tags, community metadata attributes, and file handling.";
 const canonical = "/guides/what-is-m3u";
-const modifiedDate = "2026-10-11";
+const modifiedDate = getLastModified("/guides/what-is-m3u");
 
 /**
  * What Is M3U Guide
@@ -32,19 +34,26 @@ const modifiedDate = "2026-10-11";
  * Source of truth: src/lib/site-routes.ts (indexable: true)
  */
 export function generateMetadata(): Metadata {
+  // Title tag and og:title only; the H1 and Article headline keep the longer wording.
+  const metaTitle = "What Is an M3U Playlist? Format & IPTV Use";
   return {
     ...generatePageMetadata({
-      title,
+      title: metaTitle,
       description,
       canonical,
     }),
     title: {
-      absolute: title,
+      absolute: `${metaTitle} | TryIPTV`,
     },
   };
 }
 
 const faqs = [
+  {
+    question: "What is an M3U link?",
+    answer:
+      "An M3U link is a web address (URL) that points to an M3U playlist file. You paste it into the M3U URL or Add playlist field of an IPTV player, which downloads the channel list from it. Keep it private: it usually contains your username and password.",
+  },
   {
     question: "What is the difference between an M3U and an M3U8 file?",
     answer:
@@ -95,14 +104,11 @@ const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "What Is an M3U Playlist?", item: `${SITE_URL}${canonical}` },
 ]);
 
-const faqSchema = generateFAQPageSchema(faqs);
 
 export default function WhatIsM3uPage() {
   return (
     <>
-      <Schema id="article" schema={articleSchema} />
-      <Schema id="breadcrumb" schema={breadcrumbSchema} />
-      <Schema id="faq" schema={faqSchema} />
+      <PageSchema nodes={[articleSchema, breadcrumbSchema]} />
 
       {/* Hero Header */}
       <Section className="border-b border-white/[0.07] pt-10 pb-14 sm:pt-14 sm:pb-20">
@@ -119,11 +125,13 @@ export default function WhatIsM3uPage() {
             <h1 className="font-headline text-3xl font-extrabold leading-[1.15] text-foreground sm:text-4xl lg:text-5xl">
               What Is an M3U Playlist? Structure, Syntax, and IPTV Usage
             </h1>
-            <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
-              An M3U playlist is a plain-text file that directs media players to streaming video
-              locations. Explore the difference between basic M3U and HLS M3U8, the syntax of Extended M3U
-              directives, and how IPTV applications parse channel data.
+            <p className="mx-auto mt-5 max-w-[60ch] text-base leading-7 text-muted-foreground sm:text-lg">
+              An M3U playlist is a plain-text file that lists stream URLs, one per channel, with optional
+              #EXTINF lines for each channel&apos;s name, logo, group, and guide ID. IPTV providers usually share
+              it as a web link that a player app downloads. This guide covers M3U vs M3U8, Extended M3U
+              syntax, and how players parse it.
             </p>
+            <GuideByline path="/guides/what-is-m3u" />
           </div>
         </Container>
       </Section>
@@ -521,6 +529,7 @@ export default function WhatIsM3uPage() {
           </div>
         </Container>
       </Section>
+      <TopicClusterLinks path="/guides/what-is-m3u" />
     </>
   );
 }

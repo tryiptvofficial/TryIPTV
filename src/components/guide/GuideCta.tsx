@@ -53,7 +53,7 @@ export function GuideCta({
             </Link>
           </Button>
           <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
-            <Link href="/pricing">View Prepaid Plans</Link>
+            <Link href="/pricing">View IPTV Plans</Link>
           </Button>
         </div>
       </div>

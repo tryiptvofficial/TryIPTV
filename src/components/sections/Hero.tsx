@@ -2,43 +2,48 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CirclePlay } from "lucide-react";
 
+import heroImage from "../../../public/images/best-iptv-service.png";
+
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/shared/Container";
+import { lowestMonthly } from "@/lib/plan-pricing";
+import { FACT_TEXT } from "@/lib/site-config";
 
 const HERO_FACTS = [
   { value: "25,000+", label: "Live Channels" },
   { value: "120,000+", label: "Movies & TV Shows" },
   { value: "2", label: "Simultaneous Connections" },
-  { value: "From $16", label: "Starting Price" },
+  { value: FACT_TEXT.fromPrice, label: "1-Month Price" },
 ] as const;
 
 export function Hero() {
   return (
     <section className="relative -mt-20 overflow-hidden pt-24 pb-8 sm:pt-28 sm:pb-10 lg:pt-32 lg:pb-12">
-      {/* Ambient background wash */}
+      {/* Ambient background wash; the mask fades it out toward the bottom so it never ends in a hard edge. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-y-0 right-0 -z-10 w-full bg-gradient-to-l from-primary/10 via-primary/[0.02] to-transparent lg:w-2/3 blur-3xl"
+        className="pointer-events-none absolute inset-y-0 right-0 -z-10 w-full bg-gradient-to-l from-primary/10 via-primary/[0.02] to-transparent [mask-image:linear-gradient(to_bottom,black_55%,transparent)] lg:w-2/3 blur-3xl"
       />
 
       <Container className="relative">
         <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-8">
           {/* Left Column: Copy & Actions */}
-          <div className="lg:col-span-7">
-            <p className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/[0.06] px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-primary">
+          {/* On phones and short landscape screens the buttons move above the paragraph so they stay on the first screen. */}
+          <div className="flex flex-col lg:col-span-7">
+            <p className="inline-flex self-start items-center gap-2 rounded-full border border-primary/25 bg-primary/[0.06] px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-primary">
               <span aria-hidden className="size-1.5 rounded-full bg-primary" />
-              Best IPTV Streaming
+              Best IPTV Service
             </p>
 
-            <h1 className="mt-5 font-headline text-[32px] font-bold leading-[1.1] tracking-tight text-foreground sm:text-[42px] lg:text-[46px] xl:text-[48px]">
-              TryIPTV — <span className="text-primary">Best IPTV Service</span> in USA, UK &amp; Worldwide
+            <h1 className="mt-5 font-headline text-[2rem] font-bold leading-[1.1] tracking-tight text-foreground sm:text-[2.625rem] lg:text-[2.875rem] xl:text-[3rem]">
+              TryIPTV — <span className="text-primary">Best IPTV Service</span> for the USA, UK &amp; More
             </h1>
 
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-[17px]">
-              TryIPTV is an IPTV service and provider for viewers in the USA, UK, and supported regions. It provides live TV, sports, movies, and TV shows through compatible devices and IPTV player apps—not a player app itself. Choose a prepaid plan or use the free trial to see whether the service fits your setup.
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground max-sm:order-3 sm:text-[1.0625rem] [@media(max-height:500px)]:order-3">
+              TryIPTV is an IPTV service and provider for viewers in the USA, UK, and supported regions. It delivers live TV, sports, movies, and TV shows to your own devices through IPTV player apps; TryIPTV is not a player app itself.
             </p>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <div className="mt-8 flex flex-col gap-3 max-sm:order-1 max-sm:mt-6 sm:flex-row sm:items-center [@media(max-height:500px)]:order-1 [@media(max-height:500px)]:mt-5">
               <Button asChild>
                 <Link href="/iptv-free-trial">
                   <CirclePlay aria-hidden /> Start Free Trial
@@ -51,8 +56,9 @@ export function Hero() {
               </Button>
             </div>
 
-            <p className="mt-4 text-[12.5px] font-medium text-muted-foreground">
-              Plans from $16 • Prepaid • No auto-renewal
+            <p className="mt-4 text-[0.78125rem] font-medium text-muted-foreground max-sm:order-2 [@media(max-height:500px)]:order-2">
+              {/* Each price names its plan, so "$15.82" and "$7.35/mo" (also on the mobile buy bar) never look like a clash. */}
+              From {lowestMonthly}/mo on the 12-month plan • {FACT_TEXT.fromPrice} for 1 month • No auto-renewal
             </p>
           </div>
 
@@ -61,16 +67,17 @@ export function Hero() {
             <div className="relative mx-auto w-full max-w-lg lg:max-w-none">
               <div className="relative overflow-hidden rounded-2xl border border-white/[0.07] bg-card">
                 <Image
-                  src="/images/best-iptv-service.png"
+                  src={heroImage}
                   alt="Couple watching TV with TryIPTV streaming service"
-                  width={1024}
-                  height={682}
+                  // Static import: width, height and blurDataURL come from the file at build time.
+                  placeholder="blur"
                   // LCP image: Next 16 docs recommend eager + high fetch priority over `preload`
                   // (preload alone was fetched at Low priority).
                   loading="eager"
                   fetchPriority="high"
                   className="h-auto w-full object-cover"
-                  sizes="(min-width: 1024px) 460px, (min-width: 640px) 512px, 100vw"
+                  // Phones: the container's 1.25rem side padding, so 412px phones get the 1024px file, not 1280px.
+                  sizes="(min-width: 1024px) 460px, (min-width: 640px) 512px, calc(100vw - 2.5rem)"
                 />
               </div>
             </div>
@@ -81,8 +88,8 @@ export function Hero() {
         <dl className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.07] sm:grid-cols-4">
           {HERO_FACTS.map((fact) => (
             <div key={fact.label} className="flex flex-col bg-card px-4 py-4 sm:px-6">
-              <dt className="order-2 mt-1 text-[13px] text-muted-foreground">{fact.label}</dt>
-              <dd className="order-1 font-headline text-xl font-bold tracking-tight text-foreground sm:text-[22px]">{fact.value}</dd>
+              <dt className="order-2 mt-1 text-[0.8125rem] text-muted-foreground">{fact.label}</dt>
+              <dd className="order-1 font-headline text-xl font-bold tracking-tight text-foreground sm:text-[1.375rem]">{fact.value}</dd>
             </div>
           ))}
         </dl>

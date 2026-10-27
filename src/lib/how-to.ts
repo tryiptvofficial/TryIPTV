@@ -1,7 +1,11 @@
 
-import articles from '@/lib/site-data/how-to.json';
+import rawArticles from '@/lib/site-data/how-to.json';
+import { getLastModified } from '@/lib/site-routes';
 
-// Export the raw article data for use in server components
+// Device articles; dateModified comes from site-routes.ts, the single date source.
+const articles = rawArticles.map((article) => ({ ...article, dateModified: getLastModified(`/devices/${article.id}`) }));
+
+// Export the article data for use in server components
 export const howToArticles = articles;
 
 export const REDIRECTED_DEVICE_SLUGS: Record<string, string> = {

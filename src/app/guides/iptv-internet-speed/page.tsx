@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { TopicClusterLinks } from "@/components/shared/TopicClusterLinks";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -19,14 +21,15 @@ import {
 } from "lucide-react";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Container } from "@/components/shared/Container";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { Section } from "@/components/shared/Section";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { ArticleProse, ArticleSummary } from "@/components/guide";
 import { FaqList, type FaqItem } from "@/components/sections/FAQ";
-import { generateArticleSchema, generateBreadcrumbSchema, generateFAQPageSchema } from "@/lib/schema";
+import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { PRODUCT_TRUTHS, SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { getLastModified } from "@/lib/site-routes";
 
 const title = "IPTV Internet Speed: How Much Bandwidth Do You Need? | TryIPTV";
 const description =
@@ -34,18 +37,20 @@ const description =
 const canonical = "/guides/iptv-internet-speed";
 // Shorter search-result title; `title` stays the article headline.
 const seoTitle = "IPTV Internet Speed: How Much Bandwidth Do You Need?";
-const modifiedDate = "2026-10-12";
+const modifiedDate = getLastModified("/guides/iptv-internet-speed");
 
 export function generateMetadata(): Metadata {
+  // Title tag and og:title only; the H1 and Article headline keep the longer wording.
+  const metaTitle = "IPTV Internet Speed: How Much Do You Need?";
   return {
     ...generatePageMetadata({
-      title: seoTitle,
+      title: metaTitle,
       description,
       canonical,
       noIndex: false,
     }),
     title: {
-      absolute: seoTitle,
+      absolute: `${metaTitle} | TryIPTV`,
     },
   };
 }
@@ -140,14 +145,11 @@ const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "IPTV Internet Speed", item: `${SITE_URL}${canonical}` },
 ]);
 
-const faqSchema = generateFAQPageSchema(faqs);
 
 export default function IptvInternetSpeedPage() {
   return (
     <>
-      <Schema id="article" schema={articleSchema} />
-      <Schema id="breadcrumb" schema={breadcrumbSchema} />
-      <Schema id="faq" schema={faqSchema} />
+      <PageSchema nodes={[articleSchema, breadcrumbSchema]} />
 
       {/* Hero Header */}
       <Section className="border-b border-white/[0.07] pt-10 pb-14 sm:pt-14 sm:pb-20">
@@ -164,10 +166,11 @@ export default function IptvInternetSpeedPage() {
             <h1 className="font-headline text-3xl font-extrabold leading-[1.15] text-foreground sm:text-4xl lg:text-5xl">
               How Much Internet Speed Do You Need for IPTV?
             </h1>
-            <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
+            <p className="mx-auto mt-5 max-w-[60ch] text-base leading-7 text-muted-foreground sm:text-lg">
               A practical guide to streaming bandwidth, household connection planning, Wi-Fi versus Ethernet,
               and multi-stream headroom.
             </p>
+            <GuideByline path="/guides/iptv-internet-speed" />
           </div>
         </Container>
       </Section>
@@ -179,13 +182,13 @@ export default function IptvInternetSpeedPage() {
             {/* Quick Answer Summary */}
             <ArticleSummary title="The Direct Answer: IPTV Bandwidth Requirements">
               <p>
-                There is no single universal internet speed requirement for IPTV. The bandwidth your connection
-                needs depends on the <strong className="text-foreground font-semibold">actual bitrate of the stream</strong>,
-                the resolution and video codec, and how many devices or family members share your internet connection
-                simultaneously.
+                For IPTV, plan on a stable 25 Mbps or more for one Full HD (1080p) stream and 50 Mbps or more for
+                4K; two streams at once need roughly double. The exact need depends on the{" "}
+                <strong className="text-foreground font-semibold">actual bitrate of the stream</strong>, the
+                resolution and codec, and how many people share your connection.
               </p>
               <p>
-                As a practical planning guideline, individual streams typically draw between 3–5 Mbps for standard
+                As a practical planning guideline, individual streams typically draw between 3–6 Mbps for standard
                 HD (720p), 7–15 Mbps for Full HD (1080p), and 18–35 Mbps for 4K Ultra HD. However, planning for additional
                 headroom above the raw stream bitrate is useful for Wi-Fi variability, background traffic, other household
                 devices, and bitrate spikes.
@@ -221,7 +224,7 @@ export default function IptvInternetSpeedPage() {
             <div className="my-8 overflow-hidden rounded-xl border border-white/[0.08] bg-[#070908] shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
               <div className="overflow-x-auto" tabIndex={0} role="region" aria-label="IPTV internet speed table">
                 <table className="w-full min-w-[36rem] text-left text-xs sm:text-sm">
-                  <thead className="border-b border-white/[0.08] bg-white/[0.02] text-primary font-mono uppercase tracking-wider text-[11px]">
+                  <thead className="border-b border-white/[0.08] bg-white/[0.02] text-primary font-mono uppercase tracking-wider text-xs">
                     <tr>
                       <th className="p-3.5 sm:p-4">Resolution</th>
                       <th className="p-3.5 sm:p-4">Stream Bitrate (Approx.)</th>
@@ -234,7 +237,7 @@ export default function IptvInternetSpeedPage() {
                       <tr key={tier.resolution} className="transition-colors hover:bg-white/[0.02]">
                         <td className="p-3.5 sm:p-4 font-semibold text-foreground">
                           {tier.resolution}
-                          <div className="text-[11px] font-normal text-muted-foreground mt-0.5">{tier.notes}</div>
+                          <div className="text-xs font-normal text-muted-foreground mt-0.5">{tier.notes}</div>
                         </td>
                         <td className="p-3.5 sm:p-4 font-mono">{tier.bitrateRange}</td>
                         <td className="p-3.5 sm:p-4 font-mono text-foreground">{tier.headroomSingle}</td>
@@ -244,7 +247,7 @@ export default function IptvInternetSpeedPage() {
                   </tbody>
                 </table>
               </div>
-              <p data-small-print className="p-3.5 text-center text-[11px] text-muted-foreground border-t border-white/[0.06]">
+              <p data-small-print className="p-3.5 text-center text-xs text-muted-foreground border-t border-white/[0.06]">
                 * Approximate planning ranges only. Official streaming services publish different recommended speeds because encoding, bitrate, codec, and playback behavior vary.
               </p>
             </div>
@@ -417,7 +420,7 @@ export default function IptvInternetSpeedPage() {
 
               <h2>Data Usage Estimates: How Many Gigabytes Does IPTV Use per Hour?</h2>
               <p>
-                Hourly data consumption is directly tied to the stream&apos;s continuous bitrate. Using standard decimal gigabytes:
+                IPTV uses about 0.45 GB per hour for every 1 Mbps of stream bitrate: roughly 1.4–2.7 GB an hour for 720p, 3–7 GB for 1080p, and 8–16 GB for 4K. Two simultaneous streams use about twice as much. The formula, in standard decimal gigabytes:
               </p>
               <div className="my-6 rounded-lg border border-white/[0.08] bg-[#0c100d] p-4 text-xs sm:text-sm font-mono text-foreground/90">
                 GB/hour ≈ bitrate in Mbps × 0.45
@@ -457,7 +460,7 @@ export default function IptvInternetSpeedPage() {
               </h2>
               <p className="mt-2 text-base sm:text-sm leading-relaxed text-muted-foreground">
                 Verify real-world stream stability on your device with our full-access 24-hour evaluation trial ($0, no credit card required).
-                Every TryIPTV plan includes {PRODUCT_TRUTHS.connections} simultaneous connections across flat prepaid terms with no recurring contracts.
+                Every TryIPTV plan includes {PRODUCT_TRUTHS.connections} simultaneous connections across fixed terms with no recurring contracts.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
                 {/* Below 360px the label is wider than the card; let it wrap instead of overflowing. */}
@@ -467,7 +470,7 @@ export default function IptvInternetSpeedPage() {
                   </Link>
                 </Button>
                 <Button asChild variant="outline">
-                  <Link href="/pricing">View Prepaid Plans</Link>
+                  <Link href="/pricing">View IPTV Plans</Link>
                 </Button>
                 <Button asChild variant="outline">
                   <Link href="/setup">Universal Setup Guide</Link>
@@ -477,6 +480,7 @@ export default function IptvInternetSpeedPage() {
           </article>
         </Container>
       </Section>
+      <TopicClusterLinks path="/guides/iptv-internet-speed" />
     </>
   );
 }

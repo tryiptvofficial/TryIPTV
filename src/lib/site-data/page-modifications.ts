@@ -2,9 +2,8 @@
  * @file page-modifications.ts
  * @description Legacy helper — retained only for formatLegalDate() used by legal pages.
  *
- * IMPORTANT: The canonical route registry has moved to src/lib/site-routes.ts.
- * Do NOT add new routes here. STATIC_ROUTES and PAGE_LAST_MODIFIED are kept
- * only for backward compatibility with legal page rendering logic.
+ * IMPORTANT: The canonical route registry is src/lib/site-routes.ts. Change dates there;
+ * PAGE_LAST_MODIFIED below is derived from it.
  *
  * TRUTHFUL LASTMOD ARCHITECTURE RULES:
  * 1. A route's lastModified date MUST represent the date when meaningful, indexable
@@ -15,41 +14,15 @@
  * All sitemap and SEO route data now lives in src/lib/site-routes.ts.
  */
 
-/** @deprecated Use SITE_ROUTES from src/lib/site-routes.ts instead. */
-export const STATIC_ROUTES = [
-  '/',
-  '/pricing',
-  '/iptv-free-trial',
-  '/devices',
-  '/faq',
-  '/contact-us',
-  '/privacy-policy',
-  '/terms-conditions',
-  '/refund-policy',
-  '/disclaimer',
-  '/dmca-report',
-] as const;
-
-export type StaticRoute = (typeof STATIC_ROUTES)[number];
+import { SITE_ROUTES } from '../site-routes.ts';
 
 /**
- * Verified last modification dates for legal pages.
- * Legal pages read this to render their "Last Updated" notice.
- * Format: YYYY-MM-DD
+ * Last-modified dates (YYYY-MM-DD), read from the single route registry (site-routes.ts) so the
+ * sitemap <lastmod> and the "Last updated" line on legal pages can never disagree.
  */
-export const PAGE_LAST_MODIFIED: Record<string, string> = {
-  '/': '2026-09-30',
-  '/pricing': '2026-09-30',
-  '/iptv-free-trial': '2026-09-30',
-  '/devices': '2026-09-30',
-  '/faq': '2026-09-29',
-  '/contact-us': '2026-09-29',
-  '/privacy-policy': '2026-03-01',
-  '/terms-conditions': '2026-03-01',
-  '/refund-policy': '2026-03-01',
-  '/disclaimer': '2026-03-01',
-  '/dmca-report': '2026-03-01',
-};
+export const PAGE_LAST_MODIFIED: Record<string, string> = Object.fromEntries(
+  SITE_ROUTES.filter((r) => r.lastModified).map((r) => [r.path, r.lastModified as string]),
+);
 
 /**
  * Formats a YYYY-MM-DD date string into a human-readable "Month YYYY" string

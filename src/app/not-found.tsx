@@ -7,10 +7,9 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: '404: Page Not Found',
-  robots: {
-    index: false,
-    follow: false,
-  },
+  // null drops the layout's "index, follow" (and googlebot) tags; Next.js adds its own
+  // <meta name="robots" content="noindex"> to 404 responses, so that is the only robots tag left.
+  robots: null,
 };
 
 export default function NotFound() {

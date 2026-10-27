@@ -1,8 +1,8 @@
 [
   {
     "id": "firestick-iptv",
-    "title": "How to Install IPTV on Firestick: Step-by-Step Fire TV Setup",
-    "description": "Set up IPTV on Amazon Fire TV Stick. Learn how to install a compatible player from the Amazon Appstore or via Downloader, configure Xtream Codes or M3U credentials, and troubleshoot Fire OS playback.",
+    "title": "How to Install IPTV on Firestick (Fire TV Stick)",
+    "description": "Install IPTV apps on your Amazon Fire TV Stick: get the Downloader app, allow it to install apps from unknown sources, and sideload a player such as TiviMate or IPTV Smarters. Many IPTV players are not listed in the Amazon Appstore, so sideloading the player's official APK with Downloader is the usual route. Then sign in with your Xtream Codes or M3U details.",
     "primaryKeyword": "Fire TV Stick",
     "keywords": [
       "iptv on firestick",
@@ -11,28 +11,27 @@
       "iptv player for firestick",
       "install iptv on fire tv"
     ],
-    "dateModified": "2026-10-12",
     "totalTime": "PT15M",
     "steps": [
       {
-        "title": "Search the Amazon Appstore for your preferred player",
-        "description": "<p>From the Fire TV home screen, open <strong>Find</strong> (search icon) and enter the name of your chosen player (such as <a href=\"/players/iptv-smarters\">IPTV Smarters Pro</a>). If the app is available in your regional Appstore, select <strong>Download</strong> or <strong>Get</strong> to install it directly without modifying device settings.</p>"
+        "title": "Install the Downloader app from the Amazon Appstore",
+        "description": "<p>From the Fire TV home screen, open <strong>Find</strong> (search), type <strong>Downloader</strong>, and install it; Downloader is listed in the Amazon Appstore. Check the Appstore for your player first: if it is listed in your region (search its name, such as <a href=\"/players/iptv-smarters\">IPTV Smarters</a>), install it directly and skip to step 5.</p>"
       },
       {
-        "title": "Enable installation permissions if sideloading is required",
-        "description": "<p>If your chosen player is not distributed in the Amazon Appstore in your country, install the <strong>Downloader</strong> app from the Appstore, then enable developer permissions on your Fire TV:</p><ol><li>Navigate to <strong>Settings &gt; My Fire TV &gt; Developer Options</strong>. Menu names and placement can vary by Fire TV model and Fire OS version.</li><li>Turn on <strong>Install unknown apps</strong> for Downloader (or <strong>Apps from Unknown Sources</strong> on earlier Fire OS releases).</li><li><em>If Developer Options is hidden:</em> Open <strong>About</strong>, highlight your Fire TV name, and press the remote Select button <strong>7 times</strong> (per <a href='https://developer.amazon.com/docs/fire-tv/developer-options.html' target='_blank' rel='noopener noreferrer'>Amazon Developer documentation</a>).</li></ol>"
+        "title": "Allow Downloader to install apps from unknown sources",
+        "description": "<p>Fire TV only installs Appstore apps until you allow another source:</p><ol><li>Go to <strong>Settings &gt; My Fire TV &gt; Developer Options</strong>. Menu names can vary by Fire TV model and Fire OS version.</li><li>Select <strong>Install unknown apps</strong> and switch <strong>Downloader</strong> to <strong>ON</strong> (on older Fire OS releases this is a single <strong>Apps from Unknown Sources</strong> toggle).</li><li><em>If you do not see Developer Options:</em> open <strong>My Fire TV &gt; About</strong>, highlight your device name and press Select <strong>7 times</strong> until developer mode is unlocked (per <a href='https://developer.amazon.com/docs/fire-tv/developer-options.html' target='_blank' rel='noopener noreferrer'>Amazon Developer documentation</a>).</li></ol>"
       },
       {
-        "title": "Download the player APK and delete the installer",
-        "description": "<p>Open Downloader, enter the player developer's official download URL, and let the package download. After selecting <strong>Install</strong>, choose <strong>Done</strong>, then select <strong>Delete</strong> when Downloader prompts you to remove the APK file to save internal storage.</p>"
+        "title": "Enter the player's official download link in Downloader",
+        "description": "<p>Open Downloader and type the direct download address that the player's developer publishes on its official website, for example for <a href=\"/players/tivimate\">TiviMate</a> or <a href=\"/players/iptv-smarters\">IPTV Smarters Pro</a>. Avoid APK mirrors and copied Downloader codes from other sites: you cannot tell what they install.</p>"
       },
       {
-        "title": "Open the player and select your login method",
-        "description": "<p>Launch your player from <strong>Your Apps &amp; Games</strong>. Select <strong>Login with <a href='/guides/what-are-xtream-codes'>Xtream Codes API</a></strong> (recommended) or <strong>Load M3U Playlist</strong> depending on your subscription format.</p>"
+        "title": "Complete the installation and delete the APK",
+        "description": "<p>Let the APK finish downloading, select <strong>Install</strong>, then <strong>Done</strong>. When Downloader offers to delete the downloaded file, select <strong>Delete</strong> to free up storage; the app stays installed.</p>"
       },
       {
-        "title": "Enter your server URL, username, and password",
-        "description": "<p>For Xtream Codes, enter your <strong>Server URL</strong>, <strong>Username</strong>, and <strong>Password</strong> without trailing spaces. If using an M3U link, enter the complete playlist URL. You can use the official <strong>Amazon Fire TV mobile app</strong> on your phone to paste long URLs directly into the on-screen keyboard.</p>"
+        "title": "Open the player and sign in with your provider's details",
+        "description": "<p>Launch the player from <strong>Your Apps &amp; Games</strong>. Choose <strong>Login with <a href='/guides/what-are-xtream-codes'>Xtream Codes API</a></strong> (recommended) and enter your <strong>Server URL</strong>, <strong>Username</strong>, and <strong>Password</strong> with no extra spaces, or choose <strong>Load M3U Playlist</strong> and enter the full playlist URL. The <strong>Amazon Fire TV</strong> app on your phone lets you paste long URLs into the on-screen keyboard.</p>"
       },
       {
         "title": "Synchronize channel bouquets and the TV guide",
@@ -107,12 +106,16 @@
     ],
     "faqs": [
       {
-        "question": "Does Fire TV Stick include a built-in IPTV player?",
-        "answer": "No. Fire TV devices do not come with a native IPTV player. You must install a third-party application like IPTV Smarters Pro or TiviMate to open streams."
+        "question": "Why aren't many IPTV apps in the Amazon Appstore?",
+        "answer": "Many IPTV player developers publish on Google Play but not in the Amazon Appstore, and availability varies by region. That is why sideloading the player's official APK with the Downloader app is the standard way to install them on Fire TV. Always check the Appstore first."
       },
       {
-        "question": "Can I install an IPTV player without using Downloader on Fire TV?",
-        "answer": "Yes, if the player is available directly in the Amazon Appstore in your region. Downloader is only required when sideloading an application not hosted in Amazon's store."
+        "question": "Can I turn off unknown sources afterward?",
+        "answer": "Yes. Once your IPTV app is installed, you can switch Downloader's Install unknown apps permission (or Apps from Unknown Sources) back off; the app keeps working. Turn it on again only when you need to install an update the same way."
+      },
+      {
+        "question": "Does Fire TV Stick include a built-in IPTV player?",
+        "answer": "No. Fire TV devices do not come with a native IPTV player. You must install a third-party application like IPTV Smarters Pro or TiviMate to open streams."
       },
       {
         "question": "How do I unlock Developer Options on newer Fire TV models?",
@@ -141,7 +144,6 @@
       "best iptv player android tv",
       "nvidia shield iptv"
     ],
-    "dateModified": "2026-10-11",
     "totalTime": "PT15M",
     "steps": [
       {
@@ -182,7 +184,7 @@
       {
         "id": "best-android-tv-players",
         "title": "Popular IPTV Players for Android TV",
-        "content": "<p>Popular players used on Android TV and Google TV include:</p><ul><li><strong><a href=\"/players/tivimate\">TiviMate</a>:</strong> Provides a TV guide EPG grid, customizable channel groups, and remote-control navigation.</li><li><strong><a href=\"/players/iptv-smarters\">IPTV Smarters Pro</a>:</strong> Supports Xtream Codes API login, multiple playlists, and separate live TV and on-demand categories.</li><li><strong><a href=\"/players/televizo\">Televizo</a>:</strong> Provides an interface adapted for TV remotes with subtitle selection and playlist management.</li></ul><p>To evaluate features, supported devices, and interface layouts in detail, <a href=\"/players\">compare IPTV players</a> across our directory.</p>"
+        "content": "<p>Popular players used on Android TV and Google TV include:</p><ul><li><strong><a href=\"/players/tivimate\">TiviMate</a>:</strong> Provides a TV guide EPG grid, customizable channel groups, and remote-control navigation.</li><li><strong><a href=\"/players/iptv-smarters\">IPTV Smarters Pro</a>:</strong> Supports Xtream Codes API login, multiple playlists, and separate live TV and on-demand categories.</li><li><strong><a href=\"/players/televizo\">Televizo</a>:</strong> Provides an interface adapted for TV remotes with subtitle selection and playlist management.</li></ul><p>Other Android TV players with setup guides include <a href=\"/players/ott-navigator\">OTT Navigator</a> and <a href=\"/players/iptv-extreme\">IPTV Extreme</a>. To evaluate features, supported devices, and interface layouts in detail, <a href=\"/players\">compare IPTV players</a> across our directory.</p>"
       },
       {
         "id": "hardware-decoding-buffer",
@@ -236,7 +238,6 @@
       "myiptv player windows",
       "iptv player windows 11"
     ],
-    "dateModified": "2026-10-11",
     "totalTime": "PT15M",
     "steps": [
       {
@@ -327,7 +328,6 @@
       "uhf iptv mac",
       "best iptv player macos"
     ],
-    "dateModified": "2026-10-04",
     "totalTime": "PT15M",
     "steps": [
       {
@@ -418,7 +418,6 @@
       "install iptv on samsung smart tv",
       "samsung smart hub iptv"
     ],
-    "dateModified": "2026-10-07",
     "totalTime": "PT15M",
     "steps": [
       {
@@ -514,7 +513,6 @@
       "install iptv on lg smart tv",
       "lg content store iptv"
     ],
-    "dateModified": "2026-10-04",
     "totalTime": "PT15M",
     "steps": [
       {
@@ -605,7 +603,6 @@
       "tivimax apple tv",
       "best iptv app apple tv 4k"
     ],
-    "dateModified": "2026-10-04",
     "totalTime": "PT15M",
     "steps": [
       {
@@ -679,6 +676,95 @@
     ]
   },
   {
+    "id": "iphone-iptv",
+    "title": "How to Watch IPTV on iPhone and iPad: Step-by-Step Setup Guide",
+    "description": "Set up IPTV on iPhone and iPad: install an IPTV player from the App Store, add Xtream Codes or M3U details, load the TV guide, and watch on the go or on your TV with AirPlay.",
+    "primaryKeyword": "iPhone",
+    "keywords": [
+      "iptv on iphone",
+      "iptv app for iphone",
+      "iptv on ipad",
+      "smarters player lite iphone",
+      "airplay iptv to tv",
+      "iptv mobile data usage"
+    ],
+    "totalTime": "PT10M",
+    "steps": [
+      {
+        "title": "Check your iPhone or iPad and connection",
+        "description": "<p>Update iOS or iPadOS in <strong>Settings &gt; General &gt; Software Update</strong> so current App Store players install, and connect to Wi-Fi for setup. Live TV can also stream over 5G or 4G, but it uses mobile data quickly.</p>"
+      },
+      {
+        "title": "Install an IPTV player from the App Store",
+        "description": "<p>Open the <strong>App Store</strong> and search for an IPTV player such as <strong><a href=\"/players/iptv-smarters\">Smarters Player Lite</a></strong> or <strong>UHF - IPTV Client</strong>. iPhone and iPad only install apps from the App Store, so there is no sideloading step like on a Firestick.</p>"
+      },
+      {
+        "title": "Open the player and choose Xtream Codes or M3U",
+        "description": "<p>Launch the player and add a new playlist or user. Choose <strong>Xtream Codes</strong> (also called Xtream Codes API) if you have a server URL, username and password, or <strong>M3U URL</strong> if you have a single playlist link. See <a href=\"/guides/m3u-vs-xtream-codes\">M3U vs Xtream Codes</a> if you are unsure.</p>"
+      },
+      {
+        "title": "Paste your TryIPTV login details",
+        "description": "<p>Long-press the login message from support, copy each value, and paste it into the matching field. Copy and paste avoids typing errors, which are the most common cause of <a href=\"/help/iptv-login-not-working\">login failures</a>. Include <code>http://</code> and the port in the server URL exactly as sent.</p>"
+      },
+      {
+        "title": "Let channels and the TV guide load",
+        "description": "<p>Wait for the player to download the channel list, movies, series and EPG data. Large playlists can take a minute on first load. If the guide stays empty, follow the <a href=\"/help/epg-not-working\">EPG troubleshooting guide</a>.</p>"
+      },
+      {
+        "title": "Play a channel and test the stream",
+        "description": "<p>Open a live channel, then a movie, to confirm both play. Test on Wi-Fi first; if playback buffers, compare with mobile data to tell a home-network problem from a stream problem, then see <a href=\"/help/iptv-buffering\">IPTV buffering fixes</a>.</p>"
+      },
+      {
+        "title": "Watch on your TV with AirPlay (optional)",
+        "description": "<p>To move a stream to a TV, tap the <strong>AirPlay</strong> icon inside the player if it offers one, and pick an Apple TV or AirPlay 2 smart TV. If the player has no AirPlay button, open <strong>Control Center &gt; Screen Mirroring</strong> instead. For everyday TV viewing, a player installed on the TV itself is usually smoother.</p>"
+      }
+    ],
+    "extraSections": [
+      {
+        "id": "iphone-players",
+        "title": "Which IPTV Player Should You Use on iPhone?",
+        "content": "<p>An IPTV player app is free or low-cost software that plays the channels your IPTV service provides; the app itself includes no channels. On iPhone and iPad, choose a player from the App Store that supports Xtream Codes, because Xtream logins load live TV, movies, series and the TV guide in separate, organised sections.</p><ul><li><strong>Smarters Player Lite:</strong> the App Store version of IPTV Smarters, with Xtream Codes and M3U support. See the <a href=\"/players/iptv-smarters\">IPTV Smarters setup guide</a>.</li><li><strong>UHF - IPTV Client:</strong> available for iPhone, iPad, Apple TV and Mac, and can sync playlists across Apple devices through iCloud.</li></ul><p>App availability and features change, so check the current App Store listing before you install.</p>"
+      },
+      {
+        "id": "iphone-data-usage",
+        "title": "How Much Mobile Data Does IPTV Use on iPhone?",
+        "content": "<p>IPTV uses roughly <strong>0.45 GB per hour for every 1 Mbps</strong> of stream bitrate, so a 720p stream at 3–6 Mbps uses about 1.4–2.7 GB per hour and a 1080p stream at 7–15 Mbps about 3–7 GB per hour. Use Wi-Fi where possible, or choose a lower-quality stream on mobile data. The full method is in the <a href=\"/guides/iptv-internet-speed\">IPTV internet speed guide</a>.</p>"
+      },
+      {
+        "id": "iphone-connections",
+        "title": "Does an iPhone Count as One of Your Connections?",
+        "content": "<p>Yes. Each device that is streaming at the same time uses one connection, and every TryIPTV plan includes 2 simultaneous connections. You can install the player on more devices, but only two can play at once; a third stream may stop or fail to start until one of the others is closed.</p>"
+      },
+      {
+        "id": "troubleshooting-iphone",
+        "title": "Troubleshooting IPTV on iPhone and iPad",
+        "content": "<ul><li><strong>Login rejected:</strong> re-copy the server URL, username and password from the original message; check for a trailing space or a missing port. See <a href=\"/help/iptv-login-not-working\">IPTV login not working</a>.</li><li><strong>Playlist will not load:</strong> try the Xtream Codes login instead of the M3U link, which downloads in smaller parts. See <a href=\"/help/m3u-not-loading\">M3U not loading</a>.</li><li><strong>Buffering on mobile data:</strong> switch to Wi-Fi or a lower quality stream, and turn off Low Data Mode in <strong>Settings &gt; Mobile Data</strong> if it throttles video.</li><li><strong>No sound or picture after AirPlay:</strong> stop AirPlay, play on the iPhone first, then start AirPlay again; some players do not support AirPlay for every stream.</li></ul>"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Can I watch IPTV on an iPhone?",
+        "answer": "Yes. Install an IPTV player from the App Store, such as Smarters Player Lite or UHF, then enter your Xtream Codes login or M3U URL. The same steps work on iPad. TryIPTV login details usually arrive within 5–15 minutes, and the free 24-hour trial works on iPhone too."
+      },
+      {
+        "question": "What is the best IPTV app for iPhone?",
+        "answer": "Pick an App Store player that supports Xtream Codes, such as Smarters Player Lite or UHF - IPTV Client. Xtream Codes loads live TV, movies, series and the TV guide in organised sections. Choose by layout and AirPlay support; the player itself does not include any channels."
+      },
+      {
+        "question": "Can I watch IPTV on iPhone without an app?",
+        "answer": "Not in a practical way. Safari can open a single stream link, but it cannot load a full channel list, TV guide or Xtream Codes login. Install a free or paid IPTV player from the App Store and enter your login details there instead."
+      },
+      {
+        "question": "How do I watch IPTV from my iPhone on my TV?",
+        "answer": "Use AirPlay. Start a channel in your IPTV player, tap the AirPlay icon, and choose an Apple TV or AirPlay 2 smart TV on the same Wi-Fi. If the player has no AirPlay button, use Screen Mirroring from Control Center. A player installed on the TV is usually smoother."
+      },
+      {
+        "question": "How much data does IPTV use on an iPhone?",
+        "answer": "Roughly 0.45 GB per hour for each 1 Mbps of stream bitrate: about 1.4–2.7 GB per hour for 720p and 3–7 GB per hour for 1080p. Use Wi-Fi where possible, or choose a lower quality on mobile data to save your allowance."
+      }
+    ]
+  },
+  {
     "id": "chromecast-iptv",
     "title": "How to Watch IPTV on Chromecast: Google TV and Casting Guide",
     "description": "Learn how to watch IPTV on Google Chromecast. Understand the differences between standalone app installation on Chromecast with Google TV versus mobile casting on legacy Chromecast devices.",
@@ -691,7 +777,6 @@
       "best iptv app chromecast",
       "google tv streaming"
     ],
-    "dateModified": "2026-10-04",
     "totalTime": "PT15M",
     "steps": [
       {
@@ -782,7 +867,6 @@
       "iptv player roku tv",
       "roku streaming stick iptv"
     ],
-    "dateModified": "2026-10-07",
     "totalTime": "PT15M",
     "steps": [
       {
@@ -873,7 +957,6 @@
       "mag 524 setup",
       "infomir mag portal"
     ],
-    "dateModified": "2026-10-07",
     "totalTime": "PT15M",
     "steps": [
       {

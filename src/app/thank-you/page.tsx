@@ -20,7 +20,7 @@ import { Section } from "@/components/shared/Section";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 
 const whatsappUrl =
-  "https://wa.me/15205648298?text=Hello%20TryIPTV%2C%20I%20have%20completed%20my%20payment%20and%20would%20like%20to%20activate%20my%20IPTV%20subscription.";
+  "https://wa.me/212694833293?text=Hello%20TryIPTV%2C%20I%20have%20completed%20my%20payment%20and%20would%20like%20to%20activate%20my%20IPTV%20subscription.";
 
 const nextSteps = [
   {

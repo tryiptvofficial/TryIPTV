@@ -46,12 +46,6 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'www.demotemplates.online',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
         hostname: 'image.tmdb.org',
         port: '',
         pathname: '/**',
@@ -70,13 +64,19 @@ const nextConfig = {
   trailingSlash: false,
   experimental: {
     optimizePackageImports: ['lucide-react', 'react-icons', 'framer-motion'],
+    agentUpgrade: 'security',
   },
   async headers() {
+    // CSP violation reports go to Sentry's security endpoint, built from the same public DSN as
+    // sentry.server.config.ts (a DSN is a public client key). Review reports before enforcing the CSP.
+    const SENTRY_DSN = 'https://2c6b3d1af5286155f96e3cc65959938f@o4512229364072448.ingest.us.sentry.io/4512229368266752';
+    const dsn = new URL(SENTRY_DSN);
+    const cspReportUrl = `https://${dsn.host}/api${dsn.pathname}/security/?sentry_key=${dsn.username}`;
     const cspReportOnlyHeader = [
       "default-src 'self'",
       "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://analytics.ahrefs.com https://*.google-analytics.com https://challenges.cloudflare.com",
       "style-src 'self' 'unsafe-inline'",
-      "img-src 'self' data: blob: https://www.google-analytics.com https://*.google-analytics.com https://*.googletagmanager.com https://images.unsplash.com https://iptvwell.com https://image.tmdb.org https://r2.thesportsdb.com https://images-cdn.ubuy.co.in",
+      "img-src 'self' data: blob: https://www.google-analytics.com https://*.google-analytics.com https://*.googletagmanager.com",
       "font-src 'self' data:",
       "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://analytics.ahrefs.com https://*.ingest.us.sentry.io https://*.sentry.io",
       "frame-src https://challenges.cloudflare.com",
@@ -85,6 +85,8 @@ const nextConfig = {
       "base-uri 'self'",
       "form-action 'self'",
       "frame-ancestors 'self'",
+      `report-uri ${cspReportUrl}`,
+      'report-to csp-endpoint',
       // upgrade-insecure-requests omitted: browsers ignore it in a Report-Only policy and log a console error.
     ].join('; ');
 
@@ -99,10 +101,6 @@ const nextConfig = {
           {
             key: 'Strict-Transport-Security',
             value: 'max-age=63072000; includeSubDomains; preload'
-          },
-          {
-            key: 'X-XSS-Protection',
-            value: '1; mode=block'
           },
           {
             key: 'X-Content-Type-Options',
@@ -124,7 +122,41 @@ const nextConfig = {
             key: 'Content-Security-Policy-Report-Only',
             value: cspReportOnlyHeader
           },
+          {
+            // Reporting API endpoint named by `report-to` in the CSP above.
+            key: 'Reporting-Endpoints',
+            value: `csp-endpoint="${cspReportUrl}"`
+          },
         ],
+      },
+
+      // ── X-Robots-Tag ───────────────────────────────────────────────────────
+      // Pages set indexing with <meta name="robots">; files have no <head>, so they need the header.
+      // noindex keeps them out of search results without blocking the fetch (robots.txt still allows them).
+      ...[
+        '/:key([0-9a-f]{32}).txt', // IndexNow key files
+        '/llms.txt',
+        '/llms-full.txt',
+        '/ai.txt',
+        '/sitemap.xml',
+        '/manifest.json',
+        '/site.webmanifest',
+        '/api/:path*', // includes /api/og share images
+      ].map((source) => ({
+        source,
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex' }],
+      })),
+      // Noindex pages: same directive as their meta robots tag, also visible to header-only checks.
+      ...['/thank-you', '/blog'].map((source) => ({
+        source,
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, follow' }],
+      })),
+      // Vercel deployment URLs (previews and the project's *.vercel.app alias) duplicate the site.
+      // Listed last so it overrides the rules above on those hosts.
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: '(?<subdomain>.+)\\.vercel\\.app' }],
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
       },
     ]
   },
@@ -166,8 +198,12 @@ const nextConfig = {
         destination: '/devices/android-tv-iptv',
         permanent: true,
       },
-      // /devices/ios had a how-to page (iphone-ipad) that is no longer in
-      // the approved allowlist. No approved iOS device page exists. 404.
+      // Old iOS slugs → the iPhone & iPad guide (/devices/iphone-iptv), one 308 hop each.
+      ...['/devices/iphone-ipad', '/devices/ios', '/devices/iphone', '/devices/ipad'].map((source) => ({
+        source,
+        destination: '/devices/iphone-iptv',
+        permanent: true,
+      })),
       {
         source: '/devices/macos',
         destination: '/devices/mac-iptv',
@@ -179,8 +215,6 @@ const nextConfig = {
         destination: '/devices/mag-box-iptv',
         permanent: true,
       },
-      // /devices/iphone-ipad has no approved replacement device page → 404
-      // (no redirect added intentionally)
 
       // ── 10 Device slug migration redirects (old -> new SEO-friendly routes) ──
       {
@@ -248,8 +282,6 @@ const nextConfig = {
         destination: '/contact-us',
         permanent: true,
       },
-      // /about has no close approved equivalent → intentional 404
-      // (no redirect added intentionally)
     ]
   },
 };

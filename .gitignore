@@ -49,6 +49,8 @@ firestore-debug.log
 
 # audit
 tryiptv.com-audit/
+www.tryiptv.com-audit/
+seo-reports/
 .audit/
 # Sentry Config File
 .env.sentry-build-plugin
