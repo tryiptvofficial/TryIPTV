@@ -3,6 +3,7 @@ import { faqs } from "@/lib/site-data/faq";
 import { generateBreadcrumbSchema, generateFAQPageSchema } from '@/lib/schema';
 import type { BreadcrumbList, FAQPage } from 'schema-dts';
 import { siteConfig } from '@/lib/site-config';
+import { contentHash } from './content-hash';
 
 // This function fetches and processes all data required for the FAQ page in a single, cached operation.
 export const getFaqPageData = cache(
@@ -21,7 +22,8 @@ export const getFaqPageData = cache(
       breadcrumbSchema
     };
   },
-  ['faq-page-data-v8'], // Unique cache key
+  // The data cache outlives rebuilds, so the key carries a hash of the FAQ data: edits change it automatically.
+  ['faq-page-data', contentHash(faqs)],
   {
     revalidate: 3600, // Revalidate every hour
     tags: ['pages', 'faq-page'], // Tag for on-demand revalidation
