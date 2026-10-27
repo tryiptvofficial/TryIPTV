@@ -10,6 +10,7 @@ import { Section } from "@/components/shared/Section";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { PageSchema } from "@/components/shared/Schema";
+import { generateFAQPageSchema } from "@/lib/schema";
 import { getIptvFreeTrialPageData } from "@/lib/data/iptv-free-trial-page";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { GuideScreenshot } from "@/components/guide";
@@ -250,13 +251,15 @@ function TrialButtons({ uppercase = false }: { uppercase?: boolean }) {
 export default async function IptvFreeTrialPage() {
   const { breadcrumbSchema, serviceSchema, trialFaqs } = await getIptvFreeTrialPageData();
   const bestValue = T.plans[T.plans.length - 1].duration;
+  const trialFaqSchema = generateFAQPageSchema(trialFaqs);
 
   return (
     <>
       <PageSchema
         path="/iptv-free-trial"
         name="IPTV Free Trial: 24 Hours Free, No Credit Card Needed"
-        nodes={[serviceSchema, breadcrumbSchema]}
+        nodes={[serviceSchema, breadcrumbSchema, trialFaqSchema]}
+        keep={["FAQPage"]}
       />
 
       {/* Hero */}

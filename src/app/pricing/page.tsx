@@ -8,6 +8,7 @@ import { Section } from "@/components/shared/Section";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { PageSchema } from "@/components/shared/Schema";
+import { generateFAQPageSchema } from "@/lib/schema";
 import { generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { getPricingPageData } from "@/lib/data/pricing-page";
 import { plans } from "@/lib/site-data/pricing";
@@ -218,13 +219,17 @@ const td = "px-5 py-3.5";
 
 export default async function IPTVSubscription() {
   const { breadcrumbSchema, pricingPageFaqs } = await getPricingPageData();
+  const pricingFaqSchema = generateFAQPageSchema(
+    pricingPageFaqs.map(({ question, answer }) => ({ question, answer }))
+  );
 
   return (
     <>
       <PageSchema
         path="/pricing"
         name="IPTV Subscription Plans & Pricing 2026 | TryIPTV"
-        nodes={[breadcrumbSchema]}
+        nodes={[breadcrumbSchema, pricingFaqSchema]}
+        keep={["FAQPage"]}
       />
 
       {/* Hero + plans */}
