@@ -75,7 +75,7 @@ Commercial Utility measures verified first-party transactional completeness that
 - Verified connection allowances (e.g. 2 simultaneous connections)
 - Accepted payment methods (Cryptocurrency, PayPal, Stripe)
 - Direct functional checkout endpoints
-- Transparent non-recurring prepaid billing terms
+- Transparent one-time, non-recurring billing terms
 - Documented refund and trial policies
 
 Commercial Utility passes only when all essential decision facts are documented and backed by verified first-party product truths in the evidence log.
@@ -143,12 +143,12 @@ The system implements a dedicated `Routing Integrity` gate (`evaluateRoutingInte
 The system avoids monolithic page-level accuracy booleans that conflate distinct classes of evidence.
 
 ### Why monolithic accuracy fails
-On a transactional pricing page, all commercial facts (plan prices, durations, monthly equivalents, 2 simultaneous connections, Cryptocurrency/PayPal/Stripe, prepaid non-recurring billing, checkout links) may be verified against first-party code and business truth. However, a qualified operational delivery expectation ("credentials typically arrive within 5–15 minutes") may lack empirical fulfillment dispatch telemetry in the repository. A monolithic accuracy gate would mark the entire page `NOT VERIFIED`, falsely implying that verified pricing data is untrustworthy.
+On a transactional pricing page, all commercial facts (plan prices, durations, monthly equivalents, 2 simultaneous connections, Cryptocurrency/PayPal/Stripe, one-time non-recurring billing, checkout links) may be verified against first-party code and business truth. However, a qualified operational delivery expectation ("credentials typically arrive within 5–15 minutes") may lack empirical fulfillment dispatch telemetry in the repository. A monolithic accuracy gate would mark the entire page `NOT VERIFIED`, falsely implying that verified pricing data is untrustworthy.
 
 ### Accuracy sub-gates
 For pages using the structured accuracy model, accuracy is split into distinct sub-gates:
 1. **Commercial Fact Accuracy:**
-   - Evaluates direct commercial terms: prices, plan durations, connection allowances, accepted payment methods, prepaid vs. recurring billing, functional checkout endpoints, trial monetary costs, and refund policy handoffs.
+   - Evaluates direct commercial terms: prices, plan durations, connection allowances, accepted payment methods, one-time vs. recurring billing, functional checkout endpoints, trial monetary costs, and refund policy handoffs.
    - Sourced from first-party business truths (`PRODUCT_TRUTHS`), central data files, and explicit business specifications.
    - Mandatory for commercial pages: must be **PASS** to publish.
 2. **Configuration Fact Accuracy:**

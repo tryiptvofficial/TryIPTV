@@ -12,21 +12,21 @@ Last updated: 2026-10-14
 
 ## Product
 
-TryIPTV is a prepaid, contract-free IPTV streaming service for cord-cutters, sports fans, and international TV viewers using compatible TVs, streaming hardware, phones, and computers. Source: `PRODUCT.md`, `src/lib/site-config.ts`.
+TryIPTV is an IPTV streaming service with fixed-term plans and no automatic renewal, for cord-cutters, sports fans, and international TV viewers using compatible TVs, streaming hardware, phones, and computers. Source: `PRODUCT.md`, `src/lib/site-config.ts`.
 
 Documented product facts:
 
 - 25,000+ live channels worldwide and 120,000+ movies and TV shows; 4K Ultra HD where available. Source: `PRODUCT.md`, `src/lib/site-config.ts`.
 - 2 simultaneous connections included on every subscription plan. Source: `PRODUCT.md`, `src/lib/site-config.ts`.
 - 24-hour free trial, $0, no credit card required. Source: `PRODUCT.md`, `src/lib/site-config.ts`.
-- Prepaid plans: 1 month $16, 3 months $39, 6 months $60, 12 months $90; no automatic renewal. Source: `PRODUCT.md`, `src/lib/site-config.ts`.
+- Plans (one-time payment): 1 month $15.82, 3 months $38.30, 6 months $59.15, 12 months $88.23; no automatic renewal. Source: `PRODUCT.md`, `src/lib/site-config.ts`.
 - Payment methods: cryptocurrency, PayPal, Stripe. Source: `PRODUCT.md`, `src/lib/site-config.ts`.
 - Credential delivery is typically 5–15 minutes by email and WhatsApp. Source: `PRODUCT.md`, `src/lib/site-config.ts`.
 - Supported setup contexts include Fire TV, Android TV, Apple TV, Samsung/LG Smart TVs, MAG, Roku, Windows, macOS, iOS, Android, and IPTV player apps. Source: `PRODUCT.md`, `src/lib/site-routes.ts`, `src/app/devices/`, `src/app/players/`.
 
 ## Conversion
 
-Primary conversion: request the 24-hour free trial. Secondary conversion: purchase a prepaid plan. Source: `src/lib/data/iptv-free-trial-page.ts`, `src/app/pricing/`, `src/lib/site-config.ts`.
+Primary conversion: request the 24-hour free trial. Secondary conversion: buy a plan. Source: `src/lib/data/iptv-free-trial-page.ts`, `src/app/pricing/`, `src/lib/site-config.ts`.
 
 ## Competitors / search landscape
 

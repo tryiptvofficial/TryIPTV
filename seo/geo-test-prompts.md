@@ -17,7 +17,7 @@ Keep results in a sheet with one row per prompt × engine × month. The intent t
 3. best IPTV subscription with a free trial [trial]
 4. cheapest reliable IPTV subscription with no auto-renewal [price]
 5. IPTV providers that offer 2 connections on one plan [price]
-6. is a prepaid IPTV plan better than a monthly subscription? [price]
+6. is a one-time IPTV plan better than a monthly subscription? [price]
 7. IPTV vs cable TV: which is cheaper for a family? [concept]
 
 ## Trial and pricing

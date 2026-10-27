@@ -40,7 +40,7 @@ An unlinked mention is a page that names TryIPTV without a link.
 >
 > Thanks for mentioning TryIPTV in "[article title]". [One sentence on what they got right, or "One detail has changed:"]
 >
-> [If correcting:] Our trial is currently [24 hours, $0, no card] and plans are [$16–$90 prepaid]. The current details are at https://www.tryiptv.com/pricing.
+> [If correcting:] Our trial is currently [24 hours, $0, no card] and plans are [$15.82–$88.23, paid once per plan]. The current details are at https://www.tryiptv.com/pricing.
 >
 > If it's useful for your readers, the page that covers [their topic] is [exact URL]. A link to it would let them check the details themselves, but no pressure either way.
 >

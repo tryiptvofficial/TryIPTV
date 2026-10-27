@@ -12,7 +12,7 @@ Markers stay in this file, not on live pages. A "[NEEDS DATA]" tag on a page wou
 | Claim | Where | Status | What would fix it |
 |---|---|---|---|
 | 25,000+ live channels; 120,000+ movies and TV shows | Home, pricing, footer, guides, schema, llms files | First-party, **[NEEDS DATA]** | No public channel list or count method is published. Publish how the count is made (e.g. "count of live entries in the M3U on <date>") or a category breakdown. Engines and raters can't check it today. |
-| $16 / $39 / $60 / $90; 2 connections; prepaid; no auto-renewal | Pricing, home, FAQ, schema | First-party, consistent | — |
+| $16 / $39 / $60 / $90; 2 connections; no auto-renewal | Pricing, home, FAQ, schema | First-party, consistent | — |
 | 24-hour trial, $0, no card; one per household | Trial page, FAQ, CTA | First-party, consistent | — |
 | Trial connection limit "confirmed when credentials are issued" | Trial page, llms-full.txt | First-party, **[NEEDS DATA]** | State the actual trial limit (1 or 2). Answer engines can't quote "confirmed at issue". |
 | Login details within 5–15 minutes | Home, pricing, trial, FAQ | First-party estimate | Fine as a "typically" claim. A published median from support logs would make it verifiable. |

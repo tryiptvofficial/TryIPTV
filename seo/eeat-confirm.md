@@ -86,7 +86,7 @@ Answer each question in `src/lib/site-data/company.ts` or `src/lib/site-data/aut
 
 ## Brand entity (added on the `brand` branch)
 41. ✅ **Answered 2026-10-21:** press@tryiptv.com; media contact Simo Alaoui, Founder / Operations. Shown on /press and as a `press` ContactPoint in the Organization schema. → `support.pressEmail`, `support.mediaContact`
-42. **Tagline:** do you approve "Prepaid IPTV with a 24-hour free trial"? It is used in the schema `slogan`, llms files and profile bios. → `BRAND.tagline`
+42. ✅ **Decided 2026-10-25:** tagline "IPTV service with a 24-hour free trial". It is used in the schema `slogan`, llms files and profile bios. → `BRAND.tagline`
 43. **Name spelling:** the logo wordmark reads "Try IPTV" while all text uses "TryIPTV". Keep "TryIPTV" as the one written form, or change the logo to match?
 44. **Instagram handle:** it is @tryiptvofficial. Is @tryiptv obtainable, for an exact match with the other profiles?
 45. **YouTube channel:** does one exist? If not, can you record real setup videos on your own devices (one per device guide)?

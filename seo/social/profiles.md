@@ -5,8 +5,8 @@ Researched 2026-10-20. Sources are in `seo/research/brand.md` §4–5.
 **Use the same strings on every profile.** Copy them from `src/lib/site-data/brand.ts`:
 - **Name:** `TryIPTV`
 - **Website:** `https://www.tryiptv.com`
-- **Tagline:** `Prepaid IPTV with a 24-hour free trial`
-- **Short bio (≤160 characters):** `Prepaid IPTV service: live TV and on-demand video on your own devices and player apps. No auto-renewal, 24-hour free trial.`
+- **Tagline:** `IPTV service with a 24-hour free trial`
+- **Short bio (≤160 characters):** `IPTV service: live TV and on-demand video on your own devices and player apps. No auto-renewal, 24-hour free trial.`
 - **Long description:** `BRAND.description` (2 sentences)
 - **Avatar:** `/brand-logo-square.png` (symbol). Cover or banner: `/logo.png` on `#040506`.
 - **Contact:** support@tryiptv.com · WhatsApp +212 694-833293 (wa.me/212694833293)

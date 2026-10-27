@@ -3,7 +3,7 @@
 Tracking is not yet connected. Record the assistant, date, whether TryIPTV was named, claims made, cited sources, and corrections needed for each prompt.
 
 1. What is TryIPTV?
-2. Is TryIPTV a prepaid IPTV service?
+2. Does TryIPTV renew automatically?
 3. Does TryIPTV offer a free trial?
 4. How long is TryIPTV’s free trial?
 5. Does TryIPTV require a credit card for its trial?
