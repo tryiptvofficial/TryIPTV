@@ -85,8 +85,8 @@ export const COMPANY = {
     /** Media contact who can be quoted: a confirmed person in `team` (and in authors.ts for the profile link). */
     mediaContact: "Simo Alaoui" as string | null,
   },
-  /** Confirmed: "User business specification: Cryptocurrency, PayPal, Stripe (2026-10-09)" (content-quality registry). */
-  paymentMethods: "cryptocurrency, PayPal and Stripe" as string | null,
+  /** Owner-confirmed 2026-10-27 (was "cryptocurrency, PayPal and Stripe" on 2026-10-09). Mirrors PRODUCT_TRUTHS.paymentMethods. */
+  paymentMethods: "card, Apple Pay, Google Pay, PayPal and USDT (crypto)" as string | null,
   /** Governing law for the Terms, e.g. "the laws of Ontario, Canada". */
   /** Owner-supplied 2026-10-21 (exact wording, shown in Terms §17). */
   governingLaw:

@@ -16,7 +16,7 @@ export const pricingPageFaqs: { question: string; answer: string; link?: { href:
   },
   {
     question: "How many devices does each plan cover?",
-    answer: `Every paid plan includes ${T.connections} simultaneous connections. You can set up your login on as many compatible devices as you like, but only ${T.connections} can stream at the same time. For more screens at once, buy an additional subscription.`,
+    answer: `Every paid plan includes ${T.connections} simultaneous connections. You can set up your login on as many compatible devices as you like, but only ${T.connections} can stream at the same time. ${T.extraConnections} Ask support on WhatsApp for the price.`,
   },
   {
     question: "How fast do I receive my login?",

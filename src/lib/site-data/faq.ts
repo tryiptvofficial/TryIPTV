@@ -124,7 +124,7 @@ export const faqTopics: FaqTopic[] = [
       },
       {
         question: "Can I upgrade my plan or add more devices later?",
-        answer: `Yes, ask support on WhatsApp. Every plan includes ${T.connections} simultaneous connections; for more screens at the same time you can buy an additional subscription, and multi-connection plans are available on request.`,
+        answer: `Yes. Message support on WhatsApp to change your plan, and pay by ${pay}. Every plan includes ${T.connections} simultaneous connections. ${T.extraConnections} Ask support for the price.`,
       },
       {
         question: "What happens when my IPTV subscription expires?",
@@ -151,7 +151,7 @@ export const faqTopics: FaqTopic[] = [
       },
       {
         question: "Does IPTV have international channels like French, South Asian, Arabic, Filipino and Chinese?",
-        answer: `TryIPTV's line-up includes international channels from many countries. Availability of a specific channel or language can change, so open the channels you need during the ${a("/iptv-free-trial", "24-hour trial")} before buying.`,
+        answer: `Yes. TryIPTV has ${T.languages}, including French, South Asian, Arabic, Filipino and Chinese channels. Specific channels can change, so open the ones you need during the ${a("/iptv-free-trial", "24-hour trial")} before buying.`,
       },
       {
         question: "What is an EPG on IPTV?",

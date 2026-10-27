@@ -47,11 +47,20 @@ export const PRODUCT_TRUTHS = {
     email: "support@tryiptv.com",
     whatsapp: "+212694833293",
   },
+  /** Owner-confirmed 2026-10-27 (replaces the 2026-10-09 list: cryptocurrency, PayPal, Stripe). */
   paymentMethods: [
-    "Cryptocurrency",
+    "Card",
+    "Apple Pay",
+    "Google Pay",
     "PayPal",
-    "Stripe",
+    "USDT (crypto)",
   ] as const,
+  /** Owner-confirmed 2026-10-27: plan changes go through WhatsApp support and can be paid by any accepted method. How a mid-term change is priced was not given; do not state it. */
+  planChange: "Change plan through WhatsApp support; pay by any accepted payment method.",
+  /** Owner-confirmed 2026-10-27: plans with more than 2 connections exist; the price depends on the number of connections. No fixed price was given; do not state one. */
+  extraConnections: "Plans with more connections are available; the price depends on how many connections you need.",
+  /** Owner-confirmed 2026-10-27: channels come from countries worldwide, each in its own language. */
+  languages: "channels from countries around the world, each in its own language",
   plans: [
     { duration: "1 Month", price: 15.82, monthlyEquivalent: 15.82 },
     { duration: "3 Months", price: 38.30, monthlyEquivalent: 12.77 },
