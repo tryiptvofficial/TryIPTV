@@ -313,7 +313,11 @@ export default function SetupPage() {
               Setting up IPTV takes the same five steps on every device. Pick your device and install an IPTV player app. Then
               enter your TryIPTV login, which is either an <strong>Xtream Codes</strong> login (a server address, username and password) or an{" "}
               <strong>M3U link</strong> (a playlist web address). Once the channels and the TV guide load, you can watch on up to{" "}
-              {PRODUCT_TRUTHS.connections} screens at once:
+              {PRODUCT_TRUTHS.connections} screens at once. No login yet? See{" "}
+              <Link href="/how-it-works" className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
+                how to get your TryIPTV login
+              </Link>
+              . The steps:
             </p>
             <ol className="grid grid-cols-1 sm:grid-cols-5 gap-3 text-left">
               {[

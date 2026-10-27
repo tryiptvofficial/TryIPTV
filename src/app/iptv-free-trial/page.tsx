@@ -366,7 +366,11 @@ export default async function IptvFreeTrialPage() {
               <Link href="/setup" className={link}>
                 setup guide
               </Link>{" "}
-              for your device. TryIPTV is run by {COMPANY.legalName} ({COMPANY.location}, operating since{" "}
+              for your device. The full path from trial to paid plan is on{" "}
+              <Link href="/how-it-works" className={link}>
+                how TryIPTV works
+              </Link>
+              . TryIPTV is run by {COMPANY.legalName} ({COMPANY.location}, operating since{" "}
               {COMPANY.foundingYear}), which sells its own subscriptions and issues the logins itself.
             </p>
           </div>

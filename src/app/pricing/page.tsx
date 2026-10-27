@@ -353,7 +353,8 @@ export default async function IPTVSubscription() {
                 __html: `<!--email_off--><a href="mailto:${COMPANY.support.email}?subject=Plan%20order" class="${link}">${COMPANY.support.email}</a><!--/email_off-->`,
               }}
             />{" "}
-            with the plan you want and support replies with payment instructions.
+            with the plan you want and support replies with payment instructions. See{" "}
+            <Link href="/how-it-works" className={link}>how buying and activation work</Link>.
           </p>
           <p className="mx-auto mt-2 max-w-[60ch] text-center text-base sm:text-sm leading-6 text-muted-foreground max-sm:order-1">
             Catalog counts are approximate and can change as content availability changes. You can check the available selection during the{" "}

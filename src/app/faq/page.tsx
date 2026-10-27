@@ -50,7 +50,11 @@ export default async function FaqPage() {
             <Link href="/pricing" className={link}>
               see plans from {FACT_TEXT.fromPrice}
             </Link>
-            .
+            . The{" "}
+            <Link href="/how-it-works" className={link}>
+              full buying path
+            </Link>{" "}
+            shows every step from first message to login.
           </p>
           <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
             <Button asChild size="lg">

@@ -16,7 +16,7 @@ const steps: Step[] = [
     {
         icon: Package,
         title: "Choose a Plan or Start a Trial",
-        description: <>Choose an IPTV plan or start the <Link href="/iptv-free-trial" className="font-semibold text-primary hover:underline">24-hour free trial</Link>.</>
+        description: <>Choose an IPTV plan or start the <Link href="/iptv-free-trial" className="font-semibold text-primary hover:underline">24-hour free trial</Link>. See the <Link href="/how-it-works" className="font-semibold text-primary hover:underline">full buying path</Link>, step by step.</>
     },
     {
         icon: CheckCircle,
