@@ -119,7 +119,16 @@ const quickFacts = [
       </Link>
     </>,
   ],
-  ["Simultaneous connections", `${T.connections}, the same as paid plans`],
+  [
+    "Simultaneous connections",
+    <>
+      {T.connections}, the same as paid plans (
+      <Link href="/guides/iptv-connections" className={link}>
+        what counts as a connection
+      </Link>
+      )
+    </>,
+  ],
   ["After the trial", "Access expires automatically. The trial does not automatically renew or convert into a paid subscription."],
   [
     "Trials per household",

@@ -122,7 +122,10 @@ export default function DevicesPage() {
               Ready to Start Watching on a Compatible Device?
             </h2>
             <p className="mx-auto mt-3 max-w-xl text-base leading-6 text-muted-foreground">
-              Get access to 25,000+ live channels worldwide and 120,000+ movies and TV shows with 2 simultaneous connections on compatible devices and supported player apps.
+              Get access to 25,000+ live channels worldwide and 120,000+ movies and TV shows with 2 simultaneous connections on compatible devices and supported player apps.{" "}
+              <Link href="/guides/iptv-connections" className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
+                How many devices can watch at once?
+              </Link>
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-3">
               <Button asChild size="lg">

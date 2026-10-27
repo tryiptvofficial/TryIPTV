@@ -391,6 +391,10 @@ export default async function IPTVSubscription() {
             <Link href="/setup" className={link}>
               Universal IPTV Setup Guide
             </Link>
+            . Wondering how many devices can watch at once? See{" "}
+            <Link href="/guides/iptv-connections" className={link}>
+              how IPTV connections work
+            </Link>
             .
           </p>
         </Container>

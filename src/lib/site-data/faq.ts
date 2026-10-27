@@ -225,7 +225,7 @@ export const faqTopics: FaqTopic[] = [
       },
       {
         question: "Can I use one IPTV subscription on multiple devices?",
-        answer: `Yes. You can install your login on as many of your own devices as you like, but only ${T.connections} can stream at the same time on one TryIPTV plan. Sharing a subscription with other households is not allowed.`,
+        answer: `Yes. You can install your login on as many of your own devices as you like, but only ${T.connections} can stream at the same time on one TryIPTV plan. Sharing a subscription with other households is not allowed. ${a("/guides/iptv-connections", "See what counts as a connection")}.`,
       },
       {
         question: "What internet speed do I need for IPTV?",
