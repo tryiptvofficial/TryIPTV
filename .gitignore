@@ -70,3 +70,6 @@ credentials/
 # playwright
 /test-results/
 /playwright-report/
+
+# Responsive audit screenshots (local only)
+audit-screenshots/
