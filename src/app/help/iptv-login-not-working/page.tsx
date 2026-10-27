@@ -225,7 +225,11 @@ export default function IptvLoginNotWorkingPage() {
                 IP addresses that generate excessive failed authentications within a short window.
               </p>
 
-              <h2>Step 3: Understand HTTP Response Codes (Standards-Based Meanings)</h2>
+              <h2 id="http-status-codes" className="scroll-mt-4">Step 3: Understand HTTP Response Codes (Standards-Based Meanings)</h2>
+              <p>
+                Seeing a code or message that is not covered here? Look it up in the{" "}
+                <Link href="/help/iptv-error-codes" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">IPTV error codes list</Link>.
+              </p>
               <p>
                 When an IPTV player attempts an API login, the server responds with a standard HTTP status
                 code as defined by Internet standards (RFC 9110). Understanding the formal meaning of these
@@ -339,7 +343,7 @@ export default function IptvLoginNotWorkingPage() {
                 HTTP services function normally. A failed ping test does not prove the streaming server is down.
               </p>
 
-              <h2>Step 5: Verify Account Status and Concurrent Connection Limits</h2>
+              <h2 id="account-status" className="scroll-mt-4">Step 5: Verify Account Status and Concurrent Connection Limits</h2>
               <p>
                 If your entered credentials are confirmed accurate and the server is reachable, consider
                 account-level limitations configured in the provider&apos;s middleware:

@@ -232,7 +232,7 @@ export default function M3uNotLoadingPage() {
                 </li>
               </ul>
 
-              <h2>Step 3: Understand HTTP Error Codes (RFC 9110 Meanings)</h2>
+              <h2 id="http-error-codes" className="scroll-mt-4">Step 3: Understand HTTP Error Codes (RFC 9110 Meanings)</h2>
               <p>
                 If your player reports an HTTP error status when requesting the M3U link, the server is
                 responding with a standardized HTTP status code (RFC 9110):

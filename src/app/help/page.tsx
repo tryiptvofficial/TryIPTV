@@ -90,6 +90,16 @@ const specialistGuides = [
     icon: Calendar,
     badgeColor: "text-emerald-400 border-emerald-400/20 bg-emerald-400/10",
   },
+  {
+    title: "Error Code or Message on Screen",
+    href: "/help/iptv-error-codes",
+    symptom: "Player shows a number such as 401, 403, 503 or 522, a Formuler code, or a MAG portal message.",
+    description:
+      "Look up what the code means, with sources, and jump to the step that fixes it. Only codes with an official or standards source are listed.",
+    badge: "Error Codes",
+    icon: AlertCircle,
+    badgeColor: "text-primary border-primary/20 bg-primary/10",
+  },
 ];
 
 // Speeds match /guides/iptv-internet-speed (about 25 Mbps for HD, 50 Mbps for 4K).
@@ -184,12 +194,14 @@ export default function HelpPage() {
           </div>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            {specialistGuides.map((guide) => {
+            {specialistGuides.map((guide, i) => {
               const Icon = guide.icon;
+              // An odd last card spans both columns instead of sitting alone.
+              const span = i === specialistGuides.length - 1 && specialistGuides.length % 2 === 1 ? "md:col-span-2 " : "";
               return (
                 <Card
                   key={guide.href}
-                  className="group flex flex-col justify-between border-white/[0.08] bg-[#07080a] transition-all duration-200 hover:-translate-y-1 hover:border-primary/40 hover:bg-[#07080a] shadow-sm"
+                  className={`${span}group flex flex-col justify-between border-white/[0.08] bg-[#07080a] transition-all duration-200 hover:-translate-y-1 hover:border-primary/40 hover:bg-[#07080a] shadow-sm`}
                 >
                   <CardHeader className="pb-3">
                     <div className="mb-3 flex items-center justify-between gap-2">

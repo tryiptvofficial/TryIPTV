@@ -601,6 +601,7 @@ const DEVICE_NEXT_STEPS: Record<string, SetupLink[]> = {
     { href: "/guides/what-are-xtream-codes", label: "Xtream Codes vs Stalker Portals" },
     { href: "/guides/what-is-epg", label: "Configure MAG EPG time zones" },
     { href: "/help/iptv-not-working", label: "Diagnose MAG status messages" },
+    { href: "/help/iptv-error-codes", label: "MAG portal messages explained" },
     { href: "/iptv-free-trial", label: "Activate MAG trial with MAC address" },
   ],
   "roku-iptv": [

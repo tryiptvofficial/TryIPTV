@@ -172,10 +172,14 @@ export default function IptvNotWorkingPage() {
             </ArticleSummary>
 
             <ArticleProse>
-              <h2>Master Triage: Match Your Symptom to the Right Fix</h2>
+              <h2 id="triage" className="scroll-mt-4">Master Triage: Match Your Symptom to the Right Fix</h2>
               <p>
                 Review the six primary failure symptoms below. Each card links directly to our dedicated,
                 in-depth technical guide for that specific layer:
+              </p>
+              <p>
+                Seeing an error code instead? Look it up in the{" "}
+                <Link href="/help/iptv-error-codes" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">IPTV error codes list</Link>.
               </p>
             </ArticleProse>
 
@@ -462,7 +466,7 @@ export default function IptvNotWorkingPage() {
                 low packet loss and steady latency rather than just burst bandwidth.
               </p>
 
-              <h2>Local Issue vs. Upstream Service Issue</h2>
+              <h2 id="local-vs-upstream" className="scroll-mt-4">Local Issue vs. Upstream Service Issue</h2>
               <p>
                 To avoid wasting time debugging the wrong system, use this isolation framework to distinguish between
                 local problems and upstream server problems:
@@ -506,7 +510,7 @@ export default function IptvNotWorkingPage() {
             </div>
 
             <ArticleProse>
-              <h2>How to Contact Support with Useful Information</h2>
+              <h2 id="contact-support" className="scroll-mt-4">How to Contact Support with Useful Information</h2>
               <p>
                 If your troubleshooting indicates an upstream provider or account issue, reaching out to customer
                 support is the logical next step. To get your ticket resolved rapidly, provide actionable technical
