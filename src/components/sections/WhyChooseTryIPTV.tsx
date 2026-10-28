@@ -40,12 +40,11 @@ export function WhyChooseTryIPTV() {
           title="How Is TryIPTV Different From Cable TV?"
           className="mb-4 sm:mb-4 lg:mb-4"
         />
-        {/* Comparison first (the price is in the table below); the cable figure is the same labelled estimate as on /pricing, so check:facts skips it. */}
+        {/* Answer-first: TryIPTV's differentiators lead; cable estimate follows. Cable figure is the same labelled estimate as on /pricing, so check:facts skips it. */}
         <div className="mb-10 max-w-2xl space-y-3 text-base leading-relaxed text-muted-foreground sm:mb-12 sm:text-[16.5px] lg:mb-14">
           <p>
-            <span data-facts-ignore>Our estimate for a typical US cable bill is $130–$170 a month once fees are added.</span>{" "}
-            TryIPTV has no set-top box to rent and no automatic renewal.{" "}
-            You watch on devices you already own, with {PRODUCT_TRUTHS.connections} simultaneous connections on every plan.
+            TryIPTV delivers live TV over your internet connection rather than a cable line — no set-top box to rent, no automatic renewal, and {PRODUCT_TRUTHS.connections} simultaneous connections on every plan.{" "}
+            <span data-facts-ignore>Our estimate for a typical US cable bill is $130–$170 a month once fees are added.</span>
           </p>
           <p>
             After you order, you get your login in one of two formats. An{" "}
