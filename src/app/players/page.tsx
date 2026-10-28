@@ -181,7 +181,7 @@ export default function PlayersHubPage() {
 
           <div className="mt-8 max-w-4xl">
             <span className="font-mono text-xs font-semibold uppercase tracking-wider text-primary">
-              IPTV Software Directory &amp; Architecture
+              IPTV Player Apps
             </span>
             <h1 className="mt-3 font-headline text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
               Best IPTV Players for 2026: Technical Guides &amp; Comparison

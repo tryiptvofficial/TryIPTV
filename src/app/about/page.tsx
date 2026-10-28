@@ -135,7 +135,7 @@ export default function AboutPage() {
             <p className="text-xs font-semibold text-primary">Last updated: {formatLegalDate(LAST_UPDATED)}</p>
 
             <section className="space-y-3">
-              <h2 className={h2}>Who we are</h2>
+              <h2 className={h2}>What is TryIPTV?</h2>
               <Confirm value={COMPANY.story} question="Company story: how and why TryIPTV started, in 2–4 sentences.">
                 <p>{COMPANY.story}</p>
               </Confirm>
@@ -221,7 +221,7 @@ export default function AboutPage() {
             </section>
 
             <section className="space-y-3">
-              <h2 className={h2}>What you get</h2>
+              <h2 className={h2}>What does a TryIPTV subscription include?</h2>
               <p>Every paid plan includes the same service:</p>
               <ul className="list-disc space-y-1 pl-6">
                 <li>Live TV channels and an on-demand (VOD) library of movies and series</li>
@@ -232,7 +232,7 @@ export default function AboutPage() {
             </section>
 
             <section className="space-y-3">
-              <h2 className={h2}>How it works</h2>
+              <h2 className={h2}>How does TryIPTV work?</h2>
               <ol className="list-decimal space-y-2 pl-6">
                 <li><strong className="text-foreground">Choose a plan or start the free trial.</strong> Pick an IPTV plan on our <Link href="/pricing" className={link}>pricing page</Link> or request the <Link href="/iptv-free-trial" className={link}>24-hour free trial</Link>.</li>
                 <li><strong className="text-foreground">Receive your credentials.</strong> For paid plans, login details typically arrive within {PRODUCT_TRUTHS.activationTime} after payment is confirmed, {PRODUCT_TRUTHS.activationHours}.</li>
@@ -269,7 +269,7 @@ export default function AboutPage() {
             </section>
 
             <section className="space-y-3">
-              <h2 className={h2}>Free trial</h2>
+              <h2 className={h2}>Does TryIPTV offer a free trial?</h2>
               <p>The free trial gives you 24 hours of access for $0, with no credit card required. It lets you check channels, picture quality, the TV guide and player compatibility on your own device and internet connection before paying.</p>
               <p>The trial ends automatically after 24 hours and does not turn into a paid plan. Details and the request button are on the <Link href="/iptv-free-trial" className={link}>free trial page</Link>.</p>
             </section>
