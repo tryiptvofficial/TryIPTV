@@ -6,6 +6,7 @@ export const socialLinks = {
   // Owner-confirmed 2026-10-27: YouTube channel.
   youtube: "https://www.youtube.com/@TryIPTV",
   whatsapp: "https://wa.me/212694833293",
+  trustpilot: "https://www.trustpilot.com/review/tryiptv.com",
 } as const;
 
 export const publicBrandSocialLinks = [
@@ -13,4 +14,5 @@ export const publicBrandSocialLinks = [
   socialLinks.instagram,
   socialLinks.facebook,
   socialLinks.youtube,
+  socialLinks.trustpilot,
 ] as const;

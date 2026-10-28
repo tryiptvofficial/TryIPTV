@@ -158,6 +158,8 @@ export default function AboutPage() {
                 &ldquo;Try IPTV&rdquo; and &ldquo;TryIPTV&rdquo; may be used when referring to the same TryIPTV brand.
                 The official website is{" "}
                 <Link href="https://www.tryiptv.com" className={link}>https://www.tryiptv.com</Link>.
+                Customers can also view independent feedback about TryIPTV on our{" "}
+                <a href="https://www.trustpilot.com/review/tryiptv.com" target="_blank" rel="noopener noreferrer" className={link}>Trustpilot profile</a>.
               </p>
             </section>
 

@@ -7,6 +7,7 @@ import { BRAND } from "@/lib/site-data/brand";
 import { COMPANY } from "@/lib/site-data/company";
 import { footerLinks } from "@/lib/site-data/footer";
 import { socialLinks } from "@/lib/site-data/socials";
+import { ExternalLink } from "lucide-react";
 
 type SocialIconName = "x" | "instagram" | "facebook" | "whatsapp";
 
@@ -218,6 +219,16 @@ export function Footer() {
                 </li>
               ))}
             </ul>
+            <a
+              href={socialLinks.trustpilot}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-flex min-h-11 items-center gap-1.5 text-[15px] text-muted-foreground sm:text-[13.5px] transition-colors duration-150 hover:text-foreground pointer-fine:min-h-0 pointer-fine:py-1"
+            >
+              <span>Customer Reviews on Trustpilot</span>
+              <ExternalLink className="h-3 w-3 shrink-0" aria-hidden="true" />
+              <span className="sr-only">(opens in a new tab)</span>
+            </a>
           </div>
         </div>
 
