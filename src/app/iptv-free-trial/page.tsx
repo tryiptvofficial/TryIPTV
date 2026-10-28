@@ -296,9 +296,10 @@ export default async function IptvFreeTrialPage() {
               IPTV Free Trial: 24 Hours Free, No Credit Card Needed
             </h1>
             <p className="mx-auto mt-5 max-w-[60ch] text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
-              TryIPTV offers a {FACT_TEXT.trialHours}-hour IPTV free trial for $0, with no credit card and no auto-renewal. Tap Start
-              My Free Trial to message support on WhatsApp, and your Xtream Codes or M3U login usually arrives within{" "}
-              {T.activationTime}. One trial per household; when the {FACT_TEXT.trialHours} hours end, access simply stops.
+              TryIPTV offers a {FACT_TEXT.trialHours}-hour IPTV free trial for $0, with no credit card, no auto-renewal, and{" "}
+              {T.connections} simultaneous connections. Tap Start My Free Trial to message support on WhatsApp, and your
+              Xtream Codes or M3U login typically arrives within {T.activationTime} during support hours. One trial per household; when the{" "}
+              {FACT_TEXT.trialHours} hours end, access simply stops.
             </p>
             <div className="mt-7">
               <TrialButtons />

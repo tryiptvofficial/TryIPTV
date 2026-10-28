@@ -9,6 +9,7 @@ import { PageSchema } from "@/components/shared/Schema";
 import { Section } from "@/components/shared/Section";
 import { Button } from "@/components/ui/button";
 import { FaqList } from "@/components/sections/FAQ";
+import { ArticleSummary } from "@/components/guide";
 import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { PRODUCT_TRUTHS, SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { getLastModified } from "@/lib/site-routes";
@@ -220,6 +221,14 @@ export default function WhatIsIptvPage() {
       <Section>
         <Container>
           <article className="mx-auto max-w-4xl">
+            <ArticleSummary title="The Direct Answer">
+              <p>
+                IPTV (Internet Protocol Television) is TV delivered as data packets over the internet rather than
+                through a cable line, satellite dish, or antenna. A provider&apos;s service supplies the channel list
+                and video streams; a compatible IPTV player app on your device receives and plays them.
+              </p>
+            </ArticleSummary>
+
             <div className="prose prose-lg max-w-none dark:prose-invert">
               <p className="lead text-xl leading-8 text-foreground">
                 IPTV (Internet Protocol Television) delivers multimedia content over the internet, giving

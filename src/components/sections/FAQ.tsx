@@ -66,43 +66,13 @@ const homepageFaqs: FaqItem[] = [
       '<strong class="font-semibold text-foreground">Yes.</strong> TryIPTV offers a 24-hour free trial at $0. <a href="/iptv-free-trial" class="text-primary hover:underline">Request trial access</a>.',
   },
   {
-    question: "Which devices can I use?",
-    answer:
-      'TryIPTV works on Fire TV Stick, Android TV, Samsung and LG smart TVs, Apple TV, Chromecast with Google TV, MAG boxes, iPhone and iPad, Windows and Mac. Roku works through AirPlay or screen mirroring. Each device needs a compatible IPTV player app — <a href="/players" class="text-primary hover:underline">compare compatible IPTV players</a> or <a href="/devices" class="text-primary hover:underline">browse all device guides</a>.',
-  },
-  {
     question: "How many simultaneous connections are included?",
     answer:
       `Every TryIPTV plan, and the free trial, includes ${PRODUCT_TRUTHS.connections} simultaneous connections. That means two devices, such as two TVs in different rooms, can stream at the same time.`,
   },
   {
-    question: "Do TryIPTV subscriptions renew automatically?",
-    answer:
-      `<strong class="font-semibold text-foreground">No, there is nothing to cancel.</strong> ${PRODUCT_TRUTHS.expiry.summary} Plans are paid once for the selected duration (1, 3, 6 or 12 months) and do not automatically renew. Nothing is charged again unless you buy another plan. <a href="/pricing" class="text-primary hover:underline">Compare plans</a> on the pricing page.`,
-  },  {
-    question: "Can I get a refund?",
-    answer:
-      '<strong class="font-semibold text-foreground">TryIPTV refunds a purchase only if</strong> it cannot provide a working subscription. Once your account is activated and the login details are delivered, the sale is final. <a href="/refund-policy" class="text-primary hover:underline">Read the refund policy</a>.',
-  },
-  {
     question: "Is TryIPTV legit?",
     answer: `TryIPTV support answers on WhatsApp and by email${COMPANY.support.hours ? `, ${COMPANY.support.hours}` : ""}.<br /><br />If TryIPTV cannot provide a working subscription, the <a href="/refund-policy" class="text-primary hover:underline">refund policy</a> applies. To contact us or see the company details, visit the <a href="/about" class="text-primary hover:underline">about page</a>.`,
-  },
-  {
-    question: "How do I pay?",
-    answer: `${
-      COMPANY.paymentMethods
-        ? `Each plan is a one-time payment by ${COMPANY.paymentMethods}. Support sends the payment instructions on WhatsApp or by email when you order.`
-        : "Each plan is a one-time payment. Support sends the payment instructions when you order."
-    } <a href="/pricing" class="text-primary hover:underline">See plans and prices</a>, or read the <a href="/privacy-policy" class="text-primary hover:underline">Privacy Policy</a>.`,
-  },
-  {
-    question: "How quickly do I get my login?",
-    answer: `Login details are usually provided within ${PRODUCT_TRUTHS.activationTime} after confirmation, during support hours.${COMPANY.support.hours ? ` Support is open ${COMPANY.support.hours}${COMPANY.support.hoursUk ? ` (${COMPANY.support.hoursUk})` : ""}.` : ""}<br /><br />${PRODUCT_TRUTHS.activationHours.split("; ")[1].replace(/^r/, "R")}. Read the <a href="/setup" class="text-primary hover:underline">universal IPTV setup guide</a>, or use the <a href="/help/epg-not-working" class="text-primary hover:underline">TV guide (EPG) not working fix</a> if the guide stays empty.`,
-  },
-  {
-    question: "How much does TryIPTV cost?",
-    answer: `TryIPTV costs $${PRODUCT_TRUTHS.plans[0].price.toFixed(2)} for one month, or about $${PRODUCT_TRUTHS.plans[3].monthlyEquivalent.toFixed(2)} a month on the 12-month plan ($${PRODUCT_TRUTHS.plans[3].price.toFixed(2)} paid once). Every plan includes ${PRODUCT_TRUTHS.connections} simultaneous connections and does not renew automatically. <a href="/pricing" class="text-primary hover:underline">Compare all plan prices</a>.`,
   },
   {
     question: "Which plan should I choose?",
