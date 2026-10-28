@@ -65,19 +65,19 @@ interface ComparisonRow {
 const comparisonRows: ComparisonRow[] = [
   {
     feature: "Delivery Method",
-    iptv: "Digital IP packet streaming over broadband networks, commonly using unicast or HLS/MPEG-TS delivery depending on service architecture.",
-    cable: "Commonly distributed over hybrid fiber-coaxial (HFC) or RF networks, with many modern operators incorporating switched digital video (SDV) or IP delivery.",
+    iptv: "Streams as IP data packets over your home broadband connection to a player app on your device.",
+    cable: "Delivered over the cable operator's own coaxial or fiber network, independent of your home broadband.",
     impact: "IPTV relies on broadband IP network infrastructure; traditional cable relies primarily on dedicated physical distribution networks.",
   },
   {
     feature: "Internet Dependency",
     iptv: "Strictly requires a dependable broadband connection with sufficient bandwidth.",
-    cable: "Traditional cable television can operate independently of a household internet connection, although modern cable services may also use IP-based boxes, gateways, streaming apps, or integrated broadband infrastructure.",
+    cable: "Traditional cable works without home internet; modern IP-based cable boxes may require it.",
     impact: "IPTV stops if home broadband fails; traditional RF cable generally continues working, though modern IP-reliant cable boxes may be affected.",
   },
   {
     feature: "Hardware Requirements",
-    iptv: "Many independent IPTV services can use consumer-owned streaming devices (Firestick, Apple TV, Smart TVs) or compatible apps, while some managed IPTV services use dedicated set-top boxes.",
+    iptv: "Works on devices you own: Fire TV sticks, Apple TV, Smart TVs, phones, and computers.",
     cable: "Equipment requirements vary by operator; some services use provider boxes or gateways, while others also support apps on compatible devices.",
     impact: "Many IPTV services avoid monthly box lease fees; cable hardware needs and fees depend on the specific provider.",
   },
@@ -95,7 +95,7 @@ const comparisonRows: ComparisonRow[] = [
   },
   {
     feature: "Mobility & Travel",
-    iptv: "Internet-based services may offer greater device portability, but access while traveling can depend on provider policies, licensing restrictions, account rules, network availability, and geography.",
+    iptv: "More portable in principle; travel access depends on provider policies and licensing restrictions.",
     cable: "Traditionally tied to the primary residential installation address, though many operators now offer companion streaming apps with varying out-of-home allowances.",
     impact: "IPTV often provides broader portability, while cable out-of-home access varies significantly by operator and channel licensing.",
   },
@@ -114,7 +114,7 @@ const comparisonRows: ComparisonRow[] = [
   {
     feature: "Fee Structure",
     iptv: "Generally flat subscription fees; subscribers supply their own hardware and broadband connection.",
-    cable: "Base package pricing where equipment rental or gateway fees, broadcast surcharges, regional sports fees, and franchise fees may apply depending on provider and region.",
+    cable: "Base package rate plus potential equipment rental, broadcast surcharges, and regional fees.",
     impact: "Total cable costs can exceed advertised base rates due to add-on fees; IPTV requires factoring in existing broadband costs.",
   },
   {
