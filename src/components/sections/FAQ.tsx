@@ -68,11 +68,7 @@ const homepageFaqs: FaqItem[] = [
   {
     question: "Which devices can I use?",
     answer:
-      'TryIPTV works on most smart TVs, streaming devices, phones and computers. Supported devices include <a href="/devices/firestick-iptv" class="text-primary hover:underline">Fire TV Stick</a>, <a href="/devices/android-tv-iptv" class="text-primary hover:underline">Android TV</a>, <a href="/devices/samsung-tv-iptv" class="text-primary hover:underline">Samsung</a> and <a href="/devices/lg-tv-iptv" class="text-primary hover:underline">LG</a> smart TVs, <a href="/devices/apple-tv-iptv" class="text-primary hover:underline">Apple TV</a>, <a href="/devices/chromecast-iptv" class="text-primary hover:underline">Chromecast with Google TV</a> and <a href="/devices/mag-box-iptv" class="text-primary hover:underline">MAG boxes</a> (IPTV set-top boxes). Each one needs a compatible IPTV player app.<br /><br />TryIPTV also works on <a href="/devices/windows-iptv" class="text-primary hover:underline">Windows</a>, <a href="/devices/mac-iptv" class="text-primary hover:underline">Mac</a>, <a href="/devices/iphone-iptv" class="text-primary hover:underline">iPhone and iPad</a>. <a href="/devices/roku-iptv" class="text-primary hover:underline">Roku</a> works through AirPlay (Apple\'s screen-casting feature) or screen mirroring. Each device name links to its setup guide, or <a href="/devices" class="text-primary hover:underline">browse all device guides</a>.',
-  },
-  {
-    question: "Is TryIPTV easy for beginners?",
-    answer: `<strong class="font-semibold text-foreground">Yes.</strong> Setup takes three steps: install a compatible IPTV player app, enter the login support sends you, and wait for the channel list to load. No technical skills are needed.<br /><br />If you get stuck, <a href="/contact-us" class="text-primary hover:underline">message support</a> on WhatsApp or by email. Read the <a href="/setup" class="text-primary hover:underline">universal IPTV setup guide</a>.`,
+      'TryIPTV works on Fire TV Stick, Android TV, Samsung and LG smart TVs, Apple TV, Chromecast with Google TV, MAG boxes, iPhone and iPad, Windows and Mac. Roku works through AirPlay or screen mirroring. Each device needs a compatible IPTV player app — <a href="/players" class="text-primary hover:underline">compare compatible IPTV players</a> or <a href="/devices" class="text-primary hover:underline">browse all device guides</a>.',
   },
   {
     question: "How many simultaneous connections are included?",
@@ -84,11 +80,6 @@ const homepageFaqs: FaqItem[] = [
     answer:
       `<strong class="font-semibold text-foreground">No, there is nothing to cancel.</strong> ${PRODUCT_TRUTHS.expiry.summary} Plans are paid once for the selected duration (1, 3, 6 or 12 months) and do not automatically renew. Nothing is charged again unless you buy another plan. <a href="/pricing" class="text-primary hover:underline">Compare plans</a> on the pricing page.`,
   },  {
-    question: "Is IPTV legal?",
-    answer:
-      '<strong class="font-semibold text-foreground">Yes,</strong> IPTV as a technology is legal.<br /><br />Whether a particular service is legal depends on whether it holds the rights to what it streams and on the law where you live. The EU justice agency Eurojust says IPTV services are not illegal in themselves when the provider has the correct content licences. Source: <a href="https://www.eurojust.europa.eu/sites/default/files/assets/eurojust-iptv-flyer.pdf" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Eurojust IPTV factsheet (EU, PDF), checked October 2026</a>. This is general information, not legal advice. <a href="/disclaimer" class="text-primary hover:underline">Read the TryIPTV disclaimer</a>.',
-  },
-  {
     question: "Can I get a refund?",
     answer:
       '<strong class="font-semibold text-foreground">TryIPTV refunds a purchase only if</strong> it cannot provide a working subscription. Once your account is activated and the login details are delivered, the sale is final. <a href="/refund-policy" class="text-primary hover:underline">Read the refund policy</a>.',
@@ -115,18 +106,12 @@ const homepageFaqs: FaqItem[] = [
   },
   {
     question: "Which plan should I choose?",
-    // Short lead names the plan for each common situation; the second paragraph holds the rest.
-    answer: `The ${PRODUCT_TRUTHS.plans[3].duration} plan ($${PRODUCT_TRUTHS.plans[3].price.toFixed(2)}, about $${PRODUCT_TRUTHS.plans[3].monthlyEquivalent.toFixed(2)} a month) costs the least per month for year-round viewing. The ${PRODUCT_TRUTHS.plans[0].duration} plan ($${PRODUCT_TRUTHS.plans[0].price.toFixed(2)}) suits short-term use, such as one season or one event.<br /><br />The ${PRODUCT_TRUTHS.plans[1].duration} ($${PRODUCT_TRUTHS.plans[1].price.toFixed(2)}) and ${PRODUCT_TRUTHS.plans[2].duration} ($${PRODUCT_TRUTHS.plans[2].price.toFixed(2)}) plans sit in between. Every plan includes ${PRODUCT_TRUTHS.connections} simultaneous connections, so two TVs in different rooms work on any plan, and every plan is a one-time payment. Not sure yet? Start with the free 24-hour trial. <a href="/pricing" class="text-primary hover:underline">Compare all plans</a>.`,
+    answer: `For year-round viewing the ${PRODUCT_TRUTHS.plans[3].duration} plan costs the least per month (about $${PRODUCT_TRUTHS.plans[3].monthlyEquivalent.toFixed(2)}). For short-term use, the ${PRODUCT_TRUTHS.plans[0].duration} plan ($${PRODUCT_TRUTHS.plans[0].price.toFixed(2)}) suits one season or one event. Every plan includes ${PRODUCT_TRUTHS.connections} simultaneous connections and is a one-time payment. Not sure? Start with the free 24-hour trial. <a href="/pricing" class="text-primary hover:underline">Compare all plans and prices</a>.`,
   },
   {
     question: "Can I watch live sports and PPV events?",
     answer:
       '<strong class="font-semibold text-foreground">Yes.</strong> Every TryIPTV plan includes live sports channels and Pay-Per-View (PPV) events. Event availability can change, so check the channels you care about before a big match. <a href="/pricing" class="text-primary hover:underline">See what every plan includes</a>.',
-  },
-  {
-    question: "Is IPTV cheaper than cable?",
-    // Cable figures are the TryIPTV estimates shown on /pricing; check:facts skips them.
-    answer: `<strong class="font-semibold text-foreground">Usually, yes.</strong> TryIPTV costs $${PRODUCT_TRUTHS.plans[0].price.toFixed(2)} for one month, or about $${PRODUCT_TRUTHS.plans[3].monthlyEquivalent.toFixed(2)} a month on the 12-month plan, with no box to rent. <span data-facts-ignore>Cable providers typically advertise about $100–$120 a month before fees, and a typical US bill is $130–$170 with fees (our estimates).</span><br /><br />Channel line-ups differ, so test yours during the free trial. <a href="/pricing" class="text-primary hover:underline">See the full cost comparison</a>.`,
   },
 ];
 
@@ -191,7 +176,8 @@ export function FAQ() {
                 className="mb-4 sm:mb-4 lg:mb-4"
               />
               <p className="mb-6 max-w-[60ch] text-base leading-relaxed text-muted-foreground sm:mb-8 sm:text-[16.5px]">
-                This FAQ covers legality, refunds, payment, delivery, devices and setup. See{" "}
+                This FAQ covers refunds, payment, delivery, devices and setup. For IPTV legality, see the{" "}
+                <Link href="/disclaimer" className="font-semibold text-primary hover:underline">TryIPTV disclaimer</Link>. See{" "}
                 <Link href="/faq" className="font-semibold text-primary hover:underline">all IPTV FAQs</Link>{" "}
                 or{" "}
                 <Link href="/help" className="font-semibold text-primary hover:underline">troubleshooting guides</Link>{" "}
