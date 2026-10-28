@@ -282,6 +282,14 @@ const nextConfig = {
         destination: '/contact-us',
         permanent: true,
       },
+
+      // /index is served as a 200 alias of / by Next.js; redirect it to
+      // the canonical root so crawlers see one URL.
+      {
+        source: '/index',
+        destination: '/',
+        permanent: true,
+      },
     ]
   },
 };
