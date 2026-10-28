@@ -8,8 +8,7 @@ import { Section } from "@/components/shared/Section";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { PageSchema } from "@/components/shared/Schema";
-import { generateFAQPageSchema } from "@/lib/schema";
-import { generateMetadata as generatePageMetadata, SITE_URL } from "@/lib/site-config";
+import { generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { getPricingPageData } from "@/lib/data/pricing-page";
 import { plans } from "@/lib/site-data/pricing";
 import { PRODUCT_TRUTHS, FACT_TEXT } from "@/lib/site-config";
@@ -219,41 +218,12 @@ const td = "px-5 py-3.5";
 
 export default async function IPTVSubscription() {
   const { breadcrumbSchema, pricingPageFaqs } = await getPricingPageData();
-  const pricingFaqSchema = generateFAQPageSchema(
-    pricingPageFaqs.map(({ question, answer }) => ({ question, answer }))
-  );
-  const pricingItemListSchema = {
-    '@type': 'ItemList' as const,
-    'name': 'TryIPTV IPTV Subscription Plans',
-    'numberOfItems': plans.length,
-    'itemListElement': plans.map((plan, index) => ({
-      '@type': 'ListItem' as const,
-      'position': index + 1,
-      'item': {
-        '@type': 'Product' as const,
-        'name': `TryIPTV ${plan.name} IPTV Subscription`,
-        'description': `TryIPTV ${plan.name} IPTV subscription: ${T.channels} live channels, ${T.vod} movies and shows, ${T.connections} simultaneous connections, no auto-renewal.`,
-        'image': `${SITE_URL}/images/best-iptv-service-og.jpg`,
-        'brand': { '@type': 'Brand' as const, 'name': 'TryIPTV' },
-        'offers': {
-          '@type': 'Offer' as const,
-          'price': plan.price.toFixed(2),
-          'priceCurrency': 'USD',
-          'availability': 'https://schema.org/InStock',
-          'url': `${SITE_URL}/pricing`,
-          'seller': { '@id': `${SITE_URL}/#organization` },
-        },
-      },
-    })),
-  };
-
   return (
     <>
       <PageSchema
         path="/pricing"
         name="IPTV Subscription Plans & Pricing 2026 | TryIPTV"
-        nodes={[breadcrumbSchema, pricingFaqSchema, pricingItemListSchema as any]}
-        keep={["FAQPage"]}
+        nodes={[breadcrumbSchema]}
       />
 
       {/* Hero + plans */}

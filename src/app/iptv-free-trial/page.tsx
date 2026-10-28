@@ -10,7 +10,6 @@ import { Section } from "@/components/shared/Section";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { PageSchema } from "@/components/shared/Schema";
-import { generateFAQPageSchema, generateHowToSchema } from "@/lib/schema";
 import { getIptvFreeTrialPageData } from "@/lib/data/iptv-free-trial-page";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { GuideScreenshot } from "@/components/guide";
@@ -279,25 +278,12 @@ function TrialButtons({ uppercase = false }: { uppercase?: boolean }) {
 export default async function IptvFreeTrialPage() {
   const { breadcrumbSchema, serviceSchema, trialFaqs } = await getIptvFreeTrialPageData();
   const bestValue = T.plans[T.plans.length - 1].duration;
-  const trialFaqSchema = generateFAQPageSchema(trialFaqs);
-  const howToSchema = generateHowToSchema({
-    name: 'How to Get Your IPTV Free Trial',
-    description: `Request a free 24-hour IPTV trial from TryIPTV on WhatsApp: $0, no credit card. Your login arrives within ${T.activationTime}.`,
-    steps: steps.map((s) => ({
-      name: s.title,
-      text: s.desc,
-      url: `${SITE_URL}/iptv-free-trial`,
-    })),
-    totalTime: 'PT15M',
-  });
-
   return (
     <>
       <PageSchema
         path="/iptv-free-trial"
         name="IPTV Free Trial: 24 Hours Free, No Credit Card Needed"
-        nodes={[serviceSchema, breadcrumbSchema, trialFaqSchema, howToSchema]}
-        keep={["FAQPage", "HowTo"]}
+        nodes={[serviceSchema, breadcrumbSchema]}
       />
 
       {/* Hero */}

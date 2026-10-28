@@ -123,7 +123,7 @@ const schema = {
 export default function AboutPage() {
   return (
     <>
-      <PageSchema path="/about" nodes={[schema]} keep={["FAQPage"]} />
+      <PageSchema path="/about" nodes={[schema]} />
       <EmailOff>
 
       <Section className="relative overflow-hidden border-b border-white/[0.07] pt-12 pb-14 sm:pt-16 sm:pb-20">
@@ -163,11 +163,11 @@ export default function AboutPage() {
             <section className="space-y-3">
               <h2 className={h2}>Official brand</h2>
               <p>
-                TryIPTV, also searched as Try IPTV or TryIPTV.com, is the official TryIPTV brand available at{" "}
-                <Link href="https://www.tryiptv.com" className={link}>www.tryiptv.com</Link>.
-              </p>
-              <p>
-                TryIPTV is not affiliated with similarly named third-party domains such as try-iptv.com, tryiptv.tv, or tryiptv.net.
+                TryIPTV is the official brand name of the IPTV subscription service available at TryIPTV.com and operated by{" "}
+                {COMPANY.legalName ?? "Simo Alaoui LLC"}.{" "}
+                &ldquo;Try IPTV&rdquo; and &ldquo;TryIPTV&rdquo; may be used when referring to the same TryIPTV brand.
+                The official website is{" "}
+                <Link href="https://www.tryiptv.com" className={link}>https://www.tryiptv.com</Link>.
               </p>
             </section>
 
