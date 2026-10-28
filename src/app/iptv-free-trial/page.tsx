@@ -204,6 +204,34 @@ const trustStats = [
   [String(T.connections), "Connections on every paid plan"],
 ] as const;
 
+const fakeTrialRedFlags = [
+  {
+    flag: "A credit card is required for a 'free' trial",
+    why: "A genuinely free trial does not need a card. Providers that collect one can charge it when the trial ends, whether or not they tell you upfront.",
+    tryiptv: "TryIPTV collects no card, PayPal, or billing detail at any point during the trial.",
+  },
+  {
+    flag: "No way to contact support before you pay",
+    why: "If a provider offers no direct contact channel before purchase, there is no one to reach when the login does not work.",
+    tryiptv: "TryIPTV issues the trial and all support through the same WhatsApp number, before and after any payment.",
+  },
+  {
+    flag: "The trial converts automatically into a paid subscription",
+    why: "Some providers activate a recurring charge when the trial period ends unless you cancel in advance.",
+    tryiptv: "When your 24 hours end, access stops. TryIPTV does not auto-renew the trial or convert it into a plan.",
+  },
+  {
+    flag: "Login details take more than a few hours to arrive",
+    why: "Long delays usually mean a provider is overselling capacity or operating with minimal support. A slow trial is a preview of slow paid support.",
+    tryiptv: `TryIPTV sends login details within ${T.activationTime} during support hours (${COMPANY.support.hours}).`,
+  },
+  {
+    flag: "The trial gives fewer connections than a paid plan",
+    why: "A one-connection trial does not tell you how the service performs on two screens at once, which is what most households actually need.",
+    tryiptv: `The TryIPTV trial includes ${T.connections} simultaneous connections — the same as every paid plan.`,
+  },
+] as const;
+
 const deviceGuides = [
   { name: "Amazon Firestick & Fire TV", href: "/devices/firestick-iptv", note: "Setup guide for Amazon Fire TV Stick and Fire TV devices." },
   { name: "Android TV & Google TV", href: "/devices/android-tv-iptv", note: "Setup guide for Android TV and Google TV streaming devices and smart TVs." },
@@ -630,6 +658,34 @@ export default async function IptvFreeTrialPage() {
                 </li>
               ))}
             </ul>
+          </div>
+        </Container>
+      </Section>
+
+      {/* How to Spot a Fake IPTV Trial */}
+      <Section className="border-b border-white/[0.06] py-10 sm:py-14">
+        <Container>
+          <div className="mx-auto max-w-4xl">
+            <SectionHeader
+              eyebrow="Buyer's Guide"
+              title="How to Spot a Fake IPTV Trial: 5 Red Flags"
+              subtitle="Not every provider offering a 'free IPTV trial' delivers one. These are the five signs that a trial offer is worth skipping — and how TryIPTV handles each point."
+            />
+
+            <div className="space-y-4">
+              {fakeTrialRedFlags.map(({ flag, why, tryiptv }) => (
+                <div key={flag} className="rounded-lg border border-white/[0.09] bg-card p-5">
+                  <h3 className="font-headline text-base font-extrabold text-foreground">
+                    <span className="mr-2 text-destructive">✗</span>{flag}
+                  </h3>
+                  <p className="mt-2 text-base sm:text-sm leading-6 text-muted-foreground">{why}</p>
+                  <p className="mt-2 flex items-start gap-2 text-base sm:text-sm leading-6 text-muted-foreground">
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden />
+                    <span><strong className="text-foreground">TryIPTV:</strong> {tryiptv}</span>
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </Container>
       </Section>

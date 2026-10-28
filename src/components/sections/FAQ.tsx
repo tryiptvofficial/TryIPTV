@@ -61,26 +61,6 @@ const homepageFaqs: FaqItem[] = [
       `${(COMPANY.summary ?? "TryIPTV is an IPTV subscription service.").replace(/^TryIPTV is /, "TryIPTV (also written Try IPTV, at TryIPTV.com) is ")}<br /><br />TryIPTV is not a player app itself. Read more <a href="/about" class="text-primary hover:underline">about TryIPTV and its operator</a>.`,
   },
   {
-    question: "What is IPTV?",
-    answer:
-      'IPTV (Internet Protocol Television) delivers live TV channels and on-demand video over your internet connection instead of a cable or satellite signal.<br /><br />You enter a provider\'s login in an IPTV player app on a device you own, and the app streams the channels. <a href="/guides/how-does-iptv-work" class="text-primary hover:underline">See how IPTV works step by step</a>, or <a href="/guides/what-is-iptv" class="text-primary hover:underline">read the full IPTV guide</a>.',
-  },
-  {
-    question: "What do I need to watch IPTV?",
-    answer:
-      'You need three things:<ol class="my-2 list-decimal space-y-1 pl-5"><li>A compatible device, such as a Fire TV Stick or a smart TV.</li><li>A stable internet connection of about 25 Mbps (megabits per second) for HD.</li><li>An IPTV player app, such as TiviMate or IPTV Smarters.</li></ol>TryIPTV is not a player app itself; support sends your login after you order. <a href="/guides/how-does-iptv-work" class="text-primary hover:underline">See how IPTV works step by step</a>.',
-  },
-  {
-    question: "Which IPTV player app should I use?",
-    answer:
-      'Use any compatible IPTV player that accepts an Xtream Codes login or an M3U link; TryIPTV does not require one specific app. TiviMate and IPTV Smarters are two common choices, so pick one that is available for your device.<br /><br />Other apps that work with the same login: <a href="/players/perfect-player" class="text-primary hover:underline">Perfect Player</a>, <a href="/players/xciptv" class="text-primary hover:underline">XCIPTV</a>, <a href="/players/iptv-extreme" class="text-primary hover:underline">IPTV Extreme</a>, <a href="/players/ott-navigator" class="text-primary hover:underline">OTT Navigator</a> and <a href="/players/televizo" class="text-primary hover:underline">Televizo</a>. <a href="/players" class="text-primary hover:underline">Compare compatible IPTV players</a>.',
-  },
-  {
-    question: "What is the difference between Xtream Codes and M3U?",
-    answer:
-      'Both are ways to enter your TryIPTV login in a player app. An Xtream Codes login is a server address, username and password; an M3U link is one playlist address.<br /><br />Support sends either one, so use the format your app supports. <a href="/guides/m3u-vs-xtream-codes" class="text-primary hover:underline">Compare M3U and Xtream Codes in detail</a>.',
-  },
-  {
     question: "Does TryIPTV offer a free trial?",
     answer:
       '<strong class="font-semibold text-foreground">Yes.</strong> TryIPTV offers a 24-hour free trial at $0. <a href="/iptv-free-trial" class="text-primary hover:underline">Request trial access</a>.',
@@ -89,11 +69,6 @@ const homepageFaqs: FaqItem[] = [
     question: "Which devices can I use?",
     answer:
       'TryIPTV works on most smart TVs, streaming devices, phones and computers. Supported devices include <a href="/devices/firestick-iptv" class="text-primary hover:underline">Fire TV Stick</a>, <a href="/devices/android-tv-iptv" class="text-primary hover:underline">Android TV</a>, <a href="/devices/samsung-tv-iptv" class="text-primary hover:underline">Samsung</a> and <a href="/devices/lg-tv-iptv" class="text-primary hover:underline">LG</a> smart TVs, <a href="/devices/apple-tv-iptv" class="text-primary hover:underline">Apple TV</a>, <a href="/devices/chromecast-iptv" class="text-primary hover:underline">Chromecast with Google TV</a> and <a href="/devices/mag-box-iptv" class="text-primary hover:underline">MAG boxes</a> (IPTV set-top boxes). Each one needs a compatible IPTV player app.<br /><br />TryIPTV also works on <a href="/devices/windows-iptv" class="text-primary hover:underline">Windows</a>, <a href="/devices/mac-iptv" class="text-primary hover:underline">Mac</a>, <a href="/devices/iphone-iptv" class="text-primary hover:underline">iPhone and iPad</a>. <a href="/devices/roku-iptv" class="text-primary hover:underline">Roku</a> works through AirPlay (Apple\'s screen-casting feature) or screen mirroring. Each device name links to its setup guide, or <a href="/devices" class="text-primary hover:underline">browse all device guides</a>.',
-  },
-  {
-    question: "How do I set up TryIPTV?",
-    answer:
-      'Setup takes three steps:<ol class="my-2 list-decimal space-y-1 pl-5"><li>Install a compatible IPTV player such as <a href="/players/tivimate" class="text-primary hover:underline">TiviMate</a> or <a href="/players/iptv-smarters" class="text-primary hover:underline">IPTV Smarters</a>.</li><li>Enter the <a href="/guides/m3u-vs-xtream-codes" class="text-primary hover:underline">Xtream Codes login or M3U playlist URL</a> that support sends after confirmation.</li><li>Wait for the channel list to load.</li></ol><a href="/setup" class="text-primary hover:underline">View the setup guide</a>, or see the <a href="/help/iptv-login-not-working" class="text-primary hover:underline">IPTV login not working fix</a> if the player rejects your details.',
   },
   {
     question: "Is TryIPTV easy for beginners?",
@@ -152,27 +127,6 @@ const homepageFaqs: FaqItem[] = [
     question: "Is IPTV cheaper than cable?",
     // Cable figures are the TryIPTV estimates shown on /pricing; check:facts skips them.
     answer: `<strong class="font-semibold text-foreground">Usually, yes.</strong> TryIPTV costs $${PRODUCT_TRUTHS.plans[0].price.toFixed(2)} for one month, or about $${PRODUCT_TRUTHS.plans[3].monthlyEquivalent.toFixed(2)} a month on the 12-month plan, with no box to rent. <span data-facts-ignore>Cable providers typically advertise about $100–$120 a month before fees, and a typical US bill is $130–$170 with fees (our estimates).</span><br /><br />Channel line-ups differ, so test yours during the free trial. <a href="/pricing" class="text-primary hover:underline">See the full cost comparison</a>.`,
-  },
-  {
-    question: "What internet speed do I need for IPTV?",
-    // 25/50 Mbps are TryIPTV's headroom recommendations; the Netflix minimums (3 and 15 Mbps) are the cited outside reference.
-    answer: 'IPTV needs about 25 Mbps of stable internet for one HD stream, and about 50 Mbps for 4K, based on TryIPTV\'s own recommendations.<br /><br />The 25 Mbps and 50 Mbps figures leave room for live TV and other devices on your network. Two devices streaming at once need more, and wired Ethernet is steadier than Wi-Fi at busy times. For comparison, Netflix lists 3 Mbps or higher for HD (720p) and 15 Mbps or higher for 4K (<a href="https://help.netflix.com/en/node/306" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Netflix Help Center, checked October 2026</a>). <a href="/guides/iptv-internet-speed" class="text-primary hover:underline">See the IPTV internet speed guide</a> for every quality level.',
-  },
-  {
-    question: "How do I fix IPTV buffering?",
-    answer: 'Most IPTV buffering is fixed by switching to Ethernet or 5 GHz Wi-Fi and restarting the player app and your router. Try these steps in order:<ol class="my-2 list-decimal space-y-1 pl-5"><li>Connect your device by Ethernet or 5 GHz Wi-Fi.</li><li>Restart the player app and your router.</li><li>Try a different channel.</li><li>If only one channel buffers while others play normally, message support with the channel name so they can check that feed.</li></ol>Buffering usually means video data is not reaching your player fast or steadily enough. Common causes are weak Wi-Fi, a busy home network or a slow device. <a href="/help/iptv-buffering" class="text-primary hover:underline">Follow the IPTV buffering fix guide</a>.',
-  },
-  {
-    question: "What if a channel stops working?",
-    answer: `Message support on WhatsApp or at support@tryiptv.com with the channel name and the device you use.${
-      COMPANY.support.responseTime
-        ? ` Support replies ${COMPANY.support.responseTime.replace(/^Typically/, "typically")}.`
-        : ""
-    }<br /><br />If TryIPTV cannot provide a working subscription, the <a href="/refund-policy" class="text-primary hover:underline">refund policy</a> applies. <a href="/help/iptv-not-working" class="text-primary hover:underline">See the IPTV not working guide</a>, or the <a href="/help/m3u-not-loading" class="text-primary hover:underline">M3U playlist not loading fix</a> if the whole channel list fails.`,
-  },
-  {
-    question: "Do I need a VPN for IPTV?",
-    answer: '<strong class="font-semibold text-foreground">No,</strong> a VPN is not required to use TryIPTV. Some people use one for privacy or if their internet provider slows down streaming.<br /><br />Using a VPN is permitted under the <a href="/terms-conditions" class="text-primary hover:underline">Terms and Conditions</a>, but it can lower your speed. <a href="/faq" class="text-primary hover:underline">Read the full answer in the IPTV FAQ</a>.',
   },
 ];
 
