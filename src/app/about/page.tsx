@@ -90,40 +90,30 @@ const faqs: { question: string; answer: React.ReactNode; text: string }[] = [
 ];
 
 const base = siteConfig.url;
-const schema = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "AboutPage",
-      "@id": `${base}/about#webpage`,
-      url: `${base}/about`,
-      name: title,
-      description,
-      isPartOf: { "@id": `${base}/#website` },
-      about: { "@id": `${base}/#organization` },
-      breadcrumb: { "@id": `${base}/about#breadcrumb` },
-    },
-    // The OnlineBusiness node itself comes from the root layout on every page; AboutPage.about references its @id.
-    {
-      "@type": "BreadcrumbList",
-      "@id": `${base}/about#breadcrumb`,
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: `${base}/` },
-        { "@type": "ListItem", position: 2, name: "About TryIPTV", item: `${base}/about` },
-      ],
-    },
-    {
-      "@type": "FAQPage",
-      "@id": `${base}/about#faq`,
-      mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.question, acceptedAnswer: { "@type": "Answer", text: f.text } })),
-    },
+const aboutPageNode = {
+  "@type": "AboutPage",
+  "@id": `${base}/about#webpage`,
+  url: `${base}/about`,
+  name: title,
+  description,
+  isPartOf: { "@id": `${base}/#website` },
+  about: { "@id": `${base}/#organization` },
+  breadcrumb: { "@id": `${base}/about#breadcrumb` },
+};
+// The OnlineBusiness node itself comes from the root layout on every page; AboutPage.about references its @id.
+const breadcrumbNode = {
+  "@type": "BreadcrumbList",
+  "@id": `${base}/about#breadcrumb`,
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: `${base}/` },
+    { "@type": "ListItem", position: 2, name: "About TryIPTV", item: `${base}/about` },
   ],
 };
 
 export default function AboutPage() {
   return (
     <>
-      <PageSchema path="/about" nodes={[schema]} />
+      <PageSchema path="/about" nodes={[aboutPageNode, breadcrumbNode]} />
       <EmailOff>
 
       <Section className="relative overflow-hidden border-b border-white/[0.07] pt-12 pb-14 sm:pt-16 sm:pb-20">

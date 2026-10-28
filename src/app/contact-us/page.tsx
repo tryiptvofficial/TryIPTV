@@ -59,7 +59,7 @@ const quickFixes = [
   {
     icon: MessageCircle,
     title: "Didn't receive your login?",
-    text: <>Login details are sent on WhatsApp, usually within {T.activationTime} after payment is confirmed. Check the chat you ordered in, and that you ordered from the number you are checking.</>,
+    text: <>Login details are sent on WhatsApp, typically within {T.activationTime} after payment is confirmed, {T.activationHours}. Check the chat you ordered in, and that you ordered from the number you are checking.</>,
   },
   {
     icon: Wrench,
@@ -76,7 +76,7 @@ const quickFixes = [
 const supportFaqs = [
   {
     question: "I placed an order. When will I receive my subscription?",
-    answer: `Your login details are sent on WhatsApp, typically within ${T.activationTime} after payment is confirmed. Check the WhatsApp chat you ordered in. If nothing has arrived after that, reply in the same chat with the number or email you ordered with.`,
+    answer: `Your login details are sent on WhatsApp, typically within ${T.activationTime} after payment is confirmed, ${T.activationHours}. Check the WhatsApp chat you ordered in. If nothing has arrived after that, reply in the same chat with the number or email you ordered with.`,
   },
   {
     question: "My app is not working. Does that mean my subscription is not working?",
