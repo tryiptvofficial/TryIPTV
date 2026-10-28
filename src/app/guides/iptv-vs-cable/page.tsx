@@ -397,8 +397,8 @@ export default function IptvVsCablePage() {
                 <li>
                   <strong className="text-foreground font-semibold">IPTV Cost Factors:</strong> In the broader IPTV market, billing models vary by provider
                   (monthly recurring plans, multi-month packages, or credit-based systems). TryIPTV specifically operates on fixed terms with no
-                  automatic renewal, no equipment rental fees, and no cancellation penalties, starting at $15.82 for 1 month and $88.23 for 12 months
-                  (equivalent to $7.35/month). See details on our{" "}
+                  automatic renewal, no equipment rental fees, and no cancellation penalties, starting at {`$${PRODUCT_TRUTHS.plans[0].price.toFixed(2)}`} for 1 month and {`$${PRODUCT_TRUTHS.plans[3].price.toFixed(2)}`} for 12 months
+                  (equivalent to {`$${PRODUCT_TRUTHS.plans[3].monthlyEquivalent.toFixed(2)}`}/month). See details on our{" "}
                   <Link href="/pricing" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                     plans page
                   </Link>

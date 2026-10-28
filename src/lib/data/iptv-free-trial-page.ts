@@ -18,7 +18,7 @@ export const trialFaqs = [
   },
   {
     question: "How fast do trial credentials arrive?",
-    answer: `Trial login details usually arrive on WhatsApp within ${T.activationTime} after your request is confirmed. It is usually quick but not always instant; if nothing has arrived after that, reply in the same WhatsApp chat.`,
+    answer: `Trial login details typically arrive on WhatsApp within ${T.activationTime} after your request is confirmed, ${T.activationHours}. If nothing has arrived after that, reply in the same WhatsApp chat.`,
   },
   {
     question: "What devices can I use during the trial?",

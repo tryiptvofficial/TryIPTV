@@ -7,7 +7,7 @@ import { Container } from "@/components/shared/Container";
 import { PageSchema } from "@/components/shared/Schema";
 import { Section } from "@/components/shared/Section";
 import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
-import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { SITE_URL, generateMetadata as generatePageMetadata, FACT_TEXT } from "@/lib/site-config";
 import { getLastModified } from "@/lib/site-routes";
 
 const title = "IPTV Extreme Setup Guide: M3U, Xtream Codes & MAG/Stalker";
@@ -50,7 +50,7 @@ export default function IptvExtremePage() {
       <div className="mt-8 max-w-4xl">
         <span className="font-mono text-xs font-semibold uppercase tracking-wider text-primary">IPTV Extreme guide</span>
         <h1 className="mt-3 font-headline text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl">IPTV Extreme Setup Guide: M3U, Xtream Codes &amp; MAG/Stalker</h1>
-        <p className="mt-4 text-base leading-8 text-muted-foreground sm:text-lg">IPTV Extreme is a playlist player; it does not include channels or a subscription. Add your own compatible M3U playlist or, on supported versions, an Xtream Codes or MAG/Stalker configuration. The app can then load the channels, on-demand items, and EPG data available from that source. Check each stage separately if setup stops working. IPTV Extreme is free to install; what you pay for is the subscription, and our <Link href="/pricing" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">IPTV plans with no auto-renewal</Link> start at $15.82.</p>
+        <p className="mt-4 text-base leading-8 text-muted-foreground sm:text-lg">IPTV Extreme is a playlist player; it does not include channels or a subscription. Add your own compatible M3U playlist or, on supported versions, an Xtream Codes or MAG/Stalker configuration. The app can then load the channels, on-demand items, and EPG data available from that source. Check each stage separately if setup stops working. IPTV Extreme is free to install; what you pay for is the subscription, and our <Link href="/pricing" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">IPTV plans with no auto-renewal</Link> start at {FACT_TEXT.fromPrice}.</p>
         <GuideByline path="/players/iptv-extreme" />
       </div>
     </Container></Section>

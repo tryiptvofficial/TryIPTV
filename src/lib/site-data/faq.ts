@@ -85,7 +85,7 @@ export const faqTopics: FaqTopic[] = [
     items: [
       {
         question: "Can I get a free trial of IPTV?",
-        answer: `Yes. TryIPTV offers a ${FACT_TEXT.trialHours}-hour free trial for $0, with no credit card. Request it on WhatsApp and your login usually arrives within ${T.activationTime}. One trial per household. ${a("/iptv-free-trial", "Start the free trial")}.`,
+        answer: `Yes. TryIPTV offers a ${FACT_TEXT.trialHours}-hour free trial for $0, with no credit card. Request it on WhatsApp and your login typically arrives within ${T.activationTime}, ${T.activationHours}. One trial per household. ${a("/iptv-free-trial", "Start the free trial")}.`,
       },
       {
         question: "How much does IPTV cost?",
@@ -120,7 +120,7 @@ export const faqTopics: FaqTopic[] = [
       },
       {
         question: "How do I pay for an IPTV subscription?",
-        answer: `With TryIPTV you choose a plan, tap its button to open WhatsApp, and support sends payment instructions for ${pay}. You pay once for the whole term, and your login arrives within ${T.activationTime} of payment confirmation.`,
+        answer: `With TryIPTV you choose a plan, tap its button to open WhatsApp, and support sends payment instructions for ${pay}. You pay once for the whole term, and your login typically arrives within ${T.activationTime} of payment confirmation, ${T.activationHours}.`,
       },
       {
         question: "Can I upgrade my plan or add more devices later?",

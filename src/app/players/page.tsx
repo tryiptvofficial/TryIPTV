@@ -473,7 +473,7 @@ export default function PlayersHubPage() {
                       </Link>
                     </Button>
                     <p data-small-print className="mt-2 text-center text-xs text-muted-foreground">
-                      Trial login details usually arrive on WhatsApp within {PRODUCT_TRUTHS.activationTime}
+                      Trial login details typically arrive on WhatsApp within {PRODUCT_TRUTHS.activationTime} during support hours
                     </p>
                   </div>
                 </CardContent>

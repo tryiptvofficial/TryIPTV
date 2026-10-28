@@ -237,7 +237,7 @@ export default function AboutPage() {
                 <li>Live TV channels and an on-demand (VOD) library of movies and series</li>
                 <li>Access through Xtream Codes (server URL, username and password) or an M3U playlist URL</li>
                 <li>TV guide (EPG) data where it is available for a channel</li>
-                <li>2 simultaneous connections, so two devices can stream at the same time</li>
+                <li>{PRODUCT_TRUTHS.connections} simultaneous connections, so two devices can stream at the same time</li>
               </ul>
             </section>
 
@@ -245,7 +245,7 @@ export default function AboutPage() {
               <h2 className={h2}>How it works</h2>
               <ol className="list-decimal space-y-2 pl-6">
                 <li><strong className="text-foreground">Choose a plan or start the free trial.</strong> Pick an IPTV plan on our <Link href="/pricing" className={link}>pricing page</Link> or request the <Link href="/iptv-free-trial" className={link}>24-hour free trial</Link>.</li>
-                <li><strong className="text-foreground">Receive your credentials.</strong> For paid plans, login details usually arrive about 5–15 minutes after payment is confirmed.</li>
+                <li><strong className="text-foreground">Receive your credentials.</strong> For paid plans, login details typically arrive within {PRODUCT_TRUTHS.activationTime} after payment is confirmed, {PRODUCT_TRUTHS.activationHours}.</li>
                 <li><strong className="text-foreground">Install a compatible player.</strong> Add an IPTV player app to your device and enter your Xtream Codes or M3U details. Our <Link href="/setup" className={link}>IPTV setup guide</Link> walks you through it.</li>
                 <li><strong className="text-foreground">Start watching.</strong> Your channels, on-demand library and TV guide load in the player.</li>
               </ol>

@@ -6,7 +6,7 @@ import { SectionHeader } from "@/components/shared/SectionHeader";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { PageSchema } from "@/components/shared/Schema";
 import { generateBreadcrumbSchema } from "@/lib/schema";
-import { siteConfig, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { siteConfig, generateMetadata as generatePageMetadata, PRODUCT_TRUTHS } from "@/lib/site-config";
 import { PAGE_LAST_MODIFIED, formatLegalDate } from "@/lib/site-data/page-modifications";
 import { COMPANY } from "@/lib/site-data/company";
 
@@ -92,7 +92,7 @@ export default function RefundPolicyPage() {
                 <a href={COMPANY.support.whatsappUrl} target="_blank" rel="noopener noreferrer" className={`${link} font-semibold`}>WhatsApp</a>
                 {" "}({COMPANY.support.whatsappDisplay}). You can also use our <Link href="/contact-us" className={link}>contact page</Link>.
               </p>
-              <p>Our team will review your request and get back to you within 24–48 hours.</p>
+              <p>Our team will review your request and get back to you within {PRODUCT_TRUTHS.refund.responseTime}.</p>
             </section>
           </div>
         </Container>

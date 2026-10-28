@@ -46,9 +46,9 @@ const planDescriptions: Record<string, string> = {
 
 const planSavingsExact: Record<string, string | null> = {
   "1-month": null,
-  "3-months": "Save $9.16 vs three 1\u2011month purchases",
-  "6-months": "Save $35.77 vs six 1\u2011month purchases",
-  "12-months": "Save $101.61 vs twelve 1\u2011month purchases",
+  "3-months": `Save $${(T.plans[0].price * 3 - T.plans[1].price).toFixed(2)} vs three 1\u2011month purchases`,
+  "6-months": `Save $${(T.plans[0].price * 6 - T.plans[2].price).toFixed(2)} vs six 1\u2011month purchases`,
+  "12-months": `Save $${(T.plans[0].price * 12 - T.plans[3].price).toFixed(2)} vs twelve 1\u2011month purchases`,
 };
 
 // Whole-dollar amounts without decimals ($16), others with cents ($7.35).
@@ -138,7 +138,7 @@ const streamFeatures = [
   {
     icon: Receipt,
     title: "Transparent pricing",
-    desc: `One flat price per plan, ${FACT_TEXT.fromPrice} to $88.23, shown here before you order.`,
+    desc: `One flat price per plan, ${FACT_TEXT.fromPrice} to $${T.plans[3].price.toFixed(2)}, shown here before you order.`,
   },
   {
     icon: HeadphonesIcon,
@@ -150,8 +150,8 @@ const streamFeatures = [
 // Streaming figures are US list prices checked 2026-10-21 (sources in costSources); cable figures are TryIPTV estimates.
 // Update the rows, the annual-gap sentence and costSources together.
 const costComparisonRows = [
-  { option: "TryIPTV, 12 months", perMonth: "$7.35", perYear: "$88.23", autoRenews: "No", payingFor: "25,000+ channels, 120,000+ VOD, 2 connections", isTryIptv: true },
-  { option: "TryIPTV, 1 month", perMonth: "$15.82", perYear: "$189.84 if bought monthly", autoRenews: "No", payingFor: "Same service, shorter term", isTryIptv: true },
+  { option: "TryIPTV, 12 months", perMonth: `$${T.plans[3].monthlyEquivalent.toFixed(2)}`, perYear: `$${T.plans[3].price.toFixed(2)}`, autoRenews: "No", payingFor: "25,000+ channels, 120,000+ VOD, 2 connections", isTryIptv: true },
+  { option: "TryIPTV, 1 month", perMonth: `$${T.plans[0].price.toFixed(2)}`, perYear: `$${(T.plans[0].price * 12).toFixed(2)} if bought monthly`, autoRenews: "No", payingFor: "Same service, shorter term", isTryIptv: true },
   { option: "Cable TV, advertised rate (estimate)", perMonth: "$100–$120", perYear: "$1,200–$1,440", autoRenews: "Usually, at promo pricing", payingFor: "~140 channels, locals, box, DVR" },
   { option: "Cable TV, bill with fees (estimate)", perMonth: "$130–$170", perYear: "$1,560–$2,040", autoRenews: "Yes", payingFor: "Above, plus broadcast fee, RSN surcharge, extra boxes" },
   { option: "Streaming stack, 3 ad-free apps", perMonth: "$73.47", perYear: "$881.64", autoRenews: "Yes, each service separately", payingFor: "Netflix Standard $19.99, Disney+ Premium $21.49, ESPN Unlimited $31.99" },
@@ -171,12 +171,19 @@ const costCaveats = [
 ] as const;
 
 // Per week = monthly × 12 / 52; per day = upfront price / days in the term (30, 90, 180, 365).
-const planMathRows = [
-  { plan: "1 Month", once: "$15.82", perMonth: "$15.82", perWeek: "$3.65", perDay: "$0.53", vsMonthly: "-" },
-  { plan: "3 Months", once: "$38.30", perMonth: "$12.77", perWeek: "$2.95", perDay: "$0.43", vsMonthly: "save $9.16" },
-  { plan: "6 Months", once: "$59.15", perMonth: "$9.86", perWeek: "$2.28", perDay: "$0.33", vsMonthly: "save $35.77" },
-  { plan: "12 Months", once: "$88.23", perMonth: "$7.35", perWeek: "$1.70", perDay: "$0.24", vsMonthly: "save $101.61" },
-] as const;
+const planTermDays = [30, 90, 180, 365];
+const planMathRows = T.plans.map((plan, i) => {
+  const termMonths = parseInt(plan.duration, 10);
+  const savings = termMonths > 1 ? T.plans[0].price * termMonths - plan.price : 0;
+  return {
+    plan: plan.duration,
+    once: `$${plan.price.toFixed(2)}`,
+    perMonth: `$${plan.monthlyEquivalent.toFixed(2)}`,
+    perWeek: `$${(plan.monthlyEquivalent * 12 / 52).toFixed(2)}`,
+    perDay: `$${(plan.price / planTermDays[i]).toFixed(2)}`,
+    vsMonthly: i === 0 ? "-" : `save $${savings.toFixed(2)}`,
+  };
+});
 
 const planFits = [
   {

@@ -57,7 +57,7 @@ const usd = (n: number) => `$${Number.isInteger(n) ? n : n.toFixed(2)}`;
 export function generateMetadata(): Metadata {
   const title = "IPTV Free Trial: 24 Hours, No Credit Card";
   const description =
-    "Start a 24-hour TryIPTV free trial on WhatsApp: $0, no credit card, no auto-renew. Login arrives in 5–15 minutes. See what to test and what plans cost.";
+    "Start a 24-hour TryIPTV free trial on WhatsApp: $0, no credit card, no auto-renew. Login typically arrives in 5–15 min during support hours. See what to test and what plans cost.";
 
   return {
     ...generatePageMetadata({
@@ -151,7 +151,7 @@ const steps = [
   {
     step: "STEP 2",
     title: "Receive your login on WhatsApp",
-    desc: `Your login details arrive in the same chat, usually within ${T.activationTime}: an Xtream Codes login (server URL, username, password) or an M3U playlist URL. No credit card, no bank details, no payment method of any kind.`,
+    desc: `Your login details arrive in the same chat, typically within ${T.activationTime}, ${T.activationHours}: an Xtream Codes login (server URL, username, password) or an M3U playlist URL. No credit card, no bank details, no payment method of any kind.`,
   },
   {
     step: "STEP 3",
@@ -364,7 +364,7 @@ export default async function IptvFreeTrialPage() {
             <SectionHeader
               eyebrow="How It Works"
               title="How Do I Get My IPTV Free Trial?"
-              subtitle={`Getting the TryIPTV free trial takes three steps and has no payment step at all: tap Start My Free Trial to message us on WhatsApp, receive your login details there (usually within ${T.activationTime}), then sign in on your IPTV player. Your ${FACT_TEXT.trialHours} hours begin at activation.`}
+              subtitle={`Getting the TryIPTV free trial takes three steps and has no payment step at all: tap Start My Free Trial to message us on WhatsApp, receive your login details there (typically within ${T.activationTime}, during support hours), then sign in on your IPTV player. Your ${FACT_TEXT.trialHours} hours begin at activation.`}
             />
             <p className="mb-6 text-base leading-7 text-muted-foreground">
               New to this kind of TV? Start with{" "}
@@ -835,7 +835,7 @@ export default async function IptvFreeTrialPage() {
               earns your {FACT_TEXT.fromPrice}, keep it. If not, walk away owing nothing.
             </p>
             <p className="mx-auto mt-3 max-w-xl text-base sm:text-sm leading-6 text-muted-foreground">
-              Request the free trial on WhatsApp: TryIPTV sends your login details in the same chat, usually within {T.activationTime},
+              Request the free trial on WhatsApp: TryIPTV sends your login details in the same chat, typically within {T.activationTime} during support hours,
               and no credit card is needed.
             </p>
             <div className="mt-6">

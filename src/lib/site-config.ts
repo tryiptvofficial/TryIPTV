@@ -42,6 +42,8 @@ export const PRODUCT_TRUTHS = {
     summary:
       "Once your subscription is activated and your account details are delivered, all sales are final. A refund is only issued if TryIPTV cannot provide a working subscription, for example if your account is not delivered or the service does not start at all.",
     exclusions: "Refunds are not given for internet issues, device or player incompatibility, or channel changes.",
+    /** Owner-confirmed 2026-10-28: refund request response window. */
+    responseTime: "24–48 hours",
   },
   support: {
     email: "support@tryiptv.com",
