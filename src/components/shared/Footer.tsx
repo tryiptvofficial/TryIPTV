@@ -222,7 +222,15 @@ export function Footer() {
         </div>
 
         {/* Bottom copyright and legal bar */}
-        <div className="mt-10 flex flex-col-reverse gap-4 border-t border-white/[0.06] pt-6 text-xs text-muted-foreground/80 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-10 border-t border-white/[0.06] pt-6 text-xs text-muted-foreground/80">
+          <p className="mb-3 leading-5">
+            TryIPTV does not host or stream any copyrighted content. All content is provided by
+            third-party providers. Users are responsible for ensuring they have the rights to view
+            content in their jurisdiction.{" "}
+            <Link href="/disclaimer" className="underline underline-offset-2 hover:text-foreground transition-colors">
+              Read Disclaimer
+            </Link>
+          </p>
           <p>
             &copy; {new Date().getFullYear()} TryIPTV (TryIPTV.com). All rights reserved.
             {COMPANY.legalName ? ` TryIPTV is operated by ${COMPANY.legalName}${COMPANY.location ? `, ${COMPANY.location.replace("United States", "USA")}` : ""}.` : ""}
