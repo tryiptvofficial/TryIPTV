@@ -194,6 +194,11 @@ export default function HowDoesIptvWorkPage() {
             {/* Quick Answer Summary */}
             <ArticleSummary title="The Direct Answer: How IPTV Operates">
               <p>
+                IPTV sends television over the internet instead of a cable or satellite signal. Your
+                provider&apos;s server streams the channel you select as data over your broadband connection;
+                a player app on your device receives and plays it in real time.
+              </p>
+              <p>
                 <strong className="text-foreground font-semibold">Internet Protocol Television (IPTV)</strong> delivers
                 linear television and video content over standard IP networks instead of traditional cable, satellite,
                 or terrestrial radio frequency broadcast systems.
