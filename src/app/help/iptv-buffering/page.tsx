@@ -127,9 +127,9 @@ export default function IptvBufferingPage() {
               How to Troubleshoot and Fix IPTV Buffering
             </h1>
             <p className="mx-auto mt-5 max-w-[60ch] text-base leading-7 text-muted-foreground sm:text-lg">
-              Buffering occurs when media data does not reach your player fast enough to maintain
-              continuous playback. Learn how to distinguish network starvation from decoder stutter,
-              isolate network bottlenecks, and resolve playback interruptions methodically.
+              IPTV buffering has four main causes: a slow or unstable internet connection, a
+              Wi-Fi signal problem, an overloaded server, or a device that struggles to decode the
+              video. This guide helps you find which one is causing your issue and fix it step by step.
             </p>
             <GuideByline path="/help/iptv-buffering" />
           </div>
