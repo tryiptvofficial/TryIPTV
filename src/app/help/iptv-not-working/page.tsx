@@ -157,6 +157,12 @@ export default function IptvNotWorkingPage() {
               className="mb-10 sm:mb-12"
             >
               <p>
+                IPTV stops working for one of six reasons: a login authentication failure, a playlist that
+                won&apos;t download, channels that freeze during playback, a blank TV guide, an app that crashes
+                on launch, or a complete failure across every device. Matching your exact symptom to the right
+                cause is the fastest path to a fix.
+              </p>
+              <p className="mt-3">
                 Saying &quot;my IPTV is not working&quot; is like saying &quot;my internet is broken.&quot; The failure
                 could be in your <strong className="font-semibold text-foreground">streaming app</strong>, your{" "}
                 <strong className="font-semibold text-foreground">account authentication</strong>, your{" "}
