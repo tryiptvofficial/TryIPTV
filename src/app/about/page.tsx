@@ -161,6 +161,17 @@ export default function AboutPage() {
             </section>
 
             <section className="space-y-3">
+              <h2 className={h2}>Official brand</h2>
+              <p>
+                TryIPTV, also searched as Try IPTV or TryIPTV.com, is the official TryIPTV brand available at{" "}
+                <Link href="https://www.tryiptv.com" className={link}>www.tryiptv.com</Link>.
+              </p>
+              <p>
+                TryIPTV is not affiliated with similarly named third-party domains such as try-iptv.com, tryiptv.tv, or tryiptv.net.
+              </p>
+            </section>
+
+            <section className="space-y-3">
               <h2 className={h2}>Company information</h2>
               <dl className="divide-y divide-white/[0.06] overflow-hidden rounded-xl border border-white/[0.07] bg-card text-sm">
                 {companyRows.map(([label, value]) => (

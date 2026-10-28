@@ -106,6 +106,21 @@ export function organizationFacts() {
   };
 }
 
+export const brandId = `${siteConfig.url}/#brand`;
+
+export function generateBrandSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Brand',
+    '@id': brandId,
+    'name': BRAND.name,
+    'alternateName': [...BRAND.alternateNames],
+    'url': `${siteConfig.url}/`,
+    'logo': { '@id': `${siteConfig.url}/#logo` },
+    'owner': { '@id': organizationId },
+  };
+}
+
 export function generateOrganizationSchema(): WithContext<Organization> {
   return {
     '@context': 'https://schema.org',
@@ -115,6 +130,7 @@ export function generateOrganizationSchema(): WithContext<Organization> {
     'name': BRAND.name,
     'alternateName': [...BRAND.alternateNames],
     'url': `${siteConfig.url}/`,
+    'brand': { '@id': brandId },
     // Fuller than BRAND.description (also the default meta description): who it serves, who runs it, and which plan each price is for.
     'description': `TryIPTV is an IPTV subscription service for viewers in the USA and UK, operated by ${COMPANY.legalName} in New York. It delivers ${PRODUCT_TRUTHS.channels} live channels and ${PRODUCT_TRUTHS.vod} movies and TV shows to your own devices through compatible IPTV player apps. Plans cost about $${PRODUCT_TRUTHS.plans[3].monthlyEquivalent.toFixed(2)} a month on the 12-month plan, or $${PRODUCT_TRUTHS.plans[0].price.toFixed(2)} for 1 month, with ${PRODUCT_TRUTHS.connections} connections, no automatic renewal and a 24-hour free trial.`,
     // Separates this TryIPTV (tryiptv.com, Simo Alaoui LLC) from similarly named sites and from player apps.

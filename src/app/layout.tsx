@@ -12,7 +12,7 @@ const LazyToaster = dynamic(() => import("@/components/ui/lazy-toaster").then((m
 const ContactSheet = dynamic(() => import("@/components/shared/ContactSheet").then((mod) => mod.ContactSheet));
 import { Analytics } from "@/components/shared/Analytics";
 import { Schema } from "@/components/shared/Schema";
-import { generateOrganizationSchema, generateWebSiteSchema } from "@/lib/schema";
+import { generateBrandSchema, generateOrganizationSchema, generateWebSiteSchema } from "@/lib/schema";
 import { GOOGLEBOT_PREVIEW, SITE_URL, siteConfig } from "@/lib/site-config";
 
 export const viewport: Viewport = {
@@ -130,6 +130,7 @@ export default function RootLayout({
             type="text/markdown"
           />
           <Schema id="organization" schema={generateOrganizationSchema()} />
+          <Schema id="brand" schema={generateBrandSchema()} />
           <Schema id="website" schema={generateWebSiteSchema()} />
         </head>
       <body>
