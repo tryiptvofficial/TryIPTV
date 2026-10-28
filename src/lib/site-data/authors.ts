@@ -28,6 +28,8 @@ export const AUTHORS: Author[] = [
     role: "Founder / Operations",
     bio: "Simo Alaoui oversees TryIPTV's operations, customer experience and service development.",
     expertise: [],
+    // Owner-confirmed 2026-10-28: real public GitHub profile.
+    sameAs: ["https://github.com/Simo-Alaoui"],
     updated: "2026-10-23",
   },
 ];
