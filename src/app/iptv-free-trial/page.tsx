@@ -187,7 +187,7 @@ const testingChecklist = [
 ] as const;
 
 const planComparisonRows = [
-  ["Cost", "$0", `From ${FACT_TEXT.fromPrice} (1 Month) to $88.23 (12 Months)`],
+  ["Cost", "$0", `From ${FACT_TEXT.fromPrice} (1 Month) to $${T.plans[T.plans.length - 1].price.toFixed(2)} (12 Months)`],
   ["Duration", "24 consecutive hours", "1, 3, 6, or 12 months, paid once"],
   ["Payment", "None", COMPANY.paymentMethods ? `Paid once by ${COMPANY.paymentMethods}` : "One-time payment; instructions provided when ordering"],
   ["Simultaneous connections", `${T.connections}, the same as paid plans`, `${T.connections} simultaneous connections included on all plans`],
