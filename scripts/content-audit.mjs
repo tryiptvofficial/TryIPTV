@@ -64,14 +64,18 @@ function localPath(href) {
 const appPages = (await files(join(root, 'src/app'))).filter((file) => file.endsWith('/page.tsx'));
 const nextConfig = await readFile(join(root, 'next.config.js'), 'utf8');
 const redirectSources = new Set([...nextConfig.matchAll(/source:\s*['"]([^'"]+)['"]\s*,/g)].map((match) => match[1]));
-const sourceRoutes = new Set(appPages.filter((file) => !file.includes('/[')).map((file) => {
-  const path = file.slice(join(root, 'src/app').length).replace(/\/page\.tsx$/, '');
-  return path || '/';
-}));
-const dynamicDevice = await exists(join(root, 'src/app/devices/[device]/page.tsx'));
+const routeOf = (file) => file.slice(join(root, 'src/app').length).replace(/\/page\.tsx$/, '') || '/';
+const sourceRoutes = new Set(appPages.filter((file) => !file.includes('/[')).map(routeOf));
+// [[...x]] matches zero or more segments, [...x] one or more, [x] exactly one.
+const dynamicRoutes = appPages.filter((file) => file.includes('/[')).map((file) => new RegExp(`^${routeOf(file)
+  .replace(/\/\[\[\.\.\.[^\]]+\]\]/g, '(?:/.+)?')
+  .replace(/\/\[\.\.\.[^\]]+\]/g, '/.+')
+  .replace(/\/\[[^\]]+\]/g, '/[^/]+')}$`));
+const hasRoute = (path) => sourceRoutes.has(path) || dynamicRoutes.some((pattern) => pattern.test(path));
+const configuredNoindex = new Set(SITE_ROUTES.filter((route) => !route.indexable).map((route) => route.path));
 for (const path of sourceRoutes) if (!approved.has(path) && path !== '/thank-you') unexpected.push(path);
-const missingRoutes = paths.filter((path) => !sourceRoutes.has(path) && !(dynamicDevice && path.startsWith('/devices/')));
-const missingSitemap = [...sourceRoutes].filter((path) => path !== '/thank-you' && path !== '/blog' && !indexable.has(path));
+const missingRoutes = paths.filter((path) => !hasRoute(path));
+const missingSitemap = [...sourceRoutes].filter((path) => path !== '/thank-you' && !indexable.has(path) && !configuredNoindex.has(path));
 const duplicates = paths.filter((path, i) => paths.indexOf(path) !== i);
 
 for (const path of paths) {
