@@ -69,6 +69,8 @@ export const GUIDE_REVIEWERS: Record<string, string> = {
   "/guides/what-is-epg": "simo-alaoui",
   "/guides/iptv-internet-speed": "simo-alaoui",
   "/guides/iptv-vs-cable": "simo-alaoui",
+  // Owner-confirmed 2026-10-29.
+  "/guides/iptv-connections": "simo-alaoui",
   // Troubleshooting guides (added 2026-10-21 at the owner's request)
   "/help/iptv-not-working": "simo-alaoui",
   "/help/iptv-buffering": "simo-alaoui",
@@ -106,6 +108,7 @@ export const GUIDE_TITLES: Record<string, string> = {
   "/guides/what-is-epg": "What Is an EPG? How IPTV TV Guides and XMLTV Data Work",
   "/guides/iptv-internet-speed": "IPTV Internet Speed: How Much Bandwidth Do You Need?",
   "/guides/iptv-vs-cable": "IPTV vs Cable TV: Cost, Setup & Reliability",
+  "/guides/iptv-connections": "IPTV Connections: How Many Devices at Once?",
   "/help/iptv-not-working": "IPTV Not Working? Start With This Troubleshooting Checklist",
   "/help/iptv-buffering": "How to Fix IPTV Buffering: A Practical Diagnostic Guide",
   "/help/iptv-login-not-working": "IPTV Login Not Working? Diagnose Authentication Errors",
