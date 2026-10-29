@@ -59,6 +59,18 @@ export default function DevicesPage() {
 
       <Section className="py-12 sm:py-16">
         <Container>
+          {/* Entity-clarity intro: AI systems reading this section should understand the two-part
+              relationship — TryIPTV supplies the subscription credentials; device guides show how
+              to install a compatible IPTV player app and connect those credentials to it. */}
+          <div className="mb-10 max-w-3xl mx-auto text-center">
+            <p className="text-base leading-relaxed text-muted-foreground">
+              TryIPTV is an <Link href="/iptv-free-trial" className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">IPTV subscription service</Link>{" "}
+              that provides streaming credentials (Xtream Codes or M3U) for 25,000+ live channels and 120,000+ movies and TV shows.
+              TryIPTV is not itself a player app. These guides show how to install a compatible IPTV player on each device and enter
+              your TryIPTV login. Every <Link href="/pricing" className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">subscription plan</Link>{" "}
+              includes 2 simultaneous connections, so one login works across two devices at once.
+            </p>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {howToArticles.map((article) => {
               const totalTimeInMinutes = article.totalTime?.replace('PT', '').replace('M', '');

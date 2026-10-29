@@ -7,7 +7,7 @@ import { Container } from "@/components/shared/Container";
 import { PageSchema } from "@/components/shared/Schema";
 import { Section } from "@/components/shared/Section";
 import { FaqList } from "@/components/sections/FAQ";
-import { GuideScreenshot } from "@/components/guide";
+import { ArticleSummary, GuideScreenshot } from "@/components/guide";
 import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { getLastModified } from "@/lib/site-routes";
@@ -70,6 +70,17 @@ export default function IptvSmartersPage() {
               <strong className="text-foreground">Note:</strong> IPTV Smarters Pro does not include any channels. You need an active IPTV subscription, then add your provider&apos;s credentials or M3U link to load your content.
             </p>
             <GuideByline path="/players/iptv-smarters" />
+          </div>
+        </Container>
+      </Section>
+
+      <Section className="py-12 sm:py-16">
+        <Container>
+          <article className="max-w-3xl space-y-12">
+            <ArticleSummary title="IPTV Smarters Pro with TryIPTV: Quick Summary">
+              <p>IPTV Smarters Pro is a free IPTV player available on Android, iOS, Fire TV, Windows, and Mac. It does not include any channels. To use it with TryIPTV, open the app, choose <strong className="text-foreground">Xtream Codes API</strong> login, and enter your TryIPTV server URL, username, and password. Your 25,000+ live channels, VOD, and catch-up TV load instantly. Alternatively, use the <strong className="text-foreground">M3U URL</strong> method if your TryIPTV account provides an M3U playlist link instead.</p>
+            </ArticleSummary>
+
             <div className="mt-8 rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 text-base leading-relaxed text-muted-foreground">
               <p className="font-semibold text-foreground">Official App Name &amp; Platform Availability</p>
               <ul className="mt-3 list-disc space-y-2 pl-5">
@@ -87,13 +98,7 @@ export default function IptvSmartersPage() {
                 </li>
               </ul>
             </div>
-          </div>
-        </Container>
-      </Section>
 
-      <Section className="py-12 sm:py-16">
-        <Container>
-          <article className="max-w-3xl space-y-12">
             <section>
               <h2 className={headingClass}>IPTV Smarters Pro, Smarters Player Lite, and Similar Names</h2>
               <p className={textClass}>

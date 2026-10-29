@@ -6,7 +6,7 @@ import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Container } from "@/components/shared/Container";
 import { PageSchema } from "@/components/shared/Schema";
 import { Section } from "@/components/shared/Section";
-import { GuideScreenshot } from "@/components/guide";
+import { ArticleSummary, GuideScreenshot } from "@/components/guide";
 import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { getLastModified } from "@/lib/site-routes";
@@ -73,6 +73,10 @@ export default function TivimatePage() {
       <Section className="py-12 sm:py-16">
         <Container>
           <article className="max-w-3xl space-y-12">
+            <ArticleSummary title="TiviMate with TryIPTV: Quick Summary">
+              <p>TiviMate is an IPTV player app for Android TV and Fire TV Stick. It does not supply channels; you connect it to an IPTV subscription. To use TiviMate with TryIPTV, add your TryIPTV Xtream Codes credentials (server URL, username, password) or M3U playlist URL inside the app. TiviMate then loads your 25,000+ live channels and EPG guide automatically. A one-time <a href="https://play.google.com/store/apps/details?id=ar.tvplayer.tv" target="_blank" rel="noopener noreferrer" className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">TiviMate Companion</a> purchase ($4.99) unlocks multiple playlists and full EPG features.</p>
+            </ArticleSummary>
+
             <section>
               <h2 className={headingClass}>What Is TiviMate?</h2>
               <p className={textClass}>
