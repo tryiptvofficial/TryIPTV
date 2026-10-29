@@ -46,10 +46,8 @@ export function generateMetadata(): Metadata {
       description,
       canonical,
       image: `${SITE_URL}/images/best-iptv-service.png`,
-      noIndex: true,
     }),
     title: { absolute: `${title} | TryIPTV` },
-    robots: { index: false, follow: false },
   };
 }
 
