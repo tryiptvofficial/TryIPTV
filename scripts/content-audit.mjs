@@ -108,7 +108,8 @@ for (const path of paths) {
     seen.add(target);
     outgoing.get(path).add(target);
     if (target === path) selfLinks.push(path);
-    if (incoming.has(target)) incoming.get(target).add(path);
+    // A page's link to itself (breadcrumb, in-page CTA) does not make it reachable.
+    if (incoming.has(target)) { if (target !== path) incoming.get(target).add(path); }
     else if (redirectSources.has(target)) redirects.push(`${path} → ${target}`);
     else if (!approved.has(target) && target !== '/thank-you') broken.push(`${path} → ${target}`);
   }
