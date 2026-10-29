@@ -356,8 +356,8 @@ export default function IptvLoginNotWorkingPage() {
                   expiration timestamp passes.
                 </li>
                 <li>
-                  <strong>Concurrent Stream Limits:</strong> Most subscriptions permit a specific number of
-                  simultaneous connections (e.g., 1, 2, or 3 devices). If family members are currently
+                  <strong>Concurrent Stream Limits:</strong> Most subscriptions permit a specific number of{" "}
+                  <Link href="/guides/iptv-connections">simultaneous connections</Link> (e.g., 1, 2, or 3 devices). If family members are currently
                   watching or if an app on another device is running in the background, subsequent connection
                   requests may be refused.
                 </li>

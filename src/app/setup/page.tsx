@@ -27,7 +27,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { FaqList, type FaqItem } from "@/components/sections/FAQ";
 import { generateBreadcrumbSchema } from "@/lib/schema";
-import { PRODUCT_TRUTHS, SITE_URL, siteConfig, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { PRODUCT_TRUTHS, STREAM_SPEED_MBPS, SITE_URL, siteConfig, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 
 const title = "IPTV Setup Hub: From Credentials to Your Device | TryIPTV";
 const description =
@@ -250,7 +250,7 @@ const setupFaqs: FaqItem[] = [
   {
     question: "What do I need to set up IPTV?",
     answer:
-      "To set up IPTV, you need three elements: a reliable high-speed internet connection (recommended 25+ Mbps for Full HD and 50+ Mbps for 4K), a compatible streaming device or Smart TV, and a third-party IPTV player application. Once you have these, you simply enter the subscription credentials (Xtream Codes API details or M3U playlist link) provided with your TryIPTV account.",
+      `To set up IPTV, you need three elements: a reliable high-speed internet connection (recommended ${STREAM_SPEED_MBPS.fullHd}+ Mbps for Full HD and ${STREAM_SPEED_MBPS.uhd}+ Mbps for 4K), a compatible streaming device or Smart TV, and a third-party IPTV player application. Once you have these, you simply enter the subscription credentials (Xtream Codes API details or M3U playlist link) provided with your TryIPTV account.`,
   },
   {
     question: "Should I set up using Xtream Codes API or M3U playlist?",
@@ -352,7 +352,7 @@ export default function SetupPage() {
                   What do I need to set up IPTV?
                 </h2>
                 <p className="text-base leading-relaxed text-muted-foreground mb-6">
-                  You need an internet connection (about 25 Mbps for HD, 50 Mbps for 4K), a compatible device, an IPTV player app and
+                  You need an internet connection (about {STREAM_SPEED_MBPS.fullHd} Mbps for 1080p Full HD, {STREAM_SPEED_MBPS.uhd} Mbps for 4K), a compatible device, an IPTV player app and
                   your TryIPTV login details.
                 </p>
                 <div className="rounded-xl border border-primary/20 bg-primary/[0.04] p-5 space-y-3">
@@ -381,7 +381,7 @@ export default function SetupPage() {
                   </div>
                 </CardHeader>
                 <CardContent className="text-base sm:text-sm text-muted-foreground leading-relaxed">
-                  Stable streaming requires consistent download bandwidth: about 25–35 Mbps for one 1080p Full HD stream and 50–60 Mbps for one 4K Ultra HD stream. A wired Ethernet cable or low-interference 5GHz Wi-Fi connection reduces buffering.
+                  Stable streaming requires consistent download bandwidth: about {STREAM_SPEED_MBPS.fullHd} Mbps for one Full HD (1080p) stream and {STREAM_SPEED_MBPS.uhd} Mbps for one 4K Ultra HD stream. A wired Ethernet cable or low-interference 5GHz Wi-Fi connection reduces buffering.
                 </CardContent>
               </Card>
 

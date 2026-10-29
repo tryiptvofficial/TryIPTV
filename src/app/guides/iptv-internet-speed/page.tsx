@@ -28,7 +28,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { ArticleProse, ArticleSummary } from "@/components/guide";
 import { FaqList, type FaqItem } from "@/components/sections/FAQ";
 import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
-import { PRODUCT_TRUTHS, SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { PRODUCT_TRUTHS, STREAM_SPEED_MBPS, SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { getLastModified } from "@/lib/site-routes";
 
 const title = "IPTV Internet Speed: How Much Bandwidth Do You Need? | TryIPTV";
@@ -98,7 +98,7 @@ const faqs: FaqItem[] = [
   {
     question: "What internet speed do I need for IPTV?",
     answer:
-      "There is no single universal speed requirement for IPTV. Bandwidth needs depend on stream bitrate, video resolution, compression codec, and how many devices share your connection simultaneously. Mainstream streaming platforms themselves publish different speed recommendations because encoding and player buffer designs vary. As a general planning guideline, an approximate 15–25 Mbps connection provides useful practical headroom for a single Full HD (1080p) stream, while 4K streaming generally benefits from 50+ Mbps.",
+      `There is no single universal speed requirement for IPTV. Bandwidth needs depend on stream bitrate, video resolution, compression codec, and how many devices share your connection simultaneously. Mainstream streaming platforms themselves publish different speed recommendations because encoding and player buffer designs vary. As a general planning guideline, a stable ${STREAM_SPEED_MBPS.fullHd} Mbps connection provides useful practical headroom for a single Full HD (1080p) stream, while 4K streaming generally benefits from ${STREAM_SPEED_MBPS.uhd}+ Mbps.`,
   },
   {
     question: "Is 10 Mbps fast enough to stream IPTV?",
@@ -166,10 +166,6 @@ export default function IptvInternetSpeedPage() {
             <h1 className="font-headline text-3xl font-extrabold leading-[1.15] text-foreground sm:text-4xl lg:text-5xl">
               How Much Internet Speed Do You Need for IPTV?
             </h1>
-            <p className="mx-auto mt-5 max-w-[60ch] text-base leading-7 text-muted-foreground sm:text-lg">
-              A practical guide to streaming bandwidth, household connection planning, Wi-Fi versus Ethernet,
-              and multi-stream headroom.
-            </p>
             <GuideByline path="/guides/iptv-internet-speed" />
           </div>
         </Container>
@@ -182,8 +178,8 @@ export default function IptvInternetSpeedPage() {
             {/* Quick Answer Summary */}
             <ArticleSummary title="The Direct Answer: IPTV Bandwidth Requirements">
               <p>
-                For IPTV, plan on a stable 25 Mbps or more for one Full HD (1080p) stream and 50 Mbps or more for
-                4K; two streams at once need roughly double. The exact need depends on the{" "}
+                For IPTV, plan on a stable {STREAM_SPEED_MBPS.fullHd} Mbps or more for one Full HD (1080p) stream and{" "}
+                {STREAM_SPEED_MBPS.uhd} Mbps or more for 4K; two streams at once need roughly double. The exact need depends on the{" "}
                 <strong className="text-foreground font-semibold">actual bitrate of the stream</strong>, the
                 resolution and codec, and how many people share your connection.
               </p>

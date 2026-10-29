@@ -136,9 +136,6 @@ export default function AboutPage() {
 
             <section className="space-y-3">
               <h2 className={h2}>What is TryIPTV?</h2>
-              <Confirm value={COMPANY.story} question="Company story: how and why TryIPTV started, in 2–4 sentences.">
-                <p>{COMPANY.story}</p>
-              </Confirm>
               <p>
                 TryIPTV (TryIPTV.com) is an IPTV subscription service operated by {COMPANY.legalName ?? "TryIPTV"}
                 {COMPANY.location ? `, based in ${COMPANY.location}` : ""}. You watch on your own devices through a compatible
@@ -147,6 +144,9 @@ export default function AboutPage() {
                 <Link href="/iptv-free-trial" className={link}>TryIPTV 24-hour IPTV free trial</Link>.
                 {SUPPORT_HOURS ? ` Support is available on WhatsApp and email, ${SUPPORT_HOURS}.` : ""}
               </p>
+              <Confirm value={COMPANY.story} question="Company story: how and why TryIPTV started, in 2–4 sentences.">
+                <p>{COMPANY.story}</p>
+              </Confirm>
               <p>TryIPTV is not a player app. We don&apos;t make or sell the software you watch with. You bring a device and a player; we provide the subscription and the login details that player needs.</p>
             </section>
 

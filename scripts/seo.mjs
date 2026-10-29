@@ -470,7 +470,8 @@ const allInbound = new Map();
 for (const route of indexableRoutes) allInbound.set(route.path, []);
 for (const [fromPath, links] of internalLinksMap) {
   for (const link of links) {
-    if (allInbound.has(link)) allInbound.get(link).push(fromPath);
+    // A page linking to itself (breadcrumb, in-page CTA) does not make it reachable.
+    if (link !== fromPath && allInbound.has(link)) allInbound.get(link).push(fromPath);
   }
 }
 let orphanFound = false;

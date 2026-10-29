@@ -205,7 +205,11 @@ export default function IptvNotWorkingPage() {
                     </p>
                     <p>
                       <strong>Typical causes:</strong> Hidden trailing spaces, case-sensitivity mistakes, missing port
-                      numbers, or exceeding active device connection limits.
+                      numbers, or exceeding active{" "}
+                      <Link href="/guides/iptv-connections" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
+                        device connection limits
+                      </Link>
+                      .
                     </p>
                   </div>
                 </div>

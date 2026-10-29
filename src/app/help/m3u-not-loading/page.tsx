@@ -235,7 +235,12 @@ export default function M3uNotLoadingPage() {
               <h2 id="http-error-codes" className="scroll-mt-4">Step 3: Understand HTTP Error Codes (RFC 9110 Meanings)</h2>
               <p>
                 If your player reports an HTTP error status when requesting the M3U link, the server is
-                responding with a standardized HTTP status code (RFC 9110):
+                responding with a standardized HTTP status code (RFC 9110). The codes below are the most common
+                for playlists; for other codes and player-specific messages, see the{" "}
+                <Link href="/help/iptv-error-codes" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
+                  IPTV error codes reference
+                </Link>
+                :
               </p>
               <ul>
                 <li>

@@ -11,7 +11,7 @@ import { PageSchema } from "@/components/shared/Schema";
 import { generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { getPricingPageData } from "@/lib/data/pricing-page";
 import { plans } from "@/lib/site-data/pricing";
-import { PRODUCT_TRUTHS, FACT_TEXT } from "@/lib/site-config";
+import { PRODUCT_TRUTHS, FACT_TEXT, STREAM_SPEED_MBPS } from "@/lib/site-config";
 import { COMPANY } from "@/lib/site-data/company";
 
 const link = "font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary";
@@ -104,7 +104,7 @@ const whatYouGet: React.ReactNode[] = [
   `${T.vod} movies and series on demand (VOD)`,
   "EPG (TV guide) in your IPTV player",
   <>
-    HD/4K where available (about 25 Mbps for HD and 50 Mbps for 4K;{" "}
+    HD/4K where available (about {STREAM_SPEED_MBPS.fullHd} Mbps for Full HD and {STREAM_SPEED_MBPS.uhd} Mbps for 4K;{" "}
     <Link href="/guides/iptv-internet-speed" className={link}>speed guide</Link>)
   </>,
   <>
@@ -123,7 +123,7 @@ const streamFeatures = [
   {
     icon: Gauge,
     title: "Smooth streaming",
-    desc: "A stable 25 Mbps connection handles one HD stream and 50 Mbps handles 4K comfortably. Ethernet is steadier than Wi-Fi.",
+    desc: `A stable ${STREAM_SPEED_MBPS.fullHd} Mbps connection handles one Full HD stream and ${STREAM_SPEED_MBPS.uhd} Mbps handles 4K comfortably. Ethernet is steadier than Wi-Fi.`,
   },
   {
     icon: Sparkles,
@@ -243,7 +243,7 @@ export default async function IPTVSubscription() {
             className="max-sm:mb-0"
             eyebrow="Most Popular IPTV Subscription Plans"
             title={`Choose Your IPTV Plan, From ${FACT_TEXT.lowestMonthly}/Month`}
-            subtitle={`${FACT_TEXT.lowestMonthly} a month on the 12-month plan ($${T.plans[3].price.toFixed(2)} paid once), or ${FACT_TEXT.fromPrice} for 1 month. Every plan has ${T.connections} simultaneous connections and no automatic renewal.`}
+            subtitle={`${FACT_TEXT.lowestMonthly} a month on the 12-month plan ($${T.plans[3].price.toFixed(2)} paid once), or ${FACT_TEXT.fromPrice} for 1 month. Every standard plan includes ${T.connections} simultaneous connections and no automatic renewal.`}
           />
           <div className="mt-5 flex flex-wrap justify-center gap-2 text-xs font-semibold sm:mt-6 sm:text-sm">
             {/* Phones show the first 3 facts so the plan cards start near the top of the screen. */}
@@ -469,7 +469,7 @@ export default async function IPTVSubscription() {
             <div className="border-b border-white/[0.07] px-5 py-4 sm:px-6">
               <h2 className="font-headline text-lg font-extrabold text-foreground">Plan Duration &amp; Price Breakdown</h2>
               <p className="mt-1 text-base sm:text-sm leading-6 text-muted-foreground">
-                Every plan includes the same 2 simultaneous connections and features. Only the term, upfront total, and monthly equivalent change.
+                Every plan below includes the same 2 simultaneous connections and features. Only the term, upfront total, and monthly equivalent change.
               </p>
             </div>
             <div tabIndex={0} role="region" aria-label="Plan prices table" className="overflow-x-auto">
@@ -508,7 +508,7 @@ export default async function IPTVSubscription() {
               </table>
             </div>
             <p className="border-t border-white/[0.07] px-5 py-4 text-base sm:text-xs leading-5 text-muted-foreground sm:px-6">
-              <strong className="text-foreground">What does 2 connections mean?</strong> Up to two devices can stream at the same time in your household. You can configure your credentials on multiple devices, but playback is limited to two simultaneous streams. New to IPTV? Read <Link href="/guides/what-is-iptv" className={link}>what IPTV is</Link> and{" "}
+              <strong className="text-foreground">What does 2 connections mean?</strong> Up to two devices can stream at the same time in your household. You can configure your credentials on multiple devices, but playback is limited to two simultaneous streams. {T.extraConnections} New to IPTV? Read <Link href="/guides/what-is-iptv" className={link}>what IPTV is</Link> and{" "}
               <Link href="/guides/how-does-iptv-work" className={link}>how IPTV delivery works</Link>, or{" "}
               <Link href="/help/iptv-buffering" className={link}>how to fix IPTV buffering</Link>.
             </p>

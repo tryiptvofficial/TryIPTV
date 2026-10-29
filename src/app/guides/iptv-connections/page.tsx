@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import { ArticleProse, ArticleSummary } from "@/components/guide";
 import { FaqList, type FaqItem } from "@/components/sections/FAQ";
 import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
-import { PRODUCT_TRUTHS, SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { PRODUCT_TRUTHS, STREAM_SPEED_MBPS, SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { getLastModified } from "@/lib/site-routes";
 
 /**
@@ -130,9 +130,6 @@ export default function IptvConnectionsPage() {
           <div className="mx-auto max-w-4xl text-center">
             <p className="eyebrow mb-3">Connections &amp; Multi-Screen</p>
             <h1 className="font-headline text-3xl font-extrabold leading-[1.15] text-foreground sm:text-4xl lg:text-5xl">{title}</h1>
-            <p className="mx-auto mt-5 max-w-[60ch] text-base leading-7 text-muted-foreground sm:text-lg">
-              What an IPTV connection is, what counts as one, and how many your household needs.
-            </p>
             <GuideByline path={canonical} />
           </div>
         </Container>
@@ -208,8 +205,8 @@ export default function IptvConnectionsPage() {
 
               <h2>Internet speed for several streams</h2>
               <p>
-                Each stream uses its own bandwidth, so two streams at once need roughly double: plan on about 25 Mbps per Full HD stream
-                and 50 Mbps per 4K stream. See{" "}
+                Each stream uses its own bandwidth, so two streams at once need roughly double: plan on about {STREAM_SPEED_MBPS.fullHd} Mbps per Full HD stream
+                and {STREAM_SPEED_MBPS.uhd} Mbps per 4K stream. See{" "}
                 <Link href="/guides/iptv-internet-speed" className={link}>how much internet speed IPTV needs</Link>.
               </p>
 

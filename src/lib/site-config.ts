@@ -72,6 +72,12 @@ export const PRODUCT_TRUTHS = {
   ],
 } as const;
 
+/**
+ * Recommended connection speed per stream, the figure /guides/iptv-internet-speed leads with.
+ * Not the stream bitrate (Full HD streams usually draw 7–15 Mbps); the gap is headroom.
+ */
+export const STREAM_SPEED_MBPS = { fullHd: 25, uhd: 50 } as const;
+
 const usd = (n: number) => `$${Number.isInteger(n) ? n : n.toFixed(2)}`;
 
 /** Ready-made phrases built from PRODUCT_TRUTHS, for copy that states prices or limits. */

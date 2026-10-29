@@ -166,9 +166,6 @@ export default function IptvErrorCodesPage() {
           <div className="mx-auto max-w-3xl text-center">
             <p className="eyebrow mb-3">Error Code Lookup</p>
             <h1 className="font-headline text-3xl font-extrabold leading-[1.15] text-foreground sm:text-4xl lg:text-5xl">{title}</h1>
-            <p className="mx-auto mt-5 max-w-[60ch] text-base leading-7 text-muted-foreground sm:text-lg">
-              Find the code or message your player shows, read what it means, then follow the link to the fix.
-            </p>
             <GuideByline path={canonical} />
           </div>
         </Container>

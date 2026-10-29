@@ -10,7 +10,7 @@ import { SectionHeader } from "@/components/shared/SectionHeader";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { PageSchema } from "@/components/shared/Schema";
 import { generateBreadcrumbSchema } from "@/lib/schema";
-import { SITE_URL, PRODUCT_TRUTHS, FACT_TEXT, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { SITE_URL, PRODUCT_TRUTHS, FACT_TEXT, STREAM_SPEED_MBPS, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { COMPANY } from "@/lib/site-data/company";
 import { getLastModified } from "@/lib/site-routes";
 
@@ -65,7 +65,7 @@ const requirements = [
   {
     icon: Wifi,
     title: "A stable connection",
-    text: "Around 25 Mbps for one HD stream and 50 Mbps for 4K where the source allows it. Test the speed on the device you will actually watch on.",
+    text: `Around ${STREAM_SPEED_MBPS.fullHd} Mbps for one Full HD (1080p) stream and ${STREAM_SPEED_MBPS.uhd} Mbps for 4K where the source allows it. Test the speed on the device you will actually watch on.`,
     href: "/guides/iptv-internet-speed",
     cta: "Check how much speed you need",
   },
@@ -200,7 +200,7 @@ const faqs: { question: string; answer: React.ReactNode }[] = [
   {
     question: "Is every TryIPTV stream available in 4K?",
     answer:
-      "No. 4K is available where a channel or title is produced in 4K; many streams are HD or Full HD. For 4K you also need a 4K screen, a 4K-capable device and about 50 Mbps of stable internet.",
+      `No. 4K is available where a channel or title is produced in 4K; many streams are HD or Full HD. For 4K you also need a 4K screen, a 4K-capable device and about ${STREAM_SPEED_MBPS.uhd} Mbps of stable internet.`,
   },
   {
     question: "How long does it take to get my login after paying?",

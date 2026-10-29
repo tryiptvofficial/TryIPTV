@@ -32,7 +32,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { ArticleProse, ArticleSummary } from "@/components/guide";
 import { FaqList, type FaqItem } from "@/components/sections/FAQ";
 import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
-import { PRODUCT_TRUTHS, SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { PRODUCT_TRUTHS, STREAM_SPEED_MBPS, SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { getLastModified } from "@/lib/site-routes";
 
 const title = "IPTV vs Cable TV: Cost, Setup & Reliability | TryIPTV";
@@ -154,7 +154,7 @@ const faqs: FaqItem[] = [
   {
     question: "Can IPTV completely replace a traditional cable TV subscription?",
     answer:
-      "Many households transition completely to IPTV if they maintain a reliable broadband connection (recommended 25+ Mbps for Full HD and 50+ Mbps for 4K) and feel comfortable using streaming apps. However, households with slow rural internet or those who prefer traditional set-top box numeric remotes may still prefer cable.",
+      `Many households transition completely to IPTV if they maintain a reliable broadband connection (recommended ${STREAM_SPEED_MBPS.fullHd}+ Mbps for Full HD and ${STREAM_SPEED_MBPS.uhd}+ Mbps for 4K) and feel comfortable using streaming apps. However, households with slow rural internet or those who prefer traditional set-top box numeric remotes may still prefer cable.`,
   },
   {
     question: "Does IPTV use more internet data than standard web browsing?",
@@ -455,7 +455,7 @@ export default function IptvVsCablePage() {
                 IPTV may appeal to viewers who:
               </p>
               <ul>
-                <li>Maintain a reliable broadband internet connection with sufficient speed (such as 25+ Mbps for Full HD and 50+ Mbps for 4K).</li>
+                <li>Maintain a reliable broadband internet connection with sufficient speed (such as {STREAM_SPEED_MBPS.fullHd}+ Mbps for Full HD and {STREAM_SPEED_MBPS.uhd}+ Mbps for 4K).</li>
                 <li>Prefer watching on existing consumer hardware (Firestick, Apple TV, Smart TVs, tablets, or laptops) without dedicated box rentals.</li>
                 <li>Value portability across devices and locations, subject to provider terms and network access.</li>
                 <li>Prefer one-time, non-recurring subscription models (such as TryIPTV) over long-term contracts.</li>
@@ -481,7 +481,7 @@ export default function IptvVsCablePage() {
               <div className="my-6 space-y-3">
                 <div className="rounded-lg border border-white/[0.08] bg-[#070908] p-4 text-base sm:text-sm">
                   <div className="font-bold text-foreground mb-1">1. Internet Infrastructure</div>
-                  <p className="text-muted-foreground">If your home broadband is reliable and offers 25+ Mbps, IPTV is technically viable. If your internet is slow, inconsistent, or capped, cable provides superior stability.</p>
+                  <p className="text-muted-foreground">If your home broadband is reliable and offers {STREAM_SPEED_MBPS.fullHd}+ Mbps, IPTV is technically viable. If your internet is slow, inconsistent, or capped, cable provides superior stability.</p>
                 </div>
                 <div className="rounded-lg border border-white/[0.08] bg-[#070908] p-4 text-base sm:text-sm">
                   <div className="font-bold text-foreground mb-1">2. Hardware Preference</div>

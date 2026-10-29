@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import { FaqList } from "@/components/sections/FAQ";
 import { ArticleSummary } from "@/components/guide";
 import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
-import { PRODUCT_TRUTHS, SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { PRODUCT_TRUTHS, STREAM_SPEED_MBPS, SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { getLastModified } from "@/lib/site-routes";
 
 const title = "What Is IPTV? A Beginner's Guide to Internet TV";
@@ -133,7 +133,7 @@ const faqs = [
   {
     question: "What internet speed do I need?",
     answer:
-      "A download speed of at least 10 Mbps with low, stable latency works for standard streams (SD and 720p). For Full HD, plan on about 25 Mbps, and about 50 Mbps for 4K. Each extra screen streaming at the same time needs its own share.",
+      `A download speed of at least 10 Mbps with low, stable latency works for standard streams (SD and 720p). For Full HD, plan on about ${STREAM_SPEED_MBPS.fullHd} Mbps, and about ${STREAM_SPEED_MBPS.uhd} Mbps for 4K. Each extra screen streaming at the same time needs its own share.`,
   },
   {
     question: "Is IPTV legal?",
@@ -199,10 +199,6 @@ export default function WhatIsIptvPage() {
             <h1 className="font-headline text-3xl font-extrabold leading-[1.1] text-foreground sm:text-4xl lg:text-5xl">
               What Is IPTV? A Beginner&apos;s Guide
             </h1>
-            <p className="mx-auto mt-5 max-w-[60ch] text-base leading-7 text-muted-foreground sm:text-lg">
-              Learn what IPTV is, how it works, the devices and apps it runs on, and what you need to get
-              started, including internet speed, an app, and a subscription.
-            </p>
             <GuideByline path="/guides/what-is-iptv" />
             <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
               <Button asChild>
@@ -230,13 +226,6 @@ export default function WhatIsIptvPage() {
             </ArticleSummary>
 
             <div className="prose prose-lg max-w-none dark:prose-invert">
-              <p className="lead text-xl leading-8 text-foreground">
-                IPTV (Internet Protocol Television) delivers multimedia content over the internet, giving
-                you a wide range of live channels, on-demand video, and customization options. Instead of
-                receiving a signal through a cable or satellite dish, your device streams TV directly over
-                your internet connection.
-              </p>
-
               <h2>How IPTV works</h2>
               <p>
                 IPTV sends television content as data packets over the internet. When you open a channel,
@@ -292,8 +281,8 @@ export default function WhatIsIptvPage() {
               <ol>
                 <li>
                   <strong>An internet connection</strong>: a minimum of about 10 Mbps download speed with
-                  low, stable latency for smooth standard-quality playback; about 25 Mbps for Full HD and
-                  50 Mbps for 4K. You can check your connection at{" "}
+                  low, stable latency for smooth standard-quality playback; about {STREAM_SPEED_MBPS.fullHd} Mbps for Full HD and{" "}
+                  {STREAM_SPEED_MBPS.uhd} Mbps for 4K. You can check your connection at{" "}
                   <a href="https://www.speedtest.net/" target="_blank" rel="noopener noreferrer">speedtest.net</a>,
                   and read our <Link href="/guides/iptv-internet-speed">IPTV internet speed guide</Link>.
                 </li>

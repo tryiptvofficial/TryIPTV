@@ -28,7 +28,7 @@ import { SectionHeader } from "@/components/shared/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { generateBreadcrumbSchema, generateItemListSchema } from "@/lib/schema";
-import { PRODUCT_TRUTHS, SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { PRODUCT_TRUTHS, STREAM_SPEED_MBPS, SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { COMPANY } from "@/lib/site-data/company";
 
 const title = "IPTV Help & Troubleshooting Directory";
@@ -102,12 +102,11 @@ const specialistGuides = [
   },
 ];
 
-// Speeds match /guides/iptv-internet-speed (about 25 Mbps for HD, 50 Mbps for 4K).
 const quickChecks = [
   "Restart the device and your router, then reopen the player app.",
   "Try a second channel and a second device: if only one channel fails, the problem is that channel, not your setup.",
   "Check your login details for typos or spaces, and check that your plan or trial has not expired.",
-  "Run a speed test on the same device: about 25 Mbps is enough for one HD stream and 50 Mbps for 4K.",
+  `Run a speed test on the same device: about ${STREAM_SPEED_MBPS.fullHd} Mbps is enough for one Full HD stream and ${STREAM_SPEED_MBPS.uhd} Mbps for 4K.`,
   "Use Ethernet or move closer to the router if streams stutter only on Wi-Fi.",
   `Close the stream on other screens: every plan allows ${PRODUCT_TRUTHS.connections} simultaneous connections.`,
 ];

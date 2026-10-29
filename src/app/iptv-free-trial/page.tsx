@@ -13,7 +13,7 @@ import { PageSchema } from "@/components/shared/Schema";
 import { getIptvFreeTrialPageData } from "@/lib/data/iptv-free-trial-page";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { GuideScreenshot } from "@/components/guide";
-import { PRODUCT_TRUTHS, FACT_TEXT } from "@/lib/site-config";
+import { PRODUCT_TRUTHS, FACT_TEXT, STREAM_SPEED_MBPS } from "@/lib/site-config";
 import { COMPANY } from "@/lib/site-data/company";
 
 const freeTrialWhatsAppUrl =
@@ -171,7 +171,7 @@ const testingTips = [
   },
   {
     title: "Try every screen and the guide",
-    text: "Sign in on each device, check the EPG matches what is on air, and put a 4K stream on your biggest TV (about 25 Mbps handles one HD stream, 50 Mbps handles 4K).",
+    text: `Sign in on each device, check the EPG matches what is on air, and put a 4K stream on your biggest TV (about ${STREAM_SPEED_MBPS.fullHd} Mbps handles one Full HD stream, ${STREAM_SPEED_MBPS.uhd} Mbps handles 4K).`,
   },
 ] as const;
 
