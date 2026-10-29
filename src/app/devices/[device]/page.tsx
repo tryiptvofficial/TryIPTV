@@ -718,7 +718,8 @@ export default async function HowToPage({ params }: Props) {
                 {title}
               </h1>
               <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed max-w-[60ch] mx-auto">
-                {description}
+                {/* lede: answer-first opening; description stays the schema and hub-card summary. */}
+                {article.lede ?? description}
               </p>
               {/* Phones: the header "Start free trial" button is hidden below sm, so offer it here above the fold. */}
               <div className="mt-5 sm:hidden">

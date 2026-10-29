@@ -135,6 +135,7 @@
     "id": "android-tv-iptv",
     "title": "How to Set Up IPTV on Android TV and Google TV",
     "description": "Install and configure IPTV players on Android TV and Google TV devices. Learn how to install TiviMate or IPTV Smarters from Google Play, enter Xtream Codes credentials, and configure video decoders.",
+    "lede": "IPTV runs on Android TV and Google TV through a player app installed straight from the Google Play Store, so no sideloading is needed. Install TiviMate or IPTV Smarters Pro, then add your subscription as an Xtream Codes login (recommended) or an M3U playlist URL. If a channel plays sound over a black screen, switch the player's video decoder from hardware to software.",
     "primaryKeyword": "Android TV",
     "keywords": [
       "android tv iptv setup",
@@ -229,6 +230,7 @@
     "id": "windows-iptv",
     "title": "How to Watch IPTV on Windows PC: Windows 10 and 11 Setup Guide",
     "description": "Stream IPTV on Windows 10 and Windows 11 PCs and laptops. Compare dedicated IPTV players like IPTV Smarters Pro and MyIPTV Player with VLC Media Player, configure hardware acceleration, and adjust network caching.",
+    "lede": "A Windows 11 or Windows 10 PC plays IPTV through a desktop player. IPTV Smarters Pro, downloaded from the developer's verified website, signs in with Xtream Codes; MyIPTV Player from the Microsoft Store loads an M3U playlist URL. VLC Media Player can also open the M3U link, which makes it useful for testing whether a single stream works.",
     "primaryKeyword": "Windows PC",
     "keywords": [
       "windows iptv",
@@ -319,6 +321,7 @@
     "id": "mac-iptv",
     "title": "How to Set Up IPTV on macOS: Complete Mac Setup Guide",
     "description": "Stream IPTV on macOS computers including MacBook, iMac, and Mac mini. Discover native Mac IPTV applications like UHF and IINA, navigate macOS Gatekeeper permissions, and use Picture-in-Picture for multitasking.",
+    "lede": "Mac users have three routes to IPTV: UHF - IPTV Client from the Mac App Store, IPTV Smarters Pro installed from the developer's DMG file, or the open-source IINA player. UHF and Smarters sign in with Xtream Codes, while IINA opens an M3U playlist URL directly. If macOS blocks an app downloaded outside the App Store, allow it under System Settings > Privacy & Security.",
     "primaryKeyword": "macOS",
     "keywords": [
       "mac iptv",
@@ -409,6 +412,7 @@
     "id": "samsung-tv-iptv",
     "title": "How to Install IPTV on Samsung Smart TV: Tizen OS Guide",
     "description": "Learn how to set up IPTV on a Samsung Smart TV running Tizen OS. Discover compatible Smart Hub apps like IBO Player and Smart IPTV, configure credentials via web portal, and manage post-2018 audio formats.",
+    "lede": "Samsung Smart TVs run Tizen OS, so Android APKs and the Downloader app will not install on them. Use a Tizen player from the Smart Hub store, such as IBO Player or Smart IPTV, and note the device ID or MAC address it displays. You then add your Xtream Codes or M3U details on screen or, with these apps, through the developer's web portal.",
     "primaryKeyword": "Samsung Smart TV",
     "keywords": [
       "samsung tv iptv",
@@ -504,6 +508,7 @@
     "id": "lg-tv-iptv",
     "title": "How to Install IPTV on LG Smart TV: webOS Setup Guide",
     "description": "Set up and configure IPTV on your LG Smart TV running webOS. Discover compatible players in the LG Content Store, manage large playlists effectively, and configure audio synchronization.",
+    "lede": "LG Smart TVs play IPTV through a webOS app from the LG Content Store (called Apps on newer models); Android sideloading is not possible. IPTV Smarters Pro and IBO Player accept an Xtream Codes login directly on the TV, while MAC-based players such as Smart IPTV take your playlist from the app maker's activation website, so you avoid typing it with the remote.",
     "primaryKeyword": "LG Smart TV",
     "keywords": [
       "lg tv iptv",
@@ -594,6 +599,7 @@
     "id": "apple-tv-iptv",
     "title": "How to Set Up IPTV on Apple TV: tvOS Step-by-Step Guide",
     "description": "Install and configure IPTV on Apple TV running tvOS. Learn how to select tvOS players like iPlayTV and UHF, enter Xtream Codes credentials via iPhone keyboard or local web upload, and configure Match Frame Rate.",
+    "lede": "On Apple TV, IPTV plays in a tvOS app from the App Store, such as iPlayTV, UHF - IPTV Client or Smarters Player Lite. Each of these accepts the Xtream Codes details or M3U link from your subscription. Typing a server URL with the Apple TV remote is slow, so paste your details from a nearby iPhone through the Continuity Keyboard prompt, or use the player's local web upload.",
     "primaryKeyword": "Apple TV",
     "keywords": [
       "apple tv iptv",
@@ -768,6 +774,7 @@
     "id": "chromecast-iptv",
     "title": "How to Watch IPTV on Chromecast: Google TV and Casting Guide",
     "description": "Learn how to watch IPTV on Google Chromecast. Understand the differences between standalone app installation on Chromecast with Google TV versus mobile casting on legacy Chromecast devices.",
+    "lede": "Whether a Chromecast can run IPTV on its own depends on the model. Chromecast with Google TV, the version with a remote, installs TiviMate or IPTV Smarters Pro from Google Play and signs in with Xtream Codes or M3U. Older cast-only Chromecasts cannot install apps, so you start the stream in a casting-compatible app on your phone or PC and cast it to the TV.",
     "primaryKeyword": "Google Chromecast",
     "keywords": [
       "chromecast iptv",
@@ -858,6 +865,7 @@
     "id": "roku-iptv",
     "title": "How to Watch IPTV on Roku: AirPlay and Screen Mirroring Guide",
     "description": "Learn how to stream IPTV to Roku devices. App availability can change; check the Roku Channel Store for applications currently available in your region. Discover how to stream IPTV using Apple AirPlay 2, screen mirroring, or casting.",
+    "lede": "On Roku, IPTV usually reaches the TV from another device: many IPTV players available on Android or Fire TV are not offered as Roku channels, and what the Roku Channel Store offers can change and differs by region. Play the stream on an iPhone, iPad or Mac and send it with AirPlay 2 (Roku OS 9.4 or later), mirror an Android phone, or project from a Windows PC with Miracast.",
     "primaryKeyword": "Roku",
     "keywords": [
       "roku iptv",
@@ -948,6 +956,7 @@
     "id": "mag-box-iptv",
     "title": "How to Configure a MAG Box for IPTV: Stalker Portal Guide",
     "description": "Configure your Infomir MAG set-top box for IPTV. Learn how to locate your MAC address, access Inner Portal system settings, enter the Portal URL, configure NTP time servers, and resolve loading errors.",
+    "lede": "A MAG box is set up through a provider portal rather than an IPTV player app. The box signs in with its MAC address, printed on the label underneath, which must be registered with your provider. Open the Inner Portal settings, enter the Portal URL from your activation details under System Settings > Servers > Portals, then reboot. A wired Ethernet connection is recommended.",
     "primaryKeyword": "MAG Box",
     "keywords": [
       "mag box iptv",
