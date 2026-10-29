@@ -203,18 +203,20 @@ const titleMap = new Map();
 const canonicalMap = new Map();
 const jsonLdMap = new Map();
 
-let perRoutePass = 0, perRouteFail = 0, perRouteWarn = 0;
+// Explicit per-route counters for the indexability summary table
+let routeHttp200 = 0, routeNoindex = 0, routeBlocked = 0, routeCanonConflict = 0;
+let routeTitle = 0, routeDesc = 0, routeH1 = 0, routeOg = 0;
 
 function pr(status, msg) {
-  if (status === FAIL) { perRouteFail++; failCount++; console.log(`FAIL     ${msg}`); }
-  else if (status === WARN) { perRouteWarn++; warnCount++; console.log(`WARNING  ${msg}`); }
-  else { perRoutePass++; passCount++; }
+  if (status === FAIL)      { failCount++; console.log(`FAIL     ${msg}`); }
+  else if (status === WARN) { warnCount++; console.log(`WARNING  ${msg}`); }
+  // silent PASS — counted via the explicit route counters above
 }
 
 for (const route of indexableRoutes) {
   const { path } = route;
 
-  // HTTP status
+  // HTTP status — fetch with redirect:manual so we see actual status code
   const res = await fetchPage(path);
   statusMap.set(path, res.status);
   if (res.status !== 200) {
@@ -225,14 +227,25 @@ for (const route of indexableRoutes) {
     }
     continue; // can't check meta on a non-200
   }
+  routeHttp200++;
 
-  const html = await fetchText(path);
-  if (!html) { pr(WARN, `${path} HTTP 200 but body empty`); continue; }
+  // Fetch full HTML following redirects (should already be 200)
+  const fullRes = await fetch(base + path, { redirect: 'follow', headers: { 'User-Agent': 'TryIPTV-SEO-Audit/1.0' } });
+  const html = fullRes.ok ? await fullRes.text() : '';
+  if (!html) { pr(WARN, `${path} HTTP 200 but body empty`); routeHttp200--; continue; }
+
+  // X-Robots-Tag header check
+  const xRobotsTag = fullRes.headers.get('x-robots-tag') || '';
+  if (xRobotsTag.toLowerCase().includes('noindex')) {
+    pr(FAIL, `${path} X-Robots-Tag: ${xRobotsTag} — indexable route must not be noindex`);
+    routeNoindex++;
+  }
 
   // robots meta — must not be noindex
   const robotsMeta = extractRobotsMeta(html);
   if (robotsMeta && robotsMeta.includes('noindex')) {
-    pr(FAIL, `${path} has <meta name="robots" content="${robotsMeta}"> — indexable route must not be noindex`);
+    pr(FAIL, `${path} <meta robots="${robotsMeta}"> — indexable route must not be noindex`);
+    routeNoindex++;
   }
 
   const canonical = extractCanonical(html);
@@ -255,25 +268,29 @@ for (const route of indexableRoutes) {
     const canonPath = canonical.replace(/^https?:\/\/[^/]+/, '') || '/';
     if (canonPath !== path) {
       pr(FAIL, `${path} canonical self-reference wrong: points to ${canonPath}`);
+      routeCanonConflict++;
     }
   }
 
   // Title
   if (!title) pr(FAIL, `${path} missing <title>`);
-  else titleMap.set(path, title);
+  else { titleMap.set(path, title); routeTitle++; }
 
   // Description
   if (!desc) pr(FAIL, `${path} missing meta description`);
+  else routeDesc++;
 
   // H1
   if (h1s.length === 0)      pr(FAIL, `${path} no H1`);
   else if (h1s.length > 1)   pr(WARN, `${path} multiple H1s: ${h1s.map(h => `"${h.slice(0,40)}"`).join(', ')}`);
+  else routeH1++;
 
   // og:url vs canonical
   if (canonical && ogUrl) {
     const ogNorm  = ogUrl.replace(/\/$/, '');
     const canNorm = canonical.replace(/\/$/, '');
     if (ogNorm !== canNorm) pr(FAIL, `${path} og:url (${ogUrl}) ≠ canonical (${canonical})`);
+    else routeOg++;
   } else if (!ogUrl) {
     pr(WARN, `${path} missing og:url`);
   }
@@ -467,13 +484,23 @@ for (const [path, inbound] of allInbound) {
 if (!orphanFound) report(PASS, 'No orphan pages detected');
 
 // ── Summary ──────────────────────────────────────────────────────────────────
+const n = indexableRoutes.length;
 console.log(`\n${'═'.repeat(70)}`);
-console.log(`Routes audited:   ${indexableRoutes.length}`);
-console.log(`PASS:             ${passCount}`);
-console.log(`WARNING:          ${warnCount}`);
-console.log(`FAIL:             ${failCount}`);
+console.log(`Routes audited:      ${n}`);
 console.log(`${'─'.repeat(70)}`);
-console.log(`Per-route totals: ${perRoutePass} pass / ${perRouteWarn} warn / ${perRouteFail} fail`);
+console.log(`HTTP 200:            ${routeHttp200}/${n}`);
+console.log(`Indexable (no noindex): ${routeHttp200 - routeNoindex}/${n}`);
+console.log(`  Noindex:           ${routeNoindex}`);
+console.log(`  Blocked:           ${routeBlocked}`);
+console.log(`  Canonical conflict:${routeCanonConflict}`);
+console.log(`Title:               ${routeTitle}/${n}`);
+console.log(`Description:         ${routeDesc}/${n}`);
+console.log(`H1:                  ${routeH1}/${n}`);
+console.log(`og:url:              ${routeOg}/${n}`);
+console.log(`${'─'.repeat(70)}`);
+console.log(`PASS:                ${passCount}`);
+console.log(`WARNING:             ${warnCount}`);
+console.log(`FAIL:                ${failCount}`);
 console.log(`${'─'.repeat(70)}`);
 if (failCount === 0 && warnCount === 0) console.log('Overall: PASS');
 else if (failCount === 0)               console.log('Overall: PASS WITH WARNINGS');
