@@ -250,7 +250,14 @@ export default function WhatIsIptvPage() {
               </p>
 
               <h2>What devices and apps support IPTV</h2>
-              <p>IPTV runs on a wide variety of hardware and platforms, including:</p>
+              <p>
+                IPTV runs on a wide variety of devices — streaming sticks, smart TVs, phones, computers,
+                and set-top boxes — through a compatible{" "}
+                <Link href="/players" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
+                  IPTV player app
+                </Link>
+                .
+              </p>
             </div>
 
             <ul className="my-6 grid gap-4 sm:grid-cols-3">

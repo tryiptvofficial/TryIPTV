@@ -357,7 +357,7 @@ export default function IptvInternetSpeedPage() {
                 <li><strong className="text-foreground font-semibold">Hardware Decoder &amp; Buffer Limits:</strong> Budget streaming sticks or aggressive zero-second player buffer configurations that lack headroom to absorb minor arrival variance.</li>
               </ul>
               <p>
-                If you are troubleshooting active stuttering, spinning wheels, or audio desynchronization, follow our tested 8-step{" "}
+                If you are troubleshooting active stuttering, spinning wheels, or audio desynchronization, follow the 8-step{" "}
                 <Link href="/help/iptv-buffering" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   IPTV buffering diagnostic guide
                 </Link>{" "}

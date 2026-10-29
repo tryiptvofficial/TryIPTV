@@ -471,7 +471,7 @@ export default function HowDoesIptvWorkPage() {
                 </li>
               </ul>
               <p>
-                If you encounter stream stuttering or freezing, work through our tested 8-step{" "}
+                If you encounter stream stuttering or freezing, work through the 8-step{" "}
                 <Link href="/help/iptv-buffering" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   IPTV buffering troubleshooting checklist
                 </Link>

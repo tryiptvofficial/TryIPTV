@@ -52,7 +52,7 @@ export default function DevicesPage() {
             as="h1"
             eyebrow="Device Compatibility & Setup"
             title="IPTV Setup Guides for All Compatible Devices"
-            subtitle="Follow our tested step-by-step installation guides to configure TryIPTV on your streaming hardware. Every plan includes 2 simultaneous connections."
+            subtitle="Step-by-step guides to configure TryIPTV on your streaming hardware through a compatible IPTV player app. Every plan includes 2 simultaneous connections."
           />
         </Container>
       </Section>

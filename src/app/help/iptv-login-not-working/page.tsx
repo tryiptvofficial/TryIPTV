@@ -151,7 +151,8 @@ export default function IptvLoginNotWorkingPage() {
                 <Link href="/guides/what-are-xtream-codes" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   Xtream-compatible API login
                 </Link>{" "}
-                using a Server URL, Username, and Password.
+                using a Server URL, Username, and Password. With TryIPTV, these three credentials are
+                delivered via WhatsApp after activation — enter them exactly as received.
               </p>
               <p className="mt-3">
                 Instead of making repeated rapid login attempts—which can trigger automated security lockouts
