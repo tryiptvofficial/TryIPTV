@@ -51,16 +51,15 @@ export default function RefundPolicyPage() {
             <div className="space-y-3">
               <p className="text-xs font-semibold text-primary">Last updated: {formatLegalDate(PAGE_LAST_MODIFIED["/refund-policy"])}</p>
               <p>
-                At TryIPTV, we work hard to provide you with the best IPTV experience. Please read our refund policy carefully before making a
-                purchase.
+                This policy describes when TryIPTV issues refunds, who qualifies, and how to request one. Please read it before making a purchase.
               </p>
             </div>
 
             <section className="space-y-3">
               <h2 className={h2}>1. Free Trial</h2>
               <p>
-                We offer a <Link href="/iptv-free-trial" className={link}>Free Trial</Link> so you can test our service before subscribing. This
-                way, you can ensure compatibility with your device and internet connection.
+                We offer a <Link href="/iptv-free-trial" className={link}>Free Trial</Link> so you can test the service before subscribing. This
+                gives you the opportunity to check whether the service works on your device and connection before committing.
               </p>
             </section>
 

@@ -57,6 +57,9 @@ export default function XciptvPage() {
             <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
               XCIPTV is an IPTV media player and does not include channels or subscriptions. You need an M3U playlist URL or compatible login details from your IPTV provider. Install XCIPTV, enter those details, allow the available channels and EPG data to load, then test playback on several channels.
             </p>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
+              To use XCIPTV with a <Link href="/iptv-free-trial" className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">TryIPTV subscription</Link>, add your Xtream Codes credentials (server URL, username, and password) or M3U URL when the app prompts for a provider. TryIPTV is the subscription service supplying those credentials; XCIPTV is the player that reads them.
+            </p>
             <GuideByline path="/players/xciptv" />
           </div>
         </Container>

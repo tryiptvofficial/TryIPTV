@@ -57,6 +57,9 @@ export default function OttNavigatorPage() {
             <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
               OTT Navigator is an IPTV media player; it supplies no channels or subscription. Add your IPTV provider inside the app using an M3U/M3U8 playlist or Xtream Codes details supplied by that provider. OTT Navigator then loads the available channel list, on-demand content, and EPG data, which you should check separately before testing playback.
             </p>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
+              To use OTT Navigator with a <Link href="/iptv-free-trial" className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">TryIPTV subscription</Link>, select the Xtream Codes or M3U template when adding a provider and enter your TryIPTV credentials. TryIPTV is the subscription service supplying those credentials; OTT Navigator is the player that receives them.
+            </p>
             <GuideByline path="/players/ott-navigator" />
           </div>
         </Container>
