@@ -57,7 +57,7 @@ const usd = (n: number) => `$${Number.isInteger(n) ? n : n.toFixed(2)}`;
 export function generateMetadata(): Metadata {
   const title = "IPTV Free Trial: 24 Hours, No Credit Card";
   const description =
-    "Start a 24-hour TryIPTV free trial on WhatsApp: $0, no credit card, no auto-renew. Login typically arrives in 5–15 min during support hours. See what to test and what plans cost.";
+    "Start a 24-hour TryIPTV free trial on WhatsApp: $0, no card, no auto-renew. Login typically arrives in 5–15 min during support hours. See what plans cost.";
 
   return {
     ...generatePageMetadata({

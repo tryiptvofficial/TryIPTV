@@ -29,7 +29,7 @@ const modifiedDate = getLastModified(canonical);
 const link = "text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary";
 
 export function generateMetadata(): Metadata {
-  const metaTitle = "IPTV Connections: How Many Devices Can Watch at Once?";
+  const metaTitle = "IPTV Connections: How Many Devices at Once?";
   return {
     ...generatePageMetadata({ title: metaTitle, description, canonical, noIndex: false }),
     title: { absolute: `${metaTitle} | TryIPTV` },

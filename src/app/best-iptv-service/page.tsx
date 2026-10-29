@@ -35,19 +35,20 @@ import { getLastModified } from "@/lib/site-routes";
 
 const canonical = "/best-iptv-service";
 const title = "Best IPTV Service 2026: What to Look For and How to Choose";
+const metaTitle = "Best IPTV Service 2026: How to Pick the Right One";
 const description =
-  `Find the best IPTV service using six practical criteria: channel count, connection limit, free trial, no auto-renewal, support hours, and price. TryIPTV covers all six.`;
+  `Find the best IPTV service using six criteria: channel count, connection limit, free trial, no auto-renewal, support hours and price. TryIPTV covers all six.`;
 const modifiedDate = getLastModified(canonical);
 
 export function generateMetadata(): Metadata {
   return {
     ...generatePageMetadata({
-      title,
+      title: metaTitle,
       description,
       canonical,
       image: `${SITE_URL}/images/best-iptv-service.png`,
     }),
-    title: { absolute: `${title} | TryIPTV` },
+    title: { absolute: `${metaTitle} | TryIPTV` },
   };
 }
 

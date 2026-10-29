@@ -29,7 +29,7 @@ const modifiedDate = getLastModified(canonical);
 const link = "text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary";
 
 export function generateMetadata(): Metadata {
-  const metaTitle = "IPTV Error Codes: What Each Code Means and Where to Fix It";
+  const metaTitle = "IPTV Error Codes Explained: Meanings and Fixes";
   return {
     ...generatePageMetadata({ title: metaTitle, description, canonical }),
     title: { absolute: `${metaTitle} | TryIPTV` },
