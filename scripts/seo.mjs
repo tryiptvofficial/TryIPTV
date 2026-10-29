@@ -316,22 +316,24 @@ for (const path of ['/', '/pricing', '/iptv-free-trial', '/about', '/contact-us'
   // CHECK 19: valid JSON-LD (already parsed above)
   report(PASS, `${path} JSON-LD valid (${blocks.length} block${blocks.length > 1 ? 's' : ''})`);
 
-  // CHECK 20: duplicate @id detection
+  // CHECK 20: duplicate @id detection — only nodes with @type are entities; @id-only nodes are references
   const ids = new Map();
-  function collectIds(node) {
+  let idConflict = false;
+  const collectIds = (node) => {
     if (!node || typeof node !== 'object') return;
     if (Array.isArray(node)) { node.forEach(collectIds); return; }
-    if (node['@id']) {
+    if (node['@id'] && node['@type']) {
       const id = node['@id'];
-      const type = node['@type'] || 'unknown';
-      if (ids.has(id)) {
-        if (ids.get(id) !== type) report(FAIL, `${path} conflicting @id "${id}": types "${ids.get(id)}" and "${type}"`);
-      } else ids.set(id, type);
+      const type = Array.isArray(node['@type']) ? node['@type'].join(',') : node['@type'];
+      if (ids.has(id) && ids.get(id) !== type) {
+        report(FAIL, `${path} conflicting @id "${id}": types "${ids.get(id)}" and "${type}"`);
+        idConflict = true;
+      } else { ids.set(id, type); }
     }
     for (const v of Object.values(node)) collectIds(v);
-  }
+  };
   blocks.forEach(collectIds);
-  report(PASS, `${path} no duplicate @id conflicts`);
+  if (!idConflict) report(PASS, `${path} no duplicate @id conflicts`);
 }
 
 // ── CHECK 21: breadcrumb canonical URLs ─────────────────────────────────────
@@ -367,10 +369,12 @@ for (const path of ['/', '/pricing']) {
   const html = await fetchText(path);
   if (!html) continue;
 
-  // CHECK 23: no old prices
+  // CHECK 23: no old prices — strip all <script> blocks first to avoid false
+  // positives from Next.js RSC payload tokens like "$16f" or "$90"
+  const htmlText = html.replace(/<script[\s\S]*?<\/script>/gi, '');
   const staleAmounts = ['$16', '$39', '$60.', '$90'];
   for (const amt of staleAmounts) {
-    if (html.includes(amt)) report(WARN, `${path} may contain stale amount ${amt}`);
+    if (htmlText.includes(amt)) report(WARN, `${path} may contain stale amount ${amt}`);
   }
 
   // CHECK 24: no stale channel counts
