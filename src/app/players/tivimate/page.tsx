@@ -74,7 +74,7 @@ export default function TivimatePage() {
         <Container>
           <article className="max-w-3xl space-y-12">
             <ArticleSummary title="TiviMate with TryIPTV: Quick Summary">
-              <p>TiviMate is an IPTV player app for Android TV and Fire TV Stick. It does not supply channels; you connect it to an IPTV subscription. To use TiviMate with TryIPTV, add your TryIPTV Xtream Codes credentials (server URL, username, password) or M3U playlist URL inside the app. TiviMate then loads your 25,000+ live channels and EPG guide automatically. A one-time <a href="https://play.google.com/store/apps/details?id=ar.tvplayer.tv" target="_blank" rel="noopener noreferrer" className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">TiviMate Companion</a> purchase ($4.99) unlocks multiple playlists and full EPG features.</p>
+              <p>TiviMate is an IPTV player app for Android TV and Fire TV Stick. It does not supply channels; you connect it to an IPTV subscription. To use TiviMate with TryIPTV, add your TryIPTV Xtream Codes credentials (server URL, username, password) or M3U playlist URL inside the app. TiviMate then loads your 25,000+ live channels and EPG guide automatically. A one-time <a href="https://play.google.com/store/apps/details?id=ar.tvplayer.tv" target="_blank" rel="noopener noreferrer" className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">TiviMate Companion</a> purchase (<span data-facts-ignore>$4.99</span>) unlocks multiple playlists and full EPG features.</p>
             </ArticleSummary>
 
             <section>

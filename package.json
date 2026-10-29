@@ -16,6 +16,7 @@
     "content:audit": "node scripts/content-audit.mjs",
     "indexnow": "node scripts/indexnow.mjs",
     "check:facts": "node scripts/check-facts.mjs",
+    "seo": "node scripts/seo.mjs",
     "gsc:test": "node scripts/gsc-test.mjs",
     "gsc:performance": "node scripts/gsc-performance.mjs",
     "gsc:monitor": "node scripts/gsc-monitor.mjs",

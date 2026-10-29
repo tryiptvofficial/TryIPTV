@@ -283,6 +283,19 @@ const nextConfig = {
         permanent: true,
       },
 
+      // /terms and /terms-of-service → /terms-conditions (canonical slug)
+      // Both are common external link targets that would otherwise 404.
+      {
+        source: '/terms',
+        destination: '/terms-conditions',
+        permanent: true,
+      },
+      {
+        source: '/terms-of-service',
+        destination: '/terms-conditions',
+        permanent: true,
+      },
+
       // /index is served as a 200 alias of / by Next.js; redirect it to
       // the canonical root so crawlers see one URL.
       {
