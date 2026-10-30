@@ -61,7 +61,7 @@ export default function IptvSmartersPage() {
               How to Install IPTV on IPTV Smarters Pro
             </h1>
             <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Install and set up IPTV Smarters Pro on Android, iOS, Windows, Mac, and Fire TV using Xtream Codes or an M3U playlist. A quick step-by-step guide.
+              IPTV Smarters Pro is a player app, not an IPTV service, so it shows only the channels your subscription provides. Android, Android TV, Windows and macOS versions come from the developer&apos;s download portal; on iPhone, iPad and Apple TV the App Store listing is Smarters Player Lite by WHMCS SMARTERS. Add TryIPTV with Xtream Codes API login (recommended) or your M3U URL.
             </p>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
               IPTV Smarters Pro is a popular, easy-to-use IPTV player built around Xtream Codes logins. It also supports M3U links and local playlist files, with a clean, user-friendly interface, and it is available on many platforms, including Android, iOS, macOS, Windows, and smart TVs.
