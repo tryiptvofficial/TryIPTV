@@ -64,7 +64,7 @@ export default function IptvSmartersPage() {
               IPTV Smarters Pro is a player app, not an IPTV service, so it shows only the channels your subscription provides. Android, Android TV, Windows and macOS versions come from the developer&apos;s download portal; on iPhone, iPad and Apple TV the App Store listing is Smarters Player Lite by WHMCS SMARTERS. Add TryIPTV with Xtream Codes API login (recommended) or your M3U URL.
             </p>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-              IPTV Smarters Pro is a popular, easy-to-use IPTV player built around Xtream Codes logins. It also supports M3U links and local playlist files, with a clean, user-friendly interface, and it is available on many platforms, including Android, iOS, macOS, Windows, and smart TVs.
+              IPTV Smarters Pro is built around Xtream Codes logins and also accepts M3U links and local playlist files. For LG and Samsung TVs, the developer points owners to their TV&apos;s app store, where results vary by model and region.
             </p>
             <p className="mt-4 rounded-lg border border-white/[0.08] bg-white/[0.02] p-4 text-base sm:text-sm leading-relaxed text-muted-foreground">
               <strong className="text-foreground">Note:</strong> IPTV Smarters Pro does not include any channels. You need an active IPTV subscription, then add your provider&apos;s credentials or M3U link to load your content.
@@ -78,7 +78,7 @@ export default function IptvSmartersPage() {
         <Container>
           <article className="max-w-3xl space-y-12">
             <ArticleSummary title="IPTV Smarters Pro with TryIPTV: Quick Summary">
-              <p>IPTV Smarters Pro is a free IPTV player available on Android, iOS, Fire TV, Windows, and Mac. It does not include any channels. To use it with TryIPTV, open the app, choose <strong className="text-foreground">Xtream Codes API</strong> login, and enter your TryIPTV server URL, username, and password. Your 25,000+ live channels, VOD, and catch-up TV load instantly. Alternatively, use the <strong className="text-foreground">M3U URL</strong> method if your TryIPTV account provides an M3U playlist link instead.</p>
+              <p>IPTV Smarters Pro is an IPTV player for Android, Android TV, Windows and macOS; on iPhone, iPad and Apple TV it is listed as Smarters Player Lite. On Fire TV, Amazon Appstore availability varies, so the developer&apos;s Android download is the fallback. It does not include any channels. To use it with TryIPTV, open the app, choose <strong className="text-foreground">Xtream Codes API</strong> login, and enter your TryIPTV server URL, username, and password. Your 25,000+ live channels, VOD, and catch-up TV load after you log in. Alternatively, use the <strong className="text-foreground">M3U URL</strong> method if your TryIPTV account provides an M3U playlist link instead.</p>
             </ArticleSummary>
 
             <div className="mt-8 rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 text-base leading-relaxed text-muted-foreground">
@@ -296,7 +296,7 @@ export default function IptvSmartersPage() {
                   {
                     question: "Which platforms are supported?",
                     answer:
-                      "IPTV Smarters Pro runs on Android, Android TV, Fire TV, Windows, macOS, and some smart TVs. On Apple devices (iPhone, iPad, Apple TV) it appears in the App Store as Smarters Player Lite.",
+                      "IPTV Smarters Pro runs on Android, Android TV, Windows and macOS, and on some Samsung and LG smart TVs. On Fire TV, Amazon Appstore availability can vary; if it is not listed, the developer provides an Android download. On Apple devices (iPhone, iPad, Apple TV) it appears in the App Store as Smarters Player Lite.",
                   },
                 ]}
               />

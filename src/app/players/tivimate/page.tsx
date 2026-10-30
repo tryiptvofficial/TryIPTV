@@ -63,7 +63,7 @@ export default function TivimatePage() {
               Built for TV remotes rather than touch-only phones, TiviMate is an Android TV, Google TV and Fire TV Stick player from Armobsoft FZE. It brings no channels of its own: your TryIPTV subscription supplies them, and you connect it through Add Playlist with your Xtream Codes details or M3U URL. Install it from Google Play, or on Fire TV from the official APK.
             </p>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-              TiviMate is one of the most advanced and easiest IPTV players to use, with a smooth, modern interface built for big-screen Android devices, and a top choice among Android IPTV apps. It is a player, not a source of channels: you add the playlist or login details from your IPTV provider. Its focus is live TV; movies and series depend on your app version and your provider&apos;s playlist, so check them on your setup.
+              TiviMate&apos;s interface is designed for large screens and remote-control navigation on Android-based TV devices. Its focus is live TV; movies and series depend on your app version and your provider&apos;s playlist, so check them on your setup.
             </p>
             <GuideByline path="/players/tivimate" />
           </div>
