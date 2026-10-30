@@ -74,7 +74,7 @@ const nextConfig = {
     const cspReportUrl = `https://${dsn.host}/api${dsn.pathname}/security/?sentry_key=${dsn.username}`;
     const cspReportOnlyHeader = [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://analytics.ahrefs.com https://*.google-analytics.com https://challenges.cloudflare.com https://invitejs.trustpilot.com",
+      "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://analytics.ahrefs.com https://*.google-analytics.com https://challenges.cloudflare.com",
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: blob: https://www.google-analytics.com https://*.google-analytics.com https://*.googletagmanager.com",
       "font-src 'self' data:",
