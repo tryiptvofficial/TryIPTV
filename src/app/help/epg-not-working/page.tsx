@@ -149,9 +149,16 @@ export default function EpgNotWorkingPage() {
           <article className="mx-auto max-w-3xl">
             {/* Quick Answer Callout */}
             <ArticleSummary
-              title="Diagnostic Starting Point: Isolate Metadata from Playback"
+              title="The Direct Answer"
               className="mb-10 sm:mb-12"
             >
+              <p>
+                If your channels play but the TV guide is blank, out of date, shifted by an hour or more, or missing
+                on only some channels, the problem is the EPG schedule data, not the stream. First check that your
+                player can reach its EPG source, then clear the EPG cache and force a refresh. Blank individual
+                channels usually mean a channel-ID mismatch or no listings for that channel; wrong times usually
+                trace to the device clock or time zone.
+              </p>
               <p>
                 When an on-screen guide fails, your primary instinct might be to restart your router or adjust
                 video buffers. However, because{" "}
@@ -159,11 +166,6 @@ export default function EpgNotWorkingPage() {
                   EPG schedule data is completely separate from the video stream
                 </Link>
                 , video playback and guide metadata operate on different pathways.
-              </p>
-              <p className="mt-3">
-                Before changing player settings at random, identify which of the four distinct failure types
-                describes your situation below. Pinpointing the specific symptom pattern prevents unnecessary
-                resets and points directly to the root cause.
               </p>
             </ArticleSummary>
 
