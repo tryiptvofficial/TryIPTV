@@ -99,7 +99,7 @@ export const SITE_ROUTES: SiteRoute[] = [
   { path: '/help/iptv-error-codes',       section: 'help', indexable: true,  lastModified: '2026-10-27' },
 
   // ── Utility ───────────────────────────────────────────────────────────────
-  { path: '/about',      section: 'utility', indexable: true, lastModified: '2026-10-28' },
+  { path: '/about',      section: 'utility', indexable: true, lastModified: '2026-10-30' },
   { path: '/faq',        section: 'utility', indexable: true, lastModified: '2026-10-23' },
   { path: '/contact-us', section: 'utility', indexable: true, lastModified: '2026-10-28' },
   { path: '/blog',       section: 'utility', indexable: false },
