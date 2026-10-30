@@ -14,7 +14,7 @@ import { plans } from "@/lib/site-data/pricing";
 import { COMPANY, LICENSING_CONFIRMED, SHOW_CONFIRM_MARKERS } from "@/lib/site-data/company";
 import { Confirm } from "@/components/shared/Confirm";
 import { BRAND } from "@/lib/site-data/brand";
-import { PRODUCT_TRUTHS } from "@/lib/site-config";
+import { FACT_TEXT, PRODUCT_TRUTHS } from "@/lib/site-config";
 
 const LAST_UPDATED = "2026-10-21";
 
@@ -24,6 +24,7 @@ const OPERATOR = { name: COMPANY.legalName, location: COMPANY.location, since: C
 const PAYMENT_METHODS = COMPANY.paymentMethods;
 const SUPPORT_HOURS = COMPANY.support.hours;
 const LANGUAGES = COMPANY.support.languages;
+const highestPrice = `$${Math.max(...PRODUCT_TRUTHS.plans.map((p) => p.price)).toFixed(2)}`;
 
 const title = "About TryIPTV: Who Runs It, Plans & Support";
 const description =
@@ -138,11 +139,14 @@ export default function AboutPage() {
               <h2 className={h2}>What is TryIPTV?</h2>
               <p>
                 TryIPTV (TryIPTV.com) is an IPTV subscription service operated by {COMPANY.legalName ?? "TryIPTV"}
-                {COMPANY.location ? `, based in ${COMPANY.location}` : ""}. You watch on your own devices through a compatible
-                IPTV player app. Plans run for 1, 3, 6 or 12 months, with {PRODUCT_TRUTHS.connections} simultaneous
-                connections and no automatic renewal, and you can test the service first with the{" "}
-                <Link href="/iptv-free-trial" className={link}>TryIPTV 24-hour IPTV free trial</Link>.
-                {SUPPORT_HOURS ? ` Support is available on WhatsApp and email, ${SUPPORT_HOURS}.` : ""}
+                {COMPANY.location ? `, based in ${COMPANY.location}` : ""}. It offers{" "}
+                <Link href="/pricing" className={link}>fixed-term plans</Link> of 1, 3, 6 or 12 months, priced from{" "}
+                {FACT_TEXT.fromPrice} to {highestPrice}, paid once with no automatic renewal. TryIPTV provides IPTV access
+                credentials in Xtream Codes and M3U formats for use with compatible IPTV player apps, with access to{" "}
+                {PRODUCT_TRUTHS.channels} live channels and {PRODUCT_TRUTHS.vod} movies and TV shows,{" "}
+                {PRODUCT_TRUTHS.connections} simultaneous connections, and EPG where available. New users can test the
+                service with a <Link href="/iptv-free-trial" className={link}>24-hour IPTV free trial</Link> before
+                choosing a paid plan. Support is available through WhatsApp and email during the published support hours.
               </p>
               <Confirm value={COMPANY.story} question="Company story: how and why TryIPTV started, in 2–4 sentences.">
                 <p>{COMPANY.story}</p>
