@@ -21,6 +21,16 @@ export const trialFaqs = [
     answer: `Trial login details typically arrive on WhatsApp within ${T.activationTime} after your request is confirmed, ${T.activationHours}. If nothing has arrived after that, reply in the same WhatsApp chat.`,
   },
   {
+    question: "What do I need to send to start the trial?",
+    answer:
+      "A WhatsApp message. The Start My Free Trial button opens WhatsApp with the message already written; add the device and IPTV player app you plan to use, then send it. TryIPTV asks for no credit card, bank, or billing details. As in any WhatsApp chat, support sees the phone number you message from.",
+  },
+  {
+    question: "Which login details does the trial use?",
+    answer:
+      "The same formats as a paid plan: an Xtream Codes login (server URL, username, and password) or an M3U playlist URL. You enter them in a compatible IPTV player app, such as TiviMate or IPTV Smarters. TryIPTV supplies the subscription and login; it is not a player app itself.",
+  },
+  {
     question: "What devices can I use during the trial?",
     answer:
       "You can test on supported smart TVs, streaming media players, and personal computers, including Firestick, Android TV, Samsung TV, LG TV, Apple TV, iPhone and iPad, Windows, Mac, MAG, and Chromecast with Google TV. Roku works through AirPlay or screen mirroring from another device.",
@@ -36,7 +46,7 @@ export const trialFaqs = [
   },
   {
     question: "How much does IPTV cost after the trial?",
-    answer: `TryIPTV plans cost ${FACT_TEXT.priceList}. Every plan includes ${T.connections} simultaneous connections and none of them renews automatically.`,
+    answer: `TryIPTV plans cost ${FACT_TEXT.priceList}. Every standard plan includes ${T.connections} simultaneous connections and none of them renews automatically. ${T.extraConnections}`,
   },
   {
     question: "Can I get another free trial?",
@@ -93,7 +103,7 @@ export const getIptvFreeTrialPageData = cache(
     };
   },
   // Bump the version when the static data above changes: the data cache outlives rebuilds.
-  ['iptv-free-trial-page-data-v9'],
+  ['iptv-free-trial-page-data-v10'],
   {
     revalidate: 3600,
     tags: ['pages', 'iptv-free-trial-page'],

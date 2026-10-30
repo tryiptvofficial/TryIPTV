@@ -190,7 +190,7 @@ const planComparisonRows = [
   ["Cost", "$0", `From ${FACT_TEXT.fromPrice} (1 Month) to $${T.plans[T.plans.length - 1].price.toFixed(2)} (12 Months)`],
   ["Duration", "24 consecutive hours", "1, 3, 6, or 12 months, paid once"],
   ["Payment", "None", COMPANY.paymentMethods ? `Paid once by ${COMPANY.paymentMethods}` : "One-time payment; instructions provided when ordering"],
-  ["Simultaneous connections", `${T.connections}, the same as paid plans`, `${T.connections} simultaneous connections included on all plans`],
+  ["Simultaneous connections", `${T.connections}, the same as paid plans`, `${T.connections} simultaneous connections included on every standard plan`],
   ["Automatic renewal", "No", "No (plans do not auto-renew)"],
   ["Access format", "Xtream Codes / M3U", "Xtream Codes / M3U"],
   ["When access ends", "Service stops automatically", "Access expires at the end of the paid period"],
@@ -200,7 +200,7 @@ const trustStats = [
   ["$0", "Trial checkout, no card collected"],
   [`${FACT_TEXT.trialHours} h`, "Trial length, no auto-renew"],
   [T.activationTime.replace(" minutes", " min"), "Typical login delivery"],
-  [String(T.connections), "Connections on every paid plan"],
+  [String(T.connections), "Connections on every standard plan"],
 ] as const;
 
 const fakeTrialRedFlags = [
@@ -222,7 +222,7 @@ const fakeTrialRedFlags = [
   {
     flag: "Login details take more than a few hours to arrive",
     why: "Long delays usually mean a provider is overselling capacity or operating with minimal support. A slow trial is a preview of slow paid support.",
-    tryiptv: `TryIPTV sends login details within ${T.activationTime} during support hours (${COMPANY.support.hours}).`,
+    tryiptv: `TryIPTV typically sends login details within ${T.activationTime} during support hours (${COMPANY.support.hours}); requests sent outside those hours are answered when support reopens.`,
   },
   {
     flag: "The trial gives fewer connections than a paid plan",
@@ -549,7 +549,7 @@ export default async function IptvFreeTrialPage() {
             <SectionHeader
               eyebrow="After The Trial"
               title="What Do IPTV Plans Cost After Your Free Trial?"
-              subtitle={`If the trial convinces you, TryIPTV plans cost ${FACT_TEXT.priceList}. Every plan includes ${T.connections} simultaneous connections, there is no contract, and nothing renews automatically.`}
+              subtitle={`If the trial convinces you, TryIPTV plans cost ${FACT_TEXT.priceList}. Every standard plan includes ${T.connections} simultaneous connections, there is no contract, and nothing renews automatically.`}
             />
 
             <ul className="grid grid-cols-2 gap-3 lg:grid-cols-4">
@@ -576,8 +576,8 @@ export default async function IptvFreeTrialPage() {
             </ul>
 
             <p className="mt-6 text-base leading-7 text-muted-foreground">
-              Every plan includes the service you tested: {T.channels} live channels, {T.vod} movies and shows, HD and 4K where available,
-              the TV guide, and {T.connections} simultaneous connections.
+              Every standard plan includes the service you tested: {T.channels} live channels, {T.vod} movies and shows, HD and 4K where available,
+              the TV guide, and {T.connections} simultaneous connections. {T.extraConnections}
               {COMPANY.paymentMethods ? ` Payment is by ${COMPANY.paymentMethods},` : ""} and your login details are typically delivered
               within {T.activationTime} after payment is confirmed. Compare every option on the{" "}
               <Link href="/pricing" className={link}>
@@ -750,7 +750,7 @@ export default async function IptvFreeTrialPage() {
           <div className="mx-auto max-w-4xl">
             <SectionHeader
               title="What we test before you pay"
-              subtitle="Every trial request goes through the same check on our side before we send credentials. These are the two screens we look at, and the list we run through. It takes a few minutes and it is the reason most trials work on the first login."
+              subtitle="Every trial request goes through the same check on our side before we send credentials. This is the list we run through. It takes a few minutes and it is the reason most trials work on the first login."
             />
 
             {proofScreens.length > 0 && (
