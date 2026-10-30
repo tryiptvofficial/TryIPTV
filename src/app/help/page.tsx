@@ -142,7 +142,7 @@ export default function HelpPage() {
             as="h1"
             eyebrow="Diagnostic Directory"
             title="IPTV Help &amp; Troubleshooting"
-            subtitle="Systematic, symptom-oriented troubleshooting workflows to isolate and resolve IPTV playback, authentication, playlist, and electronic programme guide errors."
+            subtitle="Fixes for common IPTV problems, organized by what you see: channels that won't load, buffering or freezing, a login that is rejected, an M3U playlist that won't open, a blank or wrong TV guide (EPG), or an error code on screen. Each guide walks through the checks in order. Not sure which applies? Start with the IPTV not working checklist."
           />
         </Container>
       </Section>

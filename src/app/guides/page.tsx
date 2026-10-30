@@ -205,7 +205,7 @@ export default function GuidesPage() {
             as="h1"
             eyebrow="Knowledge Base & Architecture"
             title="IPTV Guides & Technical Explainers"
-            subtitle="Explore in-depth technical guides explaining IPTV streaming architecture, playlist standards, API authentication formats, electronic programme guides, and format trade-offs."
+            subtitle="Plain-English guides to how IPTV works, starting with what IPTV is and how it differs from cable TV. They explain the two ways a player signs in, an M3U playlist link or an Xtream Codes login, how the TV guide (EPG) gets its schedule, how much internet speed you need, and how many devices can stream at once. New to IPTV? Start with What Is IPTV."
           />
         </Container>
       </Section>
