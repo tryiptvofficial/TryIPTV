@@ -147,7 +147,7 @@ const nextConfig = {
         headers: [{ key: 'X-Robots-Tag', value: 'noindex' }],
       })),
       // Noindex pages: same directive as their meta robots tag, also visible to header-only checks.
-      ...['/thank-you', '/blog'].map((source) => ({
+      ...['/thank-you', '/blog', '/best-iptv-service'].map((source) => ({
         source,
         headers: [{ key: 'X-Robots-Tag', value: 'noindex, follow' }],
       })),

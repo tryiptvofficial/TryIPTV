@@ -47,7 +47,9 @@ export const SITE_ROUTES: SiteRoute[] = [
   { path: '/',                  section: 'commercial', indexable: true,  lastModified: '2026-10-26' },
   { path: '/pricing',           section: 'commercial', indexable: true,  lastModified: '2026-10-26' },
   { path: '/iptv-free-trial',   section: 'commercial', indexable: true,  lastModified: '2026-10-30' },
-  { path: '/best-iptv-service', section: 'commercial', indexable: true,  lastModified: '2026-10-27' },
+  // Noindex since 2026-10-30: overlaps the homepage's "Best IPTV Service" intent and has no internal links.
+  // lastModified stays because the page still renders it as the Article dateModified.
+  { path: '/best-iptv-service', section: 'commercial', indexable: false, lastModified: '2026-10-27' },
   { path: '/setup',             section: 'commercial', indexable: true,  lastModified: '2026-10-23' },
   { path: '/how-it-works',      section: 'commercial', indexable: true,  lastModified: '2026-10-27' },
 

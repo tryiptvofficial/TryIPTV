@@ -47,6 +47,8 @@ export function generateMetadata(): Metadata {
       description,
       canonical,
       image: `${SITE_URL}/images/best-iptv-service.png`,
+      // Kept out of the index (see site-routes.ts): it overlaps the homepage's "Best IPTV Service" intent.
+      noIndex: true,
     }),
     title: { absolute: `${metaTitle} | TryIPTV` },
   };
