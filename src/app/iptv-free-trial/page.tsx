@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import { existsSync } from "node:fs";
-import path from "node:path";
 import Link from "next/link";
 import { ArrowRight, Check, Film, LayoutList, MessageCircle, MonitorSmartphone, MonitorPlay, Tv } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
@@ -25,29 +23,40 @@ const trialLengthRows = [
   ["72 hours", "The above plus a full weekend of live sport", "Whether the service lasts past month two", 'Advertised by some providers as a "3 day" trial'],
 ] as const;
 
-// Placeholders until the original screenshots are added to /public; each renders only once its file exists.
-const proofScreens = [
-  {
-    // TODO: replace with original screenshot of the trial account in the panel, no customer data visible
-    src: "/images/iptv-free-trial/panel-trial-account.webp",
-    alt: "Reseller panel showing an active 24-hour IPTV trial account with its expiry date and connection limit",
-    caption: "The trial account as it appears in our panel: 24-hour expiry, 2 connections, full channel list.",
-  },
-  {
-    // TODO: replace with original screenshot of the player with EPG loaded, no customer data visible
-    src: "/images/iptv-free-trial/player-epg-loaded.webp",
-    alt: "IPTV player on a TV showing the channel list and a loaded EPG guide during a free trial",
-    caption: "The same login in a player, with the EPG loaded and the channel groups we were asked for.",
-  },
-].filter((screen) => existsSync(path.join(process.cwd(), "public", screen.src)));
+// One definition of the trial window, used everywhere on the page (owner decision 2026-10-30).
+const TRIAL_START = "Your 24-hour trial period begins when your trial login credentials are activated and sent to you.";
 
-const preSendChecklist = [
-  "I open the account in the panel and confirm the expiry is set to 24 hours, not 24 hours from activation plus a buffer.",
-  "I check that the connection limit reads 2, so the trial matches what a paid plan gives you.",
-  "I load the login in one player myself and confirm the channel list and the EPG actually populate.",
-  "I check that the channel groups you asked for on WhatsApp are present before I reply.",
-  "I confirm the credentials are Xtream Codes and M3U, so they work in your own player and not only in ours.",
-  "I note the time I sent them, so support knows exactly when your 24 hours end.",
+const trialPlan = [
+  {
+    when: "Before you request",
+    items: [
+      "Install your IPTV player on the device you will test, using the setup guide for that device, so the 24 hours go to watching rather than setup.",
+      "Add your device and player app to the WhatsApp message before you send it.",
+    ],
+  },
+  {
+    when: "When your login arrives",
+    items: [
+      `Note the time. ${TRIAL_START}`,
+      "Sign in with the Xtream Codes details or the M3U playlist URL and let the channel list, on-demand library and TV guide load.",
+      "Check that the channel groups and languages your household watches are in the list.",
+    ],
+  },
+  {
+    when: "During the first evening",
+    items: [
+      "Watch live TV between 7 and 11 pm, when home networks are busiest.",
+      "Play on two devices at the same time to test both simultaneous connections.",
+      "If a stream stutters, compare Wi-Fi with an Ethernet cable before judging the service.",
+    ],
+  },
+  {
+    when: "Before the 24 hours end",
+    items: [
+      "If anything did not work, reply in the same WhatsApp chat while the trial is still running.",
+      "Decide whether to choose a plan. If you do nothing, access stops and nothing is charged.",
+    ],
+  },
 ] as const;
 
 const link = "font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary";
@@ -106,7 +115,7 @@ const included = [
 
 const quickFacts = [
   ["Cost", "$0"],
-  ["Trial duration", "24 consecutive hours from activation"],
+  ["Trial duration", "24 consecutive hours, starting when your trial login credentials are activated and sent to you"],
   ["Payment details required", "None (no credit card or billing information requested)"],
   ["Typical activation time", `${T.activationTime} after request confirmation, ${T.activationHours}`],
   ["Access formats", "Xtream Codes (Server URL, Username, Password) and M3U playlist URL"],
@@ -156,7 +165,7 @@ const steps = [
   {
     step: "STEP 3",
     title: "Sign in and start watching",
-    desc: "Enter the details in your IPTV player and let the channels and guide load. Your 24 hours begin when the login is activated.",
+    desc: `Enter the details in your IPTV player and let the channels and guide load. ${TRIAL_START} Sign in as soon as they arrive.`,
   },
 ] as const;
 
@@ -364,7 +373,7 @@ export default async function IptvFreeTrialPage() {
             <SectionHeader
               eyebrow="How It Works"
               title="How Do I Get My IPTV Free Trial?"
-              subtitle={`Getting the TryIPTV free trial takes three steps and has no payment step at all: tap Start My Free Trial to message us on WhatsApp, receive your login details there (typically within ${T.activationTime}, during support hours), then sign in on your IPTV player. Your ${FACT_TEXT.trialHours} hours begin at activation.`}
+              subtitle={`Getting the TryIPTV free trial takes three steps and has no payment step at all: tap Start My Free Trial to message us on WhatsApp, receive your login details there (typically within ${T.activationTime}, during support hours), then sign in on your IPTV player. ${TRIAL_START}`}
             />
             <p className="mb-6 text-base leading-7 text-muted-foreground">
               New to this kind of TV? Start with{" "}
@@ -744,46 +753,30 @@ export default async function IptvFreeTrialPage() {
         </Container>
       </Section>
 
-      {/* What we test before you pay */}
+      {/* Customer trial plan, ordered by time */}
       <Section className="border-b border-white/[0.06] py-10 sm:py-14">
         <Container>
           <div className="mx-auto max-w-4xl">
             <SectionHeader
-              title="What we test before you pay"
-              subtitle="Every trial request goes through the same check on our side before we send credentials. This is the list we run through. It takes a few minutes and it is the reason most trials work on the first login."
+              title="Your 24-Hour Trial Plan: What to Check and When"
+              subtitle="A plan for your own test, in the order you will need it. Every step uses your devices, your internet connection and the login TryIPTV sends you."
             />
 
-            {proofScreens.length > 0 && (
-              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                {proofScreens.map((screen) => (
-                  <GuideScreenshot
-                    key={screen.src}
-                    src={screen.src}
-                    alt={screen.alt}
-                    caption={screen.caption}
-                    // TODO: set the screenshots' intrinsic dimensions once the files are added.
-                    width={1600}
-                    height={900}
-                    sizes="(max-width: 768px) calc(100vw - 2rem), 440px"
-                    className="my-0"
-                  />
-                ))}
-              </div>
-            )}
-
-            <h3 className="mt-8 mb-4 font-headline text-xl font-extrabold text-foreground">The checklist we run before sending credentials</h3>
-            <ul className="space-y-2.5 text-base sm:text-sm leading-6 text-muted-foreground">
-              {preSendChecklist.map((item) => (
-                <li key={item} className="flex items-start gap-2.5">
-                  <Check className="mt-1 h-4 w-4 shrink-0 text-primary" aria-hidden />
-                  <span>{item}</span>
-                </li>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              {trialPlan.map((phase) => (
+                <div key={phase.when}>
+                  <h3 className="mb-3 font-headline text-lg font-extrabold text-foreground">{phase.when}</h3>
+                  <ul className="space-y-2.5 text-base sm:text-sm leading-6 text-muted-foreground">
+                    {phase.items.map((item) => (
+                      <li key={item} className="flex items-start gap-2.5">
+                        <Check className="mt-1 h-4 w-4 shrink-0 text-primary" aria-hidden />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               ))}
-            </ul>
-
-            <p className="mt-6 text-base leading-7 text-muted-foreground">
-              If something fails this list, you hear it from us before you hear it from your TV. That is the whole point of a trial.
-            </p>
+            </div>
           </div>
         </Container>
       </Section>

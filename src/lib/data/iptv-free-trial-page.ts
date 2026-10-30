@@ -9,7 +9,7 @@ const T = PRODUCT_TRUTHS;
 export const trialFaqs = [
   {
     question: "How long does the free trial last?",
-    answer: `The TryIPTV free trial lasts ${FACT_TEXT.trialHours} consecutive hours, counted from the moment your login details are activated. When the time is up, access stops on its own.`,
+    answer: `The TryIPTV free trial lasts ${FACT_TEXT.trialHours} consecutive hours. Your ${FACT_TEXT.trialHours}-hour trial period begins when your trial login credentials are activated and sent to you, not when you first sign in. When the time is up, access stops on its own.`,
   },
   {
     question: "Do I need a credit card for the IPTV free trial?",
@@ -103,7 +103,7 @@ export const getIptvFreeTrialPageData = cache(
     };
   },
   // Bump the version when the static data above changes: the data cache outlives rebuilds.
-  ['iptv-free-trial-page-data-v10'],
+  ['iptv-free-trial-page-data-v11'],
   {
     revalidate: 3600,
     tags: ['pages', 'iptv-free-trial-page'],
