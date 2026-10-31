@@ -220,7 +220,7 @@ const lifetimePoints = [
 ] as const;
 
 const prose = "text-base sm:text-[15px] leading-7 text-muted-foreground";
-const th = "px-5 py-3 font-semibold";
+const th = "px-5 py-3 font-medium";
 const td = "px-5 py-3.5";
 
 export default async function IPTVSubscription() {
@@ -234,25 +234,25 @@ export default async function IPTVSubscription() {
       />
 
       {/* Hero + plans */}
-      <Section className="relative overflow-hidden border-b border-white/[0.07] pt-6 pb-6 sm:pt-12 sm:pb-14">
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:linear-gradient(to_bottom,black,transparent_90%)]" />
-        <Container className="relative">
+      <Section className="border-b border-white/[0.07] pt-6 pb-6 sm:pt-12 sm:pb-14">
+        <Container>
           <Breadcrumb items={[{ label: "Pricing" }]} align="center" />
           <SectionHeader
             as="h1"
             className="max-sm:mb-0"
-            eyebrow="Most Popular IPTV Subscription Plans"
+            quiet
+            eyebrow="Most popular IPTV subscription plans"
             title={`Choose Your IPTV Plan, From ${FACT_TEXT.lowestMonthly}/Month`}
             subtitle={`${FACT_TEXT.lowestMonthly} a month on the 12-month plan ($${T.plans[3].price.toFixed(2)} paid once), or ${FACT_TEXT.fromPrice} for 1 month. Every standard plan includes ${T.connections} simultaneous connections and no automatic renewal.`}
           />
-          <div className="mt-5 flex flex-wrap justify-center gap-2 text-xs font-semibold sm:mt-6 sm:text-sm">
+          <div className="mt-5 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm font-medium sm:mt-6">
             {/* Phones show the first 3 facts so the plan cards start near the top of the screen. */}
             {quickFacts.map((fact, i) => (
               <div
                 key={fact}
-                className={`inline-flex items-center gap-1.5 rounded-full border border-white/[0.09] bg-card px-3 py-1 text-muted-foreground ${i >= 3 ? "max-sm:hidden" : ""}`}
+                className={`inline-flex items-center gap-1.5 text-muted-foreground ${i >= 3 ? "max-sm:hidden" : ""}`}
               >
-                <Check className="h-3.5 w-3.5 text-primary" /> {fact}
+                <Check className="h-4 w-4 text-muted-foreground" aria-hidden /> {fact}
               </div>
             ))}
           </div>
@@ -264,7 +264,7 @@ export default async function IPTVSubscription() {
           {/* Answer-first block for "how much does an IPTV subscription cost" queries; keep it 40-60 words.
               On phones it follows the cards so the plans come first; it stays in the HTML in both cases. */}
           <div className="mx-auto mb-8 max-w-3xl text-center max-sm:order-2 max-sm:mt-8 max-sm:mb-0">
-            <h2 className="font-headline text-xl font-bold text-foreground sm:text-2xl">How much does an IPTV subscription cost?</h2>
+            <h2 className="font-headline text-xl font-semibold text-foreground sm:text-2xl">How much does an IPTV subscription cost?</h2>
             <p className="mt-2 text-base leading-7 text-muted-foreground">
               TryIPTV plans cost {FACT_TEXT.priceList}, which is{" "}
               {T.plans.map((p) => formatUsd(p.monthlyEquivalent)).join(", ").replace(/, ([^,]*)$/, " and $1")} a month. Every plan
@@ -280,41 +280,41 @@ export default async function IPTVSubscription() {
               return (
                 <article
                   key={plan.id}
-                  className={`relative flex h-full flex-col overflow-hidden rounded-[18px] border bg-[#07080a] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] sm:p-7 ${
+                  className={`relative flex h-full flex-col overflow-hidden rounded-2xl border bg-card p-6 sm:p-7 ${
                     isLowestMonthly
-                      ? "order-first border-primary/40 bg-[linear-gradient(180deg,rgba(0,240,120,0.05),rgba(7,8,10,0)_42%),#07080a] sm:order-none"
+                      ? "order-first border-primary/40 sm:order-none"
                       : "border-white/[0.08]"
                   }`}
                 >
                   <div className="flex-1">
                     {/* The badge takes the plan-number slot so it can't overlap it or push the heading down. */}
                     {isLowestMonthly ? (
-                      <p className="w-fit whitespace-nowrap rounded-md border border-primary/30 bg-primary/10 px-2 font-mono text-[11px] font-bold uppercase leading-[18px] tracking-wider text-primary">
-                        Best Value
+                      <p className="text-xs font-medium leading-5 text-primary">
+                        Best value
                       </p>
                     ) : (
-                      <p className="text-[11px] font-mono font-semibold uppercase tracking-[0.08em] text-muted-foreground/80">
-                        {String(index + 1).padStart(2, "0")} / Plan
+                      <p className="font-mono text-xs leading-5 tabular-nums text-muted-foreground">
+                        {String(index + 1).padStart(2, "0")}
                       </p>
                     )}
-                    <h3 className="pt-2 font-headline text-xl font-bold tracking-tight text-foreground">
+                    <h3 className="pt-2 font-headline text-xl font-semibold tracking-tight text-foreground">
                       {plan.name}
                     </h3>
 
                     <div className="pt-4">
                       <div className="flex items-baseline gap-1.5">
-                        <span className="font-headline text-[40px] font-bold leading-none tracking-tight text-foreground sm:text-[44px]">
+                        <span className="font-headline text-4xl font-medium leading-none tracking-tight tabular-nums text-foreground sm:text-5xl">
                           {formatUsd(plan.price)}
                         </span>
                         <span className="text-xs font-medium text-muted-foreground">one-time</span>
                       </div>
                       <p className="mt-2 text-xs text-muted-foreground">
                         <span className="font-medium text-foreground/90">
-                          {formatUsd(plan.price_monthly)}/month equivalent
+                          <span className="tabular-nums">{formatUsd(plan.price_monthly)}</span>/month equivalent
                         </span>
                       </p>
                       {savingsText && (
-                        <p className="mt-2 inline-block rounded bg-primary/10 px-2 py-0.5 text-xs font-semibold text-primary">
+                        <p className="mt-2 text-xs leading-5 text-muted-foreground">
                           {savingsText}
                         </p>
                       )}
@@ -327,7 +327,7 @@ export default async function IPTVSubscription() {
                   <div className="pt-6">
                     <Button
                       asChild
-                      className="h-12 min-h-[48px] w-full rounded-xl text-[15px] font-semibold"
+                      className="h-12 w-full rounded-xl text-base font-medium sm:text-sm"
                       variant={isLowestMonthly ? "default" : "outline"}
                     >
                       <a href={plan.checkoutUrl} target="_blank" rel="noopener noreferrer">
@@ -340,7 +340,7 @@ export default async function IPTVSubscription() {
                   <ul className="mt-6 space-y-2.5 border-t border-white/[0.07] pt-6 text-base sm:text-sm text-muted-foreground">
                     {planCardFeatures.map((feature) => (
                       <li key={feature} className="flex items-start gap-2.5">
-                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden />
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" aria-hidden />
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -377,7 +377,8 @@ export default async function IPTVSubscription() {
       <Section variant="alt" className="border-t border-white/[0.06] bg-[#070a08] py-10 sm:py-14">
         <Container>
           <SectionHeader
-            eyebrow="Order Process"
+            quiet
+            eyebrow="Order process"
             title="How Does TryIPTV Work?"
             subtitle={`Order a plan on WhatsApp, pay once, and start watching. Most customers receive their login within ${T.activationTime} of payment confirmation, then enter it in a compatible IPTV player.`}
           />
@@ -385,8 +386,8 @@ export default async function IPTVSubscription() {
           <ol className="grid grid-cols-1 gap-4 md:grid-cols-3">
             {orderSteps.map((s) => (
               <li key={s.step} className="rounded-xl border border-white/[0.08] bg-card p-5">
-                <span className="font-mono text-sm font-bold text-primary">{s.step}</span>
-                <h3 className="mt-2 font-headline text-lg font-extrabold text-foreground">{s.title}</h3>
+                <span className="font-mono text-xs tabular-nums text-muted-foreground">{s.step.padStart(2, "0")}</span>
+                <h3 className="mt-2 font-headline text-lg font-semibold text-foreground">{s.title}</h3>
                 <p className="mt-2 text-base sm:text-sm leading-6 text-muted-foreground">{s.desc}</p>
               </li>
             ))}
@@ -410,34 +411,35 @@ export default async function IPTVSubscription() {
       <Section className="border-t border-white/[0.06] py-10 sm:py-14">
         <Container>
           <SectionHeader
-            eyebrow="Plans Compared"
+            quiet
+            eyebrow="Plans compared"
             title="What do all TryIPTV plans include?"
             subtitle={`TryIPTV plans start at ${FACT_TEXT.fromPrice} for one month and drop to ${FACT_TEXT.lowestMonthly} a month on the annual term. Every plan includes ${T.channels} live channels, ${T.vod} movies and series, the TV guide, ${T.connections} simultaneous connections and support on WhatsApp and email.`}
           />
 
-          <ul className="mx-auto mb-10 flex max-w-4xl flex-wrap justify-center gap-2 text-sm font-semibold">
+          <ul className="mx-auto mb-10 flex max-w-4xl flex-wrap justify-center gap-x-5 gap-y-2 text-sm font-medium">
             {highlights.map((h) => (
-              <li key={h} className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.09] bg-card px-3 py-1 text-muted-foreground">
-                <Check className="h-3.5 w-3.5 text-primary" aria-hidden /> {h}
+              <li key={h} className="inline-flex items-center gap-1.5 text-muted-foreground">
+                <Check className="h-4 w-4 text-muted-foreground" aria-hidden /> {h}
               </li>
             ))}
           </ul>
 
           <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
             <div className="rounded-xl border border-white/[0.08] bg-card p-6">
-              <h3 className="font-headline text-lg font-extrabold text-foreground">What you get</h3>
+              <h3 className="font-headline text-lg font-semibold text-foreground">What you get</h3>
               <ul className="mt-4 space-y-2.5 text-base sm:text-sm leading-6 text-muted-foreground">
                 {whatYouGet.map((item, i) => (
                   <li key={i} className="flex items-start gap-2.5">
-                    <Check className="mt-1 h-4 w-4 shrink-0 text-primary" aria-hidden />
+                    <Check className="mt-1 h-4 w-4 shrink-0 text-muted-foreground" aria-hidden />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="rounded-xl border border-primary/25 bg-[#0b100d] p-6">
-              <h3 className="font-headline text-lg font-extrabold text-foreground">Risk-free to try</h3>
+            <div className="rounded-xl border border-white/[0.08] bg-card p-6">
+              <h3 className="font-headline text-lg font-semibold text-foreground">Risk-free to try</h3>
               <p className="mt-3 text-base sm:text-sm leading-6 text-muted-foreground">
                 Test TryIPTV first with a free {FACT_TEXT.trialHours}-hour trial before you buy a plan: $0, no credit card, no auto-renew.
                 After you buy, a refund is only possible if we can&apos;t provide a working subscription.
@@ -455,7 +457,7 @@ export default async function IPTVSubscription() {
             </div>
 
             <div className="rounded-xl border border-white/[0.08] bg-card p-6">
-              <h3 className="font-headline text-lg font-extrabold text-foreground">Paying by cryptocurrency?</h3>
+              <h3 className="font-headline text-lg font-semibold text-foreground">Paying by cryptocurrency?</h3>
               <p className="mt-3 text-base sm:text-sm leading-6 text-muted-foreground">
                 Follow the payment instructions support sends on WhatsApp exactly, and use the network and wallet address given for your
                 order: a payment sent on the wrong network can be delayed or lost. If anything is unclear, ask in the same chat before you
@@ -467,28 +469,28 @@ export default async function IPTVSubscription() {
           {/* Plan Comparison Table */}
           <div className="mt-10 rounded-xl border border-white/[0.08] bg-card">
             <div className="border-b border-white/[0.07] px-5 py-4 sm:px-6">
-              <h2 className="font-headline text-lg font-extrabold text-foreground">Plan Duration &amp; Price Breakdown</h2>
+              <h2 className="font-headline text-lg font-semibold text-foreground">Plan Duration &amp; Price Breakdown</h2>
               <p className="mt-1 text-base sm:text-sm leading-6 text-muted-foreground">
                 Every plan below includes the same 2 simultaneous connections and features. Only the term, upfront total, and monthly equivalent change.
               </p>
             </div>
             <div tabIndex={0} role="region" aria-label="Plan prices table" className="overflow-x-auto">
-              <table className="w-full min-w-[640px] text-left text-sm">
+              <table className="w-full min-w-[640px] text-left text-sm tabular-nums">
                 <caption className="sr-only">TryIPTV plan prices, durations, and best use cases</caption>
-                <thead className="border-b border-white/[0.07] text-xs uppercase tracking-wide text-muted-foreground">
+                <thead className="border-b border-white/[0.07] text-sm text-muted-foreground">
                   <tr>
-                    <th className="px-5 py-3 font-semibold sm:px-6">Plan</th>
-                    <th className="px-5 py-3 font-semibold">Total Price</th>
-                    <th className="px-5 py-3 font-semibold">Monthly Equivalent</th>
-                    <th className="px-5 py-3 font-semibold">Savings vs 1-Month</th>
-                    <th className="px-5 py-3 font-semibold">Connections</th>
-                    <th className="px-5 py-3 font-semibold">Best For</th>
+                    <th className="px-5 py-3 font-medium sm:px-6">Plan</th>
+                    <th className="px-5 py-3 font-medium">Total Price</th>
+                    <th className="px-5 py-3 font-medium">Monthly Equivalent</th>
+                    <th className="px-5 py-3 font-medium">Savings vs 1-Month</th>
+                    <th className="px-5 py-3 font-medium">Connections</th>
+                    <th className="px-5 py-3 font-medium">Best For</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-white/[0.06] text-muted-foreground">
                   {plans.map((plan) => (
                     <tr key={`comparison-${plan.id}`} className="transition-colors hover:bg-white/[0.02]">
-                      <th scope="row" className="whitespace-nowrap px-5 py-3.5 font-semibold text-foreground sm:px-6">
+                      <th scope="row" className="whitespace-nowrap px-5 py-3.5 font-medium text-foreground sm:px-6">
                         {plan.name}
                       </th>
                       <td className="whitespace-nowrap px-5 py-3.5 text-foreground font-medium">
@@ -497,7 +499,7 @@ export default async function IPTVSubscription() {
                       <td className="whitespace-nowrap px-5 py-3.5">
                         {formatUsd(plan.price_monthly)}/month
                       </td>
-                      <td className="whitespace-nowrap px-5 py-3.5 text-primary font-medium">
+                      <td className="whitespace-nowrap px-5 py-3.5">
                         {planSavingsExact[plan.id]?.split(" vs ")[0] ?? "—"}
                       </td>
                       <td className="whitespace-nowrap px-5 py-3.5">2 simultaneous</td>
@@ -520,15 +522,16 @@ export default async function IPTVSubscription() {
       <Section variant="alt" className="border-t border-white/[0.06] bg-[#070a08] py-10 sm:py-14">
         <Container>
           <SectionHeader
+            quiet
             title="Is IPTV cheaper than cable TV or a streaming stack?"
             subtitle="Streaming figures are published US list prices for ad-free tiers, checked October 21, 2026; sources are under the table. Cable figures are our estimates: an advertised rate, and a typical bill once the fees are added."
           />
 
           <div className="rounded-xl border border-white/[0.08] bg-card">
             <div tabIndex={0} role="region" aria-label="IPTV, cable and streaming cost comparison table" className="overflow-x-auto">
-              <table className="w-full min-w-[920px] text-left text-sm">
+              <table className="w-full min-w-[920px] text-left text-sm tabular-nums">
                 <caption className="sr-only">Monthly and yearly cost of TryIPTV compared with cable TV and streaming services</caption>
-                <thead className="border-b border-white/[0.07] text-xs uppercase tracking-wide text-muted-foreground">
+                <thead className="border-b border-white/[0.07] text-sm text-muted-foreground">
                   <tr>
                     <th className={`${th} sm:px-6`}>Option</th>
                     <th className={th}>Per month</th>
@@ -543,7 +546,7 @@ export default async function IPTVSubscription() {
                     <tr key={row.option} className="transition-colors hover:bg-white/[0.02]" data-facts-ignore={"isTryIptv" in row ? undefined : ""}>
                       <th
                         scope="row"
-                        className={`whitespace-nowrap ${td} font-semibold sm:px-6 ${"isTryIptv" in row ? "text-primary" : "text-foreground"}`}
+                        className={`whitespace-nowrap ${td} font-medium sm:px-6 ${"isTryIptv" in row ? "text-primary" : "text-foreground"}`}
                       >
                         {row.option}
                       </th>
@@ -577,11 +580,11 @@ export default async function IPTVSubscription() {
               For setup, reliability and channel differences beyond price, see the{" "}
               <Link href="/guides/iptv-vs-cable" className={link}>full IPTV vs cable TV comparison</Link>.
             </p>
-            <h3 className="mt-6 font-headline text-lg font-extrabold text-foreground">Honest caveats</h3>
+            <h3 className="mt-6 font-headline text-lg font-semibold text-foreground">Honest caveats</h3>
             <ul className={`mt-3 space-y-2.5 ${prose}`}>
               {costCaveats.map((caveat) => (
                 <li key={caveat} className="flex items-start gap-2.5">
-                  <Check className="mt-1.5 h-4 w-4 shrink-0 text-primary" aria-hidden />
+                  <Check className="mt-1.5 h-4 w-4 shrink-0 text-muted-foreground" aria-hidden />
                   <span>{caveat}</span>
                 </li>
               ))}
@@ -594,15 +597,16 @@ export default async function IPTVSubscription() {
       <Section className="border-t border-white/[0.06] py-10 sm:py-14">
         <Container>
           <SectionHeader
+            quiet
             title="How much does an IPTV subscription cost per week and per day?"
             subtitle="The monthly equivalent is the useful number, but it hides how small the daily cost gets. Here's the arithmetic, nothing rounded up."
           />
 
           <div className="rounded-xl border border-white/[0.08] bg-card">
             <div tabIndex={0} role="region" aria-label="Plan cost per month, week and day table" className="overflow-x-auto">
-              <table className="w-full min-w-[640px] text-left text-sm">
+              <table className="w-full min-w-[640px] text-left text-sm tabular-nums">
                 <caption className="sr-only">TryIPTV plan cost per month, per week and per day</caption>
-                <thead className="border-b border-white/[0.07] text-xs uppercase tracking-wide text-muted-foreground">
+                <thead className="border-b border-white/[0.07] text-sm text-muted-foreground">
                   <tr>
                     <th className={`${th} sm:px-6`}>Plan</th>
                     <th className={th}>You pay once</th>
@@ -615,14 +619,14 @@ export default async function IPTVSubscription() {
                 <tbody className="divide-y divide-white/[0.06] text-muted-foreground">
                   {planMathRows.map((row) => (
                     <tr key={row.plan} className="transition-colors hover:bg-white/[0.02]">
-                      <th scope="row" className={`whitespace-nowrap ${td} font-semibold text-foreground sm:px-6`}>
+                      <th scope="row" className={`whitespace-nowrap ${td} font-medium text-foreground sm:px-6`}>
                         {row.plan}
                       </th>
                       <td className={`whitespace-nowrap ${td} font-medium text-foreground`}>{row.once}</td>
                       <td className={`whitespace-nowrap ${td}`}>{row.perMonth}</td>
                       <td className={`whitespace-nowrap ${td}`}>{row.perWeek}</td>
                       <td className={`whitespace-nowrap ${td}`}>{row.perDay}</td>
-                      <td className={`whitespace-nowrap ${td} font-medium text-primary`}>{row.vsMonthly}</td>
+                      <td className={`whitespace-nowrap ${td}`}>{row.vsMonthly}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -645,12 +649,12 @@ export default async function IPTVSubscription() {
       {/* Which plan fits whom */}
       <Section variant="alt" className="border-t border-white/[0.06] bg-[#070a08] py-10 sm:py-14">
         <Container>
-          <SectionHeader title="Which IPTV subscription plan should I choose?" />
+          <SectionHeader quiet title="Which IPTV subscription plan should I choose?" />
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {planFits.map((fit) => (
               <div key={fit.title} className="rounded-xl border border-white/[0.08] bg-card p-6">
-                <h3 className="font-headline text-lg font-extrabold text-foreground">{fit.title}</h3>
+                <h3 className="font-headline text-lg font-semibold text-foreground">{fit.title}</h3>
                 <p className={`mt-3 ${prose}`}>{fit.body}</p>
               </div>
             ))}
@@ -661,7 +665,7 @@ export default async function IPTVSubscription() {
       {/* Fair price in 2026 */}
       <Section className="border-t border-white/[0.06] py-10 sm:py-14">
         <Container>
-          <SectionHeader title="What is a fair IPTV subscription price in 2026?" />
+          <SectionHeader quiet title="What is a fair IPTV subscription price in 2026?" />
 
           <div className="mx-auto max-w-3xl space-y-4">
             <p className={prose}>
@@ -679,13 +683,13 @@ export default async function IPTVSubscription() {
               credentials, payment processing and a human answering WhatsApp all cost money every month, whether you watch or not.
             </p>
 
-            <h3 className="pt-4 font-headline text-lg font-extrabold text-foreground">
+            <h3 className="pt-4 font-headline text-lg font-semibold text-foreground">
               Why the cheapest IPTV subscription is rarely the cheapest to own
             </h3>
             <ul className={`space-y-2.5 ${prose}`}>
               {cheapestPitfalls.map((pitfall) => (
                 <li key={pitfall} className="flex items-start gap-2.5">
-                  <span className="mt-[11px] h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden />
+                  <span className="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-muted-foreground" aria-hidden />
                   <span>{pitfall}</span>
                 </li>
               ))}
@@ -700,7 +704,7 @@ export default async function IPTVSubscription() {
       {/* Lifetime subscriptions */}
       <Section variant="alt" className="border-t border-white/[0.06] bg-[#070a08] py-10 sm:py-14">
         <Container>
-          <SectionHeader title="Is a lifetime IPTV subscription worth it?" />
+          <SectionHeader quiet title="Is a lifetime IPTV subscription worth it?" />
 
           <div className="mx-auto max-w-3xl space-y-4">
             <p className={prose}>
@@ -714,7 +718,7 @@ export default async function IPTVSubscription() {
             <ul className={`space-y-2.5 ${prose}`}>
               {lifetimePoints.map((point) => (
                 <li key={point.lead} className="flex items-start gap-2.5">
-                  <Check className="mt-1.5 h-4 w-4 shrink-0 text-primary" aria-hidden />
+                  <Check className="mt-1.5 h-4 w-4 shrink-0 text-muted-foreground" aria-hidden />
                   <span>
                     <strong className="text-foreground">{point.lead}</strong> {point.rest}
                   </span>
@@ -733,19 +737,20 @@ export default async function IPTVSubscription() {
       <Section id="faq" className="scroll-mt-2 border-t border-white/[0.06] bg-[#070a08] py-10 sm:py-14">
         <Container>
           <SectionHeader
-            eyebrow="Pricing &amp; Billing Questions"
+            quiet
+            eyebrow="Pricing &amp; billing questions"
             title="Frequently Asked Questions"
             subtitle="Straight answers about plan prices, renewals, connections, delivery times and refunds."
           />
 
-          <div className="mx-auto max-w-[880px] overflow-hidden rounded-[18px] border border-white/[0.08] bg-[#07080a]">
+          <div className="mx-auto max-w-[880px] overflow-hidden rounded-2xl border border-white/[0.08] bg-card">
             {pricingPageFaqs.map((faq, index) => (
               <details
                 key={index}
                 className="group border-b border-white/[0.07] px-6 last:border-b-0 sm:px-8"
               >
-                <summary className="flex min-h-[64px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left text-[16px] font-semibold leading-snug text-foreground/90 [&::-webkit-details-marker]:hidden">
-                  <h3 className="text-[16px] font-semibold leading-snug">{faq.question}</h3>
+                <summary className="flex min-h-[64px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left text-base font-medium leading-snug text-foreground/90 [&::-webkit-details-marker]:hidden">
+                  <h3 className="text-base font-medium leading-snug">{faq.question}</h3>
                   <ChevronDown className="h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-180" />
                 </summary>
                 <div className="pb-5 pr-4 text-base sm:text-[15px] leading-relaxed text-muted-foreground sm:pr-8">
@@ -788,6 +793,7 @@ export default async function IPTVSubscription() {
       <Section className="border-t border-white/[0.06] py-10 sm:py-14">
         <Container>
           <SectionHeader
+            quiet
             eyebrow="Why TryIPTV"
             title="Everything You Need to Stream"
             subtitle="Built for everyday viewing: simple setup on the devices you already own, clear picture where your connection allows it, and a flat one-time price."
@@ -796,8 +802,8 @@ export default async function IPTVSubscription() {
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {streamFeatures.map(({ icon: Icon, title, desc }) => (
               <div key={title} className="rounded-xl border border-white/[0.08] bg-card p-5">
-                <Icon className="h-5 w-5 text-primary" aria-hidden />
-                <h3 className="mt-3 font-headline text-base font-extrabold text-foreground">{title}</h3>
+                <Icon className="h-5 w-5 text-muted-foreground" aria-hidden />
+                <h3 className="mt-3 font-headline text-base font-semibold text-foreground">{title}</h3>
                 <p className="mt-1 text-base sm:text-sm leading-6 text-muted-foreground">{desc}</p>
               </div>
             ))}

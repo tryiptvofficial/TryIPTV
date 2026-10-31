@@ -10,7 +10,7 @@ interface SectionHeaderProps {
   align?: 'left' | 'center';
   as?: 'h1' | 'h2';
   badge?: React.ReactNode;
-  /** Homepage polish: sentence-case muted label and a 600-weight heading. Other pages keep the default. */
+  /** Polished pages (home, /pricing): sentence-case muted label and a 600-weight heading. Other pages keep the default. */
   quiet?: boolean;
 }
 
