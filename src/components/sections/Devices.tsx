@@ -27,11 +27,11 @@ export function Devices() {
     <Section id="devices" variant="alt" className="border-t-0 pt-0 sm:pt-0 md:pt-0 lg:pt-0">
       <Container>
         <div className="border-t border-white/[0.07] pt-14 sm:pt-16 md:pt-20 lg:pt-24">
-          <SectionHeader
+          <SectionHeader quiet
             align="left"
             title="Which Devices Does TryIPTV Work On?"
             subtitle="TryIPTV works on Fire TV, Android TV, Apple TV, Samsung and LG smart TVs, MAG boxes, phones, tablets and computers. Roku works through AirPlay or screen mirroring. Each device needs a compatible IPTV player app. Choose your device for step-by-step setup."
-            eyebrow="Device Compatibility"
+            eyebrow="Device compatibility"
           />
 
           {/* A static list answers "will it work on my device?" at a glance; no motion, every device visible. */}

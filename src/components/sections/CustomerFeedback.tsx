@@ -53,7 +53,7 @@ export function CustomerFeedback() {
   return (
     <Section id="customer-feedback">
       <Container>
-        <SectionHeader
+        <SectionHeader quiet
           align="left"
           title="How Does TryIPTV Support Work?"
           subtitle={
@@ -67,7 +67,7 @@ export function CustomerFeedback() {
               Support handles setup, billing and playback questions. The screenshots in this section are example support conversations with personal details hidden.
             </>
           }
-          eyebrow="Customer Support"
+          eyebrow="Customer support"
         />
 
         {/* Visitor-controlled row instead of an auto-scrolling marquee: each screenshot appears once and can be read at the visitor's pace. */}

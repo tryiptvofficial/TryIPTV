@@ -46,24 +46,24 @@ export function HowItWorks() {
   return (
     <Section id="how-it-works" variant="alt" className="border-b-0">
       <Container>
-        <SectionHeader
+        <SectionHeader quiet
           align="left"
           title="How Do I Start With TryIPTV?"
           subtitle={`To start with TryIPTV, choose a plan or request the free ${FACT_TEXT.trialHours}-hour trial on WhatsApp. Support sends your Xtream Codes or M3U login details, usually within ${PRODUCT_TRUTHS.activationTime}.`}
-          eyebrow="Setup Process"
+          eyebrow="Setup process"
         />
         <ol role="list" className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:gap-5">
           {steps.map((step, i) => (
             <li key={i} className="rounded-2xl border border-white/[0.07] bg-card p-6">
               <div className="flex items-center justify-between">
-                <span className="grid size-10 place-items-center rounded-xl border border-white/[0.07] bg-white/[0.03] text-primary">
+                <span className="grid size-10 place-items-center rounded-xl border border-white/[0.07] bg-white/[0.03] text-muted-foreground">
                   <step.icon className="size-5" aria-hidden />
                 </span>
-                <span aria-hidden className="font-mono text-xs font-semibold tracking-[0.08em] text-muted-foreground">
-                  STEP 0{i + 1}
+                <span aria-hidden className="font-mono text-xs tabular-nums text-muted-foreground">
+                  0{i + 1}
                 </span>
               </div>
-              <h3 className="mt-5 font-headline text-lg font-bold tracking-tight text-foreground">
+              <h3 className="mt-5 font-headline text-lg font-semibold text-foreground">
                 {step.title}
               </h3>
               <p className="mt-2 text-base sm:text-sm leading-6 text-muted-foreground">

@@ -12,7 +12,7 @@ import { lowestMonthly, usd } from "@/lib/plan-pricing";
 
 const PLANS = [
   {
-    index: "01 / Plan",
+    index: "01",
     name: "1 Month",
     price: 15.82,
     suffix: "one-time",
@@ -26,7 +26,7 @@ const PLANS = [
     features: [],
   },
   {
-    index: "02 / Plan",
+    index: "02",
     name: "3 Months",
     price: 38.30,
     suffix: "one-time",
@@ -40,7 +40,7 @@ const PLANS = [
     features: [],
   },
   {
-    index: "03 / Plan",
+    index: "03",
     name: "6 Months",
     price: 59.15,
     suffix: "one-time",
@@ -54,7 +54,7 @@ const PLANS = [
     features: [],
   },
   {
-    index: "04 / Plan",
+    index: "04",
     name: "12 Months",
     price: 88.23,
     suffix: "one-time",
@@ -85,8 +85,8 @@ export function HomePricing() {
   return (
     <Section id="pricing" className="max-lg:scroll-mt-0">
       <Container>
-        <SectionHeader
-          eyebrow="IPTV Pricing"
+        <SectionHeader quiet
+          eyebrow="IPTV pricing"
           title="IPTV Subscription Plans"
           // Answer-first: the price leads, so this is the passage quoted for "how much does TryIPTV cost".
           subtitle={`TryIPTV plans cost ${usd(PRODUCT_TRUTHS.plans[0].price)} for 1 month, or about ${lowestMonthly} a month on the 12-month plan (${usd(PRODUCT_TRUTHS.plans[3].price)} paid once). Every plan includes ${PRODUCT_TRUTHS.channels} live channels, HD and 4K streaming where available, ${PRODUCT_TRUTHS.connections} simultaneous connections, WhatsApp and email support, and no automatic renewal. Prices are in USD.`}
@@ -97,7 +97,7 @@ export function HomePricing() {
             <article
               key={plan.name}
               className={cn(
-                "flex flex-col rounded-2xl border bg-card p-6 transition-colors duration-200",
+                "flex flex-col rounded-2xl border bg-card p-6 transition-colors duration-150",
                 // The Best Value plan comes first in the phone stack; the grid keeps 1→12 order from sm up.
                 plan.featured
                   ? "order-first border-primary/40 hover:border-primary/60 sm:order-none"
@@ -106,21 +106,21 @@ export function HomePricing() {
             >
               {/* The badge takes the plan-number slot so every card's content stays on the same baseline. */}
               {plan.featured ? (
-                <p className="w-fit rounded-md border border-primary/30 bg-primary/10 px-2 font-mono text-[11px] font-bold uppercase leading-4 tracking-wider text-primary">
+                <p className="text-xs font-medium leading-5 text-primary">
                   {plan.badge}
                 </p>
               ) : (
-                <p className="font-mono text-[11px] font-semibold uppercase leading-[18px] tracking-[0.08em] text-muted-foreground">
+                <p className="font-mono text-xs leading-5 tabular-nums text-muted-foreground">
                   {plan.index}
                 </p>
               )}
 
-              <h3 className="mt-3 font-headline text-xl font-bold tracking-tight text-foreground">
+              <h3 className="mt-3 font-headline text-xl font-semibold text-foreground">
                 {plan.name}
               </h3>
 
               <div className="mt-4 flex items-baseline gap-1.5">
-                <span className="font-headline text-[44px] font-bold leading-none tracking-tight text-foreground tabular-nums">
+                <span className="font-headline text-4xl font-medium leading-none tracking-tight text-foreground tabular-nums">
                   ${plan.price.toFixed(2)}
                 </span>
                 <span className="text-sm font-medium text-muted-foreground">{plan.suffix}</span>
@@ -131,7 +131,7 @@ export function HomePricing() {
                   <>
                     <span className="font-medium text-foreground">{plan.monthlyEquivalent}</span>
                     {plan.savings && (
-                      <span className="rounded bg-primary/10 px-1.5 text-xs font-semibold leading-5 text-primary">
+                      <span className="text-xs leading-5 text-muted-foreground">
                         {plan.savings} vs the 1-month price
                       </span>
                     )}
@@ -153,7 +153,7 @@ export function HomePricing() {
               <ul className="mt-6 space-y-2.5 border-t border-white/[0.07] pt-6 text-base text-muted-foreground sm:text-sm">
                 {INCLUDED_FEATURES.map((feature) => (
                   <li key={feature} className="flex items-start gap-2.5">
-                    <CheckIcon className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden />
+                    <CheckIcon className="mt-0.5 size-4 shrink-0 text-muted-foreground" aria-hidden />
                     <span>{feature}</span>
                   </li>
                 ))}

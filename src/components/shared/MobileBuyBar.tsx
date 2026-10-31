@@ -34,11 +34,11 @@ export function MobileBuyBar() {
   return (
     <div
       aria-hidden={!visible}
-      className={`fixed bottom-[calc(1rem+env(safe-area-inset-bottom,0px))] left-3 right-[calc(1rem+3rem+0.75rem+env(safe-area-inset-right,0px))] z-40 transition-all duration-200 sm:hidden ${
+      className={`fixed bottom-[calc(1rem+env(safe-area-inset-bottom,0px))] left-3 right-[calc(1rem+3rem+0.75rem+env(safe-area-inset-right,0px))] z-40 transition-[transform,opacity] duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] sm:hidden ${
         visible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0"
       }`}
     >
-      <div className="flex h-12 items-center justify-between gap-3 rounded-xl border border-white/[0.1] bg-[#050606]/95 pl-4 pr-0.5 shadow-[0_12px_32px_rgba(0,0,0,0.45)] backdrop-blur-xl">
+      <div className="flex h-12 items-center justify-between gap-3 rounded-xl border border-white/[0.1] bg-[#050606] pl-4 pr-0.5 shadow-[0_12px_32px_rgba(0,0,0,0.45)]">
         <p className="text-sm font-semibold leading-tight text-foreground">
           From <span className="text-primary">{lowestMonthly}/mo</span>
           <span className="block text-xs font-medium text-muted-foreground">12-month plan</span>

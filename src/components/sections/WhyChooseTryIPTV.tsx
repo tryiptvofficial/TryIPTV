@@ -34,14 +34,14 @@ export function WhyChooseTryIPTV() {
   return (
     <Section id="why-tryiptv" variant="alt">
       <Container>
-        <SectionHeader
+        <SectionHeader quiet
           align="left"
-          eyebrow="Stream More. Pay Less"
+          eyebrow="Stream more, pay less"
           title="How Is TryIPTV Different From Cable TV?"
           className="mb-4 sm:mb-4 lg:mb-4"
         />
         {/* Answer-first: TryIPTV's differentiators lead; cable estimate follows. Cable figure is the same labelled estimate as on /pricing, so check:facts skips it. */}
-        <div className="mb-10 max-w-2xl space-y-3 text-base leading-relaxed text-muted-foreground sm:mb-12 sm:text-[16.5px] lg:mb-14">
+        <div className="mb-10 max-w-2xl space-y-3 text-base leading-relaxed text-muted-foreground sm:mb-12 sm:text-lg lg:mb-14">
           <p>
             TryIPTV delivers live TV over your internet connection rather than a cable line — no set-top box to rent, no automatic renewal, and {PRODUCT_TRUTHS.connections} simultaneous connections on every plan.{" "}
             <span data-facts-ignore>Our estimate for a typical US cable bill is $130–$170 a month once fees are added.</span>
@@ -65,7 +65,7 @@ export function WhyChooseTryIPTV() {
           {/* Phones: 15px text, with hyphenation so long words fit three columns. */}
           <table className="w-full text-left text-[15px] max-sm:hyphens-auto sm:text-sm">
             <caption className="sr-only">Traditional cable TV compared with a TryIPTV subscription</caption>
-            <thead className="border-b border-white/[0.07] text-xs uppercase tracking-wide text-muted-foreground">
+            <thead className="border-b border-white/[0.07] text-sm text-muted-foreground">
               <tr>
                 <th scope="col" className="px-2 py-3 sm:px-5 font-semibold"><span className="sr-only">Feature</span></th>
                 <th scope="col" className="px-2 py-3 sm:px-5 font-semibold">Traditional cable</th>
